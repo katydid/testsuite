@@ -38,7 +38,7 @@ func main() {
 		path = flag.Args()[0]
 	}
 	for _, v := range Validators {
-		codecFolder := filepath.Join(filepath.Join(path, "tests"), v.CodecName)
+		codecFolder := filepath.Join(filepath.Join(filepath.Join(path, "tests"), "validate"), v.CodecName)
 		folder := filepath.Join(codecFolder, v.Name)
 		createFolder(folder)
 
@@ -79,7 +79,7 @@ func main() {
 	}
 
 	for _, v := range BenchValidators {
-		codecFolder := filepath.Join(filepath.Join(path, "benches"), v.CodecName)
+		codecFolder := filepath.Join(filepath.Join(filepath.Join(path, "benches"), "validate"), v.CodecName)
 		folder := filepath.Join(codecFolder, v.Name)
 		createFolder(folder)
 
