@@ -67,7 +67,7 @@ func ValidateProtoNum(name string, grammar combinator.G, m ProtoMessage, expecte
 	schemaName := registerProto(m)
 	Validators = append(Validators, Validator{
 		Name:       name,
-		CodecName:  "protoNum",
+		CodecName:  "pbnum",
 		Grammar:    g,
 		Expected:   expected,
 		Bytes:      mustBytes(proto.Marshal(m)),
@@ -80,7 +80,7 @@ func ValidateProtoName(name string, g combinator.G, m ProtoMessage, expected boo
 	schemaName := registerProto(m)
 	Validators = append(Validators, Validator{
 		Name:       name,
-		CodecName:  "protoName",
+		CodecName:  "pbname",
 		Grammar:    g.Grammar(),
 		Expected:   expected,
 		Bytes:      mustBytes(proto.Marshal(m)),
