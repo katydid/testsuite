@@ -25,10 +25,11 @@ import (
 )
 
 type BenchValidator struct {
-	Name      string
-	CodecName string
-	Grammar   *ast.Grammar
-	RandBytes RandBytes
+	Name       string
+	CodecName  string
+	Grammar    *ast.Grammar
+	RandBytes  RandBytes
+	SchemaName string
 }
 
 var BenchValidators = []BenchValidator{}
@@ -37,7 +38,8 @@ func BenchValidateProtoNum(name string, grammar combinator.G, randProto RandProt
 	m := randProto(rand.New(rand.NewSource(1)))
 	packageName := "main"
 	messageName := reflect.TypeOf(m).Elem().Name()
-	g, err := protonum.FieldNamesToNumbers(packageName, messageName, m.(ProtoMessage).Description(), grammar.Grammar())
+	desc := m.(ProtoMessage).Description()
+	g, err := protonum.FieldNamesToNumbers(packageName, messageName, desc, grammar.Grammar())
 	if err != nil {
 		panic(name + ": " + err.Error())
 	}
@@ -46,10 +48,11 @@ func BenchValidateProtoNum(name string, grammar combinator.G, randProto RandProt
 		return mustBytes(proto.Marshal(pb))
 	}
 	BenchValidators = append(BenchValidators, BenchValidator{
-		Name:      name,
-		CodecName: "protoNum",
-		Grammar:   g,
-		RandBytes: randBytes,
+		Name:       name,
+		CodecName:  "protoNum",
+		Grammar:    g,
+		RandBytes:  randBytes,
+		SchemaName: registerProto(m),
 	})
 }
 

@@ -27,11 +27,12 @@ import (
 )
 
 type Validator struct {
-	Name      string
-	CodecName string
-	Grammar   *ast.Grammar
-	Expected  bool
-	Bytes     []byte
+	Name       string
+	CodecName  string
+	Grammar    *ast.Grammar
+	Expected   bool
+	Bytes      []byte
+	SchemaName string
 }
 
 var Validators = []Validator{}
@@ -57,29 +58,29 @@ func ValidateProtoNumEtc(name string, grammar combinator.G, m ProtoMessage, expe
 func ValidateProtoNum(name string, grammar combinator.G, m ProtoMessage, expected bool) {
 	packageName := "main"
 	messageName := reflect.TypeOf(m).Elem().Name()
-	g, err := protonum.FieldNamesToNumbers(packageName, messageName, m.(ProtoMessage).Description(), grammar.Grammar())
+	desc := m.(ProtoMessage).Description()
+	g, err := protonum.FieldNamesToNumbers(packageName, messageName, desc, grammar.Grammar())
 	if err != nil {
 		panic(name + ": " + err.Error())
 	}
 	Validators = append(Validators, Validator{
-		Name:      name,
-		CodecName: "protoNum",
-		Grammar:   g,
-		Expected:  expected,
-		Bytes:     mustBytes(proto.Marshal(m)),
+		Name:       name,
+		CodecName:  "protoNum",
+		Grammar:    g,
+		Expected:   expected,
+		Bytes:      mustBytes(proto.Marshal(m)),
+		SchemaName: registerProto(m),
 	})
 }
 
 func ValidateProtoName(name string, g combinator.G, m ProtoMessage, expected bool) {
-	packageName := "main"
-	messageName := reflect.TypeOf(m).Elem().Name()
-	_, _ = packageName, messageName
 	Validators = append(Validators, Validator{
-		Name:      name,
-		CodecName: "protoName",
-		Grammar:   g.Grammar(),
-		Expected:  expected,
-		Bytes:     mustBytes(proto.Marshal(m)),
+		Name:       name,
+		CodecName:  "protoName",
+		Grammar:    g.Grammar(),
+		Expected:   expected,
+		Bytes:      mustBytes(proto.Marshal(m)),
+		SchemaName: registerProto(m),
 	})
 }
 

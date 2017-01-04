@@ -38,7 +38,8 @@ func main() {
 		path = flag.Args()[0]
 	}
 	for _, v := range Validators {
-		folder := filepath.Join(filepath.Join(filepath.Join(path, "tests"), v.CodecName), v.Name)
+		codecFolder := filepath.Join(filepath.Join(path, "tests"), v.CodecName)
+		folder := filepath.Join(codecFolder, v.Name)
 		createFolder(folder)
 
 		v.Grammar.Format()
@@ -62,6 +63,15 @@ func main() {
 			bytesFilename = filepath.Join(folder, "valid.dat")
 		}
 		writeFile(bytesFilename, v.Bytes)
+
+		schemaFilename := filepath.Join(codecFolder, v.SchemaName)
+		if len(v.SchemaName) > 0 && notExists(schemaFilename) {
+			s := Schemas[v.SchemaName]
+			writeFile(
+				schemaFilename,
+				s.Data(),
+			)
+		}
 	}
 
 	if !*benches {
@@ -69,7 +79,8 @@ func main() {
 	}
 
 	for _, v := range BenchValidators {
-		folder := filepath.Join(filepath.Join(filepath.Join(path, "benches"), v.CodecName), v.Name)
+		codecFolder := filepath.Join(filepath.Join(path, "benches"), v.CodecName)
+		folder := filepath.Join(codecFolder, v.Name)
 		createFolder(folder)
 
 		v.Grammar.Format()
@@ -94,6 +105,15 @@ func main() {
 			bytes := v.RandBytes(r)
 			writeFile(bytesFilename, bytes)
 		}
+
+		schemaFilename := filepath.Join(codecFolder, v.SchemaName)
+		if len(v.SchemaName) > 0 && notExists(schemaFilename) {
+			s := Schemas[v.SchemaName]
+			writeFile(
+				schemaFilename,
+				s.Data(),
+			)
+		}
 	}
 }
 
@@ -107,4 +127,9 @@ func writeFile(filename string, data []byte) {
 	if err := ioutil.WriteFile(filename, data, 0644); err != nil {
 		log.Fatalf("error <%v> writing file <%s>", err, filename)
 	}
+}
+
+func notExists(filename string) bool {
+	_, err := os.Stat(filename)
+	return os.IsNotExist(err)
 }
