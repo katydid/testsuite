@@ -114,11 +114,11 @@ func ValidateJson(name string, g combinator.G, m interface{}, expected bool) {
 func ValidateReflect(name string, g combinator.G, m interface{}, expected bool) {
 	Validators = append(Validators, Validator{
 		Name:      name,
-		CodecName: "reflect",
+		CodecName: "goreflect",
 		Grammar:   g.Grammar(),
 		Expected:  expected,
 		Bytes:     mustBytes(json.MarshalIndent(m, "", "\t")),
-		Extension: "reflect.json",
+		Extension: "goreflect",
 	})
 }
 
