@@ -1,0 +1,10 @@
+&main.SrcTree{PackageName: func(v string) *string { return &v } ( "syscall" ),
+Imports: []*main.SrcTree{&main.SrcTree{PackageName: func(v string) *string { return &v } ( "errors" ),
+}, &main.SrcTree{PackageName: func(v string) *string { return &v } ( "runtime" ),
+}, &main.SrcTree{PackageName: func(v string) *string { return &v } ( "sync" ),
+Imports: []*main.SrcTree{&main.SrcTree{PackageName: func(v string) *string { return &v } ( "sync/atomic" ),
+}, &main.SrcTree{PackageName: func(v string) *string { return &v } ( "unsafe" ),
+}},
+}, &main.SrcTree{PackageName: func(v string) *string { return &v } ( "unsafe" ),
+}},
+}

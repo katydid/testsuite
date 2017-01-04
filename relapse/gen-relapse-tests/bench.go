@@ -38,7 +38,7 @@ func (this *BenchValidator) Record() bool {
 var BenchValidators = make(map[string]map[string]BenchValidator)
 
 func BenchValidateProtoNum(name string, grammar combinator.G, m interface{}) {
-	packageName := "tests"
+	packageName := "main"
 	messageName := reflect.TypeOf(m).Elem().Name()
 	g, err := protonum.FieldNamesToNumbers(packageName, messageName, m.(ProtoMessage).Description(), grammar.Grammar())
 	if err != nil {

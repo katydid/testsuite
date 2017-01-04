@@ -30,23 +30,35 @@ import (
 type Codecs struct {
 	Description string
 	Parsers     map[string]NewParser
+	Bytes       map[string][]byte
 }
 
 func getDesc(m interface{}) string {
-	data, err := json.MarshalIndent(m, "", "\t")
+	return string(mustBytes(json.MarshalIndent(m, "", "\t")))
+}
+
+func mustBytes(bs []byte, err error) []byte {
 	if err != nil {
 		panic(err)
 	}
-	return string(data)
+	return bs
 }
 
 func ProtoEtc(m interface{}) Codecs {
+	r := Reflect(m)
+	j := Json(m)
+	p := ProtoName(m)
 	return Codecs{
 		Description: getDesc(m),
 		Parsers: map[string]NewParser{
-			"reflect":   Reflect(m).Parsers["reflect"],
-			"json":      Json(m).Parsers["json"],
-			"protoName": ProtoName(m).Parsers["protoName"],
+			"reflect":   r.Parsers["reflect"],
+			"json":      j.Parsers["json"],
+			"protoName": p.Parsers["protoName"],
+		},
+		Bytes: map[string][]byte{
+			"reflect":   r.Bytes["reflect"],
+			"json":      j.Bytes["json"],
+			"protoName": p.Bytes["protoName"],
 		},
 	}
 }
@@ -59,6 +71,11 @@ func Reflect(m interface{}) Codecs {
 				return NewReflectParser(m)
 			},
 		},
+		Bytes: map[string][]byte{
+			"reflect": []byte(m.(interface {
+				GoString() string
+			}).GoString()),
+		},
 	}
 }
 
@@ -70,6 +87,9 @@ func Json(m interface{}) Codecs {
 				return NewJsonParser(m)
 			},
 		},
+		Bytes: map[string][]byte{
+			"json": mustBytes(json.MarshalIndent(m, "", "\t")),
+		},
 	}
 }
 
@@ -80,6 +100,9 @@ func JsonString(s string) Codecs {
 			"json": func() parser.Interface {
 				return NewJsonStringParser(s)
 			},
+		},
+		Bytes: map[string][]byte{
+			"json": []byte(s),
 		},
 	}
 }
@@ -94,6 +117,9 @@ func ProtoName(m interface{}) Codecs {
 				return NewProtoNameParser(packageName, messageName, m.(ProtoMessage))
 			},
 		},
+		Bytes: map[string][]byte{
+			"protoName": mustBytes(proto.Marshal(m.(ProtoMessage))),
+		},
 	}
 }
 
@@ -107,6 +133,9 @@ func ProtoNum(m interface{}) Codecs {
 				return NewProtoNumParser(packageName, messageName, m.(ProtoMessage))
 			},
 		},
+		Bytes: map[string][]byte{
+			"protoNum": mustBytes(proto.Marshal(m.(ProtoMessage))),
+		},
 	}
 }
 
@@ -118,6 +147,9 @@ func XML(m interface{}) Codecs {
 				return NewXMLParser(m)
 			},
 		},
+		Bytes: map[string][]byte{
+			"xml": mustBytes(xml.Marshal(m)),
+		},
 	}
 }
 
@@ -128,6 +160,9 @@ func XMLString(s string) Codecs {
 			"xml": func() parser.Interface {
 				return NewXMLStringParser(s)
 			},
+		},
+		Bytes: map[string][]byte{
+			"xml": []byte(s),
 		},
 	}
 }

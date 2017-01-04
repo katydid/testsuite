@@ -1,0 +1,11 @@
+&main.SrcTree{PackageName: func(v string) *string { return &v } ( "path" ),
+Imports: []*main.SrcTree{&main.SrcTree{PackageName: func(v string) *string { return &v } ( "errors" ),
+}, &main.SrcTree{PackageName: func(v string) *string { return &v } ( "strings" ),
+Imports: []*main.SrcTree{&main.SrcTree{PackageName: func(v string) *string { return &v } ( "errors" ),
+}, &main.SrcTree{PackageName: func(v string) *string { return &v } ( "io" ),
+}, &main.SrcTree{PackageName: func(v string) *string { return &v } ( "uncode" ),
+}, &main.SrcTree{PackageName: func(v string) *string { return &v } ( "uncode/utf8" ),
+}},
+}, &main.SrcTree{PackageName: func(v string) *string { return &v } ( "unicode/utf8" ),
+}},
+}

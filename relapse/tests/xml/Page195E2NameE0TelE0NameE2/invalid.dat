@@ -1,0 +1,10 @@
+
+<Person>
+	<Email>an@e.mail</Email>
+	<Email>another@e.mail</Email>
+	<Name>Shannon</Name>
+	<Tel>123</Tel>
+	<Name>Sheldon</Name>
+	<Email>an@e.mail</Email>
+	<Email>another@e.mail</Email>
+</Person>

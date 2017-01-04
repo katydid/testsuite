@@ -30,6 +30,7 @@ type Validator struct {
 	Parser      NewParser
 	Expected    bool
 	Description string
+	Bytes       []byte
 }
 
 func (this *Validator) Record() bool {
@@ -79,7 +80,7 @@ func ValidateProtoNumEtc(name string, grammar combinator.G, m interface{}, expec
 }
 
 func ValidateProtoNum(name string, grammar combinator.G, m interface{}, expected bool) {
-	packageName := "tests"
+	packageName := "main"
 	messageName := reflect.TypeOf(m).Elem().Name()
 	codecs := ProtoNum(m)
 	g, err := protonum.FieldNamesToNumbers(packageName, messageName, m.(ProtoMessage).Description(), grammar.Grammar())
@@ -101,6 +102,7 @@ func Validate(name string, grammar combinator.G, codecs Codecs, expected bool) {
 			Parser:      s,
 			Expected:    expected,
 			Description: codecs.Description,
+			Bytes:       codecs.Bytes[codecName],
 		}
 	}
 }

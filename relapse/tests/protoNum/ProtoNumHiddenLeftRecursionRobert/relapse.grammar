@@ -1,0 +1,2 @@
+(@hidden|[*,uint(3):== "0123456789"])
+#hidden=@main
