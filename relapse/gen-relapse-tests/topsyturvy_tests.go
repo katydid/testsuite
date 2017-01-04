@@ -36,5 +36,5 @@ var TopTop1 = G{"main": InAny(In("Top", Value(IntEq(IntVar(), IntConst(1)))))}
 
 func init() {
 	ValidateProtoEtc("TopTop1", TopTop1, TopTop, true)
-	ValidateProtoEtc("TopTop1", TopTop1, TurfTurf, false)
+	ValidateProtoEtc("TurfTurf1", TopTop1, TurfTurf, false)
 }

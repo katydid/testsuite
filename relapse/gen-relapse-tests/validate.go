@@ -38,6 +38,16 @@ type Validator struct {
 
 var Validators = []Validator{}
 
+var duplicates = map[string]struct{}{}
+
+func checkDuplicates(name, codecName string) {
+	n := name + "." + codecName
+	if _, ok := duplicates[n]; ok {
+		panic("duplicate validator: " + n)
+	}
+	duplicates[n] = struct{}{}
+}
+
 type ProtoMessage interface {
 	proto.Message
 	Description() *descriptor.FileDescriptorSet
@@ -65,6 +75,7 @@ func ValidateProtoNum(name string, grammar combinator.G, m ProtoMessage, expecte
 		panic(name + ": " + err.Error())
 	}
 	schemaName := registerProto(m)
+	checkDuplicates(name, "pbnum")
 	Validators = append(Validators, Validator{
 		Name:       name,
 		CodecName:  "pbnum",
@@ -78,6 +89,7 @@ func ValidateProtoNum(name string, grammar combinator.G, m ProtoMessage, expecte
 
 func ValidateProtoName(name string, g combinator.G, m ProtoMessage, expected bool) {
 	schemaName := registerProto(m)
+	checkDuplicates(name, "pbname")
 	Validators = append(Validators, Validator{
 		Name:       name,
 		CodecName:  "pbname",
@@ -90,6 +102,7 @@ func ValidateProtoName(name string, g combinator.G, m ProtoMessage, expected boo
 }
 
 func ValidateJsonString(name string, g combinator.G, s string, expected bool) {
+	checkDuplicates(name, "json")
 	Validators = append(Validators, Validator{
 		Name:      name,
 		CodecName: "json",
@@ -101,6 +114,7 @@ func ValidateJsonString(name string, g combinator.G, s string, expected bool) {
 }
 
 func ValidateJson(name string, g combinator.G, m interface{}, expected bool) {
+	checkDuplicates(name, "json")
 	Validators = append(Validators, Validator{
 		Name:      name,
 		CodecName: "json",
@@ -112,6 +126,7 @@ func ValidateJson(name string, g combinator.G, m interface{}, expected bool) {
 }
 
 func ValidateReflect(name string, g combinator.G, m interface{}, expected bool) {
+	checkDuplicates(name, "goreflect")
 	Validators = append(Validators, Validator{
 		Name:      name,
 		CodecName: "goreflect",
@@ -123,6 +138,7 @@ func ValidateReflect(name string, g combinator.G, m interface{}, expected bool) 
 }
 
 func ValidateXMLString(name string, g combinator.G, s string, expected bool) {
+	checkDuplicates(name, "xml")
 	Validators = append(Validators, Validator{
 		Name:      name,
 		CodecName: "xml",
@@ -134,6 +150,7 @@ func ValidateXMLString(name string, g combinator.G, s string, expected bool) {
 }
 
 func ValidateXML(name string, g combinator.G, m interface{}, expected bool) {
+	checkDuplicates(name, "xml")
 	Validators = append(Validators, Validator{
 		Name:      name,
 		CodecName: "xml",

@@ -1,12 +1,12 @@
 {
 	"PocketRoses": {
-		"BadgeShopping": 1,
-		"DaisySled": 1,
+		"BadgeShopping": 2,
+		"DaisySled": 0,
 		"MenuPaperclip": [
-			"d"
+			"a"
 		],
 		"BeetlePoker": [
-			"d"
+			"a"
 		]
 	}
 }

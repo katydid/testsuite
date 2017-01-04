@@ -53,18 +53,18 @@ func init() {
 var LatentSimplificationTypewriterPrisonTrue = &TypewriterPrison{
 	PocketRoses: &PocketRoses{
 		MenuPaperclip: []string{"b"},
-		BeetlePoker:   []string{"d"},
-		BadgeShopping: proto.Int64(1),
+		BeetlePoker:   []string{"c"},
+		BadgeShopping: proto.Int64(2),
 		DaisySled:     proto.Int64(1),
 	},
 }
 
 var LatentSimplificationTypewriterPrisonFalse = &TypewriterPrison{
 	PocketRoses: &PocketRoses{
-		MenuPaperclip: []string{"d"},
-		BeetlePoker:   []string{"d"},
-		BadgeShopping: proto.Int64(1),
-		DaisySled:     proto.Int64(1),
+		MenuPaperclip: []string{"a"},
+		BeetlePoker:   []string{"a"},
+		BadgeShopping: proto.Int64(2),
+		DaisySled:     proto.Int64(0),
 	},
 }
 
@@ -95,6 +95,6 @@ var LatentSimplificationOfExprs = G{"main": AllOf(
 )}
 
 func init() {
-	ValidateProtoNumEtc("LatentSimplification", LatentSimplificationOfExprs, LatentSimplificationTypewriterPrisonTrue, true)
-	ValidateProtoNumEtc("LatentSimplification", LatentSimplificationOfExprs, LatentSimplificationTypewriterPrisonFalse, false)
+	ValidateProtoNumEtc("LatentSimplificationTrue", LatentSimplificationOfExprs, LatentSimplificationTypewriterPrisonTrue, true)
+	ValidateProtoNumEtc("LatentSimplificationFalse", LatentSimplificationOfExprs, LatentSimplificationTypewriterPrisonFalse, false)
 }
