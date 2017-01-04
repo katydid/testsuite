@@ -1,0 +1,30 @@
+{
+	"Name": "Mover",
+	"Addresses": [
+		{
+			"Number": 123,
+			"Street": "TheStreet"
+		},
+		{
+			"Number": 456,
+			"Street": "SomeStreet"
+		},
+		{
+			"Number": 1,
+			"Street": "SomeStreet"
+		},
+		{
+			"Number": 2,
+			"Street": "SomeStreet"
+		},
+		{
+			"Number": 1,
+			"Street": "SomeStreet"
+		},
+		{
+			"Number": 2,
+			"Street": "SomeStreet"
+		}
+	],
+	"Telephone": "0123456789"
+}

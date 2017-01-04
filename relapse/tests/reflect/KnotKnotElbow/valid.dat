@@ -1,4 +1,0 @@
-&main.Knot{BitterEnd: &main.Knot{BitterEnd: &main.Knot{Elbow: func(v bool) *bool { return &v } ( true ),
-},
-},
-}

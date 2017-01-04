@@ -30,6 +30,7 @@ type BenchValidator struct {
 	Grammar    *ast.Grammar
 	RandBytes  RandBytes
 	SchemaName string
+	Extension  string
 }
 
 var BenchValidators = []BenchValidator{}
@@ -47,12 +48,14 @@ func BenchValidateProtoNum(name string, grammar combinator.G, randProto RandProt
 		pb := randProto(r)
 		return mustBytes(proto.Marshal(pb))
 	}
+	schemaName := registerProto(m)
 	BenchValidators = append(BenchValidators, BenchValidator{
 		Name:       name,
 		CodecName:  "protoNum",
 		Grammar:    g,
 		RandBytes:  randBytes,
-		SchemaName: registerProto(m),
+		SchemaName: schemaName,
+		Extension:  schemaName + ".pbnum",
 	})
 }
 

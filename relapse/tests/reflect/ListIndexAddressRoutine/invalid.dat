@@ -1,6 +1,0 @@
-&main.Person{Name: func(v string) *string { return &v } ( "Routine" ),
-Addresses: []*main.Address{&main.Address{Number: func(v int64) *int64 { return &v } ( 3 ),
-Street: func(v string) *string { return &v } ( "SomeStreet" ),
-}},
-Telephone: func(v string) *string { return &v } ( "0124444444" ),
-}

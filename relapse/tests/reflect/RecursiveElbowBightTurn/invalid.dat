@@ -1,3 +1,0 @@
-&main.Knot{Bight: []*main.BightKnot{&main.BightKnot{Turn: func(v bool) *bool { return &v } ( true ),
-}},
-}

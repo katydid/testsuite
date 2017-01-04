@@ -1,4 +1,0 @@
-&main.SrcTree{PackageName: func(v string) *string { return &v } ( "runtime" ),
-Imports: []*main.SrcTree{&main.SrcTree{PackageName: func(v string) *string { return &v } ( "unsafe" ),
-}},
-}

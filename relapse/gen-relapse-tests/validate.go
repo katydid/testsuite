@@ -33,6 +33,7 @@ type Validator struct {
 	Expected   bool
 	Bytes      []byte
 	SchemaName string
+	Extension  string
 }
 
 var Validators = []Validator{}
@@ -63,24 +64,28 @@ func ValidateProtoNum(name string, grammar combinator.G, m ProtoMessage, expecte
 	if err != nil {
 		panic(name + ": " + err.Error())
 	}
+	schemaName := registerProto(m)
 	Validators = append(Validators, Validator{
 		Name:       name,
 		CodecName:  "protoNum",
 		Grammar:    g,
 		Expected:   expected,
 		Bytes:      mustBytes(proto.Marshal(m)),
-		SchemaName: registerProto(m),
+		SchemaName: schemaName,
+		Extension:  schemaName + ".pbnum",
 	})
 }
 
 func ValidateProtoName(name string, g combinator.G, m ProtoMessage, expected bool) {
+	schemaName := registerProto(m)
 	Validators = append(Validators, Validator{
 		Name:       name,
 		CodecName:  "protoName",
 		Grammar:    g.Grammar(),
 		Expected:   expected,
 		Bytes:      mustBytes(proto.Marshal(m)),
-		SchemaName: registerProto(m),
+		SchemaName: schemaName,
+		Extension:  schemaName + ".pbname",
 	})
 }
 
@@ -91,6 +96,7 @@ func ValidateJsonString(name string, g combinator.G, s string, expected bool) {
 		Grammar:   g.Grammar(),
 		Expected:  expected,
 		Bytes:     []byte(s),
+		Extension: "json",
 	})
 }
 
@@ -101,6 +107,7 @@ func ValidateJson(name string, g combinator.G, m interface{}, expected bool) {
 		Grammar:   g.Grammar(),
 		Expected:  expected,
 		Bytes:     mustBytes(json.MarshalIndent(m, "", "\t")),
+		Extension: "json",
 	})
 }
 
@@ -110,9 +117,8 @@ func ValidateReflect(name string, g combinator.G, m interface{}, expected bool) 
 		CodecName: "reflect",
 		Grammar:   g.Grammar(),
 		Expected:  expected,
-		Bytes: []byte(m.(interface {
-			GoString() string
-		}).GoString()),
+		Bytes:     mustBytes(json.MarshalIndent(m, "", "\t")),
+		Extension: "reflect.json",
 	})
 }
 
@@ -123,6 +129,7 @@ func ValidateXMLString(name string, g combinator.G, s string, expected bool) {
 		Grammar:   g.Grammar(),
 		Expected:  expected,
 		Bytes:     []byte(s),
+		Extension: "xml",
 	})
 }
 
@@ -133,6 +140,7 @@ func ValidateXML(name string, g combinator.G, m interface{}, expected bool) {
 		Grammar:   g.Grammar(),
 		Expected:  expected,
 		Bytes:     mustBytes(xml.MarshalIndent(m, "", "\t")),
+		Extension: "xml",
 	})
 }
 
