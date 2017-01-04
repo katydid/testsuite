@@ -62,7 +62,7 @@ var TwoHashes811 = M{
 }
 
 func init() {
-	Validate("TwoHashes811", Example811, Json(TwoHashes811), true)
+	ValidateJson("TwoHashes811", Example811, TwoHashes811, true)
 }
 
 var OneLeftAndTwoRightHashes811 = M{
@@ -90,7 +90,7 @@ var OneLeftAndTwoRightHashes811 = M{
 }
 
 func init() {
-	Validate("OneLeftAndTwoRightHashes811", Example811, Json(OneLeftAndTwoRightHashes811), true)
+	ValidateJson("OneLeftAndTwoRightHashes811", Example811, OneLeftAndTwoRightHashes811, true)
 }
 
 var TwoLeftAndOneRightHashes811 = M{
@@ -118,7 +118,7 @@ var TwoLeftAndOneRightHashes811 = M{
 }
 
 func init() {
-	Validate("TwoLeftAndOneRightHashes811", Example811, Json(TwoLeftAndOneRightHashes811), true)
+	ValidateJson("TwoLeftAndOneRightHashes811", Example811, TwoLeftAndOneRightHashes811, true)
 }
 
 var DeepLeft811 = M{
@@ -155,7 +155,7 @@ var DeepLeft811 = M{
 }
 
 func init() {
-	Validate("DeepLeft811", Example811, Json(DeepLeft811), true)
+	ValidateJson("DeepLeft811", Example811, DeepLeft811, true)
 }
 
 var OneHash811 = M{
@@ -169,5 +169,5 @@ var OneHash811 = M{
 }
 
 func init() {
-	Validate("OneHash811", Example811, Json(OneHash811), false)
+	ValidateJson("OneHash811", Example811, OneHash811, false)
 }

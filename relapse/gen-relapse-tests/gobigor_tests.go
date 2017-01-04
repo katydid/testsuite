@@ -30,6 +30,6 @@ func init() {
 	}
 	bigor := ast.NewOr(ors...)
 	for i := 5; i < 11; i++ {
-		Validate(fmt.Sprintf("GoBigOr%d", i), combinator.G{"main": bigor}, JsonString(fmt.Sprintf("{\"A\": %d}", i)), true)
+		ValidateJsonString(fmt.Sprintf("GoBigOr%d", i), combinator.G{"main": bigor}, fmt.Sprintf("{\"A\": %d}", i), true)
 	}
 }

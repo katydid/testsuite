@@ -64,8 +64,8 @@ var XmlContextPerson = G{"main": In("Person", InPath("Addresses",
 ))}
 
 func init() {
-	Validate("XmlContextDavid", XmlContextPerson, XML(DavidPerson), false)
-	Validate("XmlContextRobert", XmlContextPerson, XML(RobertPerson), true)
+	ValidateXML("XmlContextDavid", XmlContextPerson, DavidPerson, false)
+	ValidateXML("XmlContextRobert", XmlContextPerson, RobertPerson, true)
 }
 
 var MoverPerson = &Person{

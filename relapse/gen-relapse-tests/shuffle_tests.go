@@ -62,10 +62,10 @@ var Page194badc = `{
 }`
 
 func init() {
-	Validate("Page194abcd", Page194, JsonString(Page194abcd), true)
-	Validate("Page194bacd", Page194, JsonString(Page194bacd), false)
-	Validate("Page194abdc", Page194, JsonString(Page194abdc), false)
-	Validate("Page194badc", Page194, JsonString(Page194badc), false)
+	ValidateJsonString("Page194abcd", Page194, Page194abcd, true)
+	ValidateJsonString("Page194bacd", Page194, Page194bacd, false)
+	ValidateJsonString("Page194abdc", Page194, Page194abdc, false)
+	ValidateJsonString("Page194badc", Page194, Page194badc, false)
 }
 
 //a[], c[], b[], d[]
@@ -98,10 +98,10 @@ var Page194bdac = `{
 }`
 
 func init() {
-	Validate("Page194acbd", Page194, JsonString(Page194acbd), true)
-	Validate("Page194bcad", Page194, JsonString(Page194bcad), false)
-	Validate("Page194adbc", Page194, JsonString(Page194adbc), false)
-	Validate("Page194bdac", Page194, JsonString(Page194bdac), false)
+	ValidateJsonString("Page194acbd", Page194, Page194acbd, true)
+	ValidateJsonString("Page194bcad", Page194, Page194bcad, false)
+	ValidateJsonString("Page194adbc", Page194, Page194adbc, false)
+	ValidateJsonString("Page194bdac", Page194, Page194bdac, false)
 }
 
 //a[], c[], d[], b[]
@@ -134,10 +134,10 @@ var Page194bdca = `{
 }`
 
 func init() {
-	Validate("Page194acdb", Page194, JsonString(Page194acdb), true)
-	Validate("Page194bcda", Page194, JsonString(Page194bcda), false)
-	Validate("Page194adcb", Page194, JsonString(Page194adcb), false)
-	Validate("Page194bdca", Page194, JsonString(Page194bdca), false)
+	ValidateJsonString("Page194acdb", Page194, Page194acdb, true)
+	ValidateJsonString("Page194bcda", Page194, Page194bcda, false)
+	ValidateJsonString("Page194adcb", Page194, Page194adcb, false)
+	ValidateJsonString("Page194bdca", Page194, Page194bdca, false)
 }
 
 //c[], a[], b[], d[]
@@ -170,10 +170,10 @@ var Page194dbac = `{
 }`
 
 func init() {
-	Validate("Page194cabd", Page194, JsonString(Page194cabd), true)
-	Validate("Page194cbad", Page194, JsonString(Page194cbad), false)
-	Validate("Page194dabc", Page194, JsonString(Page194dabc), false)
-	Validate("Page194dbac", Page194, JsonString(Page194dbac), false)
+	ValidateJsonString("Page194cabd", Page194, Page194cabd, true)
+	ValidateJsonString("Page194cbad", Page194, Page194cbad, false)
+	ValidateJsonString("Page194dabc", Page194, Page194dabc, false)
+	ValidateJsonString("Page194dbac", Page194, Page194dbac, false)
 }
 
 //c[], a[], d[], b[]
@@ -206,10 +206,10 @@ var Page194dbca = `{
 }`
 
 func init() {
-	Validate("Page194cadb", Page194, JsonString(Page194cadb), true)
-	Validate("Page194cbda", Page194, JsonString(Page194cbda), false)
-	Validate("Page194dacb", Page194, JsonString(Page194dacb), false)
-	Validate("Page194dbca", Page194, JsonString(Page194dbca), false)
+	ValidateJsonString("Page194cadb", Page194, Page194cadb, true)
+	ValidateJsonString("Page194cbda", Page194, Page194cbda, false)
+	ValidateJsonString("Page194dacb", Page194, Page194dacb, false)
+	ValidateJsonString("Page194dbca", Page194, Page194dbca, false)
 }
 
 //c[], d[], a[], b[]
@@ -242,10 +242,10 @@ var Page194dcba = `{
 }`
 
 func init() {
-	Validate("Page194cdab", Page194, JsonString(Page194cdab), true)
-	Validate("Page194cdba", Page194, JsonString(Page194cdba), false)
-	Validate("Page194dcab", Page194, JsonString(Page194dcab), false)
-	Validate("Page194dcba", Page194, JsonString(Page194dcba), false)
+	ValidateJsonString("Page194cdab", Page194, Page194cdab, true)
+	ValidateJsonString("Page194cdba", Page194, Page194cdba, false)
+	ValidateJsonString("Page194dcab", Page194, Page194dcab, false)
+	ValidateJsonString("Page194dcba", Page194, Page194dcba, false)
 }
 
 var whitespace = Many(Value(Regex(StringConst("^(\\s)+$"), StringVar())))
@@ -284,9 +284,9 @@ var Page195E0NameE0AddrE0 = `<Person>
 </Person>`
 
 func init() {
-	Validate("Page195E2NameE2AddrE2", Page195NameAddrEmail, XMLString(Page195E2NameE2AddrE2), true)
-	Validate("Page195E1NameE1AddrE1", Page195NameAddrEmail, XMLString(Page195E1NameE1AddrE1), true)
-	Validate("Page195E0NameE0AddrE0", Page195NameAddrEmail, XMLString(Page195E0NameE0AddrE0), true)
+	ValidateXMLString("Page195E2NameE2AddrE2", Page195NameAddrEmail, Page195E2NameE2AddrE2, true)
+	ValidateXMLString("Page195E1NameE1AddrE1", Page195NameAddrEmail, Page195E1NameE1AddrE1, true)
+	ValidateXMLString("Page195E0NameE0AddrE0", Page195NameAddrEmail, Page195E0NameE0AddrE0, true)
 }
 
 //Email*, Address?, Email*, Name, Email*
@@ -315,9 +315,9 @@ var Page195E0AddrE0NameE0 = `<Person>
 </Person>`
 
 func init() {
-	Validate("Page195E2AddrE2NameE2", Page195NameAddrEmail, XMLString(Page195E2AddrE2NameE2), true)
-	Validate("Page195E1AddrE1NameE1", Page195NameAddrEmail, XMLString(Page195E1AddrE1NameE1), true)
-	Validate("Page195E0AddrE0NameE0", Page195NameAddrEmail, XMLString(Page195E0AddrE0NameE0), true)
+	ValidateXMLString("Page195E2AddrE2NameE2", Page195NameAddrEmail, Page195E2AddrE2NameE2, true)
+	ValidateXMLString("Page195E1AddrE1NameE1", Page195NameAddrEmail, Page195E1AddrE1NameE1, true)
+	ValidateXMLString("Page195E0AddrE0NameE0", Page195NameAddrEmail, Page195E0AddrE0NameE0, true)
 }
 
 //Email*, Name, Email*
@@ -340,9 +340,9 @@ var Page195E0NameE0 = `<Person>
 </Person>`
 
 func init() {
-	Validate("Page195E2NameE2", Page195NameAddrEmail, XMLString(Page195E2NameE2), true)
-	Validate("Page195E1NameE1", Page195NameAddrEmail, XMLString(Page195E1NameE1), true)
-	Validate("Page195E0NameE0", Page195NameAddrEmail, XMLString(Page195E0NameE0), true)
+	ValidateXMLString("Page195E2NameE2", Page195NameAddrEmail, Page195E2NameE2, true)
+	ValidateXMLString("Page195E1NameE1", Page195NameAddrEmail, Page195E1NameE1, true)
+	ValidateXMLString("Page195E0NameE0", Page195NameAddrEmail, Page195E0NameE0, true)
 }
 
 //Email*, Address?, Email*
@@ -365,9 +365,9 @@ var Page195E0AddrE0 = `<Person>
 </Person>`
 
 func init() {
-	Validate("Page195E2AddrE2", Page195NameAddrEmail, XMLString(Page195E2AddrE2), false)
-	Validate("Page195E1AddrE1", Page195NameAddrEmail, XMLString(Page195E1AddrE1), false)
-	Validate("Page195E0AddrE0", Page195NameAddrEmail, XMLString(Page195E0AddrE0), false)
+	ValidateXMLString("Page195E2AddrE2", Page195NameAddrEmail, Page195E2AddrE2, false)
+	ValidateXMLString("Page195E1AddrE1", Page195NameAddrEmail, Page195E1AddrE1, false)
+	ValidateXMLString("Page195E0AddrE0", Page195NameAddrEmail, Page195E0AddrE0, false)
 }
 
 //Email*
@@ -384,9 +384,9 @@ var Page195E0 = `<Person>
 </Person>`
 
 func init() {
-	Validate("Page195E2", Page195NameAddrEmail, XMLString(Page195E2), false)
-	Validate("Page195E1", Page195NameAddrEmail, XMLString(Page195E1), false)
-	Validate("Page195E0", Page195NameAddrEmail, XMLString(Page195E0), false)
+	ValidateXMLString("Page195E2", Page195NameAddrEmail, Page195E2, false)
+	ValidateXMLString("Page195E1", Page195NameAddrEmail, Page195E1, false)
+	ValidateXMLString("Page195E0", Page195NameAddrEmail, Page195E0, false)
 }
 
 //(Name,Tel?) && (Name,Email*)
@@ -554,21 +554,21 @@ var Page195E0TelE0NameE0NameE2 = `
 `
 
 func init() {
-	Validate("Page195E2NameE0TelE0NameE2", Page195NameTelNameEmail, XMLString(Page195E2NameE0TelE0NameE2), false)
-	Validate("Page195E0NameE2TelE0NameE2", Page195NameTelNameEmail, XMLString(Page195E0NameE2TelE0NameE2), false)
-	Validate("Page195E0NameE0TelE2NameE2", Page195NameTelNameEmail, XMLString(Page195E0NameE0TelE2NameE2), false)
-	Validate("Page195E0NameE2TelE2NameE2", Page195NameTelNameEmail, XMLString(Page195E0NameE2TelE2NameE2), false)
-	Validate("Page195E0NameE0TelE0NameE2", Page195NameTelNameEmail, XMLString(Page195E0NameE0TelE0NameE2), true)
-	Validate("Page195E0NameE0TelE2NameE0", Page195NameTelNameEmail, XMLString(Page195E0NameE0TelE2NameE0), false)
-	Validate("Page195E0NameE2TelE0NameE0", Page195NameTelNameEmail, XMLString(Page195E0NameE2TelE0NameE0), false)
-	Validate("Page195E0NameE0NameE2", Page195NameTelNameEmail, XMLString(Page195E0NameE0NameE2), true)
-	Validate("Page195E0NameE2NameE0", Page195NameTelNameEmail, XMLString(Page195E0NameE2NameE0), true)
-	Validate("Page195E0NameE0NameE0", Page195NameTelNameEmail, XMLString(Page195E0NameE0NameE0), true)
-	Validate("Page195E0NameE2NameE0TelE0", Page195NameTelNameEmail, XMLString(Page195E0NameE2NameE0TelE0), true)
-	Validate("Page195E0NameE0NameE2TelE0", Page195NameTelNameEmail, XMLString(Page195E0NameE0NameE2TelE0), true)
-	Validate("Page195E0NameE0NameE0TelE0", Page195NameTelNameEmail, XMLString(Page195E0NameE0NameE0TelE0), true)
-	Validate("Page195E0TelE0NameE0NameE0", Page195NameTelNameEmail, XMLString(Page195E0TelE0NameE0NameE0), false)
-	Validate("Page195E0TelE0NameE0NameE2", Page195NameTelNameEmail, XMLString(Page195E0TelE0NameE0NameE2), false)
+	ValidateXMLString("Page195E2NameE0TelE0NameE2", Page195NameTelNameEmail, Page195E2NameE0TelE0NameE2, false)
+	ValidateXMLString("Page195E0NameE2TelE0NameE2", Page195NameTelNameEmail, Page195E0NameE2TelE0NameE2, false)
+	ValidateXMLString("Page195E0NameE0TelE2NameE2", Page195NameTelNameEmail, Page195E0NameE0TelE2NameE2, false)
+	ValidateXMLString("Page195E0NameE2TelE2NameE2", Page195NameTelNameEmail, Page195E0NameE2TelE2NameE2, false)
+	ValidateXMLString("Page195E0NameE0TelE0NameE2", Page195NameTelNameEmail, Page195E0NameE0TelE0NameE2, true)
+	ValidateXMLString("Page195E0NameE0TelE2NameE0", Page195NameTelNameEmail, Page195E0NameE0TelE2NameE0, false)
+	ValidateXMLString("Page195E0NameE2TelE0NameE0", Page195NameTelNameEmail, Page195E0NameE2TelE0NameE0, false)
+	ValidateXMLString("Page195E0NameE0NameE2", Page195NameTelNameEmail, Page195E0NameE0NameE2, true)
+	ValidateXMLString("Page195E0NameE2NameE0", Page195NameTelNameEmail, Page195E0NameE2NameE0, true)
+	ValidateXMLString("Page195E0NameE0NameE0", Page195NameTelNameEmail, Page195E0NameE0NameE0, true)
+	ValidateXMLString("Page195E0NameE2NameE0TelE0", Page195NameTelNameEmail, Page195E0NameE2NameE0TelE0, true)
+	ValidateXMLString("Page195E0NameE0NameE2TelE0", Page195NameTelNameEmail, Page195E0NameE0NameE2TelE0, true)
+	ValidateXMLString("Page195E0NameE0NameE0TelE0", Page195NameTelNameEmail, Page195E0NameE0NameE0TelE0, true)
+	ValidateXMLString("Page195E0TelE0NameE0NameE0", Page195NameTelNameEmail, Page195E0TelE0NameE0NameE0, false)
+	ValidateXMLString("Page195E0TelE0NameE0NameE2", Page195NameTelNameEmail, Page195E0TelE0NameE0NameE2, false)
 }
 
 //ABStar{A:a & B:b & *}
@@ -636,12 +636,12 @@ var ABStarBBC = `<ABStar>
 </ABStar>`
 
 func init() {
-	Validate("ABStarABC", ABStar, XMLString(ABStarABC), true)
-	Validate("ABStarCACBC", ABStar, XMLString(ABStarCACBC), true)
-	Validate("ABStarCBCAC", ABStar, XMLString(ABStarCBCAC), true)
-	Validate("ABStarBBCAC", ABStar, XMLString(ABStarBBCAC), true)
-	Validate("ABStarBBAAA", ABStar, XMLString(ABStarBBAAA), true)
-	Validate("ABStarAAA", ABStar, XMLString(ABStarAAA), false)
-	Validate("ABStarBB", ABStar, XMLString(ABStarBB), false)
-	Validate("ABStarBBC", ABStar, XMLString(ABStarBBC), false)
+	ValidateXMLString("ABStarABC", ABStar, ABStarABC, true)
+	ValidateXMLString("ABStarCACBC", ABStar, ABStarCACBC, true)
+	ValidateXMLString("ABStarCBCAC", ABStar, ABStarCBCAC, true)
+	ValidateXMLString("ABStarBBCAC", ABStar, ABStarBBCAC, true)
+	ValidateXMLString("ABStarBBAAA", ABStar, ABStarBBAAA, true)
+	ValidateXMLString("ABStarAAA", ABStar, ABStarAAA, false)
+	ValidateXMLString("ABStarBB", ABStar, ABStarBB, false)
+	ValidateXMLString("ABStarBBC", ABStar, ABStarBBC, false)
 }

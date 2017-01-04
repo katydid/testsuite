@@ -22,66 +22,66 @@ import (
 
 func init() {
 	basicNone := G{"main": ast.NewNot(ast.NewZAny())}
-	Validate(
+	ValidateXMLString(
 		"BasicNone_A",
 		basicNone,
-		XMLString("<A/>"),
+		"<A/>",
 		false,
 	)
 
 	basicA := G{"main": ast.NewTreeNode(ast.NewStringName("A"), ast.NewEmpty())}
-	Validate(
+	ValidateXMLString(
 		"BasicA_A",
 		basicA,
-		XMLString("<A/>"),
+		"<A/>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicA_B",
 		basicA,
-		XMLString("<B/>"),
+		"<B/>",
 		false,
 	)
 
 	basicNotA := G{"main": ast.NewNot(ast.NewTreeNode(ast.NewStringName("A"), ast.NewEmpty()))}
-	Validate(
+	ValidateXMLString(
 		"BasicNotA_A",
 		basicNotA,
-		XMLString("<A/>"),
+		"<A/>",
 		false,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicNotA_B",
 		basicNotA,
-		XMLString("<B/>"),
+		"<B/>",
 		true,
 	)
 
 	basicAB := G{"main": ast.NewTreeNode(ast.NewStringName("A"), ast.NewTreeNode(ast.NewStringName("B"), ast.NewEmpty()))}
-	Validate(
+	ValidateXMLString(
 		"BasicAB_AB",
 		basicAB,
-		XMLString("<A><B/></A>"),
+		"<A><B/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicAB_BB",
 		basicAB,
-		XMLString("<B><B/></B>"),
+		"<B><B/></B>",
 		false,
 	)
 
 	basicALeafB := G{"main": ast.NewTreeNode(ast.NewStringName("A"), Value(StringEq(StringConst("B"), StringVar())))}
-	Validate(
+	ValidateXMLString(
 		"BasicALeafB_AB",
 		basicALeafB,
-		XMLString("<A>B</A>"),
+		"<A>B</A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicALeafB_BB",
 		basicALeafB,
-		XMLString("<B>B</B>"),
+		"<B>B</B>",
 		false,
 	)
 
@@ -89,16 +89,16 @@ func init() {
 		ast.NewTreeNode(ast.NewStringName("B"), ast.NewEmpty()),
 		ast.NewTreeNode(ast.NewStringName("C"), ast.NewEmpty()),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicConcatBC_BC",
 		basicConcatBC,
-		XMLString("<A><B/><C/></A>"),
+		"<A><B/><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicConcatBC_BB",
 		basicConcatBC,
-		XMLString("<A><B/><B/></A>"),
+		"<A><B/><B/></A>",
 		false,
 	)
 
@@ -106,16 +106,16 @@ func init() {
 		ast.NewTreeNode(ast.NewStringName("B"), ast.NewEmpty()),
 		ast.NewTreeNode(ast.NewStringName("C"), ast.NewEmpty()),
 	)))}
-	Validate(
+	ValidateXMLString(
 		"BasicNotConcatBC_BC",
 		basicNotConcatBC,
-		XMLString("<A><B/><C/></A>"),
+		"<A><B/><C/></A>",
 		false,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicNotConcatBC_BB",
 		basicNotConcatBC,
-		XMLString("<A><B/><B/></A>"),
+		"<A><B/><B/></A>",
 		true,
 	)
 
@@ -123,17 +123,17 @@ func init() {
 		ast.NewTreeNode(ast.NewStringName("A"), ast.NewEmpty()),
 		ast.NewTreeNode(ast.NewStringName("B"), ast.NewEmpty()),
 	)}
-	Validate(
+	ValidateXMLString(
 		"BasicAorB_A",
 		basicAorB,
-		XMLString("<A/>"),
+		"<A/>",
 		true,
 	)
 
-	Validate(
+	ValidateXMLString(
 		"BasicAorB_C",
 		basicAorB,
-		XMLString("<C/>"),
+		"<C/>",
 		false,
 	)
 
@@ -141,16 +141,16 @@ func init() {
 		ast.NewTreeNode(ast.NewStringName("A"), ast.NewTreeNode(ast.NewStringName("A"), ast.NewEmpty())),
 		ast.NewTreeNode(ast.NewStringName("B"), ast.NewTreeNode(ast.NewStringName("B"), ast.NewEmpty())),
 	)}
-	Validate(
+	ValidateXMLString(
 		"BasicTreeAAorBB_AA",
 		basicTreeAAorBB,
-		XMLString("<A><A/></A>"),
+		"<A><A/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicTreeAAorBB_AB",
 		basicTreeAAorBB,
-		XMLString("<A><B/></A>"),
+		"<A><B/></A>",
 		false,
 	)
 
@@ -158,16 +158,16 @@ func init() {
 		ast.NewTreeNode(ast.NewStringName("B"), ast.NewTreeNode(ast.NewStringName("A"), ast.NewEmpty())),
 		ast.NewTreeNode(ast.NewStringName("B"), ast.NewTreeNode(ast.NewStringName("B"), ast.NewEmpty())),
 	)}
-	Validate(
+	ValidateXMLString(
 		"BasicTreeBAorBB_BA",
 		basicTreeBAorBB,
-		XMLString("<B><A/></B>"),
+		"<B><A/></B>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicTreeBAorBB_AA",
 		basicTreeBAorBB,
-		XMLString("<A><A/></A>"),
+		"<A><A/></A>",
 		false,
 	)
 
@@ -185,16 +185,16 @@ func init() {
 			),
 		),
 	)}
-	Validate(
+	ValidateXMLString(
 		"BasicTreeAOrOrC_AB",
 		basicTreeAOrOrC,
-		XMLString("<A><B/></A>"),
+		"<A><B/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicTreeAOrOrC_CA",
 		basicTreeAOrOrC,
-		XMLString("<C><A/></C>"),
+		"<C><A/></C>",
 		false,
 	)
 
@@ -202,113 +202,113 @@ func init() {
 		ast.NewZAny(),
 		ast.NewTreeNode(ast.NewStringName("C"), ast.NewEmpty()),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicConcatZAnyC_AC",
 		basicConcatZAnyC,
-		XMLString("<A><C/></A>"),
+		"<A><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicConcatZAnyC_ABC",
 		basicConcatZAnyC,
-		XMLString("<A><B/><C/></A>"),
+		"<A><B/><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicConcatZAnyC_BBBC",
 		basicConcatZAnyC,
-		XMLString("<A><B/><B/><B/><C/></A>"),
+		"<A><B/><B/><B/><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicConcatZAnyC_BCCC",
 		basicConcatZAnyC,
-		XMLString("<A><B/><C/><C/><C/></A>"),
+		"<A><B/><C/><C/><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicConcatZAnyC_BCBC",
 		basicConcatZAnyC,
-		XMLString("<A><B/><C/><B/><C/></A>"),
+		"<A><B/><C/><B/><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicConcatZAnyC_AB",
 		basicConcatZAnyC,
-		XMLString("<A><B/></A>"),
+		"<A><B/></A>",
 		false,
 	)
 	//typical fundemental flaw
-	Validate(
+	ValidateXMLString(
 		"BasicConcatZAnyC_ACchildB_TypicalFundementalFlaw",
 		basicConcatZAnyC,
-		XMLString("<A><C>B</C></A>"),
+		"<A><C>B</C></A>",
 		false,
 	)
 
 	basicZeroOrMoreB0 := G{"main": ast.NewTreeNode(ast.NewStringName("A"), ast.NewZeroOrMore(
 		ast.NewTreeNode(ast.NewStringName("B"), ast.NewEmpty()),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicZeroOrMoreB_0",
 		basicZeroOrMoreB0,
-		XMLString("<A></A>"),
+		"<A></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicZeroOrMoreB_1",
 		basicZeroOrMoreB0,
-		XMLString("<A><B/></A>"),
+		"<A><B/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicZeroOrMoreB_3",
 		basicZeroOrMoreB0,
-		XMLString("<A><B/><B/><B/></A>"),
+		"<A><B/><B/><B/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicZeroOrMoreB_C",
 		basicZeroOrMoreB0,
-		XMLString("<A><C/></A>"),
+		"<A><C/></A>",
 		false,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicZeroOrMoreB_BC",
 		basicZeroOrMoreB0,
-		XMLString("<A><B/><C/><B/></A>"),
+		"<A><B/><C/><B/></A>",
 		false,
 	)
 
 	basicZeroOrMoreEmpty := G{"main": ast.NewTreeNode(ast.NewStringName("A"), ast.NewZeroOrMore(
 		ast.NewEmpty(),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicZeroOrMoreEmpty_Empty",
 		basicZeroOrMoreEmpty,
-		XMLString("<A></A>"),
+		"<A></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicZeroOrMoreEmpty_B",
 		basicZeroOrMoreEmpty,
-		XMLString("<A><B/></A>"),
+		"<A><B/></A>",
 		false,
 	)
 
 	basicZeroOrMoreZeroOrMoreB := G{"main": ast.NewTreeNode(ast.NewStringName("A"), ast.NewZeroOrMore(
 		ast.NewZeroOrMore(ast.NewTreeNode(ast.NewStringName("B"), ast.NewEmpty())),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicZeroOrMoreZeroOrMoreB_BB",
 		basicZeroOrMoreZeroOrMoreB,
-		XMLString("<A><B/><B/></A>"),
+		"<A><B/><B/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicZeroOrMoreZeroOrMoreB_C",
 		basicZeroOrMoreZeroOrMoreB,
-		XMLString("<A><C/></A>"),
+		"<A><C/></A>",
 		false,
 	)
 
@@ -319,22 +319,22 @@ func init() {
 		),
 		ast.NewTreeNode(ast.NewStringName("C"), ast.NewEmpty()),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicConcatOrEmpty_BC",
 		basicConcatOrEmpty,
-		XMLString("<A><B/><C/></A>"),
+		"<A><B/><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicConcatOrEmpty_C",
 		basicConcatOrEmpty,
-		XMLString("<A><C/></A>"),
+		"<A><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicConcatOrEmpty_BD",
 		basicConcatOrEmpty,
-		XMLString("<A><B/><D/></A>"),
+		"<A><B/><D/></A>",
 		false,
 	)
 
@@ -344,16 +344,16 @@ func init() {
 			ast.NewEmpty(),
 		),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicZeroOrMoreBOrEmpty_BB",
 		basicZeroOrMoreBOrEmpty,
-		XMLString("<A><B/><B/></A>"),
+		"<A><B/><B/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicZeroOrMoreBOrEmpty_BC",
 		basicZeroOrMoreBOrEmpty,
-		XMLString("<A><B/><C/></A>"),
+		"<A><B/><C/></A>",
 		false,
 	)
 
@@ -363,40 +363,40 @@ func init() {
 			ast.NewTreeNode(ast.NewStringName("C"), ast.NewEmpty()),
 		),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicConcatCStar_0",
 		basicConcatCStar,
-		XMLString("<A></A>"),
+		"<A></A>",
 		false,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicConcatCStar_1",
 		basicConcatCStar,
-		XMLString("<A><C/></A>"),
+		"<A><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicConcatCStar_2",
 		basicConcatCStar,
-		XMLString("<A><C/><C/></A>"),
+		"<A><C/><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicConcatCStar_3",
 		basicConcatCStar,
-		XMLString("<A><C/><C/><C/></A>"),
+		"<A><C/><C/><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicConcatCStar_B",
 		basicConcatCStar,
-		XMLString("<A><B/></A>"),
+		"<A><B/></A>",
 		false,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicConcatCStar_CB",
 		basicConcatCStar,
-		XMLString("<A><C/><B/></A>"),
+		"<A><C/><B/></A>",
 		false,
 	)
 
@@ -404,16 +404,16 @@ func init() {
 		ast.NewTreeNode(ast.NewStringName("A"), ast.NewTreeNode(ast.NewStringName("A"), ast.NewEmpty())),
 		ast.NewTreeNode(ast.NewStringName("A"), ast.NewTreeNode(ast.NewStringName("A"), ast.NewEmpty())),
 	)}
-	Validate(
+	ValidateXMLString(
 		"BasicTreeAandA_A",
 		basicTreeAandA,
-		XMLString("<A><A/></A>"),
+		"<A><A/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicTreeAandA_B",
 		basicTreeAandA,
-		XMLString("<A><B/></A>"),
+		"<A><B/></A>",
 		false,
 	)
 
@@ -421,10 +421,10 @@ func init() {
 		ast.NewTreeNode(ast.NewStringName("A"), ast.NewTreeNode(ast.NewStringName("A"), ast.NewEmpty())),
 		ast.NewTreeNode(ast.NewStringName("A"), ast.NewTreeNode(ast.NewStringName("B"), ast.NewEmpty())),
 	)}
-	Validate(
+	ValidateXMLString(
 		"BasicTreeAandB_B",
 		basicTreeAandB,
-		XMLString("<A><B/></A>"),
+		"<A><B/></A>",
 		false,
 	)
 
@@ -438,34 +438,34 @@ func init() {
 			ast.NewTreeNode(ast.NewStringName("C"), ast.NewEmpty()),
 		),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicAndBAnyC_BC",
 		basicAndBAnyC,
-		XMLString("<A><B/><C/></A>"),
+		"<A><B/><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicAndBAnyC_CB",
 		basicAndBAnyC,
-		XMLString("<A><C/><B/></A>"),
+		"<A><C/><B/></A>",
 		false,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicAndBAnyC_B",
 		basicAndBAnyC,
-		XMLString("<A><B/></A>"),
+		"<A><B/></A>",
 		false,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicAndBAnyC_C",
 		basicAndBAnyC,
-		XMLString("<A><C/></A>"),
+		"<A><C/></A>",
 		false,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicAndBAnyC_BXXXC",
 		basicAndBAnyC,
-		XMLString("<A><B/><X/><X/><X/><C/></A>"),
+		"<A><B/><X/><X/><X/><C/></A>",
 		true,
 	)
 
@@ -483,84 +483,84 @@ func init() {
 			),
 		),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicTreeAndBAnyC_BC",
 		basicTreeAndBAnyC,
-		XMLString("<A><A><B/></A><A><C/></A></A>"),
+		"<A><A><B/></A><A><C/></A></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicTreeAndBAnyC_CB",
 		basicTreeAndBAnyC,
-		XMLString("<A><A><C/></A><A><B/></A></A>"),
+		"<A><A><C/></A><A><B/></A></A>",
 		false,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicTreeAndBAnyC_BXXXC",
 		basicTreeAndBAnyC,
-		XMLString("<A><A><B/></A><X/><X/><X/><A><C/></A></A>"),
+		"<A><A><B/></A><X/><X/><X/><A><C/></A></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicTreeAndBAnyC_CBC",
 		basicTreeAndBAnyC,
-		XMLString("<A><A><C/></A><A><B/></A><A><C/></A></A>"),
+		"<A><A><C/></A><A><B/></A><A><C/></A></A>",
 		false,
 	)
 
 	basicAContainsB := G{"main": ast.NewTreeNode(ast.NewStringName("A"), ast.NewContains(
 		ast.NewTreeNode(ast.NewStringName("B"), ast.NewEmpty()),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicAContainsB_B",
 		basicAContainsB,
-		XMLString("<A><B/></A>"),
+		"<A><B/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicAContainsB_CBC",
 		basicAContainsB,
-		XMLString("<A><C/><B/><C/></A>"),
+		"<A><C/><B/><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicAContainsB_CC",
 		basicAContainsB,
-		XMLString("<A><C/><C/></A>"),
+		"<A><C/><C/></A>",
 		false,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicAContainsB_0",
 		basicAContainsB,
-		XMLString("<A></A>"),
+		"<A></A>",
 		false,
 	)
 
 	basicOptionalB := G{"main": ast.NewTreeNode(ast.NewStringName("A"), ast.NewOptional(
 		ast.NewTreeNode(ast.NewStringName("B"), ast.NewEmpty()),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicOptionalB_Empty",
 		basicOptionalB,
-		XMLString("<A></A>"),
+		"<A></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicOptionalB_B",
 		basicOptionalB,
-		XMLString("<A><B/></A>"),
+		"<A><B/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicOptionalB_BB",
 		basicOptionalB,
-		XMLString("<A><B/><B/></A>"),
+		"<A><B/><B/></A>",
 		false,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicOptionalB_C",
 		basicOptionalB,
-		XMLString("<A><C/></A>"),
+		"<A><C/></A>",
 		false,
 	)
 
@@ -568,22 +568,22 @@ func init() {
 		ast.NewTreeNode(ast.NewStringName("B"), ast.NewEmpty()),
 		ast.NewTreeNode(ast.NewStringName("C"), ast.NewEmpty()),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicInterleaveBC_BC",
 		basicInterleaveBC,
-		XMLString("<A><B/><C/></A>"),
+		"<A><B/><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicInterleaveBC_CB",
 		basicInterleaveBC,
-		XMLString("<A><C/><B/></A>"),
+		"<A><C/><B/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicInterleaveBC_C",
 		basicInterleaveBC,
-		XMLString("<A><C/></A>"),
+		"<A><C/></A>",
 		false,
 	)
 
@@ -594,40 +594,40 @@ func init() {
 			ast.NewTreeNode(ast.NewStringName("C"), ast.NewEmpty()),
 		),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicInterleaveBAnyC_BC",
 		basicInterleaveBAnyC,
-		XMLString("<A><B/><C/></A>"),
+		"<A><B/><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicInterleaveBAnyC_BAC",
 		basicInterleaveBAnyC,
-		XMLString("<A><B/><A/><C/></A>"),
+		"<A><B/><A/><C/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicInterleaveBAnyC_ABACA",
 		basicInterleaveBAnyC,
-		XMLString("<A><A/><B/><A/><C/><A/></A>"),
+		"<A><A/><B/><A/><C/><A/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicInterleaveBAnyC_ABAA",
 		basicInterleaveBAnyC,
-		XMLString("<A><A/><B/><A/><A/></A>"),
+		"<A><A/><B/><A/><A/></A>",
 		false,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicInterleaveBAnyC_ACCBA",
 		basicInterleaveBAnyC,
-		XMLString("<A><A/><C/><C/><B/><A/></A>"),
+		"<A><A/><C/><C/><B/><A/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicInterleaveBAnyC_ACCCA",
 		basicInterleaveBAnyC,
-		XMLString("<A><A/><C/><C/><C/><A/></A>"),
+		"<A><A/><C/><C/><C/><A/></A>",
 		false,
 	)
 
@@ -635,22 +635,22 @@ func init() {
 		ast.NewEmpty(),
 		ast.NewReference("main"),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicRefLoop_A",
 		basicRefLoop,
-		XMLString("<A/>"),
+		"<A/>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicRefLoop_AA",
 		basicRefLoop,
-		XMLString("<A><A/></A>"),
+		"<A><A/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicRefLoop_AB",
 		basicRefLoop,
-		XMLString("<A><B/></A>"),
+		"<A><B/></A>",
 		false,
 	)
 
@@ -660,22 +660,22 @@ func init() {
 			ast.NewOptional(ast.NewTreeNode(ast.NewStringName("D"), ast.NewEmpty())),
 		),
 	)}
-	Validate(
+	ValidateXMLString(
 		"BasicConcatBOptionalD_BD",
 		basicConcatBOptionalD,
-		XMLString("<A><B/><D/></A>"),
+		"<A><B/><D/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicConcatBOptionalD_B",
 		basicConcatBOptionalD,
-		XMLString("<A><B/></A>"),
+		"<A><B/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicConcatBOptionalD_D",
 		basicConcatBOptionalD,
-		XMLString("<A><D/></A>"),
+		"<A><D/></A>",
 		false,
 	)
 
@@ -684,16 +684,16 @@ func init() {
 		ast.NewZAny(),
 		ast.NewNot(ast.NewTreeNode(ast.NewStringName("B"), ast.NewEmpty())),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicAnyNotB_B",
 		basicAnyNotB,
-		XMLString("<A><B/></A>"),
+		"<A><B/></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicAnyNotB_C",
 		basicAnyNotB,
-		XMLString("<A><C/></A>"),
+		"<A><C/></A>",
 		true,
 	)
 
@@ -703,16 +703,16 @@ func init() {
 			ast.NewConcat(ast.NewZAny(), ast.NewTreeNode(ast.NewStringName("C"), ast.NewEmpty())),
 		),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicNotAndBStarC_BC",
 		basicNotAndBStarC,
-		XMLString("<A><B/><C/></A>"),
+		"<A><B/><C/></A>",
 		false,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicNotAndBStarC_CB",
 		basicNotAndBStarC,
-		XMLString("<A><C/><B/></A>"),
+		"<A><C/><B/></A>",
 		true,
 	)
 
@@ -720,22 +720,22 @@ func init() {
 		ast.NewNot(ast.NewTreeNode(ast.NewStringName("A"), ast.NewEmpty())),
 		ast.NewNot(ast.NewTreeNode(ast.NewStringName("B"), ast.NewEmpty())),
 	)}
-	Validate(
+	ValidateXMLString(
 		"BasicAndNotAB_A",
 		basicAndNotAB,
-		XMLString("<A/>"),
+		"<A/>",
 		false,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicAndNotAB_B",
 		basicAndNotAB,
-		XMLString("<B/>"),
+		"<B/>",
 		false,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicAndNotAB_C",
 		basicAndNotAB,
-		XMLString("<C/>"),
+		"<C/>",
 		true,
 	)
 
@@ -743,16 +743,16 @@ func init() {
 		ast.NewNot(ast.NewTreeNode(ast.NewStringName("A"), ast.NewEmpty())),
 		ast.NewNot(ast.NewTreeNode(ast.NewStringName("B"), ast.NewEmpty())),
 	)}
-	Validate(
+	ValidateXMLString(
 		"BasicOrNotAB_A",
 		basicOrNotAB,
-		XMLString("<A/>"),
+		"<A/>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicOrNotAB_C",
 		basicOrNotAB,
-		XMLString("<C/>"),
+		"<C/>",
 		true,
 	)
 
@@ -763,16 +763,16 @@ func init() {
 			ast.NewContains(ast.NewTreeNode(ast.NewAnyName(), ast.NewTreeNode(ast.NewStringName("D"), ast.NewEmpty()))),
 		)),
 	)}
-	Validate(
+	ValidateXMLString(
 		"BasicAEndsWithBContainsAnyD_BCD_DeeperFundementalFlaw",
 		basicAEndsWithBContainsAnyD,
-		XMLString("<A><B><C><D/></C></B></A>"),
+		"<A><B><C><D/></C></B></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicAEndsWithBContainsAnyD_BCA_DeeperFundementalFlaw",
 		basicAEndsWithBContainsAnyD,
-		XMLString("<A><B><C><A/></C></B></A>"),
+		"<A><B><C><A/></C></B></A>",
 		false,
 	)
 
@@ -780,16 +780,16 @@ func init() {
 		InPath("B", In("C", ast.NewEmpty())),
 		InPath("B", In("D", ast.NewEmpty())),
 	))}
-	Validate(
+	ValidateXMLString(
 		"BasicAndContainsTree_BCBD",
 		basicAndContainsTree,
-		XMLString("<A><B><C/></B><B><D/></B></A>"),
+		"<A><B><C/></B><B><D/></B></A>",
 		true,
 	)
-	Validate(
+	ValidateXMLString(
 		"BasicAndContainsTree_BC",
 		basicAndContainsTree,
-		XMLString("<A><B><C/></B></A>"),
+		"<A><B><C/></B></A>",
 		false,
 	)
 }

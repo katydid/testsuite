@@ -117,6 +117,6 @@ func init() {
 	}
 	trueG := combinator.G(ast.NewRefLookup(playgroundTrueGrammar))
 	falseG := combinator.G(ast.NewRefLookup(playgroundFalseGrammar))
-	Validate("PlaygroundTrue", trueG, Json(m), true)
-	Validate("PlaygroundFalse", falseG, Json(m), false)
+	ValidateJson("PlaygroundTrue", trueG, m, true)
+	ValidateJson("PlaygroundFalse", falseG, m, false)
 }

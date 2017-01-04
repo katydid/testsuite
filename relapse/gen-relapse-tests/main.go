@@ -31,33 +31,31 @@ func main() {
 	if len(flag.Args()) == 1 {
 		path = flag.Args()[0]
 	}
-	for name, codecs := range Validators {
-		for codecName, v := range codecs {
-			folder := filepath.Join(filepath.Join(path, codecName), name)
-			createFolder(folder)
+	for _, v := range Validators {
+		folder := filepath.Join(filepath.Join(path, v.CodecName), v.Name)
+		createFolder(folder)
 
-			v.Grammar.Format()
-			writeFile(
-				filepath.Join(folder, "relapse.txt"),
-				[]byte(v.Grammar.String()),
-			)
+		v.Grammar.Format()
+		writeFile(
+			filepath.Join(folder, "relapse.txt"),
+			[]byte(v.Grammar.String()),
+		)
 
-			writeFile(
-				filepath.Join(folder, "relapse.json"),
-				mustBytes(json.MarshalIndent(v.Grammar, "", "\t")),
-			)
+		writeFile(
+			filepath.Join(folder, "relapse.json"),
+			mustBytes(json.MarshalIndent(v.Grammar, "", "\t")),
+		)
 
-			writeFile(
-				filepath.Join(folder, "relapse.xml"),
-				mustBytes(xml.MarshalIndent(v.Grammar, "", "\t")),
-			)
+		writeFile(
+			filepath.Join(folder, "relapse.xml"),
+			mustBytes(xml.MarshalIndent(v.Grammar, "", "\t")),
+		)
 
-			bytesFilename := filepath.Join(folder, "invalid.dat")
-			if v.Expected {
-				bytesFilename = filepath.Join(folder, "valid.dat")
-			}
-			writeFile(bytesFilename, v.Bytes)
+		bytesFilename := filepath.Join(folder, "invalid.dat")
+		if v.Expected {
+			bytesFilename = filepath.Join(folder, "valid.dat")
 		}
+		writeFile(bytesFilename, v.Bytes)
 	}
 }
 

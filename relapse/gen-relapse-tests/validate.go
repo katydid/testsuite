@@ -15,94 +15,129 @@
 package main
 
 import (
+	"encoding/json"
+	"encoding/xml"
+	"reflect"
+
+	"github.com/gogo/protobuf/proto"
+	"github.com/gogo/protobuf/protoc-gen-gogo/descriptor"
 	"github.com/katydid/katydid/relapse/ast"
 	"github.com/katydid/katydid/relapse/combinator"
 	"github.com/katydid/katydid/relapse/protonum"
-	"reflect"
-	"sort"
-	"strings"
 )
 
 type Validator struct {
-	Name        string
-	CodecName   string
-	Grammar     *ast.Grammar
-	Parser      NewParser
-	Expected    bool
-	Description string
-	Bytes       []byte
+	Name      string
+	CodecName string
+	Grammar   *ast.Grammar
+	Expected  bool
+	Bytes     []byte
 }
 
-func (this *Validator) Record() bool {
-	return !strings.Contains(this.CodecName, "xml")
+var Validators = []Validator{}
+
+type ProtoMessage interface {
+	proto.Message
+	Description() *descriptor.FileDescriptorSet
 }
 
-var Validators = make(map[string]map[string]Validator)
-
-type validatorList []interface{}
-
-func (this validatorList) Less(i, j int) bool {
-	if this[i].(Validator).Name < this[j].(Validator).Name {
-		return true
-	}
-	if this[i].(Validator).Name == this[j].(Validator).Name {
-		return this[i].(Validator).CodecName < this[j].(Validator).CodecName
-	}
-	return false
+func ValidateProtoEtc(name string, grammar combinator.G, m ProtoMessage, expected bool) {
+	ValidateReflect(name, grammar, m, expected)
+	ValidateJson(name, grammar, m, expected)
+	ValidateProtoName(name, grammar, m, expected)
 }
 
-func (this validatorList) Len() int {
-	return len(this)
-}
-
-func (this validatorList) Swap(i, j int) {
-	this[i], this[j] = this[j], this[i]
-}
-
-func ValidatorList() []interface{} {
-	vs := make(validatorList, 0, len(Validators)*3)
-	for name, cs := range Validators {
-		for cname := range cs {
-			vs = append(vs, Validators[name][cname])
-		}
-	}
-	sort.Sort(vs)
-	return vs
-}
-
-func ValidateProtoEtc(name string, grammar combinator.G, m interface{}, expected bool) {
-	Validate(name, grammar, ProtoEtc(m), expected)
-}
-
-func ValidateProtoNumEtc(name string, grammar combinator.G, m interface{}, expected bool) {
-	Validate(name, grammar, ProtoEtc(m), expected)
+func ValidateProtoNumEtc(name string, grammar combinator.G, m ProtoMessage, expected bool) {
+	ValidateReflect(name, grammar, m, expected)
+	ValidateJson(name, grammar, m, expected)
+	ValidateProtoName(name, grammar, m, expected)
 	ValidateProtoNum(name, grammar, m, expected)
 }
 
-func ValidateProtoNum(name string, grammar combinator.G, m interface{}, expected bool) {
+func ValidateProtoNum(name string, grammar combinator.G, m ProtoMessage, expected bool) {
 	packageName := "main"
 	messageName := reflect.TypeOf(m).Elem().Name()
-	codecs := ProtoNum(m)
 	g, err := protonum.FieldNamesToNumbers(packageName, messageName, m.(ProtoMessage).Description(), grammar.Grammar())
 	if err != nil {
 		panic(name + ": " + err.Error())
 	}
-	Validate("ProtoNum"+name, combinator.G(ast.NewRefLookup(g)), codecs, expected)
+	Validators = append(Validators, Validator{
+		Name:      name,
+		CodecName: "protoNum",
+		Grammar:   g,
+		Expected:  expected,
+		Bytes:     mustBytes(proto.Marshal(m)),
+	})
 }
 
-func Validate(name string, grammar combinator.G, codecs Codecs, expected bool) {
-	if _, ok := Validators[name]; !ok {
-		Validators[name] = make(map[string]Validator)
+func ValidateProtoName(name string, g combinator.G, m ProtoMessage, expected bool) {
+	packageName := "main"
+	messageName := reflect.TypeOf(m).Elem().Name()
+	_, _ = packageName, messageName
+	Validators = append(Validators, Validator{
+		Name:      name,
+		CodecName: "protoName",
+		Grammar:   g.Grammar(),
+		Expected:  expected,
+		Bytes:     mustBytes(proto.Marshal(m)),
+	})
+}
+
+func ValidateJsonString(name string, g combinator.G, s string, expected bool) {
+	Validators = append(Validators, Validator{
+		Name:      name,
+		CodecName: "json",
+		Grammar:   g.Grammar(),
+		Expected:  expected,
+		Bytes:     []byte(s),
+	})
+}
+
+func ValidateJson(name string, g combinator.G, m interface{}, expected bool) {
+	Validators = append(Validators, Validator{
+		Name:      name,
+		CodecName: "json",
+		Grammar:   g.Grammar(),
+		Expected:  expected,
+		Bytes:     mustBytes(json.MarshalIndent(m, "", "\t")),
+	})
+}
+
+func ValidateReflect(name string, g combinator.G, m interface{}, expected bool) {
+	Validators = append(Validators, Validator{
+		Name:      name,
+		CodecName: "reflect",
+		Grammar:   g.Grammar(),
+		Expected:  expected,
+		Bytes: []byte(m.(interface {
+			GoString() string
+		}).GoString()),
+	})
+}
+
+func ValidateXMLString(name string, g combinator.G, s string, expected bool) {
+	Validators = append(Validators, Validator{
+		Name:      name,
+		CodecName: "xml",
+		Grammar:   g.Grammar(),
+		Expected:  expected,
+		Bytes:     []byte(s),
+	})
+}
+
+func ValidateXML(name string, g combinator.G, m interface{}, expected bool) {
+	Validators = append(Validators, Validator{
+		Name:      name,
+		CodecName: "xml",
+		Grammar:   g.Grammar(),
+		Expected:  expected,
+		Bytes:     mustBytes(xml.MarshalIndent(m, "", "\t")),
+	})
+}
+
+func mustBytes(bs []byte, err error) []byte {
+	if err != nil {
+		panic(err)
 	}
-	for codecName, s := range codecs.Parsers {
-		Validators[name][codecName] = Validator{
-			Name:        name,
-			CodecName:   codecName,
-			Grammar:     grammar.Grammar(),
-			Parser:      s,
-			Expected:    expected,
-			Description: codecs.Description,
-			Bytes:       codecs.Bytes[codecName],
-		}
-	}
+	return bs
 }

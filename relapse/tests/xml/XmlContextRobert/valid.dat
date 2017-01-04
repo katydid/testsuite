@@ -1,1 +1,10 @@
-<Person><Name>Robert</Name><Addresses><Number>456</Number><Street>TheStreet</Street><XXX_unrecognized></XXX_unrecognized></Addresses><Telephone>0127897897</Telephone><XXX_unrecognized></XXX_unrecognized></Person>
+<Person>
+	<Name>Robert</Name>
+	<Addresses>
+		<Number>456</Number>
+		<Street>TheStreet</Street>
+		<XXX_unrecognized></XXX_unrecognized>
+	</Addresses>
+	<Telephone>0127897897</Telephone>
+	<XXX_unrecognized></XXX_unrecognized>
+</Person>

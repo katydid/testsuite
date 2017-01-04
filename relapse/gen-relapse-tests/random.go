@@ -15,10 +15,10 @@
 package main
 
 import (
-	"github.com/gogo/protobuf/proto"
-	"github.com/katydid/katydid/parser"
 	"math/rand"
 	"time"
+
+	"github.com/gogo/protobuf/proto"
 )
 
 var r = rand.New(rand.NewSource(time.Now().UnixNano()))
@@ -42,24 +42,4 @@ func RandomTypewriterPrison() proto.Message {
 
 func RandomPuddingMilkshake() proto.Message {
 	return NewPopulatedPuddingMilkshake(r, true)
-}
-
-func RandomPersonProtoNumParser() parser.Interface {
-	m := RandomPerson()
-	return NewProtoNumParser("tests", "Person", m.(ProtoMessage))
-}
-
-func RandomSrcTreeProtoNumParser() parser.Interface {
-	m := RandomSrcTree()
-	return NewProtoNumParser("tests", "SrcTree", m.(ProtoMessage))
-}
-
-func RandomTypewriterPrisonProtoNumParser() parser.Interface {
-	m := RandomTypewriterPrison()
-	return NewProtoNumParser("tests", "TypewriterPrison", m.(ProtoMessage))
-}
-
-func RandomPuddingMilkshakeProtoNumParser() parser.Interface {
-	m := RandomPuddingMilkshake()
-	return NewProtoNumParser("tests", "PuddingMilkshake", m.(ProtoMessage))
 }
