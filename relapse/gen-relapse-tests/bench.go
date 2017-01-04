@@ -51,7 +51,7 @@ func BenchValidateProtoNum(name string, grammar combinator.G, randProto RandProt
 	schemaName := registerProto(m)
 	BenchValidators = append(BenchValidators, BenchValidator{
 		Name:       name,
-		CodecName:  "protoNum",
+		CodecName:  "pbnum",
 		Grammar:    g,
 		RandBytes:  randBytes,
 		SchemaName: schemaName,
