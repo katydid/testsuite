@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+gofmt:
+	gofmt -l -s -w .
+
 regenerate:
 	(protoc --gogo_out=. -I=.:$(GOPATH)/src/:$(GOPATH)/src/github.com/gogo/protobuf/protobuf person.proto)
 	(protoc --gogo_out=. -I=.:$(GOPATH)/src/:$(GOPATH)/src/github.com/gogo/protobuf/protobuf srctree.proto)
