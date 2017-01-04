@@ -27,36 +27,9 @@
 										"Value": "["
 									},
 									"LeftPattern": {
-										"TreeNode": {
-											"Name": {
-												"Name": {
-													"StringValue": "Number"
-												}
-											},
-											"Colon": {
-												"Value": ":"
-											},
-											"Pattern": {
-												"LeafNode": {
-													"Expr": {
-														"BuiltIn": {
-															"Symbol": {
-																"Value": "=="
-															},
-															"Expr": {
-																"Terminal": {
-																	"Before": {
-																		"Space": [
-																			" "
-																		]
-																	},
-																	"Literal": "int(456)",
-																	"IntValue": 456
-																}
-															}
-														}
-													}
-												}
+										"ZAny": {
+											"Star": {
+												"Value": "*"
 											}
 										}
 									},
@@ -69,7 +42,7 @@
 												"TreeNode": {
 													"Name": {
 														"Name": {
-															"StringValue": "Street"
+															"StringValue": "Number"
 														}
 													},
 													"Colon": {
@@ -89,8 +62,8 @@
 																					" "
 																				]
 																			},
-																			"Literal": "`TheStreet`",
-																			"StringValue": "TheStreet"
+																			"Literal": "int(456)",
+																			"IntValue": 456
 																		}
 																	}
 																}
@@ -103,9 +76,64 @@
 												"Value": ","
 											},
 											"RightPattern": {
-												"ZAny": {
-													"Star": {
-														"Value": "*"
+												"Concat": {
+													"LeftPattern": {
+														"ZAny": {
+															"Star": {
+																"Value": "*"
+															}
+														}
+													},
+													"Comma": {
+														"Value": ","
+													},
+													"RightPattern": {
+														"Concat": {
+															"LeftPattern": {
+																"TreeNode": {
+																	"Name": {
+																		"Name": {
+																			"StringValue": "Street"
+																		}
+																	},
+																	"Colon": {
+																		"Value": ":"
+																	},
+																	"Pattern": {
+																		"LeafNode": {
+																			"Expr": {
+																				"BuiltIn": {
+																					"Symbol": {
+																						"Value": "=="
+																					},
+																					"Expr": {
+																						"Terminal": {
+																							"Before": {
+																								"Space": [
+																									" "
+																								]
+																							},
+																							"Literal": "`TheStreet`",
+																							"StringValue": "TheStreet"
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															},
+															"Comma": {
+																"Value": ","
+															},
+															"RightPattern": {
+																"ZAny": {
+																	"Star": {
+																		"Value": "*"
+																	}
+																}
+															}
+														}
 													}
 												}
 											}

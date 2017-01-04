@@ -58,7 +58,9 @@ func init() {
 }
 
 var XmlContextPerson = G{"main": In("Person", InPath("Addresses",
+	Any(),
 	In("Number", Value(IntEq(IntVar(), IntConst(456)))),
+	Any(),
 	In("Street", Value(StringEq(StringVar(), StringConst("TheStreet")))),
 	Any(),
 ))}

@@ -1,1 +1,1 @@
-Person:.Addresses[Number:== 456,Street:== "TheStreet",*]
+Person:.Addresses[*,Number:== 456,*,Street:== "TheStreet",*]

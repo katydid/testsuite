@@ -29,38 +29,11 @@
 										<Value>[</Value>
 									</OpenBracket>
 									<LeftPattern>
-										<TreeNode>
-											<Name>
-												<Name>
-													<StringValue>Number</StringValue>
-													<BytesValue></BytesValue>
-												</Name>
-											</Name>
-											<Colon>
-												<Value>:</Value>
-											</Colon>
-											<Pattern>
-												<LeafNode>
-													<Expr>
-														<BuiltIn>
-															<Symbol>
-																<Value>==</Value>
-															</Symbol>
-															<Expr>
-																<Terminal>
-																	<Before>
-																		<Space> </Space>
-																	</Before>
-																	<Literal>int(456)</Literal>
-																	<IntValue>456</IntValue>
-																	<BytesValue></BytesValue>
-																</Terminal>
-															</Expr>
-														</BuiltIn>
-													</Expr>
-												</LeafNode>
-											</Pattern>
-										</TreeNode>
+										<ZAny>
+											<Star>
+												<Value>*</Value>
+											</Star>
+										</ZAny>
 									</LeftPattern>
 									<Comma>
 										<Value>,</Value>
@@ -71,7 +44,7 @@
 												<TreeNode>
 													<Name>
 														<Name>
-															<StringValue>Street</StringValue>
+															<StringValue>Number</StringValue>
 															<BytesValue></BytesValue>
 														</Name>
 													</Name>
@@ -90,8 +63,8 @@
 																			<Before>
 																				<Space> </Space>
 																			</Before>
-																			<Literal>`TheStreet`</Literal>
-																			<StringValue>TheStreet</StringValue>
+																			<Literal>int(456)</Literal>
+																			<IntValue>456</IntValue>
 																			<BytesValue></BytesValue>
 																		</Terminal>
 																	</Expr>
@@ -105,11 +78,66 @@
 												<Value>,</Value>
 											</Comma>
 											<RightPattern>
-												<ZAny>
-													<Star>
-														<Value>*</Value>
-													</Star>
-												</ZAny>
+												<Concat>
+													<LeftPattern>
+														<ZAny>
+															<Star>
+																<Value>*</Value>
+															</Star>
+														</ZAny>
+													</LeftPattern>
+													<Comma>
+														<Value>,</Value>
+													</Comma>
+													<RightPattern>
+														<Concat>
+															<LeftPattern>
+																<TreeNode>
+																	<Name>
+																		<Name>
+																			<StringValue>Street</StringValue>
+																			<BytesValue></BytesValue>
+																		</Name>
+																	</Name>
+																	<Colon>
+																		<Value>:</Value>
+																	</Colon>
+																	<Pattern>
+																		<LeafNode>
+																			<Expr>
+																				<BuiltIn>
+																					<Symbol>
+																						<Value>==</Value>
+																					</Symbol>
+																					<Expr>
+																						<Terminal>
+																							<Before>
+																								<Space> </Space>
+																							</Before>
+																							<Literal>`TheStreet`</Literal>
+																							<StringValue>TheStreet</StringValue>
+																							<BytesValue></BytesValue>
+																						</Terminal>
+																					</Expr>
+																				</BuiltIn>
+																			</Expr>
+																		</LeafNode>
+																	</Pattern>
+																</TreeNode>
+															</LeftPattern>
+															<Comma>
+																<Value>,</Value>
+															</Comma>
+															<RightPattern>
+																<ZAny>
+																	<Star>
+																		<Value>*</Value>
+																	</Star>
+																</ZAny>
+															</RightPattern>
+														</Concat>
+													</RightPattern>
+												</Concat>
 											</RightPattern>
 										</Concat>
 									</RightPattern>
