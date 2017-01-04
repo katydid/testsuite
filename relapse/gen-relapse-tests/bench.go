@@ -34,6 +34,15 @@ type BenchValidator struct {
 }
 
 var BenchValidators = []BenchValidator{}
+var duplicatesBenches = map[string]struct{}{}
+
+func checkDuplicateBenches(name, codecName string) {
+	n := name + "." + codecName
+	if _, ok := duplicatesBenches[n]; ok {
+		panic("duplicate benchmark: " + n)
+	}
+	duplicatesBenches[n] = struct{}{}
+}
 
 func BenchValidateProtoNum(name string, grammar combinator.G, randProto RandProto) {
 	m := randProto(rand.New(rand.NewSource(1)))
@@ -57,6 +66,7 @@ func BenchValidateProtoNum(name string, grammar combinator.G, randProto RandProt
 		SchemaName: schemaName,
 		Extension:  schemaName + ".pbnum",
 	})
+	checkDuplicateBenches(name, "pbnum")
 }
 
 type RandBytes func(r *rand.Rand) []byte
