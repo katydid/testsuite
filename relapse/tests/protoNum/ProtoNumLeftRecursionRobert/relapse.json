@@ -1,0 +1,77 @@
+{
+	"TopPattern": {
+		"Or": {
+			"OpenParen": {
+				"Value": "("
+			},
+			"LeftPattern": {
+				"Reference": {
+					"At": {
+						"Value": "@"
+					},
+					"Name": "main"
+				}
+			},
+			"Pipe": {
+				"Value": "|"
+			},
+			"RightPattern": {
+				"Concat": {
+					"OpenBracket": {
+						"Value": "["
+					},
+					"LeftPattern": {
+						"ZAny": {
+							"Star": {
+								"Value": "*"
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"UintValue": 3
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"LeafNode": {
+									"Expr": {
+										"BuiltIn": {
+											"Symbol": {
+												"Value": "=="
+											},
+											"Expr": {
+												"Terminal": {
+													"Before": {
+														"Space": [
+															" "
+														]
+													},
+													"Literal": "`0123456789`",
+													"StringValue": "0123456789"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"CloseBracket": {
+						"Value": "]"
+					}
+				}
+			},
+			"CloseParen": {
+				"Value": ")"
+			}
+		}
+	}
+}

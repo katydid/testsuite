@@ -1,0 +1,22 @@
+<Grammar>
+	<TopPattern>
+		<Not>
+			<Exclamation>
+				<Value>!</Value>
+			</Exclamation>
+			<OpenParen>
+				<Value>(</Value>
+			</OpenParen>
+			<Pattern>
+				<ZAny>
+					<Star>
+						<Value>*</Value>
+					</Star>
+				</ZAny>
+			</Pattern>
+			<CloseParen>
+				<Value>)</Value>
+			</CloseParen>
+		</Not>
+	</TopPattern>
+</Grammar>

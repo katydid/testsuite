@@ -1,0 +1,113 @@
+{
+	"TopPattern": {
+		"Contains": {
+			"Dot": {
+				"Value": "."
+			},
+			"Pattern": {
+				"TreeNode": {
+					"Name": {
+						"Name": {
+							"UintValue": 2
+						}
+					},
+					"Colon": {
+						"Value": ":"
+					},
+					"Pattern": {
+						"TreeNode": {
+							"Name": {
+								"AnyName": {
+									"Underscore": {
+										"Value": "_"
+									}
+								}
+							},
+							"Pattern": {
+								"Concat": {
+									"OpenBracket": {
+										"Value": "["
+									},
+									"LeftPattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"UintValue": 1
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"LeafNode": {
+													"Expr": {
+														"BuiltIn": {
+															"Symbol": {
+																"Value": "=="
+															},
+															"Expr": {
+																"Terminal": {
+																	"Before": {
+																		"Space": [
+																			" "
+																		]
+																	},
+																	"Literal": "int(456)",
+																	"IntValue": 456
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"Comma": {
+										"Value": ","
+									},
+									"RightPattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"UintValue": 2
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"LeafNode": {
+													"Expr": {
+														"BuiltIn": {
+															"Symbol": {
+																"Value": "=="
+															},
+															"Expr": {
+																"Terminal": {
+																	"Before": {
+																		"Space": [
+																			" "
+																		]
+																	},
+																	"Literal": "`TheStreet`",
+																	"StringValue": "TheStreet"
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"CloseBracket": {
+										"Value": "]"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

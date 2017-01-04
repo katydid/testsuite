@@ -1,0 +1,139 @@
+{
+	"TopPattern": {
+		"TreeNode": {
+			"Name": {
+				"Name": {
+					"UintValue": 8
+				}
+			},
+			"Pattern": {
+				"Concat": {
+					"OpenBracket": {
+						"Value": "["
+					},
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"IntValue": 0
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"LeafNode": {
+									"Expr": {
+										"BuiltIn": {
+											"Symbol": {
+												"Value": "=="
+											},
+											"Expr": {
+												"Terminal": {
+													"Before": {
+														"Space": [
+															" "
+														]
+													},
+													"Literal": "`a`",
+													"StringValue": "a"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"Concat": {
+							"OpenBracket": {
+								"Value": "["
+							},
+							"LeftPattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"IntValue": 1
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"LeafNode": {
+											"Expr": {
+												"BuiltIn": {
+													"Symbol": {
+														"Value": "=="
+													},
+													"Expr": {
+														"Terminal": {
+															"Before": {
+																"Space": [
+																	" "
+																]
+															},
+															"Literal": "`b`",
+															"StringValue": "b"
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"Comma": {
+								"Value": ","
+							},
+							"RightPattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"IntValue": 2
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"LeafNode": {
+											"Expr": {
+												"BuiltIn": {
+													"Symbol": {
+														"Value": "=="
+													},
+													"Expr": {
+														"Terminal": {
+															"Before": {
+																"Space": [
+																	" "
+																]
+															},
+															"Literal": "`c`",
+															"StringValue": "c"
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"CloseBracket": {
+								"Value": "]"
+							}
+						}
+					},
+					"CloseBracket": {
+						"Value": "]"
+					}
+				}
+			}
+		}
+	}
+}

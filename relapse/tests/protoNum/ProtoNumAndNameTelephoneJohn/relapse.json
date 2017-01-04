@@ -1,0 +1,163 @@
+{
+	"TopPattern": {
+		"And": {
+			"OpenParen": {
+				"Value": "("
+			},
+			"LeftPattern": {
+				"Concat": {
+					"OpenBracket": {
+						"Value": "["
+					},
+					"LeftPattern": {
+						"ZAny": {
+							"Star": {
+								"Value": "*"
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"Concat": {
+							"OpenBracket": {
+								"Value": "["
+							},
+							"LeftPattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"UintValue": 1
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"LeafNode": {
+											"Expr": {
+												"BuiltIn": {
+													"Symbol": {
+														"Value": "=="
+													},
+													"Expr": {
+														"Terminal": {
+															"Before": {
+																"Space": [
+																	" "
+																]
+															},
+															"Literal": "`David`",
+															"StringValue": "David"
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"Comma": {
+								"Value": ","
+							},
+							"RightPattern": {
+								"ZAny": {
+									"Star": {
+										"Value": "*"
+									}
+								}
+							},
+							"CloseBracket": {
+								"Value": "]"
+							}
+						}
+					},
+					"CloseBracket": {
+						"Value": "]"
+					}
+				}
+			},
+			"Ampersand": {
+				"Value": "\u0026"
+			},
+			"RightPattern": {
+				"Concat": {
+					"OpenBracket": {
+						"Value": "["
+					},
+					"LeftPattern": {
+						"ZAny": {
+							"Star": {
+								"Value": "*"
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"Concat": {
+							"OpenBracket": {
+								"Value": "["
+							},
+							"LeftPattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"UintValue": 3
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"LeafNode": {
+											"Expr": {
+												"BuiltIn": {
+													"Symbol": {
+														"Value": "=="
+													},
+													"Expr": {
+														"Terminal": {
+															"Before": {
+																"Space": [
+																	" "
+																]
+															},
+															"Literal": "`0123456789`",
+															"StringValue": "0123456789"
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"Comma": {
+								"Value": ","
+							},
+							"RightPattern": {
+								"ZAny": {
+									"Star": {
+										"Value": "*"
+									}
+								}
+							},
+							"CloseBracket": {
+								"Value": "]"
+							}
+						}
+					},
+					"CloseBracket": {
+						"Value": "]"
+					}
+				}
+			},
+			"CloseParen": {
+				"Value": ")"
+			}
+		}
+	}
+}

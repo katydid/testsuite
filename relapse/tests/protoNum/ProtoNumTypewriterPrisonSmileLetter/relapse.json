@@ -1,0 +1,118 @@
+{
+	"TopPattern": {
+		"Concat": {
+			"OpenBracket": {
+				"Value": "["
+			},
+			"LeftPattern": {
+				"ZAny": {
+					"Star": {
+						"Value": "*"
+					}
+				}
+			},
+			"Comma": {
+				"Value": ","
+			},
+			"RightPattern": {
+				"Concat": {
+					"OpenBracket": {
+						"Value": "["
+					},
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"UintValue": 3
+								}
+							},
+							"Pattern": {
+								"Concat": {
+									"OpenBracket": {
+										"Value": "["
+									},
+									"LeftPattern": {
+										"ZAny": {
+											"Star": {
+												"Value": "*"
+											}
+										}
+									},
+									"Comma": {
+										"Value": ","
+									},
+									"RightPattern": {
+										"Concat": {
+											"OpenBracket": {
+												"Value": "["
+											},
+											"LeftPattern": {
+												"TreeNode": {
+													"Name": {
+														"Name": {
+															"UintValue": 5
+														}
+													},
+													"Colon": {
+														"Value": ":"
+													},
+													"Pattern": {
+														"LeafNode": {
+															"Expr": {
+																"RightArrow": {
+																	"Value": "-\u003e"
+																},
+																"Terminal": {
+																	"Literal": "",
+																	"Variable": {
+																		"Type": 108
+																	}
+																}
+															}
+														}
+													}
+												}
+											},
+											"Comma": {
+												"Value": ","
+											},
+											"RightPattern": {
+												"ZAny": {
+													"Star": {
+														"Value": "*"
+													}
+												}
+											},
+											"CloseBracket": {
+												"Value": "]"
+											}
+										}
+									},
+									"CloseBracket": {
+										"Value": "]"
+									}
+								}
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"ZAny": {
+							"Star": {
+								"Value": "*"
+							}
+						}
+					},
+					"CloseBracket": {
+						"Value": "]"
+					}
+				}
+			},
+			"CloseBracket": {
+				"Value": "]"
+			}
+		}
+	}
+}

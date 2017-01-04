@@ -1,0 +1,252 @@
+{
+	"TopPattern": {
+		"Concat": {
+			"OpenBracket": {
+				"Value": "["
+			},
+			"LeftPattern": {
+				"ZAny": {
+					"Star": {
+						"Value": "*"
+					}
+				}
+			},
+			"Comma": {
+				"Value": ","
+			},
+			"RightPattern": {
+				"Concat": {
+					"OpenBracket": {
+						"Value": "["
+					},
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"UintValue": 1
+								}
+							},
+							"Pattern": {
+								"Concat": {
+									"OpenBracket": {
+										"Value": "["
+									},
+									"LeftPattern": {
+										"ZAny": {
+											"Star": {
+												"Value": "*"
+											}
+										}
+									},
+									"Comma": {
+										"Value": ","
+									},
+									"RightPattern": {
+										"Concat": {
+											"OpenBracket": {
+												"Value": "["
+											},
+											"LeftPattern": {
+												"TreeNode": {
+													"Name": {
+														"Name": {
+															"UintValue": 1
+														}
+													},
+													"Pattern": {
+														"Concat": {
+															"OpenBracket": {
+																"Value": "["
+															},
+															"LeftPattern": {
+																"ZAny": {
+																	"Star": {
+																		"Value": "*"
+																	}
+																}
+															},
+															"Comma": {
+																"Value": ","
+															},
+															"RightPattern": {
+																"Concat": {
+																	"OpenBracket": {
+																		"Value": "["
+																	},
+																	"LeftPattern": {
+																		"TreeNode": {
+																			"Name": {
+																				"Name": {
+																					"UintValue": 11
+																				}
+																			},
+																			"Pattern": {
+																				"Concat": {
+																					"OpenBracket": {
+																						"Value": "["
+																					},
+																					"LeftPattern": {
+																						"ZAny": {
+																							"Star": {
+																								"Value": "*"
+																							}
+																						}
+																					},
+																					"Comma": {
+																						"Value": ","
+																					},
+																					"RightPattern": {
+																						"Concat": {
+																							"OpenBracket": {
+																								"Value": "["
+																							},
+																							"LeftPattern": {
+																								"TreeNode": {
+																									"Name": {
+																										"Name": {
+																											"UintValue": 8
+																										}
+																									},
+																									"Colon": {
+																										"Value": ":"
+																									},
+																									"Pattern": {
+																										"TreeNode": {
+																											"Name": {
+																												"AnyName": {
+																													"Underscore": {
+																														"Value": "_"
+																													}
+																												}
+																											},
+																											"Colon": {
+																												"Value": ":"
+																											},
+																											"Pattern": {
+																												"LeafNode": {
+																													"Expr": {
+																														"RightArrow": {
+																															"Value": "-\u003e"
+																														},
+																														"Function": {
+																															"Name": "contains",
+																															"OpenParen": {
+																																"Value": "("
+																															},
+																															"Params": [
+																																{
+																																	"Terminal": {
+																																		"Literal": "",
+																																		"Variable": {
+																																			"Type": 109
+																																		}
+																																	}
+																																},
+																																{
+																																	"Comma": {
+																																		"Value": ","
+																																	},
+																																	"Terminal": {
+																																		"Literal": "`a`",
+																																		"StringValue": "a"
+																																	}
+																																}
+																															],
+																															"CloseParen": {
+																																"Value": ")"
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							},
+																							"Comma": {
+																								"Value": ","
+																							},
+																							"RightPattern": {
+																								"ZAny": {
+																									"Star": {
+																										"Value": "*"
+																									}
+																								}
+																							},
+																							"CloseBracket": {
+																								"Value": "]"
+																							}
+																						}
+																					},
+																					"CloseBracket": {
+																						"Value": "]"
+																					}
+																				}
+																			}
+																		}
+																	},
+																	"Comma": {
+																		"Value": ","
+																	},
+																	"RightPattern": {
+																		"ZAny": {
+																			"Star": {
+																				"Value": "*"
+																			}
+																		}
+																	},
+																	"CloseBracket": {
+																		"Value": "]"
+																	}
+																}
+															},
+															"CloseBracket": {
+																"Value": "]"
+															}
+														}
+													}
+												}
+											},
+											"Comma": {
+												"Value": ","
+											},
+											"RightPattern": {
+												"ZAny": {
+													"Star": {
+														"Value": "*"
+													}
+												}
+											},
+											"CloseBracket": {
+												"Value": "]"
+											}
+										}
+									},
+									"CloseBracket": {
+										"Value": "]"
+									}
+								}
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"ZAny": {
+							"Star": {
+								"Value": "*"
+							}
+						}
+					},
+					"CloseBracket": {
+						"Value": "]"
+					}
+				}
+			},
+			"CloseBracket": {
+				"Value": "]"
+			}
+		}
+	}
+}

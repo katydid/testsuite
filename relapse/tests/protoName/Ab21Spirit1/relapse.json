@@ -1,0 +1,94 @@
+{
+	"TopPattern": {
+		"Concat": {
+			"OpenBracket": {
+				"Value": "["
+			},
+			"LeftPattern": {
+				"ZAny": {
+					"Star": {
+						"Value": "*"
+					}
+				}
+			},
+			"Comma": {
+				"Value": ","
+			},
+			"RightPattern": {
+				"Concat": {
+					"LeftPattern": {
+						"Reference": {
+							"At": {
+								"Value": "@"
+							},
+							"Name": "spirit"
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"ZAny": {
+							"Star": {
+								"Value": "*"
+							}
+						}
+					}
+				}
+			},
+			"CloseBracket": {
+				"Value": "]"
+			}
+		}
+	},
+	"PatternDecls": [
+		{
+			"Hash": {
+				"Before": {
+					"Space": [
+						"\n"
+					]
+				},
+				"Value": "#"
+			},
+			"Name": "spirit",
+			"Eq": {
+				"Value": "="
+			},
+			"Pattern": {
+				"TreeNode": {
+					"Name": {
+						"Name": {
+							"StringValue": "RumourSpirit"
+						}
+					},
+					"Colon": {
+						"Value": ":"
+					},
+					"Pattern": {
+						"LeafNode": {
+							"Expr": {
+								"BuiltIn": {
+									"Symbol": {
+										"Value": "=="
+									},
+									"Expr": {
+										"Terminal": {
+											"Before": {
+												"Space": [
+													" "
+												]
+											},
+											"Literal": "int(1)",
+											"IntValue": 1
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	]
+}

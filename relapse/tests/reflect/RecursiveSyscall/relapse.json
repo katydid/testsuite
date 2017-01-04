@@ -1,0 +1,154 @@
+{
+	"TopPattern": {
+		"Or": {
+			"OpenParen": {
+				"Value": "("
+			},
+			"LeftPattern": {
+				"Concat": {
+					"OpenBracket": {
+						"Value": "["
+					},
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "PackageName"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"LeafNode": {
+									"Expr": {
+										"BuiltIn": {
+											"Symbol": {
+												"Value": "=="
+											},
+											"Expr": {
+												"Terminal": {
+													"Before": {
+														"Space": [
+															" "
+														]
+													},
+													"Literal": "`io`",
+													"StringValue": "io"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"ZAny": {
+							"Star": {
+								"Value": "*"
+							}
+						}
+					},
+					"CloseBracket": {
+						"Value": "]"
+					}
+				}
+			},
+			"Pipe": {
+				"Value": "|"
+			},
+			"RightPattern": {
+				"Concat": {
+					"OpenBracket": {
+						"Value": "["
+					},
+					"LeftPattern": {
+						"ZAny": {
+							"Star": {
+								"Value": "*"
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "Imports"
+								}
+							},
+							"Pattern": {
+								"Concat": {
+									"OpenBracket": {
+										"Value": "["
+									},
+									"LeftPattern": {
+										"ZAny": {
+											"Star": {
+												"Value": "*"
+											}
+										}
+									},
+									"Comma": {
+										"Value": ","
+									},
+									"RightPattern": {
+										"Concat": {
+											"LeftPattern": {
+												"TreeNode": {
+													"Name": {
+														"AnyName": {
+															"Underscore": {
+																"Value": "_"
+															}
+														}
+													},
+													"Colon": {
+														"Value": ":"
+													},
+													"Pattern": {
+														"Reference": {
+															"At": {
+																"Value": "@"
+															},
+															"Name": "main"
+														}
+													}
+												}
+											},
+											"Comma": {
+												"Value": ","
+											},
+											"RightPattern": {
+												"ZAny": {
+													"Star": {
+														"Value": "*"
+													}
+												}
+											}
+										}
+									},
+									"CloseBracket": {
+										"Value": "]"
+									}
+								}
+							}
+						}
+					},
+					"CloseBracket": {
+						"Value": "]"
+					}
+				}
+			},
+			"CloseParen": {
+				"Value": ")"
+			}
+		}
+	}
+}

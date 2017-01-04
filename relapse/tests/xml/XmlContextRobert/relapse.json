@@ -1,0 +1,125 @@
+{
+	"TopPattern": {
+		"TreeNode": {
+			"Name": {
+				"Name": {
+					"StringValue": "Person"
+				}
+			},
+			"Colon": {
+				"Value": ":"
+			},
+			"Pattern": {
+				"Contains": {
+					"Dot": {
+						"Value": "."
+					},
+					"Pattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "Addresses"
+								}
+							},
+							"Pattern": {
+								"Concat": {
+									"OpenBracket": {
+										"Value": "["
+									},
+									"LeftPattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"StringValue": "Number"
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"LeafNode": {
+													"Expr": {
+														"BuiltIn": {
+															"Symbol": {
+																"Value": "=="
+															},
+															"Expr": {
+																"Terminal": {
+																	"Before": {
+																		"Space": [
+																			" "
+																		]
+																	},
+																	"Literal": "int(456)",
+																	"IntValue": 456
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"Comma": {
+										"Value": ","
+									},
+									"RightPattern": {
+										"Concat": {
+											"LeftPattern": {
+												"TreeNode": {
+													"Name": {
+														"Name": {
+															"StringValue": "Street"
+														}
+													},
+													"Colon": {
+														"Value": ":"
+													},
+													"Pattern": {
+														"LeafNode": {
+															"Expr": {
+																"BuiltIn": {
+																	"Symbol": {
+																		"Value": "=="
+																	},
+																	"Expr": {
+																		"Terminal": {
+																			"Before": {
+																				"Space": [
+																					" "
+																				]
+																			},
+																			"Literal": "`TheStreet`",
+																			"StringValue": "TheStreet"
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											},
+											"Comma": {
+												"Value": ","
+											},
+											"RightPattern": {
+												"ZAny": {
+													"Star": {
+														"Value": "*"
+													}
+												}
+											}
+										}
+									},
+									"CloseBracket": {
+										"Value": "]"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

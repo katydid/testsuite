@@ -1,0 +1,50 @@
+{
+	"TopPattern": {
+		"TreeNode": {
+			"Name": {
+				"AnyName": {
+					"Underscore": {
+						"Value": "_"
+					}
+				}
+			},
+			"Colon": {
+				"Value": ":"
+			},
+			"Pattern": {
+				"TreeNode": {
+					"Name": {
+						"Name": {
+							"StringValue": "Top"
+						}
+					},
+					"Colon": {
+						"Value": ":"
+					},
+					"Pattern": {
+						"LeafNode": {
+							"Expr": {
+								"BuiltIn": {
+									"Symbol": {
+										"Value": "=="
+									},
+									"Expr": {
+										"Terminal": {
+											"Before": {
+												"Space": [
+													" "
+												]
+											},
+											"Literal": "int(1)",
+											"IntValue": 1
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

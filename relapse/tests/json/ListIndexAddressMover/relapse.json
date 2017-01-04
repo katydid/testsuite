@@ -1,0 +1,182 @@
+{
+	"TopPattern": {
+		"Concat": {
+			"OpenBracket": {
+				"Value": "["
+			},
+			"LeftPattern": {
+				"ZAny": {
+					"Star": {
+						"Value": "*"
+					}
+				}
+			},
+			"Comma": {
+				"Value": ","
+			},
+			"RightPattern": {
+				"Concat": {
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "Addresses"
+								}
+							},
+							"Pattern": {
+								"Concat": {
+									"OpenBracket": {
+										"Value": "["
+									},
+									"LeftPattern": {
+										"ZAny": {
+											"Star": {
+												"Value": "*"
+											}
+										}
+									},
+									"Comma": {
+										"Value": ","
+									},
+									"RightPattern": {
+										"Concat": {
+											"LeftPattern": {
+												"TreeNode": {
+													"Name": {
+														"AnyName": {
+															"Underscore": {
+																"Value": "_"
+															}
+														}
+													},
+													"Colon": {
+														"Value": ":"
+													},
+													"Pattern": {
+														"Contains": {
+															"Dot": {
+																"Value": "."
+															},
+															"Pattern": {
+																"TreeNode": {
+																	"Name": {
+																		"Name": {
+																			"StringValue": "Number"
+																		}
+																	},
+																	"Colon": {
+																		"Value": ":"
+																	},
+																	"Pattern": {
+																		"LeafNode": {
+																			"Expr": {
+																				"BuiltIn": {
+																					"Symbol": {
+																						"Value": "=="
+																					},
+																					"Expr": {
+																						"Terminal": {
+																							"Before": {
+																								"Space": [
+																									" "
+																								]
+																							},
+																							"Literal": "int(2)",
+																							"IntValue": 2
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											},
+											"Comma": {
+												"Value": ","
+											},
+											"RightPattern": {
+												"TreeNode": {
+													"Name": {
+														"AnyName": {
+															"Underscore": {
+																"Value": "_"
+															}
+														}
+													},
+													"Colon": {
+														"Value": ":"
+													},
+													"Pattern": {
+														"Contains": {
+															"Dot": {
+																"Value": "."
+															},
+															"Pattern": {
+																"TreeNode": {
+																	"Name": {
+																		"Name": {
+																			"StringValue": "Number"
+																		}
+																	},
+																	"Colon": {
+																		"Value": ":"
+																	},
+																	"Pattern": {
+																		"LeafNode": {
+																			"Expr": {
+																				"BuiltIn": {
+																					"Symbol": {
+																						"Value": "=="
+																					},
+																					"Expr": {
+																						"Terminal": {
+																							"Before": {
+																								"Space": [
+																									" "
+																								]
+																							},
+																							"Literal": "int(1)",
+																							"IntValue": 1
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"CloseBracket": {
+										"Value": "]"
+									}
+								}
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"ZAny": {
+							"Star": {
+								"Value": "*"
+							}
+						}
+					}
+				}
+			},
+			"CloseBracket": {
+				"Value": "]"
+			}
+		}
+	}
+}

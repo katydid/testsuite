@@ -1,0 +1,212 @@
+{
+	"TopPattern": {
+		"TreeNode": {
+			"Name": {
+				"Name": {
+					"StringValue": "Person"
+				}
+			},
+			"Colon": {
+				"Value": ":"
+			},
+			"Pattern": {
+				"Interleave": {
+					"OpenCurly": {
+						"Value": "{"
+					},
+					"LeftPattern": {
+						"Concat": {
+							"OpenBracket": {
+								"Value": "["
+							},
+							"LeftPattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"StringValue": "Name"
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"ZAny": {
+											"Star": {
+												"Value": "*"
+											}
+										}
+									}
+								}
+							},
+							"Comma": {
+								"Value": ","
+							},
+							"RightPattern": {
+								"Optional": {
+									"OpenParen": {
+										"Value": "("
+									},
+									"Pattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"StringValue": "Tel"
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"ZAny": {
+													"Star": {
+														"Value": "*"
+													}
+												}
+											}
+										}
+									},
+									"CloseParen": {
+										"Value": ")"
+									},
+									"QuestionMark": {
+										"Value": "?"
+									}
+								}
+							},
+							"CloseBracket": {
+								"Value": "]"
+							}
+						}
+					},
+					"SemiColon": {
+						"Value": ";"
+					},
+					"RightPattern": {
+						"Interleave": {
+							"LeftPattern": {
+								"Concat": {
+									"OpenBracket": {
+										"Value": "["
+									},
+									"LeftPattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"StringValue": "Name"
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"ZAny": {
+													"Star": {
+														"Value": "*"
+													}
+												}
+											}
+										}
+									},
+									"Comma": {
+										"Value": ","
+									},
+									"RightPattern": {
+										"ZeroOrMore": {
+											"OpenParen": {
+												"Value": "("
+											},
+											"Pattern": {
+												"TreeNode": {
+													"Name": {
+														"Name": {
+															"StringValue": "Email"
+														}
+													},
+													"Colon": {
+														"Value": ":"
+													},
+													"Pattern": {
+														"ZAny": {
+															"Star": {
+																"Value": "*"
+															}
+														}
+													}
+												}
+											},
+											"CloseParen": {
+												"Value": ")"
+											},
+											"Star": {
+												"Value": "*"
+											}
+										}
+									},
+									"CloseBracket": {
+										"Value": "]"
+									}
+								}
+							},
+							"SemiColon": {
+								"Value": ";"
+							},
+							"RightPattern": {
+								"ZeroOrMore": {
+									"OpenParen": {
+										"Value": "("
+									},
+									"Pattern": {
+										"LeafNode": {
+											"Expr": {
+												"RightArrow": {
+													"Value": "-\u003e"
+												},
+												"Function": {
+													"Name": "regex",
+													"OpenParen": {
+														"Value": "("
+													},
+													"Params": [
+														{
+															"Terminal": {
+																"Literal": "`^(\\s)+$`",
+																"StringValue": "^(\\s)+$"
+															}
+														},
+														{
+															"Comma": {
+																"Value": ","
+															},
+															"Terminal": {
+																"Literal": "",
+																"Variable": {
+																	"Type": 109
+																}
+															}
+														}
+													],
+													"CloseParen": {
+														"Value": ")"
+													}
+												}
+											}
+										}
+									},
+									"CloseParen": {
+										"Value": ")"
+									},
+									"Star": {
+										"Value": "*"
+									}
+								}
+							}
+						}
+					},
+					"CloseCurly": {
+						"Value": "}"
+					}
+				}
+			}
+		}
+	}
+}

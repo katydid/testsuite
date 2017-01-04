@@ -1,0 +1,104 @@
+{
+	"TopPattern": {
+		"Concat": {
+			"OpenBracket": {
+				"Value": "["
+			},
+			"LeftPattern": {
+				"ZAny": {
+					"Star": {
+						"Value": "*"
+					}
+				}
+			},
+			"Comma": {
+				"Value": ","
+			},
+			"RightPattern": {
+				"Concat": {
+					"OpenBracket": {
+						"Value": "["
+					},
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"UintValue": 1
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"LeafNode": {
+									"Expr": {
+										"RightArrow": {
+											"Value": "-\u003e"
+										},
+										"Function": {
+											"Name": "eq",
+											"OpenParen": {
+												"Value": "("
+											},
+											"Params": [
+												{
+													"Function": {
+														"Name": "length",
+														"OpenParen": {
+															"Value": "("
+														},
+														"Params": [
+															{
+																"Terminal": {
+																	"Literal": "",
+																	"Variable": {
+																		"Type": 109
+																	}
+																}
+															}
+														],
+														"CloseParen": {
+															"Value": ")"
+														}
+													}
+												},
+												{
+													"Comma": {
+														"Value": ","
+													},
+													"Terminal": {
+														"Literal": "int(0)",
+														"IntValue": 0
+													}
+												}
+											],
+											"CloseParen": {
+												"Value": ")"
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"ZAny": {
+							"Star": {
+								"Value": "*"
+							}
+						}
+					},
+					"CloseBracket": {
+						"Value": "]"
+					}
+				}
+			},
+			"CloseBracket": {
+				"Value": "]"
+			}
+		}
+	}
+}

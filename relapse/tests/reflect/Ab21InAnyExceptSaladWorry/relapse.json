@@ -1,0 +1,98 @@
+{
+	"TopPattern": {
+		"Concat": {
+			"OpenBracket": {
+				"Value": "["
+			},
+			"LeftPattern": {
+				"TreeNode": {
+					"Name": {
+						"AnyNameExcept": {
+							"Exclamation": {
+								"Value": "!"
+							},
+							"OpenParen": {
+								"Value": "("
+							},
+							"Except": {
+								"Name": {
+									"StringValue": "SaladWorry"
+								}
+							},
+							"CloseParen": {
+								"Value": ")"
+							}
+						}
+					},
+					"Pattern": {
+						"Concat": {
+							"OpenBracket": {
+								"Value": "["
+							},
+							"LeftPattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"StringValue": "MagazineFrame"
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"LeafNode": {
+											"Expr": {
+												"BuiltIn": {
+													"Symbol": {
+														"Value": "=="
+													},
+													"Expr": {
+														"Terminal": {
+															"Before": {
+																"Space": [
+																	" "
+																]
+															},
+															"Literal": "`a`",
+															"StringValue": "a"
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"Comma": {
+								"Value": ","
+							},
+							"RightPattern": {
+								"ZAny": {
+									"Star": {
+										"Value": "*"
+									}
+								}
+							},
+							"CloseBracket": {
+								"Value": "]"
+							}
+						}
+					}
+				}
+			},
+			"Comma": {
+				"Value": ","
+			},
+			"RightPattern": {
+				"ZAny": {
+					"Star": {
+						"Value": "*"
+					}
+				}
+			},
+			"CloseBracket": {
+				"Value": "]"
+			}
+		}
+	}
+}

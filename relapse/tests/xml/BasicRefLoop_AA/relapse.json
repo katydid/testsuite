@@ -1,0 +1,42 @@
+{
+	"TopPattern": {
+		"TreeNode": {
+			"Name": {
+				"Name": {
+					"StringValue": "A"
+				}
+			},
+			"Colon": {
+				"Value": ":"
+			},
+			"Pattern": {
+				"Or": {
+					"OpenParen": {
+						"Value": "("
+					},
+					"LeftPattern": {
+						"Empty": {
+							"Empty": {
+								"Value": "\u003cempty\u003e"
+							}
+						}
+					},
+					"Pipe": {
+						"Value": "|"
+					},
+					"RightPattern": {
+						"Reference": {
+							"At": {
+								"Value": "@"
+							},
+							"Name": "main"
+						}
+					},
+					"CloseParen": {
+						"Value": ")"
+					}
+				}
+			}
+		}
+	}
+}

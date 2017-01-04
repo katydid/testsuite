@@ -1,0 +1,129 @@
+{
+	"TopPattern": {
+		"Concat": {
+			"OpenBracket": {
+				"Value": "["
+			},
+			"LeftPattern": {
+				"TreeNode": {
+					"Name": {
+						"AnyNameExcept": {
+							"Exclamation": {
+								"Value": "!"
+							},
+							"OpenParen": {
+								"Value": "("
+							},
+							"Except": {
+								"Name": {
+									"StringValue": "NotAFieldName"
+								}
+							},
+							"CloseParen": {
+								"Value": ")"
+							}
+						}
+					},
+					"Pattern": {
+						"Concat": {
+							"OpenBracket": {
+								"Value": "["
+							},
+							"LeftPattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"StringValue": "MagazineFrame"
+										}
+									},
+									"Pattern": {
+										"Concat": {
+											"OpenBracket": {
+												"Value": "["
+											},
+											"LeftPattern": {
+												"TreeNode": {
+													"Name": {
+														"AnyName": {
+															"Underscore": {
+																"Value": "_"
+															}
+														}
+													},
+													"Colon": {
+														"Value": ":"
+													},
+													"Pattern": {
+														"LeafNode": {
+															"Expr": {
+																"BuiltIn": {
+																	"Symbol": {
+																		"Value": "=="
+																	},
+																	"Expr": {
+																		"Terminal": {
+																			"Before": {
+																				"Space": [
+																					" "
+																				]
+																			},
+																			"Literal": "`a`",
+																			"StringValue": "a"
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											},
+											"Comma": {
+												"Value": ","
+											},
+											"RightPattern": {
+												"ZAny": {
+													"Star": {
+														"Value": "*"
+													}
+												}
+											},
+											"CloseBracket": {
+												"Value": "]"
+											}
+										}
+									}
+								}
+							},
+							"Comma": {
+								"Value": ","
+							},
+							"RightPattern": {
+								"ZAny": {
+									"Star": {
+										"Value": "*"
+									}
+								}
+							},
+							"CloseBracket": {
+								"Value": "]"
+							}
+						}
+					}
+				}
+			},
+			"Comma": {
+				"Value": ","
+			},
+			"RightPattern": {
+				"ZAny": {
+					"Star": {
+						"Value": "*"
+					}
+				}
+			},
+			"CloseBracket": {
+				"Value": "]"
+			}
+		}
+	}
+}

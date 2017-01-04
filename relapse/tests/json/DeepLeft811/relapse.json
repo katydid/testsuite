@@ -1,0 +1,319 @@
+{
+	"TopPattern": {
+		"Or": {
+			"OpenParen": {
+				"Value": "("
+			},
+			"LeftPattern": {
+				"Reference": {
+					"At": {
+						"Value": "@"
+					},
+					"Name": "q1"
+				}
+			},
+			"Pipe": {
+				"Value": "|"
+			},
+			"RightPattern": {
+				"Reference": {
+					"At": {
+						"Value": "@"
+					},
+					"Name": "q2"
+				}
+			},
+			"CloseParen": {
+				"Value": ")"
+			}
+		}
+	},
+	"PatternDecls": [
+		{
+			"Hash": {
+				"Before": {
+					"Space": [
+						"\n"
+					]
+				},
+				"Value": "#"
+			},
+			"Name": "q1",
+			"Eq": {
+				"Value": "="
+			},
+			"Pattern": {
+				"Or": {
+					"OpenParen": {
+						"Value": "("
+					},
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "A"
+								}
+							},
+							"Pattern": {
+								"Concat": {
+									"OpenBracket": {
+										"Value": "["
+									},
+									"LeftPattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"StringValue": "Left"
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"Reference": {
+													"At": {
+														"Value": "@"
+													},
+													"Name": "q1"
+												}
+											}
+										}
+									},
+									"Comma": {
+										"Value": ","
+									},
+									"RightPattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"StringValue": "Right"
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"Reference": {
+													"At": {
+														"Value": "@"
+													},
+													"Name": "q2"
+												}
+											}
+										}
+									},
+									"CloseBracket": {
+										"Value": "]"
+									}
+								}
+							}
+						}
+					},
+					"Pipe": {
+						"Value": "|"
+					},
+					"RightPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "A"
+								}
+							},
+							"Pattern": {
+								"Concat": {
+									"OpenBracket": {
+										"Value": "["
+									},
+									"LeftPattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"StringValue": "Left"
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"Reference": {
+													"At": {
+														"Value": "@"
+													},
+													"Name": "q1"
+												}
+											}
+										}
+									},
+									"Comma": {
+										"Value": ","
+									},
+									"RightPattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"StringValue": "Right"
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"Reference": {
+													"At": {
+														"Value": "@"
+													},
+													"Name": "q1"
+												}
+											}
+										}
+									},
+									"CloseBracket": {
+										"Value": "]"
+									}
+								}
+							}
+						}
+					},
+					"CloseParen": {
+						"Value": ")"
+					}
+				}
+			}
+		},
+		{
+			"Hash": {
+				"Before": {
+					"Space": [
+						"\n"
+					]
+				},
+				"Value": "#"
+			},
+			"Name": "q2",
+			"Eq": {
+				"Value": "="
+			},
+			"Pattern": {
+				"Or": {
+					"OpenParen": {
+						"Value": "("
+					},
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "A"
+								}
+							},
+							"Pattern": {
+								"Concat": {
+									"OpenBracket": {
+										"Value": "["
+									},
+									"LeftPattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"StringValue": "Left"
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"Reference": {
+													"At": {
+														"Value": "@"
+													},
+													"Name": "q2"
+												}
+											}
+										}
+									},
+									"Comma": {
+										"Value": ","
+									},
+									"RightPattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"StringValue": "Right"
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"Reference": {
+													"At": {
+														"Value": "@"
+													},
+													"Name": "q2"
+												}
+											}
+										}
+									},
+									"CloseBracket": {
+										"Value": "]"
+									}
+								}
+							}
+						}
+					},
+					"Pipe": {
+						"Value": "|"
+					},
+					"RightPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "A"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"StringValue": "Value"
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"LeafNode": {
+											"Expr": {
+												"BuiltIn": {
+													"Symbol": {
+														"Value": "=="
+													},
+													"Expr": {
+														"Terminal": {
+															"Before": {
+																"Space": [
+																	" "
+																]
+															},
+															"Literal": "`#`",
+															"StringValue": "#"
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"CloseParen": {
+						"Value": ")"
+					}
+				}
+			}
+		}
+	]
+}

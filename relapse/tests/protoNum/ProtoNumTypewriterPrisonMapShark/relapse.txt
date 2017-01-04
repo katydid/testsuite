@@ -1,0 +1,1 @@
+[*,[uint(3)[*,[uint(18):->contains($string,"a"),*]],*]]

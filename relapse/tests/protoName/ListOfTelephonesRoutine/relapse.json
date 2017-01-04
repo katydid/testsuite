@@ -1,0 +1,131 @@
+{
+	"TopPattern": {
+		"Concat": {
+			"OpenBracket": {
+				"Value": "["
+			},
+			"LeftPattern": {
+				"ZAny": {
+					"Star": {
+						"Value": "*"
+					}
+				}
+			},
+			"Comma": {
+				"Value": ","
+			},
+			"RightPattern": {
+				"Concat": {
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "Telephone"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"LeafNode": {
+									"Expr": {
+										"RightArrow": {
+											"Value": "-\u003e"
+										},
+										"Function": {
+											"Name": "or",
+											"OpenParen": {
+												"Value": "("
+											},
+											"Params": [
+												{
+													"Function": {
+														"Name": "eq",
+														"OpenParen": {
+															"Value": "("
+														},
+														"Params": [
+															{
+																"Terminal": {
+																	"Literal": "",
+																	"Variable": {
+																		"Type": 109
+																	}
+																}
+															},
+															{
+																"Comma": {
+																	"Value": ","
+																},
+																"Terminal": {
+																	"Literal": "`0123456789`",
+																	"StringValue": "0123456789"
+																}
+															}
+														],
+														"CloseParen": {
+															"Value": ")"
+														}
+													}
+												},
+												{
+													"Comma": {
+														"Value": ","
+													},
+													"Function": {
+														"Name": "eq",
+														"OpenParen": {
+															"Value": "("
+														},
+														"Params": [
+															{
+																"Terminal": {
+																	"Literal": "",
+																	"Variable": {
+																		"Type": 109
+																	}
+																}
+															},
+															{
+																"Comma": {
+																	"Value": ","
+																},
+																"Terminal": {
+																	"Literal": "`0127897897`",
+																	"StringValue": "0127897897"
+																}
+															}
+														],
+														"CloseParen": {
+															"Value": ")"
+														}
+													}
+												}
+											],
+											"CloseParen": {
+												"Value": ")"
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"ZAny": {
+							"Star": {
+								"Value": "*"
+							}
+						}
+					}
+				}
+			},
+			"CloseBracket": {
+				"Value": "]"
+			}
+		}
+	}
+}

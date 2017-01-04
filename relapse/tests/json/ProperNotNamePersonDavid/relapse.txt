@@ -1,0 +1,3 @@
+(@name|@nil)
+#name=[*,Name:->not(eq($string,"David")),*]
+#nil=!(.Name:*)
