@@ -58,9 +58,13 @@ func main() {
 			mustBytes(xml.MarshalIndent(v.Grammar, "", "\t")),
 		)
 
-		bytesFilename := filepath.Join(folder, "invalid.dat")
+		schemaSuffix := ""
+		if len(v.SchemaName) > 0 {
+			schemaSuffix = "." + v.SchemaName
+		}
+		bytesFilename := filepath.Join(folder, "invalid"+schemaSuffix+".dat")
 		if v.Expected {
-			bytesFilename = filepath.Join(folder, "valid.dat")
+			bytesFilename = filepath.Join(folder, "valid"+schemaSuffix+".dat")
 		}
 		writeFile(bytesFilename, v.Bytes)
 
@@ -99,9 +103,13 @@ func main() {
 			mustBytes(xml.MarshalIndent(v.Grammar, "", "\t")),
 		)
 
+		schemaSuffix := ""
+		if len(v.SchemaName) > 0 {
+			schemaSuffix = "." + v.SchemaName
+		}
 		r := rand.New(rand.NewSource(*seed))
 		for i := 0; i < 1000; i++ {
-			bytesFilename := filepath.Join(folder, strconv.Itoa(i)+".dat")
+			bytesFilename := filepath.Join(folder, strconv.Itoa(i)+schemaSuffix+".dat")
 			bytes := v.RandBytes(r)
 			writeFile(bytesFilename, bytes)
 		}
