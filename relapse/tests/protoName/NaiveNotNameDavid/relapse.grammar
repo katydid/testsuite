@@ -1,1 +1,0 @@
-[*,Name:->not(eq($string,"David")),*]

@@ -1,3 +1,0 @@
-(@empty|@nil)
-#empty=[*,Name:->eq(length($string),0),*]
-#nil=!(.Name:*)

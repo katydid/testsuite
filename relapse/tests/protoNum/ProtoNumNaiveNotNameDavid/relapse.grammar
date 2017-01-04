@@ -1,1 +1,0 @@
-[*,[uint(1):->not(eq($string,"David")),*]]

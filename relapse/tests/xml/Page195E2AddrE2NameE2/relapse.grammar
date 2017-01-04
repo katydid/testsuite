@@ -1,1 +1,0 @@
-Person:{Name:*;(Addr:*)?;(Email:*)*;(->regex("^(\\s)+$",$string))*}

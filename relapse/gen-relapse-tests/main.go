@@ -15,6 +15,8 @@
 package main
 
 import (
+	"encoding/json"
+	"encoding/xml"
 	"flag"
 	"io/ioutil"
 	"log"
@@ -32,23 +34,41 @@ func main() {
 	for name, codecs := range Validators {
 		for codecName, v := range codecs {
 			folder := filepath.Join(filepath.Join(path, codecName), name)
-			if err := os.MkdirAll(folder, 0755); err != nil {
-				log.Fatalf("error <%v> creating folder <%s>", err, folder)
-			}
+			createFolder(folder)
 
-			grammarFilename := filepath.Join(folder, "relapse.grammar")
-			grammarBytes := []byte(v.Grammar.String())
-			if err := ioutil.WriteFile(grammarFilename, grammarBytes, 0644); err != nil {
-				log.Fatalf("error <%v> writing file <%s>", err, grammarFilename)
-			}
+			v.Grammar.Format()
+			writeFile(
+				filepath.Join(folder, "relapse.txt"),
+				[]byte(v.Grammar.String()),
+			)
+
+			writeFile(
+				filepath.Join(folder, "relapse.json"),
+				mustBytes(json.MarshalIndent(v.Grammar, "", "\t")),
+			)
+
+			writeFile(
+				filepath.Join(folder, "relapse.xml"),
+				mustBytes(xml.MarshalIndent(v.Grammar, "", "\t")),
+			)
 
 			bytesFilename := filepath.Join(folder, "invalid.dat")
 			if v.Expected {
 				bytesFilename = filepath.Join(folder, "valid.dat")
 			}
-			if err := ioutil.WriteFile(bytesFilename, v.Bytes, 0644); err != nil {
-				log.Fatalf("error <%v> writing file <%s>", err, bytesFilename)
-			}
+			writeFile(bytesFilename, v.Bytes)
 		}
+	}
+}
+
+func createFolder(folder string) {
+	if err := os.MkdirAll(folder, 0755); err != nil {
+		log.Fatalf("error <%v> creating folder <%s>", err, folder)
+	}
+}
+
+func writeFile(filename string, data []byte) {
+	if err := ioutil.WriteFile(filename, data, 0644); err != nil {
+		log.Fatalf("error <%v> writing file <%s>", err, filename)
 	}
 }
