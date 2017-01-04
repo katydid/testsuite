@@ -32,7 +32,7 @@ func init() {
 			Any(),
 		),
 	}
-	BenchValidateProtoNum("TypewriterPrisonScarBusStop", scarBusStop, &TypewriterPrison{})
+	BenchValidateProtoNum("TypewriterPrisonScarBusStop", scarBusStop, RandomTypewriterPrison)
 	ValidateProtoNum("TypewriterPrisonScarBusStop", scarBusStop, &TypewriterPrison{PocketRoses: &PocketRoses{ScarBusStop: proto.String("a")}}, true)
 
 	var daisySled = G{
@@ -46,7 +46,7 @@ func init() {
 			Any(),
 		),
 	}
-	BenchValidateProtoNum("TypewriterPrisonDaisySled", daisySled, &TypewriterPrison{})
+	BenchValidateProtoNum("TypewriterPrisonDaisySled", daisySled, RandomTypewriterPrison)
 	ValidateProtoNum("TypewriterPrisonDaisySled", daisySled, &TypewriterPrison{PocketRoses: &PocketRoses{DaisySled: proto.Int64(1)}}, true)
 
 	var smileLetter = G{
@@ -60,7 +60,7 @@ func init() {
 			Any(),
 		),
 	}
-	BenchValidateProtoNum("TypewriterPrisonSmileLetter", smileLetter, &TypewriterPrison{})
+	BenchValidateProtoNum("TypewriterPrisonSmileLetter", smileLetter, RandomTypewriterPrison)
 	ValidateProtoNum("TypewriterPrisonSmileLetter", smileLetter, &TypewriterPrison{PocketRoses: &PocketRoses{SmileLetter: proto.Bool(true)}}, true)
 
 	var menuPaperClip = G{
@@ -77,7 +77,7 @@ func init() {
 			Any(),
 		),
 	}
-	BenchValidateProtoNum("TypewriterPrisonMenuPaperclip", menuPaperClip, &TypewriterPrison{})
+	BenchValidateProtoNum("TypewriterPrisonMenuPaperclip", menuPaperClip, RandomTypewriterPrison)
 	ValidateProtoNum("TypewriterPrisonMenuPaperclip", menuPaperClip, &TypewriterPrison{PocketRoses: &PocketRoses{MenuPaperclip: []string{"a"}}}, true)
 
 	var mapShark = G{
@@ -91,7 +91,7 @@ func init() {
 			Any(),
 		),
 	}
-	BenchValidateProtoNum("TypewriterPrisonMapShark", mapShark, &TypewriterPrison{})
+	BenchValidateProtoNum("TypewriterPrisonMapShark", mapShark, RandomTypewriterPrison)
 	ValidateProtoNum("TypewriterPrisonMapShark", mapShark, &TypewriterPrison{PocketRoses: &PocketRoses{MapShark: proto.String("a")}}, true)
 
 }

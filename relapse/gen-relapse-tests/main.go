@@ -20,9 +20,15 @@ import (
 	"flag"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"os"
 	"path/filepath"
+	"strconv"
+	"time"
 )
+
+var seed = flag.Int64("seed", time.Now().UnixNano(), "seed for generating benchmarks")
+var benches = flag.Bool("benches", false, "generate benchmarks")
 
 func main() {
 	log.SetFlags(log.Lshortfile)
@@ -32,7 +38,7 @@ func main() {
 		path = flag.Args()[0]
 	}
 	for _, v := range Validators {
-		folder := filepath.Join(filepath.Join(path, v.CodecName), v.Name)
+		folder := filepath.Join(filepath.Join(filepath.Join(path, "tests"), v.CodecName), v.Name)
 		createFolder(folder)
 
 		v.Grammar.Format()
@@ -56,6 +62,38 @@ func main() {
 			bytesFilename = filepath.Join(folder, "valid.dat")
 		}
 		writeFile(bytesFilename, v.Bytes)
+	}
+
+	if !*benches {
+		return
+	}
+
+	for _, v := range BenchValidators {
+		folder := filepath.Join(filepath.Join(filepath.Join(path, "benches"), v.CodecName), v.Name)
+		createFolder(folder)
+
+		v.Grammar.Format()
+		writeFile(
+			filepath.Join(folder, "relapse.txt"),
+			[]byte(v.Grammar.String()),
+		)
+
+		writeFile(
+			filepath.Join(folder, "relapse.json"),
+			mustBytes(json.MarshalIndent(v.Grammar, "", "\t")),
+		)
+
+		writeFile(
+			filepath.Join(folder, "relapse.xml"),
+			mustBytes(xml.MarshalIndent(v.Grammar, "", "\t")),
+		)
+
+		r := rand.New(rand.NewSource(*seed))
+		for i := 0; i < 1000; i++ {
+			bytesFilename := filepath.Join(folder, strconv.Itoa(i)+".dat")
+			bytes := v.RandBytes(r)
+			writeFile(bytesFilename, bytes)
+		}
 	}
 }
 

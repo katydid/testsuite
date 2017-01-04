@@ -39,7 +39,7 @@ func init() {
 			Any(),
 		),
 	}
-	BenchValidateProtoNum("BridgePepper", bridgePepper, &PuddingMilkshake{})
+	BenchValidateProtoNum("BridgePepper", bridgePepper, RandomPuddingMilkshake)
 	ValidateProtoNum("BridgePepper", bridgePepper, &PuddingMilkshake{FinanceJudo: &FinanceJudo{SaladWorry: &SaladWorry{SpyCarpenter: &SpyCarpenter{BridgePepper: []string{"a"}}}}}, true)
 
 	var bridgePepperAndFountainTarget = G{
@@ -62,6 +62,6 @@ func init() {
 			Any(),
 		),
 	}
-	BenchValidateProtoNum("BridgePepperAndFountainTarget", bridgePepperAndFountainTarget, &PuddingMilkshake{})
+	BenchValidateProtoNum("BridgePepperAndFountainTarget", bridgePepperAndFountainTarget, RandomPuddingMilkshake)
 	ValidateProtoNum("BenchBridgePepperAndFountainTarget", bridgePepperAndFountainTarget, &PuddingMilkshake{FinanceJudo: &FinanceJudo{SaladWorry: &SaladWorry{SpyCarpenter: &SpyCarpenter{BridgePepper: []string{"a"}, FountainTarget: []string{"a"}}}}}, true)
 }

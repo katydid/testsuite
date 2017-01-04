@@ -1,4 +1,5 @@
 regenerate:
-	rm -rf ./tests/
+	rm -rf ./tests/ || true
+	rm -rf ./benches/ || true
 	(cd gen-relapse-tests && make regenerate && go install .)
-	gen-relapse-tests ./tests/
+	gen-relapse-tests -seed 12345 -benches .

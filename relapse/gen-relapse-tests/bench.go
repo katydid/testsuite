@@ -15,80 +15,61 @@
 package main
 
 import (
+	"math/rand"
+	"reflect"
+
+	"github.com/gogo/protobuf/proto"
 	"github.com/katydid/katydid/relapse/ast"
 	"github.com/katydid/katydid/relapse/combinator"
 	"github.com/katydid/katydid/relapse/protonum"
-	"reflect"
-	"sort"
-	"strings"
 )
 
 type BenchValidator struct {
-	Name        string
-	CodecName   string
-	Grammar     *ast.Grammar
-	PackageName string
-	MessageName string
+	Name      string
+	CodecName string
+	Grammar   *ast.Grammar
+	RandBytes RandBytes
 }
 
-func (this *BenchValidator) Record() bool {
-	return !strings.Contains(this.CodecName, "xml")
-}
+var BenchValidators = []BenchValidator{}
 
-var BenchValidators = make(map[string]map[string]BenchValidator)
-
-func BenchValidateProtoNum(name string, grammar combinator.G, m interface{}) {
+func BenchValidateProtoNum(name string, grammar combinator.G, randProto RandProto) {
+	m := randProto(rand.New(rand.NewSource(1)))
 	packageName := "main"
 	messageName := reflect.TypeOf(m).Elem().Name()
 	g, err := protonum.FieldNamesToNumbers(packageName, messageName, m.(ProtoMessage).Description(), grammar.Grammar())
 	if err != nil {
 		panic(name + ": " + err.Error())
 	}
-	BenchValidate("ProtoNum"+name, combinator.G(ast.NewRefLookup(g)), []string{"protoNum"}, packageName, messageName)
+	randBytes := func(r *rand.Rand) []byte {
+		pb := randProto(r)
+		return mustBytes(proto.Marshal(pb))
+	}
+	BenchValidators = append(BenchValidators, BenchValidator{
+		Name:      name,
+		CodecName: "protoNum",
+		Grammar:   g,
+		RandBytes: randBytes,
+	})
 }
 
-type benchValidatorList []interface{}
+type RandBytes func(r *rand.Rand) []byte
 
-func (this benchValidatorList) Less(i, j int) bool {
-	if this[i].(BenchValidator).Name < this[j].(BenchValidator).Name {
-		return true
-	}
-	if this[i].(BenchValidator).Name == this[j].(BenchValidator).Name {
-		return this[i].(BenchValidator).CodecName < this[j].(BenchValidator).CodecName
-	}
-	return false
+type RandProto func(r *rand.Rand) ProtoMessage
+
+func RandomPerson(r *rand.Rand) ProtoMessage {
+	return NewPopulatedPerson(r, true)
 }
 
-func (this benchValidatorList) Len() int {
-	return len(this)
+func RandomSrcTree(r *rand.Rand) ProtoMessage {
+	pops := []*SrcTree{IoUtilSrcTree, PathSrcTree, RuntimeSrcTree, SyscallSrcTree}
+	return pops[r.Intn(4)]
 }
 
-func (this benchValidatorList) Swap(i, j int) {
-	this[i], this[j] = this[j], this[i]
+func RandomTypewriterPrison(r *rand.Rand) ProtoMessage {
+	return NewPopulatedTypewriterPrison(r, true)
 }
 
-func BenchValidatorList() []interface{} {
-	vs := make(benchValidatorList, 0, len(BenchValidators)*3)
-	for name, cs := range BenchValidators {
-		for cname := range cs {
-			vs = append(vs, BenchValidators[name][cname])
-		}
-	}
-	sort.Sort(vs)
-	return vs
-}
-
-func BenchValidate(name string, grammar combinator.G, codecNames []string, packageName, messageName string) {
-	if _, ok := BenchValidators[name]; !ok {
-		BenchValidators[name] = make(map[string]BenchValidator)
-	}
-	for _, codecName := range codecNames {
-		BenchValidators[name][codecName] = BenchValidator{
-			Name:        name,
-			CodecName:   codecName,
-			Grammar:     grammar.Grammar(),
-			PackageName: packageName,
-			MessageName: messageName,
-		}
-	}
+func RandomPuddingMilkshake(r *rand.Rand) ProtoMessage {
+	return NewPopulatedPuddingMilkshake(r, true)
 }

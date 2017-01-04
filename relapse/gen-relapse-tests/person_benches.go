@@ -15,13 +15,13 @@
 package main
 
 func init() {
-	BenchValidateProtoNum("ContextPerson", ContextPerson, &Person{})
-	BenchValidateProtoNum("ListIndexAddress", ListIndexAddressPerson, &Person{})
-	BenchValidateProtoNum("NilName", NilNamePerson, &Person{})
-	BenchValidateProtoNum("LenName", LenNamePerson, &Person{})
-	BenchValidateProtoNum("EmptyOrNil", EmptyOrNilPerson, &Person{})
-	BenchValidateProtoNum("IncorrectNotName", NaiveNotNamePerson, &Person{})
-	BenchValidateProtoNum("CorrectNotName", ProperNotNamePerson, &Person{})
-	BenchValidateProtoNum("AndNameTelephone", AndNameTelephonePerson, &Person{})
-	BenchValidateProtoNum("OrNameTelephone", OrNameTelephonePerson, &Person{})
+	BenchValidateProtoNum("ContextPerson", ContextPerson, RandomPerson)
+	BenchValidateProtoNum("ListIndexAddress", ListIndexAddressPerson, RandomPerson)
+	BenchValidateProtoNum("NilName", NilNamePerson, RandomPerson)
+	BenchValidateProtoNum("LenName", LenNamePerson, RandomPerson)
+	BenchValidateProtoNum("EmptyOrNil", EmptyOrNilPerson, RandomPerson)
+	BenchValidateProtoNum("IncorrectNotName", NaiveNotNamePerson, RandomPerson)
+	BenchValidateProtoNum("CorrectNotName", ProperNotNamePerson, RandomPerson)
+	BenchValidateProtoNum("AndNameTelephone", AndNameTelephonePerson, RandomPerson)
+	BenchValidateProtoNum("OrNameTelephone", OrNameTelephonePerson, RandomPerson)
 }
