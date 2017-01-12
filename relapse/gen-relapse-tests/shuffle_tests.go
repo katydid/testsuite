@@ -248,7 +248,7 @@ func init() {
 	ValidateJsonString("Page194dcba", Page194, Page194dcba, false)
 }
 
-var whitespace = Many(Value(Regex(StringConst("^(\\s)+$"), StringVar())))
+var whitespace = Many(Value(Regex(StringConst("^([ \t\r\n\v\f])+$"), StringVar())))
 
 //Name && Address? && Email*
 var Page195NameAddrEmail = G{"main": In("Person", InAnyOrder(
@@ -402,8 +402,7 @@ var Page195NameTelNameEmail = G{"main": In("Person", InAnyOrder(
 	whitespace,
 ))}
 
-var Page195E2NameE0TelE0NameE2 = `
-<Person>
+var Page195E2NameE0TelE0NameE2 = `<Person>
 	<Email>an@e.mail</Email>
 	<Email>another@e.mail</Email>
 	<Name>Shannon</Name>
@@ -411,11 +410,9 @@ var Page195E2NameE0TelE0NameE2 = `
 	<Name>Sheldon</Name>
 	<Email>an@e.mail</Email>
 	<Email>another@e.mail</Email>
-</Person>
-`
+</Person>`
 
-var Page195E0NameE2TelE0NameE2 = `
-<Person>
+var Page195E0NameE2TelE0NameE2 = `<Person>
 	<Name>Shannon</Name>
 	<Email>an@e.mail</Email>
 	<Email>another@e.mail</Email>
@@ -423,11 +420,9 @@ var Page195E0NameE2TelE0NameE2 = `
 	<Name>Sheldon</Name>
 	<Email>an@e.mail</Email>
 	<Email>another@e.mail</Email>
-</Person>
-`
+</Person>`
 
-var Page195E0NameE0TelE2NameE2 = `
-<Person>
+var Page195E0NameE0TelE2NameE2 = `<Person>
 	<Name>Shannon</Name>
 	<Tel>123</Tel>
 	<Email>an@e.mail</Email>
@@ -435,11 +430,9 @@ var Page195E0NameE0TelE2NameE2 = `
 	<Name>Sheldon</Name>
 	<Email>an@e.mail</Email>
 	<Email>another@e.mail</Email>
-</Person>
-`
+</Person>`
 
-var Page195E0NameE2TelE2NameE2 = `
-<Person>
+var Page195E0NameE2TelE2NameE2 = `<Person>
 	<Name>Shannon</Name>
 	<Email>an@e.mail</Email>
 	<Email>another@e.mail</Email>
@@ -449,109 +442,86 @@ var Page195E0NameE2TelE2NameE2 = `
 	<Name>Sheldon</Name>
 	<Email>an@e.mail</Email>
 	<Email>another@e.mail</Email>
-</Person>
-`
+</Person>`
 
-var Page195E0NameE0TelE0NameE2 = `
-<Person>
+var Page195E0NameE0TelE0NameE2 = `<Person>
 	<Name>Shannon</Name>
 	<Tel>123</Tel>
 	<Name>Sheldon</Name>
 	<Email>an@e.mail</Email>
 	<Email>another@e.mail</Email>
-</Person>
-`
+</Person>`
 
-var Page195E0NameE0TelE2NameE0 = `
-<Person>
+var Page195E0NameE0TelE2NameE0 = `<Person>
 	<Name>Shannon</Name>
 	<Tel>123</Tel>
 	<Email>an@e.mail</Email>
 	<Email>another@e.mail</Email>
 	<Name>Sheldon</Name>
-</Person>
-`
+</Person>`
 
-var Page195E0NameE2TelE0NameE0 = `
-<Person>
+var Page195E0NameE2TelE0NameE0 = `<Person>
 	<Name>Shannon</Name>
 	<Email>an@e.mail</Email>
 	<Email>another@e.mail</Email>
 	<Tel>123</Tel>
 	<Name>Sheldon</Name>
-</Person>
-`
+</Person>`
 
-var Page195E0NameE2NameE0 = `
-<Person>
+var Page195E0NameE2NameE0 = `<Person>
 	<Name>Shannon</Name>
 	<Email>an@e.mail</Email>
 	<Email>another@e.mail</Email>
 	<Name>Sheldon</Name>
-</Person>
-`
+</Person>`
 
-var Page195E0NameE0NameE2 = `
-<Person>
+var Page195E0NameE0NameE2 = `<Person>
 	<Name>Shannon</Name>
 	<Name>Sheldon</Name>
 	<Email>an@e.mail</Email>
 	<Email>another@e.mail</Email>
-</Person>
-`
+</Person>`
 
-var Page195E0NameE0NameE0 = `
-<Person>
+var Page195E0NameE0NameE0 = `<Person>
 	<Name>Shannon</Name>
 	<Name>Sheldon</Name>
-</Person>
-`
+</Person>`
 
-var Page195E0NameE2NameE0TelE0 = `
-<Person>
+var Page195E0NameE2NameE0TelE0 = `<Person>
 	<Name>Shannon</Name>
 	<Email>an@e.mail</Email>
 	<Email>another@e.mail</Email>
 	<Name>Sheldon</Name>
 	<Tel>123</Tel>
-</Person>
-`
+</Person>`
 
-var Page195E0NameE0NameE2TelE0 = `
-<Person>
+var Page195E0NameE0NameE2TelE0 = `<Person>
 	<Name>Shannon</Name>
 	<Name>Sheldon</Name>
 	<Email>an@e.mail</Email>
 	<Email>another@e.mail</Email>
 	<Tel>123</Tel>
-</Person>
-`
+</Person>`
 
-var Page195E0NameE0NameE0TelE0 = `
-<Person>
+var Page195E0NameE0NameE0TelE0 = `<Person>
 	<Name>Shannon</Name>
 	<Name>Sheldon</Name>
 	<Tel>123</Tel>
-</Person>
-`
+</Person>`
 
-var Page195E0TelE0NameE0NameE0 = `
-<Person>
+var Page195E0TelE0NameE0NameE0 = `<Person>
 	<Tel>123</Tel>
 	<Name>Shannon</Name>
 	<Name>Sheldon</Name>
-</Person>
-`
+</Person>`
 
-var Page195E0TelE0NameE0NameE2 = `
-<Person>
+var Page195E0TelE0NameE0NameE2 = `<Person>
 	<Tel>123</Tel>
 	<Name>Shannon</Name>
 	<Name>Sheldon</Name>
 	<Email>an@e.mail</Email>
 	<Email>another@e.mail</Email>
-</Person>
-`
+</Person>`
 
 func init() {
 	ValidateXMLString("Page195E2NameE0TelE0NameE2", Page195NameTelNameEmail, Page195E2NameE0TelE0NameE2, false)

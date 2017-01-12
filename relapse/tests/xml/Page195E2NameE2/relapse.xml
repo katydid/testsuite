@@ -132,8 +132,8 @@
 															</OpenParen>
 															<Params>
 																<Terminal>
-																	<Literal>`^(\s)+$`</Literal>
-																	<StringValue>^(\s)+$</StringValue>
+																	<Literal>`^([ &#x9;&#xD;&#xA;��])+$`</Literal>
+																	<StringValue>^([ &#x9;&#xD;&#xA;��])+$</StringValue>
 																	<BytesValue></BytesValue>
 																</Terminal>
 															</Params>

@@ -169,8 +169,8 @@
 													"Params": [
 														{
 															"Terminal": {
-																"Literal": "`^(\\s)+$`",
-																"StringValue": "^(\\s)+$"
+																"Literal": "`^([ \t\r\n\u000b\u000c])+$`",
+																"StringValue": "^([ \t\r\n\u000b\u000c])+$"
 															}
 														},
 														{
