@@ -87,6 +87,20 @@ func ValidateProtoNum(name string, grammar combinator.G, m ProtoMessage, expecte
 	})
 }
 
+func ValidateProtoNumNoRewrite(name string, grammar combinator.G, m ProtoMessage, expected bool) {
+	schemaName := registerProto(m)
+	checkDuplicates(name, "pbnum")
+	Validators = append(Validators, Validator{
+		Name:       name,
+		CodecName:  "pbnum",
+		Grammar:    grammar.Grammar(),
+		Expected:   expected,
+		Bytes:      mustBytes(proto.Marshal(m)),
+		SchemaName: schemaName,
+		Extension:  schemaName + ".pbnum",
+	})
+}
+
 func ValidateProtoName(name string, g combinator.G, m ProtoMessage, expected bool) {
 	schemaName := registerProto(m)
 	checkDuplicates(name, "pbname")
