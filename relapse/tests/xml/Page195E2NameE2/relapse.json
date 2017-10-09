@@ -130,7 +130,7 @@
 																{
 																	"Terminal": {
 																		"Literal": "`^([ \t\r\n\u000b\u000c])+$`",
-																		"StringValue": "^([ \t\r\n\u000b\u000c])+$"
+																		"StringValue": "^([ \t\n\u000b\u000c])+$"
 																	}
 																},
 																{

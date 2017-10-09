@@ -37,6 +37,6 @@
 		"Katydids Alive"
 	],
 	"MonkeysSmart": true,
-	"Survived": 1e+08,
+	"Survived": 100000000,
 	"WhatsUp": "E"
 }
