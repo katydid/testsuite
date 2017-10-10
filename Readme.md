@@ -65,3 +65,163 @@ Inside each benchcase folder is the relapse grammar in several formats: txt, jso
 This for cases where a new language has not had time to fully implement a relapse syntax parser.
 
 Also found in the benchcase folder is a 1000 generated files each starting with a number and following by codec and schema information.
+
+## Adding Tests
+
+As mentioned before tests are generated from Go code.
+Adding a test requires adding some more Go code in `gen-relapse-tests`.
+
+### Adding an XML Test
+
+Create a new file `./gen-relapse-tests/my_tests.go` with the following content:
+
+```go
+package main
+
+import (
+  "github.com/katydid/katydid/relapse/ast"
+  . "github.com/katydid/katydid/relapse/combinator"
+)
+
+func init() {
+  ValidateXMLString(
+    "test_name", // test name
+      G{"main": ast.NewTreeNode(ast.NewStringName("test"), ast.NewEmpty())}, // relapse grammar
+    "<test/>", // input xml
+    true, // valid?
+  )
+}
+```
+
+run:
+```
+$ make regenerate
+```
+
+This will then generate files in the `./tests/xml/test_name` folder:
+
+  - `relapse.txt` containing the relapse expression as a string.
+  - `relapse.xml` containing an xml serialized relapse abstract syntax tree.  This is for new implementations of relapse which have not implemented a parser for the grammar yet.
+  - `relapse.json` containing a json serialized relapse abstract syntax tree.  This is for new implementations of relapse which have not implemented a parser for the grammar yet.
+  - `valid.xml` containing the valid xml input.
+
+### Adding a JSON Test
+
+Create a new file `./gen-relapse-tests/my_tests.go` with the following content:
+
+```go
+package main
+
+import (
+  "github.com/katydid/katydid/relapse/ast"
+  "github.com/katydid/katydid/relapse/parser"
+)
+
+func init() {
+  str := `test=="abc"`
+  grammar, err := parser.ParseGrammar(str)
+  if err != nil {
+    panic(err)
+  }
+  ValidateJsonString(
+    "test_name", 
+    G(ast.NewRefLookup(grammar)),
+    `{"test":"abc"}`,
+    true,
+  )
+}
+```
+
+run:
+```
+$ make regenerate
+```
+
+This will then generate files in the `./tests/json/test_name` folder:
+
+  - `relapse.txt` containing the relapse expression as a string.
+  - `relapse.xml` containing an xml serialized relapse abstract syntax tree.  This is for new implementations of relapse which have not implemented a parser for the grammar yet.
+  - `relapse.json` containing a json serialized relapse abstract syntax tree.  This is for new implementations of relapse which have not implemented a parser for the grammar yet.
+  - `valid.json` containing the valid json input.
+
+### Adding a Protocol Buffer Test
+
+Create a new proto file `./gen-relapse-tests/my.proto` with your protobuf definition.  This should use [gogoprotobuf](https://github.com/gogo/protobuf), since we require a generated Description method that returns a FileDescriptorSet.
+
+Here is an example:
+
+```proto
+syntax = "proto2";
+
+package main;
+
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+
+option (gogoproto.gostring_all) = true;
+option (gogoproto.description_all) = true;
+
+message MyMessage {
+	optional string MyField = 1;
+}
+```
+
+In the `./gen-relapse-tests/Makefile` we need to add a command to generate some code for this protocol buffer.
+
+```
+(protoc --gogo_out=. -I=.:$(GOPATH)/src/:$(GOPATH)/src/github.com/gogo/protobuf/protobuf my.proto)
+```
+
+Finally we can create our test file `./gen-relapse-tests/my_tests.go` with the following content:
+
+```go
+package main
+
+import (
+  "github.com/katydid/katydid/relapse/ast"
+  "github.com/katydid/katydid/relapse/parser"
+  . "github.com/katydid/katydid/relapse/combinator"
+  . "github.com/katydid/katydid/relapse/funcs"
+)
+
+func init() {
+  str := `MyField == "abc"`
+  grammar, err := parser.ParseGrammar(largeRelapse)
+  if err != nil {
+    panic(err)
+  }
+  g := G{"main": grammar.GetTopPattern()}
+  msg := &MyMessage{
+    MyField: "abc",
+  }
+	ValidateProtoName(
+    "test_name", 
+    g,
+    msg,
+    true,
+  )
+}
+```
+
+run:
+```
+$ make regenerate
+```
+
+This will then generate files in the `./tests/pbname/test_name` folder:
+
+  - `relapse.txt` containing the relapse expression as a string.
+  - `relapse.xml` containing an xml serialized relapse abstract syntax tree.  This is for new implementations of relapse which have not implemented a parser for the grammar yet.
+  - `relapse.json` containing a json serialized relapse abstract syntax tree.  This is for new implementations of relapse which have not implemented a parser for the grammar yet.
+  - `valid.main.MyMessage.desc.pbname` containing the valid marshaled protocol buffer input.
+
+It also generates the file `./tests/pbname/main.MyMessage.desc` containing the marshaled FileDescriptorSet for MyMessage.
+
+`ValidateProtoNum` is another function that could have been used to validate the protocol buffer.  This validating translates the relapse expression into an expression that relies on field numbers instead of field names.  This is useful for optimization purposes. `ValidateProtoNum` works exactly like `ValidateProtoName` except that it translates the expression and outputs the files in the `pbnum` folder.  This lets the test runner know that it should use the protobuf parser that returns field numbers instead of field names.
+
+`ValidateProtoNumNoRewrite` is another function that could be used to validate a protocol buffer, but it relies on the input expression to have already been translated to field numberes.
+
+### More Tests
+
+`ValidateProtoEtc` and `ValidateProtoNumEtc` are validation functions that not only generates a test for protocol buffers, but also generates tests for json and goreflect. `ValidateProtoNumEtc` additionally generates a test for `pbnum`.
+
+The `./tests/goreflect` folder contains tests for reflected go structures.  These tests are for `Go` implementations only.  Instead of the generated folder containing a `valid.json` file, it contains a `valid.goreflect` file, which also contains json.  This json will be unmarshaled into a go structure that will be passed to the goreflect parser.
