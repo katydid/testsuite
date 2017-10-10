@@ -193,7 +193,7 @@ func init() {
   msg := &MyMessage{
     MyField: "abc",
   }
-	ValidateProtoName(
+  ValidateProtoName(
     "test_name", 
     g,
     msg,
