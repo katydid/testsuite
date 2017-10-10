@@ -220,7 +220,7 @@ It also generates the file `./tests/pbname/main.MyMessage.desc` containing the m
 
 `ValidateProtoNumNoRewrite` is another function that could be used to validate a protocol buffer, but it relies on the input expression to have already been translated to field numberes.
 
-### More Tests
+### Adding More Tests
 
 `ValidateProtoEtc` and `ValidateProtoNumEtc` are validation functions that not only generates a test for protocol buffers, but also generates tests for json and goreflect. `ValidateProtoNumEtc` additionally generates a test for `pbnum`.
 
