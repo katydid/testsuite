@@ -28,11 +28,10 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/gogo/protobuf/gogoproto"
 
-import github_com_gogo_protobuf_protoc_gen_gogo_descriptor "github.com/gogo/protobuf/protoc-gen-gogo/descriptor"
-import github_com_gogo_protobuf_proto "github.com/gogo/protobuf/proto"
-import compress_gzip "compress/gzip"
+import descriptor "github.com/gogo/protobuf/protoc-gen-gogo/descriptor"
+import gzip "compress/gzip"
 import bytes "bytes"
-import io_ioutil "io/ioutil"
+import ioutil "io/ioutil"
 
 import strings "strings"
 import reflect "reflect"
@@ -1254,44 +1253,44 @@ func init() {
 	proto.RegisterEnum("main.RadarBox", RadarBox_name, RadarBox_value)
 	proto.RegisterEnum("main.AccountantPowder", AccountantPowder_name, AccountantPowder_value)
 }
-func (this *PuddingMilkshake) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *PuddingMilkshake) Description() (desc *descriptor.FileDescriptorSet) {
 	return PuddingmilkshakeDescription()
 }
-func (this *FinanceJudo) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *FinanceJudo) Description() (desc *descriptor.FileDescriptorSet) {
 	return PuddingmilkshakeDescription()
 }
-func (this *SaladWorry) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *SaladWorry) Description() (desc *descriptor.FileDescriptorSet) {
 	return PuddingmilkshakeDescription()
 }
-func (this *KeyQueen) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *KeyQueen) Description() (desc *descriptor.FileDescriptorSet) {
 	return PuddingmilkshakeDescription()
 }
-func (this *TravelBallRoom) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *TravelBallRoom) Description() (desc *descriptor.FileDescriptorSet) {
 	return PuddingmilkshakeDescription()
 }
-func (this *SpyCarpenter) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *SpyCarpenter) Description() (desc *descriptor.FileDescriptorSet) {
 	return PuddingmilkshakeDescription()
 }
-func (this *StarTusk) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *StarTusk) Description() (desc *descriptor.FileDescriptorSet) {
 	return PuddingmilkshakeDescription()
 }
-func (this *MigraneLemonade) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *MigraneLemonade) Description() (desc *descriptor.FileDescriptorSet) {
 	return PuddingmilkshakeDescription()
 }
-func (this *MudRiddle) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *MudRiddle) Description() (desc *descriptor.FileDescriptorSet) {
 	return PuddingmilkshakeDescription()
 }
-func (this *XrayPilot) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *XrayPilot) Description() (desc *descriptor.FileDescriptorSet) {
 	return PuddingmilkshakeDescription()
 }
-func (this *XrayPilots) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *XrayPilots) Description() (desc *descriptor.FileDescriptorSet) {
 	return PuddingmilkshakeDescription()
 }
-func (this *BingleDaisy) Description() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
+func (this *BingleDaisy) Description() (desc *descriptor.FileDescriptorSet) {
 	return PuddingmilkshakeDescription()
 }
-func PuddingmilkshakeDescription() (desc *github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet) {
-	d := &github_com_gogo_protobuf_protoc_gen_gogo_descriptor.FileDescriptorSet{}
+func PuddingmilkshakeDescription() (desc *descriptor.FileDescriptorSet) {
+	d := &descriptor.FileDescriptorSet{}
 	var gzipped = []byte{
 		// 5769 bytes of a gzipped FileDescriptorSet
 		0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xc4, 0x7b, 0x5b, 0x70, 0x23, 0xc7,
@@ -1657,15 +1656,15 @@ func PuddingmilkshakeDescription() (desc *github_com_gogo_protobuf_protoc_gen_go
 		0xff, 0x7a, 0x9d, 0x33, 0x3b, 0x2e, 0x42, 0x00, 0x00,
 	}
 	r := bytes.NewReader(gzipped)
-	gzipr, err := compress_gzip.NewReader(r)
+	gzipr, err := gzip.NewReader(r)
 	if err != nil {
 		panic(err)
 	}
-	ungzipped, err := io_ioutil.ReadAll(gzipr)
+	ungzipped, err := ioutil.ReadAll(gzipr)
 	if err != nil {
 		panic(err)
 	}
-	if err := github_com_gogo_protobuf_proto.Unmarshal(ungzipped, d); err != nil {
+	if err := proto.Unmarshal(ungzipped, d); err != nil {
 		panic(err)
 	}
 	return d
