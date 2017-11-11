@@ -47,6 +47,7 @@ func checkDuplicateBenches(name, codecName string) {
 
 func BenchValidateProtoNumEtc(name string, grammar combinator.G, randProto RandProto) {
 	BenchValidateProtoNum(name, grammar, randProto)
+	BenchValidateProtoName(name, grammar, randProto)
 	BenchValidateJson(name, grammar, randProto)
 }
 
@@ -73,6 +74,24 @@ func BenchValidateProtoNum(name string, grammar combinator.G, randProto RandProt
 		Extension:  schemaName + ".pbnum",
 	})
 	checkDuplicateBenches(name, "pbnum")
+}
+
+func BenchValidateProtoName(name string, grammar combinator.G, randProto RandProto) {
+	m := randProto(rand.New(rand.NewSource(1)))
+	randBytes := func(r *rand.Rand) []byte {
+		pb := randProto(r)
+		return mustBytes(proto.Marshal(pb))
+	}
+	schemaName := registerProto(m)
+	BenchValidators = append(BenchValidators, BenchValidator{
+		Name:       name,
+		CodecName:  "pbname",
+		Grammar:    grammar.Grammar(),
+		RandBytes:  randBytes,
+		SchemaName: schemaName,
+		Extension:  schemaName + ".pbname",
+	})
+	checkDuplicateBenches(name, "pbname")
 }
 
 func BenchValidateJson(name string, grammar combinator.G, randProto RandProto) {
