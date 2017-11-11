@@ -16,6 +16,7 @@ package main
 
 import (
 	"encoding/json"
+	"encoding/xml"
 	"math/rand"
 	"reflect"
 
@@ -49,6 +50,7 @@ func BenchValidateProtoNumEtc(name string, grammar combinator.G, randProto RandP
 	BenchValidateProtoNum(name, grammar, randProto)
 	BenchValidateProtoName(name, grammar, randProto)
 	BenchValidateJson(name, grammar, randProto)
+	BenchValidateXML(name, grammar, randProto)
 }
 
 func BenchValidateProtoNum(name string, grammar combinator.G, randProto RandProto) {
@@ -107,6 +109,21 @@ func BenchValidateJson(name string, grammar combinator.G, randProto RandProto) {
 		Extension: "json",
 	})
 	checkDuplicateBenches(name, "json")
+}
+
+func BenchValidateXML(name string, grammar combinator.G, randProto RandProto) {
+	randBytes := func(r *rand.Rand) []byte {
+		pb := randProto(r)
+		return mustBytes(xml.Marshal(pb))
+	}
+	BenchValidators = append(BenchValidators, BenchValidator{
+		Name:      name,
+		CodecName: "xml",
+		Grammar:   grammar.Grammar(),
+		RandBytes: randBytes,
+		Extension: "xml",
+	})
+	checkDuplicateBenches(name, "xml")
 }
 
 type RandBytes func(r *rand.Rand) []byte
