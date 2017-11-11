@@ -15,6 +15,7 @@
 package main
 
 import (
+	"encoding/json"
 	"math/rand"
 	"reflect"
 
@@ -44,6 +45,11 @@ func checkDuplicateBenches(name, codecName string) {
 	duplicatesBenches[n] = struct{}{}
 }
 
+func BenchValidateProtoNumEtc(name string, grammar combinator.G, randProto RandProto) {
+	BenchValidateProtoNum(name, grammar, randProto)
+	BenchValidateJson(name, grammar, randProto)
+}
+
 func BenchValidateProtoNum(name string, grammar combinator.G, randProto RandProto) {
 	m := randProto(rand.New(rand.NewSource(1)))
 	packageName := "main"
@@ -67,6 +73,21 @@ func BenchValidateProtoNum(name string, grammar combinator.G, randProto RandProt
 		Extension:  schemaName + ".pbnum",
 	})
 	checkDuplicateBenches(name, "pbnum")
+}
+
+func BenchValidateJson(name string, grammar combinator.G, randProto RandProto) {
+	randBytes := func(r *rand.Rand) []byte {
+		pb := randProto(r)
+		return mustBytes(json.Marshal(pb))
+	}
+	BenchValidators = append(BenchValidators, BenchValidator{
+		Name:      name,
+		CodecName: "json",
+		Grammar:   grammar.Grammar(),
+		RandBytes: randBytes,
+		Extension: "json",
+	})
+	checkDuplicateBenches(name, "json")
 }
 
 type RandBytes func(r *rand.Rand) []byte

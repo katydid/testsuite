@@ -15,5 +15,5 @@
 package main
 
 func init() {
-	BenchValidateProtoNum("RecursiveSrcTree", RecursiveSrcTree, RandomSrcTree)
+	BenchValidateProtoNumEtc("RecursiveSrcTree", RecursiveSrcTree, RandomSrcTree)
 }

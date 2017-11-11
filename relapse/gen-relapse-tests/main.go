@@ -18,7 +18,7 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	"flag"
-	"io/ioutil"
+	"io"
 	"log"
 	"math/rand"
 	"os"
@@ -124,9 +124,22 @@ func createFolder(folder string) {
 }
 
 func writeFile(filename string, data []byte) {
-	if err := ioutil.WriteFile(filename, data, 0644); err != nil {
+	if err := writeFileWithSync(filename, data, 0644); err != nil {
 		log.Fatalf("error <%v> writing file <%s>", err, filename)
 	}
+}
+
+// writeFileWithSync adds the os.O_SYNC flag, otherwise we get the error: too many open files in system.
+func writeFileWithSync(filename string, data []byte, perm os.FileMode) error {
+	f, err := os.OpenFile(filename, os.O_WRONLY|os.O_CREATE|os.O_TRUNC|os.O_SYNC, perm)
+	if err != nil {
+		return err
+	}
+	n, err := f.Write(data)
+	if err == nil && n < len(data) {
+		return io.ErrShortWrite
+	}
+	return f.Close()
 }
 
 func notExists(filename string) bool {
