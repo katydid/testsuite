@@ -15,10 +15,117 @@
 package main
 
 import (
+	"log"
+	"math/rand"
+	"strings"
+
 	"github.com/gogo/protobuf/proto"
 	. "github.com/katydid/katydid/relapse/combinator"
 	. "github.com/katydid/katydid/relapse/funcs"
 )
+
+func RandomValidTypewriterPrisonScarBusStop(r *rand.Rand) ProtoMessage {
+	p := RandomTypewriterPrison(r).(*TypewriterPrison)
+	for p.PocketRoses == nil || p.GetPocketRoses().ScarBusStop == nil || !strings.Contains(p.GetPocketRoses().GetScarBusStop(), "a") {
+		log.Printf("random invalid: TypewriterPrisonScarBusStop")
+		p = RandomTypewriterPrison(r).(*TypewriterPrison)
+	}
+	return p
+}
+
+func RandomInvalidTypewriterPrisonScarBusStop(r *rand.Rand) ProtoMessage {
+	p := RandomTypewriterPrison(r).(*TypewriterPrison)
+	for strings.Contains(p.GetPocketRoses().GetScarBusStop(), "a") {
+		log.Printf("random valid: TypewriterPrisonScarBusStop")
+		p = RandomTypewriterPrison(r).(*TypewriterPrison)
+	}
+	return p
+}
+
+func RandomValidTypewriterPrisonDaisySled(r *rand.Rand) ProtoMessage {
+	p := RandomTypewriterPrison(r).(*TypewriterPrison)
+	for p.PocketRoses == nil || p.GetPocketRoses().DaisySled == nil {
+		log.Printf("random invalid: TypewriterPrisonDaisySled")
+		p = RandomTypewriterPrison(r).(*TypewriterPrison)
+	}
+	p.GetPocketRoses().DaisySled = proto.Int64(1)
+	return p
+}
+
+func RandomInvalidTypewriterPrisonDaisySled(r *rand.Rand) ProtoMessage {
+	p := RandomTypewriterPrison(r).(*TypewriterPrison)
+	for p.GetPocketRoses().GetDaisySled() == 1 {
+		log.Printf("random valid: TypewriterPrisonDaisySled")
+		p = RandomTypewriterPrison(r).(*TypewriterPrison)
+	}
+	return p
+}
+
+func RandomValidTypewriterPrisonSmileLetter(r *rand.Rand) ProtoMessage {
+	p := RandomTypewriterPrison(r).(*TypewriterPrison)
+	for p.PocketRoses == nil || p.GetPocketRoses().SmileLetter == nil || !p.GetPocketRoses().GetSmileLetter() {
+		log.Printf("random invalid: TypewriterPrisonSmileLetter")
+		p = RandomTypewriterPrison(r).(*TypewriterPrison)
+	}
+	return p
+}
+
+func RandomInvalidTypewriterPrisonSmileLetter(r *rand.Rand) ProtoMessage {
+	p := RandomTypewriterPrison(r).(*TypewriterPrison)
+	for p.GetPocketRoses().GetSmileLetter() {
+		log.Printf("random valid: TypewriterPrisonSmileLetter")
+		p = RandomTypewriterPrison(r).(*TypewriterPrison)
+	}
+	return p
+}
+
+func RandomValidTypewriterPrisonMenuPaperclip(r *rand.Rand) ProtoMessage {
+	p := RandomTypewriterPrison(r).(*TypewriterPrison)
+	for p.PocketRoses == nil || p.GetPocketRoses().MenuPaperclip == nil {
+		log.Printf("random invalid: TypewriterPrisonMenuPaperclip")
+		p = RandomTypewriterPrison(r).(*TypewriterPrison)
+	}
+	return p
+}
+
+func randStringWithoutA(r *rand.Rand) string {
+	v25 := r.Intn(100)
+	tmps := make([]rune, v25)
+	for i := 0; i < v25; i++ {
+		tmps[i] = randUTF8RuneTypewriterprison(r)
+		for tmps[i] == 'a' {
+			tmps[i] = randUTF8RuneTypewriterprison(r)
+		}
+	}
+	return string(tmps)
+}
+
+func RandomInvalidTypewriterPrisonMenuPaperclip(r *rand.Rand) ProtoMessage {
+	p := RandomTypewriterPrison(r).(*TypewriterPrison)
+	for i := range p.GetPocketRoses().GetMenuPaperclip() {
+		log.Printf("random valid: TypewriterPrisonMenuPaperclip")
+		p.PocketRoses.MenuPaperclip[i] = randStringWithoutA(r)
+	}
+	return p
+}
+
+func RandomValidTypewriterPrisonMapShark(r *rand.Rand) ProtoMessage {
+	p := RandomTypewriterPrison(r).(*TypewriterPrison)
+	for p.PocketRoses == nil || p.GetPocketRoses().MapShark == nil || !strings.Contains(p.GetPocketRoses().GetMapShark(), "a") {
+		log.Printf("random invalid: TypewriterPrisonMapShark")
+		p = RandomTypewriterPrison(r).(*TypewriterPrison)
+	}
+	return p
+}
+
+func RandomInvalidTypewriterPrisonMapShark(r *rand.Rand) ProtoMessage {
+	p := RandomTypewriterPrison(r).(*TypewriterPrison)
+	for strings.Contains(p.GetPocketRoses().GetMapShark(), "a") {
+		log.Printf("random valid: TypewriterPrisonMapShark")
+		p = RandomTypewriterPrison(r).(*TypewriterPrison)
+	}
+	return p
+}
 
 func init() {
 	var scarBusStop = G{
@@ -32,7 +139,7 @@ func init() {
 			Any(),
 		),
 	}
-	BenchValidateProtoNumEtc("TypewriterPrisonScarBusStop", scarBusStop, RandomTypewriterPrison)
+	BenchValidateProtoJson("TypewriterPrisonScarBusStop", scarBusStop, RandomValidTypewriterPrisonScarBusStop, RandomInvalidTypewriterPrisonScarBusStop)
 	ValidateProtoNum("TypewriterPrisonScarBusStop", scarBusStop, &TypewriterPrison{PocketRoses: &PocketRoses{ScarBusStop: proto.String("a")}}, true)
 
 	var daisySled = G{
@@ -46,7 +153,7 @@ func init() {
 			Any(),
 		),
 	}
-	BenchValidateProtoNumEtc("TypewriterPrisonDaisySled", daisySled, RandomTypewriterPrison)
+	BenchValidateProtoJson("TypewriterPrisonDaisySled", daisySled, RandomValidTypewriterPrisonDaisySled, RandomInvalidTypewriterPrisonDaisySled)
 	ValidateProtoNum("TypewriterPrisonDaisySled", daisySled, &TypewriterPrison{PocketRoses: &PocketRoses{DaisySled: proto.Int64(1)}}, true)
 
 	var smileLetter = G{
@@ -60,7 +167,7 @@ func init() {
 			Any(),
 		),
 	}
-	BenchValidateProtoNumEtc("TypewriterPrisonSmileLetter", smileLetter, RandomTypewriterPrison)
+	BenchValidateProtoJson("TypewriterPrisonSmileLetter", smileLetter, RandomValidTypewriterPrisonSmileLetter, RandomInvalidTypewriterPrisonSmileLetter)
 	ValidateProtoNum("TypewriterPrisonSmileLetter", smileLetter, &TypewriterPrison{PocketRoses: &PocketRoses{SmileLetter: proto.Bool(true)}}, true)
 
 	var menuPaperClip = G{
@@ -77,7 +184,7 @@ func init() {
 			Any(),
 		),
 	}
-	BenchValidateProtoNumEtc("TypewriterPrisonMenuPaperclip", menuPaperClip, RandomTypewriterPrison)
+	BenchValidateProtoJson("TypewriterPrisonMenuPaperclip", menuPaperClip, RandomValidTypewriterPrisonMenuPaperclip, RandomInvalidTypewriterPrisonMenuPaperclip)
 	ValidateProtoNum("TypewriterPrisonMenuPaperclip", menuPaperClip, &TypewriterPrison{PocketRoses: &PocketRoses{MenuPaperclip: []string{"a"}}}, true)
 
 	var mapShark = G{
@@ -91,7 +198,7 @@ func init() {
 			Any(),
 		),
 	}
-	BenchValidateProtoNumEtc("TypewriterPrisonMapShark", mapShark, RandomTypewriterPrison)
+	BenchValidateProtoJson("TypewriterPrisonMapShark", mapShark, RandomValidTypewriterPrisonMapShark, RandomInvalidTypewriterPrisonMapShark)
 	ValidateProtoNum("TypewriterPrisonMapShark", mapShark, &TypewriterPrison{PocketRoses: &PocketRoses{MapShark: proto.String("a")}}, true)
 
 }

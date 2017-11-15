@@ -21,18 +21,25 @@ import (
 	"reflect"
 
 	"github.com/gogo/protobuf/proto"
+
+	jsonparser "github.com/katydid/katydid/parser/json"
+	protoparser "github.com/katydid/katydid/parser/proto"
+	xmlparser "github.com/katydid/katydid/parser/xml"
+	"github.com/katydid/katydid/relapse"
 	"github.com/katydid/katydid/relapse/ast"
 	"github.com/katydid/katydid/relapse/combinator"
 	"github.com/katydid/katydid/relapse/protonum"
 )
 
 type BenchValidator struct {
-	Name       string
-	CodecName  string
-	Grammar    *ast.Grammar
-	RandBytes  RandBytes
-	SchemaName string
-	Extension  string
+	Name         string
+	CodecName    string
+	Grammar      *ast.Grammar
+	ValidBytes   RandBytes
+	InvalidBytes RandBytes
+	SchemaName   string
+	Extension    string
+	Validate     func([]byte) bool
 }
 
 var BenchValidators = []BenchValidator{}
@@ -46,15 +53,21 @@ func checkDuplicateBenches(name, codecName string) {
 	duplicatesBenches[n] = struct{}{}
 }
 
-func BenchValidateProtoNumEtc(name string, grammar combinator.G, randProto RandProto) {
-	BenchValidateProtoNum(name, grammar, randProto)
-	BenchValidateProtoName(name, grammar, randProto)
-	BenchValidateJson(name, grammar, randProto)
-	BenchValidateXML(name, grammar, randProto)
+func BenchValidateProtoJson(name string, grammar combinator.G, validProto, invalidProto RandProto) {
+	BenchValidateProtoNum(name, grammar, validProto, invalidProto)
+	BenchValidateProtoName(name, grammar, validProto, invalidProto)
+	BenchValidateJson(name, grammar, validProto, invalidProto)
 }
 
-func BenchValidateProtoNum(name string, grammar combinator.G, randProto RandProto) {
-	m := randProto(rand.New(rand.NewSource(1)))
+func BenchValidateProtoNumEtc(name string, grammar combinator.G, validProto, invalidProto RandProto) {
+	BenchValidateProtoNum(name, grammar, validProto, invalidProto)
+	BenchValidateProtoName(name, grammar, validProto, invalidProto)
+	BenchValidateJson(name, grammar, validProto, invalidProto)
+	BenchValidateXML(name, grammar, validProto, invalidProto)
+}
+
+func BenchValidateProtoNum(name string, grammar combinator.G, validProto, invalidProto RandProto) {
+	m := validProto(rand.New(rand.NewSource(1)))
 	packageName := "main"
 	messageName := reflect.TypeOf(m).Elem().Name()
 	desc := m.(ProtoMessage).Description()
@@ -62,66 +75,146 @@ func BenchValidateProtoNum(name string, grammar combinator.G, randProto RandProt
 	if err != nil {
 		panic(name + ": " + err.Error())
 	}
-	randBytes := func(r *rand.Rand) []byte {
-		pb := randProto(r)
+	validBytes := func(r *rand.Rand) []byte {
+		pb := validProto(r)
+		return mustBytes(proto.Marshal(pb))
+	}
+	invalidBytes := func(r *rand.Rand) []byte {
+		pb := invalidProto(r)
 		return mustBytes(proto.Marshal(pb))
 	}
 	schemaName := registerProto(m)
 	BenchValidators = append(BenchValidators, BenchValidator{
-		Name:       name,
-		CodecName:  "pbnum",
-		Grammar:    g,
-		RandBytes:  randBytes,
-		SchemaName: schemaName,
-		Extension:  schemaName + ".pbnum",
+		Name:         name,
+		CodecName:    "pbnum",
+		Grammar:      g,
+		ValidBytes:   validBytes,
+		InvalidBytes: invalidBytes,
+		SchemaName:   schemaName,
+		Extension:    schemaName + ".pbnum",
+		Validate: func(buf []byte) bool {
+			p, err := protoparser.NewProtoNumParser(packageName, messageName, desc)
+			if err != nil {
+				panic(err)
+			}
+			m, err := relapse.Prepare(g)
+			if err != nil {
+				panic(err)
+			}
+			if err := p.Init(buf); err != nil {
+				panic(err)
+			}
+			v, err := relapse.Validate(m, p)
+			return v && err == nil
+		},
 	})
 	checkDuplicateBenches(name, "pbnum")
 }
 
-func BenchValidateProtoName(name string, grammar combinator.G, randProto RandProto) {
-	m := randProto(rand.New(rand.NewSource(1)))
-	randBytes := func(r *rand.Rand) []byte {
-		pb := randProto(r)
+func BenchValidateProtoName(name string, grammar combinator.G, validProto, invalidProto RandProto) {
+	m := validProto(rand.New(rand.NewSource(1)))
+	packageName := "main"
+	messageName := reflect.TypeOf(m).Elem().Name()
+	desc := m.(ProtoMessage).Description()
+	g := grammar.Grammar()
+	validBytes := func(r *rand.Rand) []byte {
+		pb := validProto(r)
+		return mustBytes(proto.Marshal(pb))
+	}
+	invalidBytes := func(r *rand.Rand) []byte {
+		pb := invalidProto(r)
 		return mustBytes(proto.Marshal(pb))
 	}
 	schemaName := registerProto(m)
 	BenchValidators = append(BenchValidators, BenchValidator{
-		Name:       name,
-		CodecName:  "pbname",
-		Grammar:    grammar.Grammar(),
-		RandBytes:  randBytes,
-		SchemaName: schemaName,
-		Extension:  schemaName + ".pbname",
+		Name:         name,
+		CodecName:    "pbname",
+		Grammar:      g,
+		ValidBytes:   validBytes,
+		InvalidBytes: invalidBytes,
+		SchemaName:   schemaName,
+		Extension:    schemaName + ".pbname",
+		Validate: func(buf []byte) bool {
+			p, err := protoparser.NewProtoNameParser(packageName, messageName, desc)
+			if err != nil {
+				panic(err)
+			}
+			if err := p.Init(buf); err != nil {
+				panic(err)
+			}
+			m, err := relapse.Prepare(g)
+			if err != nil {
+				panic(err)
+			}
+			v, err := relapse.Validate(m, p)
+			return v && err == nil
+		},
 	})
 	checkDuplicateBenches(name, "pbname")
 }
 
-func BenchValidateJson(name string, grammar combinator.G, randProto RandProto) {
-	randBytes := func(r *rand.Rand) []byte {
-		pb := randProto(r)
+func BenchValidateJson(name string, grammar combinator.G, validProto, invalidProto RandProto) {
+	g := grammar.Grammar()
+	validBytes := func(r *rand.Rand) []byte {
+		pb := validProto(r)
+		return mustBytes(json.Marshal(pb))
+	}
+	invalidBytes := func(r *rand.Rand) []byte {
+		pb := invalidProto(r)
 		return mustBytes(json.Marshal(pb))
 	}
 	BenchValidators = append(BenchValidators, BenchValidator{
-		Name:      name,
-		CodecName: "json",
-		Grammar:   grammar.Grammar(),
-		RandBytes: randBytes,
-		Extension: "json",
+		Name:         name,
+		CodecName:    "json",
+		Grammar:      g,
+		ValidBytes:   validBytes,
+		InvalidBytes: invalidBytes,
+		Extension:    "json",
+		Validate: func(buf []byte) bool {
+			p := jsonparser.NewJsonParser()
+			if err := p.Init(buf); err != nil {
+				panic(err)
+			}
+			m, err := relapse.Prepare(g)
+			if err != nil {
+				panic(err)
+			}
+			v, err := relapse.Validate(m, p)
+			return v && err == nil
+		},
 	})
 	checkDuplicateBenches(name, "json")
 }
 
-func BenchValidateXML(name string, grammar combinator.G, randProto RandProto) {
-	randBytes := func(r *rand.Rand) []byte {
-		pb := randProto(r)
+func BenchValidateXML(name string, grammar combinator.G, validProto, invalidProto RandProto) {
+	g := grammar.Grammar()
+	validBytes := func(r *rand.Rand) []byte {
+		pb := validProto(r)
+		return mustBytes(xml.Marshal(pb))
+	}
+	invalidBytes := func(r *rand.Rand) []byte {
+		pb := invalidProto(r)
 		return mustBytes(xml.Marshal(pb))
 	}
 	BenchValidators = append(BenchValidators, BenchValidator{
-		Name:      name,
-		CodecName: "xml",
-		Grammar:   grammar.Grammar(),
-		RandBytes: randBytes,
-		Extension: "xml",
+		Name:         name,
+		CodecName:    "xml",
+		Grammar:      g,
+		ValidBytes:   validBytes,
+		InvalidBytes: invalidBytes,
+		Extension:    "xml",
+		Validate: func(buf []byte) bool {
+			p := xmlparser.NewXMLParser()
+			if err := p.Init(buf); err != nil {
+				panic(err)
+			}
+			m, err := relapse.Prepare(g)
+			if err != nil {
+				panic(err)
+			}
+			v, err := relapse.Validate(m, p)
+			return v && err == nil
+		},
 	})
 	checkDuplicateBenches(name, "xml")
 }

@@ -14,6 +14,30 @@
 
 package main
 
+import (
+	"math/rand"
+)
+
+func RandomValidRecursiveSrcTree(r *rand.Rand) ProtoMessage {
+	pops := []*SrcTree{IoUtilSrcTree, PathSrcTree}
+	return pops[r.Intn(2)]
+	// p := RandomSrcTree(r).(*SrcTree)
+	// for {
+	// 	index := r.Intn(len(p.GetImports()) + 1)
+	// 	if index == 0 {
+	// 		p.PackageName = proto.String("io")
+	// 		break
+	// 	}
+	// 	p = p.GetImports()[index-1]
+	// }
+	// return p
+}
+
+func RandomInvalidRecursiveSrcTree(r *rand.Rand) ProtoMessage {
+	pops := []*SrcTree{RuntimeSrcTree, SyscallSrcTree}
+	return pops[r.Intn(2)]
+}
+
 func init() {
-	BenchValidateProtoNumEtc("RecursiveSrcTree", RecursiveSrcTree, RandomSrcTree)
+	BenchValidateProtoJson("RecursiveSrcTree", RecursiveSrcTree, RandomValidRecursiveSrcTree, RandomInvalidRecursiveSrcTree)
 }

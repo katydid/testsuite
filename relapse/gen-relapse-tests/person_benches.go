@@ -14,14 +14,127 @@
 
 package main
 
+import (
+	"log"
+	"math/rand"
+
+	"github.com/gogo/protobuf/proto"
+)
+
+func RandomValidContextPerson(r *rand.Rand) ProtoMessage {
+	p := RandomPerson(r).(*Person)
+	for len(p.Addresses) == 0 {
+		log.Printf("random invalid: ContextPerson")
+		p = RandomPerson(r).(*Person)
+	}
+	index := rand.Intn(len(p.Addresses))
+	p.Addresses[index].Number = proto.Int64(456)
+	p.Addresses[index].Street = proto.String("TheStreet")
+	return p
+}
+
+func RandomValidListIndexAddressPerson(r *rand.Rand) ProtoMessage {
+	p := RandomPerson(r).(*Person)
+	if len(p.Addresses) <= 1 {
+		for i := 0; i < rand.Intn(10)+2; i++ {
+			p.Addresses = append(p.Addresses, NewPopulatedAddress(r, true))
+		}
+	}
+	p.Addresses[len(p.Addresses)-2].Number = proto.Int64(2)
+	p.Addresses[len(p.Addresses)-1].Number = proto.Int64(1)
+	return p
+}
+
+func RandomValidNilNamePerson(r *rand.Rand) ProtoMessage {
+	p := RandomPerson(r).(*Person)
+	p.Name = nil
+	return p
+}
+
+func RandomValidLenNamePerson(r *rand.Rand) ProtoMessage {
+	p := RandomPerson(r).(*Person)
+	p.Name = proto.String("")
+	return p
+}
+
+func randNonZeroString(r randyPerson) string {
+	l := r.Intn(100) + 1
+	tmps := make([]rune, l)
+	for i := 0; i < l; i++ {
+		tmps[i] = randUTF8RunePerson(r)
+	}
+	return string(tmps)
+}
+
+func RandomInvalidEmptyOrNilPerson(r *rand.Rand) ProtoMessage {
+	p := RandomPerson(r).(*Person)
+	for len(p.GetName()) == 0 {
+		log.Printf("random valid: EmptyOrNilPerson")
+		nonzero := randNonZeroString(r)
+		p.Name = proto.String(nonzero)
+	}
+	return p
+}
+
+func RandomValidEmptyOrNilPerson(r *rand.Rand) ProtoMessage {
+	p := RandomPerson(r).(*Person)
+	if r.Intn(2) == 0 {
+		p.Name = nil
+	} else {
+		p.Name = proto.String("")
+	}
+	return p
+}
+
+func RandomValidNaiveNotNamePerson(r *rand.Rand) ProtoMessage {
+	p := RandomPerson(r).(*Person)
+	if p.Name == nil {
+		p.Name = proto.String(randStringPerson(r))
+	}
+	return p
+}
+
+func RandomInvalidNaiveNotNamePerson(r *rand.Rand) ProtoMessage {
+	p := RandomPerson(r).(*Person)
+	if r.Intn(2) == 0 {
+		p.Name = nil
+	} else {
+		p.Name = proto.String("David")
+	}
+	return p
+}
+
+func RandomInvalidProperNotNamePerson(r *rand.Rand) ProtoMessage {
+	p := RandomPerson(r).(*Person)
+	p.Name = proto.String("David")
+	return p
+}
+
+func RandomValidAndNameTelephonePerson(r *rand.Rand) ProtoMessage {
+	p := RandomPerson(r).(*Person)
+	p.Name = proto.String("David")
+	p.Telephone = proto.String("0123456789")
+	return p
+}
+
+func RandomValidOrNameTelephonePerson(r *rand.Rand) ProtoMessage {
+	p := RandomPerson(r).(*Person)
+	if r.Intn(2) == 0 {
+		p.Name = proto.String("David")
+	} else {
+		p.Telephone = proto.String("0123456789")
+	}
+	return p
+}
+
 func init() {
-	BenchValidateProtoNumEtc("ContextPerson", ContextPerson, RandomPerson)
-	BenchValidateProtoNumEtc("ListIndexAddress", ListIndexAddressPerson, RandomPerson)
-	BenchValidateProtoNumEtc("NilName", NilNamePerson, RandomPerson)
-	BenchValidateProtoNumEtc("LenName", LenNamePerson, RandomPerson)
-	BenchValidateProtoNumEtc("EmptyOrNil", EmptyOrNilPerson, RandomPerson)
-	BenchValidateProtoNumEtc("IncorrectNotName", NaiveNotNamePerson, RandomPerson)
-	BenchValidateProtoNumEtc("CorrectNotName", ProperNotNamePerson, RandomPerson)
-	BenchValidateProtoNumEtc("AndNameTelephone", AndNameTelephonePerson, RandomPerson)
-	BenchValidateProtoNumEtc("OrNameTelephone", OrNameTelephonePerson, RandomPerson)
+	BenchValidateProtoJson("ContextPerson", ContextPerson, RandomValidContextPerson, RandomPerson)
+	BenchValidateProtoJson("ListIndexAddress", ListIndexAddressPerson, RandomValidListIndexAddressPerson, RandomPerson)
+	BenchValidateProtoJson("NilName", NilNamePerson, RandomValidNilNamePerson, RandomPerson)
+	BenchValidateProtoJson("LenName", LenNamePerson, RandomValidLenNamePerson, RandomPerson)
+	BenchValidateProtoJson("EmptyOrNil", EmptyOrNilPerson, RandomValidEmptyOrNilPerson, RandomInvalidEmptyOrNilPerson)
+	BenchValidateProtoJson("IncorrectNotName", NaiveNotNamePerson, RandomValidNaiveNotNamePerson, RandomInvalidNaiveNotNamePerson)
+	BenchValidateProtoJson("CorrectNotName", ProperNotNamePerson, RandomPerson, RandomInvalidProperNotNamePerson)
+	BenchValidateProtoJson("AndNameTelephone", AndNameTelephonePerson, RandomValidAndNameTelephonePerson, RandomPerson)
+	BenchValidateProtoJson("OrNameTelephone", OrNameTelephonePerson, RandomValidOrNameTelephonePerson, RandomPerson)
 }

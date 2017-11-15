@@ -100,9 +100,23 @@ func main() {
 		)
 
 		r := rand.New(rand.NewSource(*seed))
-		for i := 0; i < 1000; i++ {
-			bytesFilename := filepath.Join(folder, strconv.Itoa(i)+"."+v.Extension)
-			bytes := v.RandBytes(r)
+
+		for i := 0; i < 500; i++ {
+			bytes := v.ValidBytes(r)
+			for !v.Validate(bytes) {
+				log.Printf("generated invalid: %s - %s", v.Name, v.CodecName)
+				bytes = v.ValidBytes(r)
+			}
+			bytesFilename := filepath.Join(folder, "valid_"+strconv.Itoa(i)+"."+v.Extension)
+			writeFile(bytesFilename, bytes)
+		}
+		for i := 0; i < 500; i++ {
+			bytes := v.InvalidBytes(r)
+			for v.Validate(bytes) {
+				log.Printf("generated valid, wanted invalid: %s - %s", v.Name, v.CodecName)
+				bytes = v.InvalidBytes(r)
+			}
+			bytesFilename := filepath.Join(folder, "invalid_"+strconv.Itoa(i)+"."+v.Extension)
 			writeFile(bytesFilename, bytes)
 		}
 
@@ -127,6 +141,7 @@ func writeFile(filename string, data []byte) {
 	if err := writeFileWithSync(filename, data, 0644); err != nil {
 		log.Fatalf("error <%v> writing file <%s>", err, filename)
 	}
+	time.Sleep(time.Millisecond)
 }
 
 // writeFileWithSync adds the os.O_SYNC flag, otherwise we get the error: too many open files in system.

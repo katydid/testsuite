@@ -15,9 +15,79 @@
 package main
 
 import (
+	"log"
+	"math/rand"
+
 	. "github.com/katydid/katydid/relapse/combinator"
 	. "github.com/katydid/katydid/relapse/funcs"
 )
+
+func RandomValidBridgePepper(r *rand.Rand) ProtoMessage {
+	p := RandomPuddingMilkshake(r).(*PuddingMilkshake)
+	for p.GetFinanceJudo().GetSaladWorry().GetSpyCarpenter().GetBridgePepper() == nil {
+		log.Printf("random invalid: BridgePepper")
+		p = RandomPuddingMilkshake(r).(*PuddingMilkshake)
+	}
+	return p
+}
+
+func RandomInvalidBridgePepper(r *rand.Rand) ProtoMessage {
+	p := RandomPuddingMilkshake(r).(*PuddingMilkshake)
+	if ss := p.GetFinanceJudo().GetSaladWorry().GetSpyCarpenter().GetBridgePepper(); ss != nil {
+		for i := range ss {
+			ss[i] = randStringWithoutA(r)
+		}
+	}
+	return p
+}
+
+func randStringWitha(r randyPerson) string {
+	l := r.Intn(100) + 1
+	tmps := make([]rune, l)
+	for i := 0; i < l; i++ {
+		tmps[i] = randUTF8RunePerson(r)
+	}
+	tmps[r.Intn(l)] = 'a'
+	return string(tmps)
+}
+
+func RandomValidBridgePepperAndFountainTarget(r *rand.Rand) ProtoMessage {
+	p := RandomPuddingMilkshake(r).(*PuddingMilkshake)
+	for len(p.GetFinanceJudo().GetSaladWorry().GetSpyCarpenter().GetBridgePepper()) == 0 ||
+		len(p.GetFinanceJudo().GetSaladWorry().GetSpyCarpenter().GetFountainTarget()) == 0 {
+		log.Printf("random invalid: BridgePepperAndFountainTarget")
+		p = RandomPuddingMilkshake(r).(*PuddingMilkshake)
+	}
+	// bp := p.GetFinanceJudo().GetSaladWorry().GetSpyCarpenter().GetBridgePepper()
+	// ft := p.GetFinanceJudo().GetSaladWorry().GetSpyCarpenter().GetFountainTarget()
+	// bpi := rand.Intn(len(bp))
+	// fti := rand.Intn(len(ft))
+	p.FinanceJudo.SaladWorry.SpyCarpenter = &SpyCarpenter{
+		BridgePepper:   []string{"a"},
+		FountainTarget: []string{"a"},
+	}
+	// p.FinanceJudo.SaladWorry.SpyCarpenter.BridgePepper[bpi] = "a"
+	// p.FinanceJudo.SaladWorry.SpyCarpenter.FountainTarget[fti] = "a"
+	return p
+}
+
+func RandomInvalidBridgePepperAndFountainTarget(r *rand.Rand) ProtoMessage {
+	p := RandomPuddingMilkshake(r).(*PuddingMilkshake)
+	if r.Intn(2) == 0 {
+		if ss := p.GetFinanceJudo().GetSaladWorry().GetSpyCarpenter().GetBridgePepper(); ss != nil {
+			for i := range ss {
+				ss[i] = randStringWithoutA(r)
+			}
+		}
+	} else {
+		if ss := p.GetFinanceJudo().GetSaladWorry().GetSpyCarpenter().GetFountainTarget(); ss != nil {
+			for i := range ss {
+				ss[i] = randStringWithoutA(r)
+			}
+		}
+	}
+	return p
+}
 
 func init() {
 	var bridgePepper = G{
@@ -39,7 +109,7 @@ func init() {
 			Any(),
 		),
 	}
-	BenchValidateProtoNumEtc("BridgePepper", bridgePepper, RandomPuddingMilkshake)
+	BenchValidateProtoJson("BridgePepper", bridgePepper, RandomValidBridgePepper, RandomInvalidBridgePepper)
 	ValidateProtoNum("BridgePepper", bridgePepper, &PuddingMilkshake{FinanceJudo: &FinanceJudo{SaladWorry: &SaladWorry{SpyCarpenter: &SpyCarpenter{BridgePepper: []string{"a"}}}}}, true)
 
 	var bridgePepperAndFountainTarget = G{
@@ -62,6 +132,6 @@ func init() {
 			Any(),
 		),
 	}
-	BenchValidateProtoNumEtc("BridgePepperAndFountainTarget", bridgePepperAndFountainTarget, RandomPuddingMilkshake)
+	BenchValidateProtoJson("BridgePepperAndFountainTarget", bridgePepperAndFountainTarget, RandomValidBridgePepperAndFountainTarget, RandomInvalidBridgePepperAndFountainTarget)
 	ValidateProtoNum("BenchBridgePepperAndFountainTarget", bridgePepperAndFountainTarget, &PuddingMilkshake{FinanceJudo: &FinanceJudo{SaladWorry: &SaladWorry{SpyCarpenter: &SpyCarpenter{BridgePepper: []string{"a"}, FountainTarget: []string{"a"}}}}}, true)
 }
