@@ -107,7 +107,7 @@
 																"Value": ","
 															},
 															"Terminal": {
-																"Literal": "int(0)",
+																"Literal": "0",
 																"IntValue": 0
 															}
 														}

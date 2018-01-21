@@ -28,12 +28,7 @@
 											},
 											"Expr": {
 												"Terminal": {
-													"Before": {
-														"Space": [
-															" "
-														]
-													},
-													"Literal": "`io`",
+													"Literal": "\"io\"",
 													"StringValue": "io"
 												}
 											}

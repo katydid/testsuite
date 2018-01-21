@@ -1,2 +1,2 @@
 [*,[@spirit,*]]
-#spirit=uint(2):== 2
+#spirit=uint(2):==2

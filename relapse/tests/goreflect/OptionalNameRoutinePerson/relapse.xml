@@ -85,10 +85,7 @@
 											</Symbol>
 											<Expr>
 												<Terminal>
-													<Before>
-														<Space> </Space>
-													</Before>
-													<Literal>`0127897897`</Literal>
+													<Literal>&#34;0127897897&#34;</Literal>
 													<StringValue>0127897897</StringValue>
 													<BytesValue></BytesValue>
 												</Terminal>

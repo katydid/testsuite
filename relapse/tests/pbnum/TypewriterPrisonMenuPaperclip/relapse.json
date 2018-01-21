@@ -73,35 +73,15 @@
 																	"Pattern": {
 																		"LeafNode": {
 																			"Expr": {
-																				"RightArrow": {
-																					"Value": "-\u003e"
-																				},
-																				"Function": {
-																					"Name": "contains",
-																					"OpenParen": {
-																						"Value": "("
+																				"BuiltIn": {
+																					"Symbol": {
+																						"Value": "*="
 																					},
-																					"Params": [
-																						{
-																							"Terminal": {
-																								"Literal": "",
-																								"Variable": {
-																									"Type": 109
-																								}
-																							}
-																						},
-																						{
-																							"Comma": {
-																								"Value": ","
-																							},
-																							"Terminal": {
-																								"Literal": "`a`",
-																								"StringValue": "a"
-																							}
+																					"Expr": {
+																						"Terminal": {
+																							"Literal": "\"a\"",
+																							"StringValue": "a"
 																						}
-																					],
-																					"CloseParen": {
-																						"Value": ")"
 																					}
 																				}
 																			}

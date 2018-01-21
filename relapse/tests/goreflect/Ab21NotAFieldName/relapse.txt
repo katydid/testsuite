@@ -1,1 +1,1 @@
-[!(NotAFieldName)[MagazineFrame[_:== "a",*],*],*]
+[!(NotAFieldName)[MagazineFrame[_:=="a",*],*],*]

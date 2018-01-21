@@ -131,10 +131,7 @@
 																	</Symbol>
 																	<Expr>
 																		<Terminal>
-																			<Before>
-																				<Space> </Space>
-																			</Before>
-																			<Literal>int(456)</Literal>
+																			<Literal>456</Literal>
 																			<IntValue>456</IntValue>
 																			<BytesValue></BytesValue>
 																		</Terminal>

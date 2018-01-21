@@ -19,7 +19,6 @@ import (
 	"math/rand"
 
 	. "github.com/katydid/katydid/relapse/combinator"
-	. "github.com/katydid/katydid/relapse/funcs"
 )
 
 func RandomValidBridgePepper(r *rand.Rand) ProtoMessage {

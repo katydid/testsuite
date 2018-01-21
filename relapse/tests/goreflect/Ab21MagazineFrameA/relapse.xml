@@ -51,10 +51,7 @@
 																	</Symbol>
 																	<Expr>
 																		<Terminal>
-																			<Before>
-																				<Space> </Space>
-																			</Before>
-																			<Literal>`a`</Literal>
+																			<Literal>&#34;a&#34;</Literal>
 																			<StringValue>a</StringValue>
 																			<BytesValue></BytesValue>
 																		</Terminal>

@@ -42,10 +42,7 @@
 											</Symbol>
 											<Expr>
 												<Terminal>
-													<Before>
-														<Space> </Space>
-													</Before>
-													<Literal>`c`</Literal>
+													<Literal>&#34;c&#34;</Literal>
 													<StringValue>c</StringValue>
 													<BytesValue></BytesValue>
 												</Terminal>

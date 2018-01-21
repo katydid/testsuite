@@ -33,12 +33,7 @@
 											},
 											"Expr": {
 												"Terminal": {
-													"Before": {
-														"Space": [
-															" "
-														]
-													},
-													"Literal": "`a`",
+													"Literal": "\"a\"",
 													"StringValue": "a"
 												}
 											}
@@ -72,12 +67,7 @@
 													},
 													"Expr": {
 														"Terminal": {
-															"Before": {
-																"Space": [
-																	" "
-																]
-															},
-															"Literal": "`b`",
+															"Literal": "\"b\"",
 															"StringValue": "b"
 														}
 													}

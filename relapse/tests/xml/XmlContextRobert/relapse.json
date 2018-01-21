@@ -57,12 +57,7 @@
 																	},
 																	"Expr": {
 																		"Terminal": {
-																			"Before": {
-																				"Space": [
-																					" "
-																				]
-																			},
-																			"Literal": "int(456)",
+																			"Literal": "456",
 																			"IntValue": 456
 																		}
 																	}
@@ -108,12 +103,7 @@
 																					},
 																					"Expr": {
 																						"Terminal": {
-																							"Before": {
-																								"Space": [
-																									" "
-																								]
-																							},
-																							"Literal": "`TheStreet`",
+																							"Literal": "\"TheStreet\"",
 																							"StringValue": "TheStreet"
 																						}
 																					}

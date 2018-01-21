@@ -32,10 +32,7 @@
 											</Symbol>
 											<Expr>
 												<Terminal>
-													<Before>
-														<Space> </Space>
-													</Before>
-													<Literal>`d`</Literal>
+													<Literal>&#34;d&#34;</Literal>
 													<StringValue>d</StringValue>
 													<BytesValue></BytesValue>
 												</Terminal>

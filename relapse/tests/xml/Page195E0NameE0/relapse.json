@@ -118,35 +118,15 @@
 											"Pattern": {
 												"LeafNode": {
 													"Expr": {
-														"RightArrow": {
-															"Value": "-\u003e"
-														},
-														"Function": {
-															"Name": "regex",
-															"OpenParen": {
-																"Value": "("
+														"BuiltIn": {
+															"Symbol": {
+																"Value": "~="
 															},
-															"Params": [
-																{
-																	"Terminal": {
-																		"Literal": "`^([ \t\r\n\u000b\u000c])+$`",
-																		"StringValue": "^([ \t\n\u000b\u000c])+$"
-																	}
-																},
-																{
-																	"Comma": {
-																		"Value": ","
-																	},
-																	"Terminal": {
-																		"Literal": "",
-																		"Variable": {
-																			"Type": 109
-																		}
-																	}
+															"Expr": {
+																"Terminal": {
+																	"Literal": "\"^([ \\t\\r\\n\\v\\f])+$\"",
+																	"StringValue": "^([ \t\r\n\u000b\u000c])+$"
 																}
-															],
-															"CloseParen": {
-																"Value": ")"
 															}
 														}
 													}

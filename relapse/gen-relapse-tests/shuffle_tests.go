@@ -16,7 +16,6 @@ package main
 
 import (
 	. "github.com/katydid/katydid/relapse/combinator"
-	. "github.com/katydid/katydid/relapse/funcs"
 )
 
 //Foundations of XML Processing: The Tree Automata Approach - Chapter 15.2 Page 194
@@ -544,8 +543,8 @@ func init() {
 //ABStar{A:a & B:b & *}
 var ABStar = G{"main": In("ABStar",
 	InAnyOrder(
-		In("A", Value(StringEq(StringVar(), StringConst("a")))),
-		In("B", Value(StringEq(StringVar(), StringConst("b")))),
+		In("A", Value(Eq(StringVar(), StringConst("a")))),
+		In("B", Value(Eq(StringVar(), StringConst("b")))),
 		Any(),
 	),
 )}

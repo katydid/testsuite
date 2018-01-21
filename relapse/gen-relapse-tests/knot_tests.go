@@ -17,10 +17,9 @@ package main
 import (
 	"github.com/gogo/protobuf/proto"
 	. "github.com/katydid/katydid/relapse/combinator"
-	. "github.com/katydid/katydid/relapse/funcs"
 )
 
-var KnotElbow = G{"main": InAny(InAny(In("Elbow", Value(BoolEq(BoolVar(), BoolConst(true))))))}
+var KnotElbow = G{"main": InAny(InAny(In("Elbow", Value(Eq(BoolVar(), BoolConst(true))))))}
 
 var KnotKnotElbow = &Knot{
 	BitterEnd: &Knot{
@@ -45,7 +44,7 @@ func init() {
 
 var RecursiveTurn = G{"main": AnyOf(
 	InAny(Eval("main")),
-	In("Turn", Value(BoolEq(BoolVar(), BoolConst(true)))),
+	In("Turn", Value(Eq(BoolVar(), BoolConst(true)))),
 )}
 
 func init() {
@@ -55,7 +54,7 @@ func init() {
 
 var RecursiveElbow = G{"main": AnyOf(
 	InAny(Eval("main")),
-	In("Elbow", Value(BoolEq(BoolVar(), BoolConst(true)))),
+	In("Elbow", Value(Eq(BoolVar(), BoolConst(true)))),
 )}
 
 func init() {

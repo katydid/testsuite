@@ -21,7 +21,6 @@ import (
 
 	"github.com/gogo/protobuf/proto"
 	. "github.com/katydid/katydid/relapse/combinator"
-	. "github.com/katydid/katydid/relapse/funcs"
 )
 
 func RandomValidTypewriterPrisonScarBusStop(r *rand.Rand) ProtoMessage {
@@ -147,7 +146,7 @@ func init() {
 			Any(),
 			In("PocketRoses",
 				Any(),
-				In("DaisySled", Value(IntEq(IntVar(), IntConst(1)))),
+				In("DaisySled", Value(Eq(IntVar(), IntConst(1)))),
 				Any(),
 			),
 			Any(),

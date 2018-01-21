@@ -19,10 +19,7 @@
 							</Symbol>
 							<Expr>
 								<Terminal>
-									<Before>
-										<Space> </Space>
-									</Before>
-									<Literal>`B`</Literal>
+									<Literal>&#34;B&#34;</Literal>
 									<StringValue>B</StringValue>
 									<BytesValue></BytesValue>
 								</Terminal>

@@ -1,2 +1,2 @@
 [*,@spirit,*]
-#spirit=RumourSpirit:== 1
+#spirit=RumourSpirit:==1

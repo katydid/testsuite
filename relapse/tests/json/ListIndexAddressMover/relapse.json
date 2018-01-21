@@ -76,12 +76,7 @@
 																					},
 																					"Expr": {
 																						"Terminal": {
-																							"Before": {
-																								"Space": [
-																									" "
-																								]
-																							},
-																							"Literal": "int(2)",
+																							"Literal": "2",
 																							"IntValue": 2
 																						}
 																					}
@@ -134,12 +129,7 @@
 																					},
 																					"Expr": {
 																						"Terminal": {
-																							"Before": {
-																								"Space": [
-																									" "
-																								]
-																							},
-																							"Literal": "int(1)",
+																							"Literal": "1",
 																							"IntValue": 1
 																						}
 																					}

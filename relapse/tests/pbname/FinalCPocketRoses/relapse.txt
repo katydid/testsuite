@@ -1,1 +1,1 @@
-MenuPaperclip[*,2:== "c"]
+MenuPaperclip[*,2:=="c"]

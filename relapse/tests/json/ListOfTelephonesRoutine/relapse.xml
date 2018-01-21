@@ -58,7 +58,7 @@
 															<Value>,</Value>
 														</Comma>
 														<Terminal>
-															<Literal>`0123456789`</Literal>
+															<Literal>&#34;0123456789&#34;</Literal>
 															<StringValue>0123456789</StringValue>
 															<BytesValue></BytesValue>
 														</Terminal>
@@ -91,7 +91,7 @@
 															<Value>,</Value>
 														</Comma>
 														<Terminal>
-															<Literal>`0127897897`</Literal>
+															<Literal>&#34;0127897897&#34;</Literal>
 															<StringValue>0127897897</StringValue>
 															<BytesValue></BytesValue>
 														</Terminal>

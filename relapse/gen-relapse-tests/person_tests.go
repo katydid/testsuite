@@ -17,7 +17,6 @@ package main
 import (
 	"github.com/gogo/protobuf/proto"
 	. "github.com/katydid/katydid/relapse/combinator"
-	. "github.com/katydid/katydid/relapse/funcs"
 )
 
 var DavidPerson = &Person{
@@ -48,8 +47,8 @@ var RobertPerson = &Person{
 
 //Has this person ever lived at 456 TheStreet
 var ContextPerson = G{"main": InPath("Addresses", InAny(InOrder(
-	In("Number", Value(IntEq(IntVar(), IntConst(456)))),
-	In("Street", Value(StringEq(StringVar(), StringConst("TheStreet")))),
+	In("Number", Value(Eq(IntVar(), IntConst(456)))),
+	In("Street", Value(Eq(StringVar(), StringConst("TheStreet")))),
 )))}
 
 func init() {
@@ -59,9 +58,9 @@ func init() {
 
 var XmlContextPerson = G{"main": In("Person", InPath("Addresses",
 	Any(),
-	In("Number", Value(IntEq(IntVar(), IntConst(456)))),
+	In("Number", Value(Eq(IntVar(), IntConst(456)))),
 	Any(),
-	In("Street", Value(StringEq(StringVar(), StringConst("TheStreet")))),
+	In("Street", Value(Eq(StringVar(), StringConst("TheStreet")))),
 	Any(),
 ))}
 
@@ -175,8 +174,8 @@ var ListIndexAddressPerson = G{
 		Any(),
 		In("Addresses",
 			Any(),
-			InAny(InPath("Number", Value(IntEq(IntVar(), IntConst(2))))),
-			InAny(InPath("Number", Value(IntEq(IntVar(), IntConst(1))))),
+			InAny(InPath("Number", Value(Eq(IntVar(), IntConst(2))))),
+			InAny(InPath("Number", Value(Eq(IntVar(), IntConst(1))))),
 		),
 		Any(),
 	),
@@ -202,7 +201,7 @@ func init() {
 //Is this person's name an empty string
 var LenNamePerson = G{"main": InOrder(
 	Any(),
-	In("Name", Value(IntEq(LenString(StringVar()), IntConst(0)))),
+	In("Name", Value(Eq(Length(StringVar()), IntConst(0)))),
 	Any(),
 )}
 
@@ -229,7 +228,7 @@ func init() {
 var NaiveNotNamePerson = G{
 	"main": InOrder(
 		Any(),
-		In("Name", Value(Not(StringEq(StringVar(), StringConst("David"))))),
+		In("Name", Value(Not(Eq(StringVar(), StringConst("David"))))),
 		Any(),
 	),
 }
@@ -247,7 +246,7 @@ var ProperNotNamePerson = G{
 	"nil":  NilNamePerson["main"],
 	"name": InOrder(
 		Any(),
-		In("Name", Value(Not(StringEq(StringVar(), StringConst("David"))))),
+		In("Name", Value(Not(Eq(StringVar(), StringConst("David"))))),
 		Any(),
 	),
 }
@@ -265,12 +264,12 @@ var AndNameTelephonePerson = G{
 		AllOf(
 			InOrder(
 				Any(),
-				In("Name", Value(StringEq(StringVar(), StringConst("David")))),
+				In("Name", Value(Eq(StringVar(), StringConst("David")))),
 				Any(),
 			),
 			InOrder(
 				Any(),
-				In("Telephone", Value(StringEq(StringVar(), StringConst("0123456789")))),
+				In("Telephone", Value(Eq(StringVar(), StringConst("0123456789")))),
 				Any(),
 			),
 		),
@@ -287,8 +286,8 @@ func init() {
 //Is this person's name David or telephone number 0123456789
 var OrNameTelephonePerson = G{
 	"main": AnyOf(
-		InPath("Name", Value(StringEq(StringVar(), StringConst("David")))),
-		InPath("Telephone", Value(StringEq(StringVar(), StringConst("0123456789")))),
+		InPath("Name", Value(Eq(StringVar(), StringConst("David")))),
+		InPath("Telephone", Value(Eq(StringVar(), StringConst("0123456789")))),
 	),
 }
 
@@ -303,7 +302,7 @@ func init() {
 var ListOfTelephonesPerson = G{
 	"main": InOrder(
 		Any(),
-		In("Telephone", Value(Or(StringEq(StringVar(), StringConst("0123456789")), StringEq(StringVar(), StringConst("0127897897"))))),
+		In("Telephone", Value(Or(Eq(StringVar(), StringConst("0123456789")), Eq(StringVar(), StringConst("0127897897"))))),
 		Any(),
 	),
 }
@@ -320,7 +319,7 @@ var LeftRecursion = G{
 			Eval("main"),
 			InOrder(
 				Any(),
-				In("Telephone", Value(StringEq(StringVar(), StringConst("0123456789")))),
+				In("Telephone", Value(Eq(StringVar(), StringConst("0123456789")))),
 			),
 		),
 	),
@@ -337,7 +336,7 @@ var HiddenLeftRecursion = G{
 			Eval("hidden"),
 			InOrder(
 				Any(),
-				In("Telephone", Value(StringEq(StringVar(), StringConst("0123456789")))),
+				In("Telephone", Value(Eq(StringVar(), StringConst("0123456789")))),
 			),
 		),
 	),
@@ -363,7 +362,7 @@ var PositiveNumber = G{
 	"main": InOrder(
 		In("Addresses",
 			InAny(
-				In("Number", Value(UintGE(UintVar(), UintConst(0)))),
+				In("Number", Value(GE(UintVar(), UintConst(0)))),
 				Any(),
 			),
 		),
@@ -376,12 +375,12 @@ func init() {
 }
 
 var CorrectTypePerson = G{"main": InOrder(
-	In("Name", Value(TypeString(StringVar()))),
+	In("Name", Value(Type(StringVar()))),
 	Any(),
 )}
 
 var WrongTypePerson = G{"main": InOrder(
-	In("Name", Value(TypeInt(IntVar()))),
+	In("Name", Value(Type(IntVar()))),
 	Any(),
 )}
 
@@ -390,7 +389,7 @@ func init() {
 	ValidateProtoNumEtc("WrongTypeRobert", WrongTypePerson, RobertPerson, false)
 }
 
-var InSetPerson = G{"main": InPath("Name", Value(ContainsString(StringVar(),
+var InSetPerson = G{"main": InPath("Name", Value(Contains(StringVar(),
 	StringsConst([]string{"The", "Robert", "Smith"}),
 )))}
 
@@ -402,7 +401,7 @@ func init() {
 var OptionalName = G{"main": InOrder(
 	Maybe(In("Name", Any())),
 	In("Addresses", Any()),
-	In("Telephone", Value(StringEq(StringVar(), StringConst("0127897897")))),
+	In("Telephone", Value(Eq(StringVar(), StringConst("0127897897")))),
 )}
 
 func init() {
@@ -415,7 +414,7 @@ func init() {
 
 var OptionalAddress = G{"main": InPath("Addresses",
 	Maybe(InAny(In("Number", Any()), In("Street", Any()))),
-	InAny(In("Number", Value(IntEq(IntVar(), IntConst(456)))), In("Street", Any())),
+	InAny(In("Number", Value(Eq(IntVar(), IntConst(456)))), In("Street", Any())),
 )}
 
 func init() {

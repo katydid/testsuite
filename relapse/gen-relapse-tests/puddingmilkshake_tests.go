@@ -17,7 +17,6 @@ package main
 import (
 	"github.com/gogo/protobuf/proto"
 	. "github.com/katydid/katydid/relapse/combinator"
-	. "github.com/katydid/katydid/relapse/funcs"
 )
 
 var Ab21FinanceJudo = &FinanceJudo{
@@ -44,7 +43,7 @@ func init() {
 
 var HasSpirit1FinanceJudo = G{
 	"main":   InOrder(Any(), Eval("spirit"), Any()),
-	"spirit": In("RumourSpirit", Value(IntEq(IntVar(), IntConst(1)))),
+	"spirit": In("RumourSpirit", Value(Eq(IntVar(), IntConst(1)))),
 }
 
 func init() {
@@ -53,7 +52,7 @@ func init() {
 
 var HasSpirit2FinanceJudo = G{
 	"main":   InOrder(Any(), Eval("spirit"), Any()),
-	"spirit": In("RumourSpirit", Value(IntEq(IntVar(), IntConst(2)))),
+	"spirit": In("RumourSpirit", Value(Eq(IntVar(), IntConst(2)))),
 }
 
 func init() {
@@ -64,7 +63,7 @@ var MagazineFrameAFinanceJudo = G{
 	"main": InOrder(
 		In("SaladWorry",
 			In("MagazineFrame", InOrder(
-				InAny(Value(StringEq(StringVar(), StringConst("a")))),
+				InAny(Value(Eq(StringVar(), StringConst("a")))),
 				Any()),
 			),
 			In("XrayPilot", Any()),
@@ -81,7 +80,7 @@ func init() {
 var MagazineFrameSingleAFinanceJudo = G{
 	"main": InOrder(
 		In("SaladWorry",
-			In("MagazineFrame", Value(StringEq(StringVar(), StringConst("a")))),
+			In("MagazineFrame", Value(Eq(StringVar(), StringConst("a")))),
 			In("XrayPilot", Any()),
 			Any(),
 		),
@@ -98,7 +97,7 @@ var InAnyExceptNotAFieldNameFinanceJudo = G{
 		InAnyExcept("NotAFieldName",
 			In("MagazineFrame",
 				InOrder(
-					InAny(Value(StringEq(StringVar(), StringConst("a")))),
+					InAny(Value(Eq(StringVar(), StringConst("a")))),
 					Any()),
 			),
 			Any(),
@@ -114,7 +113,7 @@ func init() {
 var InAnyExceptSaladWorryFinanceJudo = G{
 	"main": InOrder(
 		InAnyExcept("SaladWorry",
-			In("MagazineFrame", Value(StringEq(StringVar(), StringConst("a")))),
+			In("MagazineFrame", Value(Eq(StringVar(), StringConst("a")))),
 			Any(),
 		),
 		Any(),

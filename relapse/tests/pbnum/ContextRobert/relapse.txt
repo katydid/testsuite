@@ -1,1 +1,1 @@
-.uint(2):_[uint(1):== 456,uint(2):== "TheStreet"]
+.uint(2):_[uint(1):==456,uint(2):=="TheStreet"]

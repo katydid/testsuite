@@ -1,1 +1,1 @@
-Person:{Name:*;(Addr:*)?;(Email:*)*;(->regex("^([ \t\n\v\f])+$",$string))*}
+Person:{Name:*;(Addr:*)?;(Email:*)*;(~="^([ \t\r\n\v\f])+$")*}

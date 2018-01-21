@@ -122,37 +122,18 @@
 																											<Pattern>
 																												<LeafNode>
 																													<Expr>
-																														<RightArrow>
-																															<Value>-&gt;</Value>
-																														</RightArrow>
-																														<Function>
-																															<Name>contains</Name>
-																															<OpenParen>
-																																<Value>(</Value>
-																															</OpenParen>
-																															<Params>
+																														<BuiltIn>
+																															<Symbol>
+																																<Value>*=</Value>
+																															</Symbol>
+																															<Expr>
 																																<Terminal>
-																																	<Literal></Literal>
-																																	<BytesValue></BytesValue>
-																																	<Variable>
-																																		<Type>109</Type>
-																																	</Variable>
-																																</Terminal>
-																															</Params>
-																															<Params>
-																																<Comma>
-																																	<Value>,</Value>
-																																</Comma>
-																																<Terminal>
-																																	<Literal>`a`</Literal>
+																																	<Literal>&#34;a&#34;</Literal>
 																																	<StringValue>a</StringValue>
 																																	<BytesValue></BytesValue>
 																																</Terminal>
-																															</Params>
-																															<CloseParen>
-																																<Value>)</Value>
-																															</CloseParen>
-																														</Function>
+																															</Expr>
+																														</BuiltIn>
 																													</Expr>
 																												</LeafNode>
 																											</Pattern>
@@ -196,37 +177,18 @@
 																											<Pattern>
 																												<LeafNode>
 																													<Expr>
-																														<RightArrow>
-																															<Value>-&gt;</Value>
-																														</RightArrow>
-																														<Function>
-																															<Name>contains</Name>
-																															<OpenParen>
-																																<Value>(</Value>
-																															</OpenParen>
-																															<Params>
+																														<BuiltIn>
+																															<Symbol>
+																																<Value>*=</Value>
+																															</Symbol>
+																															<Expr>
 																																<Terminal>
-																																	<Literal></Literal>
-																																	<BytesValue></BytesValue>
-																																	<Variable>
-																																		<Type>109</Type>
-																																	</Variable>
-																																</Terminal>
-																															</Params>
-																															<Params>
-																																<Comma>
-																																	<Value>,</Value>
-																																</Comma>
-																																<Terminal>
-																																	<Literal>`a`</Literal>
+																																	<Literal>&#34;a&#34;</Literal>
 																																	<StringValue>a</StringValue>
 																																	<BytesValue></BytesValue>
 																																</Terminal>
-																															</Params>
-																															<CloseParen>
-																																<Value>)</Value>
-																															</CloseParen>
-																														</Function>
+																															</Expr>
+																														</BuiltIn>
 																													</Expr>
 																												</LeafNode>
 																											</Pattern>

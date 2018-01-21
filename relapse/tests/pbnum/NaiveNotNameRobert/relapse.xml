@@ -61,7 +61,7 @@
 															<Value>,</Value>
 														</Comma>
 														<Terminal>
-															<Literal>`David`</Literal>
+															<Literal>&#34;David&#34;</Literal>
 															<StringValue>David</StringValue>
 															<BytesValue></BytesValue>
 														</Terminal>

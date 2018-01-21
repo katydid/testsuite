@@ -103,7 +103,7 @@
 														<Value>,</Value>
 													</Comma>
 													<Terminal>
-														<Literal>int(0)</Literal>
+														<Literal>0</Literal>
 														<IntValue>0</IntValue>
 														<BytesValue></BytesValue>
 													</Terminal>

@@ -1,1 +1,1 @@
-MenuPaperclip[0:== "a",1:== "b",2:== "c"]
+MenuPaperclip[0:=="a",1:=="b",2:=="c"]

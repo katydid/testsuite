@@ -30,12 +30,7 @@
 											},
 											"Expr": {
 												"Terminal": {
-													"Before": {
-														"Space": [
-															" "
-														]
-													},
-													"Literal": "`a`",
+													"Literal": "\"a\"",
 													"StringValue": "a"
 												}
 											}
@@ -69,12 +64,7 @@
 													},
 													"Expr": {
 														"Terminal": {
-															"Before": {
-																"Space": [
-																	" "
-																]
-															},
-															"Literal": "`b`",
+															"Literal": "\"b\"",
 															"StringValue": "b"
 														}
 													}
@@ -106,12 +96,7 @@
 													},
 													"Expr": {
 														"Terminal": {
-															"Before": {
-																"Space": [
-																	" "
-																]
-															},
-															"Literal": "`c`",
+															"Literal": "\"c\"",
 															"StringValue": "c"
 														}
 													}

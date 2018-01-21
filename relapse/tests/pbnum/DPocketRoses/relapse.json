@@ -30,12 +30,7 @@
 											},
 											"Expr": {
 												"Terminal": {
-													"Before": {
-														"Space": [
-															" "
-														]
-													},
-													"Literal": "`d`",
+													"Literal": "\"d\"",
 													"StringValue": "d"
 												}
 											}

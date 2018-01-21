@@ -84,10 +84,7 @@
 																					</Symbol>
 																					<Expr>
 																						<Terminal>
-																							<Before>
-																								<Space> </Space>
-																							</Before>
-																							<Literal>int(2)</Literal>
+																							<Literal>2</Literal>
 																							<IntValue>2</IntValue>
 																							<BytesValue></BytesValue>
 																						</Terminal>
@@ -142,10 +139,7 @@
 																					</Symbol>
 																					<Expr>
 																						<Terminal>
-																							<Before>
-																								<Space> </Space>
-																							</Before>
-																							<Literal>int(1)</Literal>
+																							<Literal>1</Literal>
 																							<IntValue>1</IntValue>
 																							<BytesValue></BytesValue>
 																						</Terminal>

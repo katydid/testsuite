@@ -18,12 +18,7 @@
 							},
 							"Expr": {
 								"Terminal": {
-									"Before": {
-										"Space": [
-											" "
-										]
-									},
-									"Literal": "`B`",
+									"Literal": "\"B\"",
 									"StringValue": "B"
 								}
 							}

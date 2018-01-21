@@ -72,10 +72,7 @@
 								</Symbol>
 								<Expr>
 									<Terminal>
-										<Before>
-											<Space> </Space>
-										</Before>
-										<Literal>int(2)</Literal>
+										<Literal>2</Literal>
 										<IntValue>2</IntValue>
 										<BytesValue></BytesValue>
 									</Terminal>

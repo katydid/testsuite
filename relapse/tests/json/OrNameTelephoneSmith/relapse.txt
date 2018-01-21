@@ -1,1 +1,1 @@
-(.Name:== "David"|.Telephone:== "0123456789")
+(.Name:=="David"|.Telephone:=="0123456789")

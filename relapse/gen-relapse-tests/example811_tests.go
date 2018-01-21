@@ -16,7 +16,6 @@ package main
 
 import (
 	. "github.com/katydid/katydid/relapse/combinator"
-	. "github.com/katydid/katydid/relapse/funcs"
 )
 
 // Foundations of XML Processing: The Tree Automata Approach - Example 8.1.1
@@ -39,7 +38,7 @@ var Example811 = G{
 			In("Right", Eval("q2")),
 		),
 		In("A",
-			In("Value", Value(StringEq(StringVar(), StringConst("#")))),
+			In("Value", Value(Eq(StringVar(), StringConst("#")))),
 		),
 	),
 }

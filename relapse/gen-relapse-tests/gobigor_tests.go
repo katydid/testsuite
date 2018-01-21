@@ -19,14 +19,13 @@ import (
 
 	"github.com/katydid/katydid/relapse/ast"
 	"github.com/katydid/katydid/relapse/combinator"
-	"github.com/katydid/katydid/relapse/funcs"
 )
 
 func init() {
 	num := 70
 	ors := make([]*ast.Pattern, num)
 	for i := 0; i < num; i++ {
-		ors[i] = ast.NewContains(ast.NewTreeNode(ast.NewStringName("A"), combinator.Value(funcs.IntEq(funcs.IntVar(), funcs.IntConst(int64(i))))))
+		ors[i] = ast.NewContains(ast.NewTreeNode(ast.NewStringName("A"), combinator.Value(combinator.Eq(combinator.IntVar(), combinator.IntConst(int64(i))))))
 	}
 	bigor := ast.NewOr(ors...)
 	for i := 5; i < 11; i++ {

@@ -48,11 +48,6 @@
 									},
 									"Expr": {
 										"Terminal": {
-											"Before": {
-												"Space": [
-													" "
-												]
-											},
 											"Literal": "true",
 											"BoolValue": true
 										}

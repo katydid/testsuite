@@ -17,30 +17,29 @@ package main
 import (
 	"github.com/gogo/protobuf/proto"
 	. "github.com/katydid/katydid/relapse/combinator"
-	. "github.com/katydid/katydid/relapse/funcs"
 )
 
 var AbcPocketRoses = &PocketRoses{
 	MenuPaperclip: []string{"a", "b", "c"},
 }
 
-var AStringArray = G{"main": In("MenuPaperclip", Elem(0, Value(StringEq(StringVar(), StringConst("a")))), Any())}
+var AStringArray = G{"main": In("MenuPaperclip", Elem(0, Value(Eq(StringVar(), StringConst("a")))), Any())}
 
-var FinalCStringArray = G{"main": In("MenuPaperclip", Any(), Elem(2, Value(StringEq(StringVar(), StringConst("c")))))}
+var FinalCStringArray = G{"main": In("MenuPaperclip", Any(), Elem(2, Value(Eq(StringVar(), StringConst("c")))))}
 
 var AbcStringArray = G{"main": In("MenuPaperclip",
-	Elem(0, Value(StringEq(StringVar(), StringConst("a")))),
-	Elem(1, Value(StringEq(StringVar(), StringConst("b")))),
-	Elem(2, Value(StringEq(StringVar(), StringConst("c")))),
+	Elem(0, Value(Eq(StringVar(), StringConst("a")))),
+	Elem(1, Value(Eq(StringVar(), StringConst("b")))),
+	Elem(2, Value(Eq(StringVar(), StringConst("c")))),
 )}
 
 var NextAStringArray = G{"main": In("MenuPaperclip",
-	Elem(1, Value(StringEq(StringVar(), StringConst("a")))),
-	Elem(0, Value(StringEq(StringVar(), StringConst("b")))),
-	Elem(2, Value(StringEq(StringVar(), StringConst("c")))),
+	Elem(1, Value(Eq(StringVar(), StringConst("a")))),
+	Elem(0, Value(Eq(StringVar(), StringConst("b")))),
+	Elem(2, Value(Eq(StringVar(), StringConst("c")))),
 )}
 
-var DStringArray = G{"main": In("MenuPaperclip", Elem(0, Value(StringEq(StringVar(), StringConst("d")))), Any())}
+var DStringArray = G{"main": In("MenuPaperclip", Elem(0, Value(Eq(StringVar(), StringConst("d")))), Any())}
 
 func init() {
 	ValidateProtoNumEtc("APocketRoses", AStringArray, AbcPocketRoses, true)
@@ -86,10 +85,10 @@ var LatentSimplificationOfExprs = G{"main": AllOf(
 		),
 	),
 	AllOf(
-		InPath("PocketRoses", InPath("BadgeShopping", Value(IntLE(IntVar(), IntConst(2))))),
+		InPath("PocketRoses", InPath("BadgeShopping", Value(LE(IntVar(), IntConst(2))))),
 		AllOf(
-			InPath("PocketRoses", InPath("BadgeShopping", Value(IntGE(IntVar(), IntConst(0))))),
-			InPath("PocketRoses", InPath("DaisySled", Value(IntGE(IntVar(), IntConst(1))))),
+			InPath("PocketRoses", InPath("BadgeShopping", Value(GE(IntVar(), IntConst(0))))),
+			InPath("PocketRoses", InPath("DaisySled", Value(GE(IntVar(), IntConst(1))))),
 		),
 	),
 )}

@@ -49,10 +49,7 @@
 															</Symbol>
 															<Expr>
 																<Terminal>
-																	<Before>
-																		<Space> </Space>
-																	</Before>
-																	<Literal>int(456)</Literal>
+																	<Literal>456</Literal>
 																	<IntValue>456</IntValue>
 																	<BytesValue></BytesValue>
 																</Terminal>
@@ -86,10 +83,7 @@
 															</Symbol>
 															<Expr>
 																<Terminal>
-																	<Before>
-																		<Space> </Space>
-																	</Before>
-																	<Literal>`TheStreet`</Literal>
+																	<Literal>&#34;TheStreet&#34;</Literal>
 																	<StringValue>TheStreet</StringValue>
 																	<BytesValue></BytesValue>
 																</Terminal>

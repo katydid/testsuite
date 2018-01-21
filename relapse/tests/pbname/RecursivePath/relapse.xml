@@ -29,10 +29,7 @@
 											</Symbol>
 											<Expr>
 												<Terminal>
-													<Before>
-														<Space> </Space>
-													</Before>
-													<Literal>`io`</Literal>
+													<Literal>&#34;io&#34;</Literal>
 													<StringValue>io</StringValue>
 													<BytesValue></BytesValue>
 												</Terminal>

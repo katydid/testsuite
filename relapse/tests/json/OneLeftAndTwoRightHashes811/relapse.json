@@ -292,12 +292,7 @@
 													},
 													"Expr": {
 														"Terminal": {
-															"Before": {
-																"Space": [
-																	" "
-																]
-															},
-															"Literal": "`#`",
+															"Literal": "\"#\"",
 															"StringValue": "#"
 														}
 													}

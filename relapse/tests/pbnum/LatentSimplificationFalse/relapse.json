@@ -69,35 +69,15 @@
 																					"Pattern": {
 																						"LeafNode": {
 																							"Expr": {
-																								"RightArrow": {
-																									"Value": "-\u003e"
-																								},
-																								"Function": {
-																									"Name": "contains",
-																									"OpenParen": {
-																										"Value": "("
+																								"BuiltIn": {
+																									"Symbol": {
+																										"Value": "*="
 																									},
-																									"Params": [
-																										{
-																											"Terminal": {
-																												"Literal": "",
-																												"Variable": {
-																													"Type": 109
-																												}
-																											}
-																										},
-																										{
-																											"Comma": {
-																												"Value": ","
-																											},
-																											"Terminal": {
-																												"Literal": "`a`",
-																												"StringValue": "a"
-																											}
+																									"Expr": {
+																										"Terminal": {
+																											"Literal": "\"a\"",
+																											"StringValue": "a"
 																										}
-																									],
-																									"CloseParen": {
-																										"Value": ")"
 																									}
 																								}
 																							}
@@ -168,35 +148,15 @@
 																					"Pattern": {
 																						"LeafNode": {
 																							"Expr": {
-																								"RightArrow": {
-																									"Value": "-\u003e"
-																								},
-																								"Function": {
-																									"Name": "contains",
-																									"OpenParen": {
-																										"Value": "("
+																								"BuiltIn": {
+																									"Symbol": {
+																										"Value": "*="
 																									},
-																									"Params": [
-																										{
-																											"Terminal": {
-																												"Literal": "",
-																												"Variable": {
-																													"Type": 109
-																												}
-																											}
-																										},
-																										{
-																											"Comma": {
-																												"Value": ","
-																											},
-																											"Terminal": {
-																												"Literal": "`a`",
-																												"StringValue": "a"
-																											}
+																									"Expr": {
+																										"Terminal": {
+																											"Literal": "\"a\"",
+																											"StringValue": "a"
 																										}
-																									],
-																									"CloseParen": {
-																										"Value": ")"
 																									}
 																								}
 																							}
@@ -277,35 +237,15 @@
 																					"Pattern": {
 																						"LeafNode": {
 																							"Expr": {
-																								"RightArrow": {
-																									"Value": "-\u003e"
-																								},
-																								"Function": {
-																									"Name": "contains",
-																									"OpenParen": {
-																										"Value": "("
+																								"BuiltIn": {
+																									"Symbol": {
+																										"Value": "*="
 																									},
-																									"Params": [
-																										{
-																											"Terminal": {
-																												"Literal": "",
-																												"Variable": {
-																													"Type": 109
-																												}
-																											}
-																										},
-																										{
-																											"Comma": {
-																												"Value": ","
-																											},
-																											"Terminal": {
-																												"Literal": "`b`",
-																												"StringValue": "b"
-																											}
+																									"Expr": {
+																										"Terminal": {
+																											"Literal": "\"b\"",
+																											"StringValue": "b"
 																										}
-																									],
-																									"CloseParen": {
-																										"Value": ")"
 																									}
 																								}
 																							}
@@ -376,35 +316,15 @@
 																					"Pattern": {
 																						"LeafNode": {
 																							"Expr": {
-																								"RightArrow": {
-																									"Value": "-\u003e"
-																								},
-																								"Function": {
-																									"Name": "contains",
-																									"OpenParen": {
-																										"Value": "("
+																								"BuiltIn": {
+																									"Symbol": {
+																										"Value": "*="
 																									},
-																									"Params": [
-																										{
-																											"Terminal": {
-																												"Literal": "",
-																												"Variable": {
-																													"Type": 109
-																												}
-																											}
-																										},
-																										{
-																											"Comma": {
-																												"Value": ","
-																											},
-																											"Terminal": {
-																												"Literal": "`b`",
-																												"StringValue": "b"
-																											}
+																									"Expr": {
+																										"Terminal": {
+																											"Literal": "\"b\"",
+																											"StringValue": "b"
 																										}
-																									],
-																									"CloseParen": {
-																										"Value": ")"
 																									}
 																								}
 																							}
@@ -490,35 +410,15 @@
 																			"Pattern": {
 																				"LeafNode": {
 																					"Expr": {
-																						"RightArrow": {
-																							"Value": "-\u003e"
-																						},
-																						"Function": {
-																							"Name": "contains",
-																							"OpenParen": {
-																								"Value": "("
+																						"BuiltIn": {
+																							"Symbol": {
+																								"Value": "*="
 																							},
-																							"Params": [
-																								{
-																									"Terminal": {
-																										"Literal": "",
-																										"Variable": {
-																											"Type": 109
-																										}
-																									}
-																								},
-																								{
-																									"Comma": {
-																										"Value": ","
-																									},
-																									"Terminal": {
-																										"Literal": "`c`",
-																										"StringValue": "c"
-																									}
+																							"Expr": {
+																								"Terminal": {
+																									"Literal": "\"c\"",
+																									"StringValue": "c"
 																								}
-																							],
-																							"CloseParen": {
-																								"Value": ")"
 																							}
 																						}
 																					}
@@ -589,35 +489,15 @@
 																			"Pattern": {
 																				"LeafNode": {
 																					"Expr": {
-																						"RightArrow": {
-																							"Value": "-\u003e"
-																						},
-																						"Function": {
-																							"Name": "contains",
-																							"OpenParen": {
-																								"Value": "("
+																						"BuiltIn": {
+																							"Symbol": {
+																								"Value": "*="
 																							},
-																							"Params": [
-																								{
-																									"Terminal": {
-																										"Literal": "",
-																										"Variable": {
-																											"Type": 109
-																										}
-																									}
-																								},
-																								{
-																									"Comma": {
-																										"Value": ","
-																									},
-																									"Terminal": {
-																										"Literal": "`c`",
-																										"StringValue": "c"
-																									}
+																							"Expr": {
+																								"Terminal": {
+																									"Literal": "\"c\"",
+																									"StringValue": "c"
 																								}
-																							],
-																							"CloseParen": {
-																								"Value": ")"
 																							}
 																						}
 																					}
@@ -692,12 +572,7 @@
 																	},
 																	"Expr": {
 																		"Terminal": {
-																			"Before": {
-																				"Space": [
-																					" "
-																				]
-																			},
-																			"Literal": "int(2)",
+																			"Literal": "2",
 																			"IntValue": 2
 																		}
 																	}
@@ -760,12 +635,7 @@
 																			},
 																			"Expr": {
 																				"Terminal": {
-																					"Before": {
-																						"Space": [
-																							" "
-																						]
-																					},
-																					"Literal": "int(0)",
+																					"Literal": "0",
 																					"IntValue": 0
 																				}
 																			}
@@ -823,12 +693,7 @@
 																			},
 																			"Expr": {
 																				"Terminal": {
-																					"Before": {
-																						"Space": [
-																							" "
-																						]
-																					},
-																					"Literal": "int(1)",
+																					"Literal": "1",
 																					"IntValue": 1
 																				}
 																			}

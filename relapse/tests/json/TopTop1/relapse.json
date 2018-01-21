@@ -30,12 +30,7 @@
 									},
 									"Expr": {
 										"Terminal": {
-											"Before": {
-												"Space": [
-													" "
-												]
-											},
-											"Literal": "int(1)",
+											"Literal": "1",
 											"IntValue": 1
 										}
 									}

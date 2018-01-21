@@ -49,9 +49,6 @@
 									</Symbol>
 									<Expr>
 										<Terminal>
-											<Before>
-												<Space> </Space>
-											</Before>
 											<Literal>true</Literal>
 											<BoolValue>true</BoolValue>
 											<BytesValue></BytesValue>

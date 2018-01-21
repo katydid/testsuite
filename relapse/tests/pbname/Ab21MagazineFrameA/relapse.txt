@@ -1,1 +1,1 @@
-[SaladWorry[MagazineFrame[_:== "a",*],XrayPilot:*,*],*]
+[SaladWorry[MagazineFrame[_:=="a",*],XrayPilot:*,*],*]

@@ -1,1 +1,1 @@
-[!(SaladWorry)[MagazineFrame:== "a",*],*]
+[!(SaladWorry)[MagazineFrame:=="a",*],*]

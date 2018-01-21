@@ -43,12 +43,7 @@
 													},
 													"Expr": {
 														"Terminal": {
-															"Before": {
-																"Space": [
-																	" "
-																]
-															},
-															"Literal": "`David`",
+															"Literal": "\"David\"",
 															"StringValue": "David"
 														}
 													}
@@ -120,12 +115,7 @@
 													},
 													"Expr": {
 														"Terminal": {
-															"Before": {
-																"Space": [
-																	" "
-																]
-															},
-															"Literal": "`0123456789`",
+															"Literal": "\"0123456789\"",
 															"StringValue": "0123456789"
 														}
 													}

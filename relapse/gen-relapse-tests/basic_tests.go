@@ -17,7 +17,6 @@ package main
 import (
 	"github.com/katydid/katydid/relapse/ast"
 	. "github.com/katydid/katydid/relapse/combinator"
-	. "github.com/katydid/katydid/relapse/funcs"
 )
 
 func init() {
@@ -71,7 +70,7 @@ func init() {
 		false,
 	)
 
-	basicALeafB := G{"main": ast.NewTreeNode(ast.NewStringName("A"), Value(StringEq(StringConst("B"), StringVar())))}
+	basicALeafB := G{"main": ast.NewTreeNode(ast.NewStringName("A"), Value(Eq(StringConst("B"), StringVar())))}
 	ValidateXMLString(
 		"BasicALeafB_AB",
 		basicALeafB,

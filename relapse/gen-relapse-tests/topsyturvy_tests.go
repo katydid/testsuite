@@ -17,7 +17,6 @@ package main
 import (
 	"github.com/gogo/protobuf/proto"
 	. "github.com/katydid/katydid/relapse/combinator"
-	. "github.com/katydid/katydid/relapse/funcs"
 )
 
 var TopTop = &TopsyTurvy{
@@ -32,7 +31,7 @@ var TurfTurf = &TopsyTurvy{
 	},
 }
 
-var TopTop1 = G{"main": InAny(In("Top", Value(IntEq(IntVar(), IntConst(1)))))}
+var TopTop1 = G{"main": InAny(In("Top", Value(Eq(IntVar(), IntConst(1)))))}
 
 func init() {
 	ValidateProtoEtc("TopTop1", TopTop1, TopTop, true)

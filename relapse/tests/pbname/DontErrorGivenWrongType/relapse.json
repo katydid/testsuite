@@ -47,11 +47,6 @@
 															},
 															"Expr": {
 																"Terminal": {
-																	"Before": {
-																		"Space": [
-																			" "
-																		]
-																	},
 																	"Literal": "uint(0)",
 																	"UintValue": 0
 																}

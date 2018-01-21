@@ -17,7 +17,6 @@ package main
 import (
 	"github.com/gogo/protobuf/proto"
 	. "github.com/katydid/katydid/relapse/combinator"
-	. "github.com/katydid/katydid/relapse/funcs"
 )
 
 var IoUtilSrcTree = &SrcTree{
@@ -119,7 +118,7 @@ var SyscallSrcTree = &SrcTree{
 var RecursiveSrcTree = G{
 	"main": AnyOf(
 		InOrder(
-			In("PackageName", Value(StringEq(StringVar(), StringConst("io")))),
+			In("PackageName", Value(Eq(StringVar(), StringConst("io")))),
 			Any(),
 		),
 		InOrder(
