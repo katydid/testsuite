@@ -24,6 +24,7 @@ import (
 	"os"
 	"path/filepath"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -47,16 +48,16 @@ func main() {
 			filepath.Join(folder, "relapse.txt"),
 			[]byte(v.Grammar.String()),
 		)
-
-		writeFile(
-			filepath.Join(folder, "relapse.json"),
-			mustBytes(json.MarshalIndent(v.Grammar, "", "\t")),
-		)
-
-		writeFile(
-			filepath.Join(folder, "relapse.xml"),
-			mustBytes(xml.MarshalIndent(v.Grammar, "", "\t")),
-		)
+		if !strings.Contains(v.Name, "Larger") {
+			writeFile(
+				filepath.Join(folder, "relapse.json"),
+				mustBytes(json.MarshalIndent(v.Grammar, "", "\t")),
+			)
+			writeFile(
+				filepath.Join(folder, "relapse.xml"),
+				mustBytes(xml.MarshalIndent(v.Grammar, "", "\t")),
+			)
+		}
 
 		bytesFilename := filepath.Join(folder, "invalid."+v.Extension)
 		if v.Expected {
