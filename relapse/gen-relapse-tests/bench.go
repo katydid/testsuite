@@ -67,10 +67,10 @@ func BenchValidateProtoNumEtc(name string, grammar combinator.G, validProto, inv
 }
 
 func BenchValidateProtoNum(name string, grammar combinator.G, validProto, invalidProto RandProto) {
-	m := validProto(rand.New(rand.NewSource(1)))
+	msg := validProto(rand.New(rand.NewSource(1)))
 	packageName := "main"
-	messageName := reflect.TypeOf(m).Elem().Name()
-	desc := m.(ProtoMessage).Description()
+	messageName := reflect.TypeOf(msg).Elem().Name()
+	desc := msg.(ProtoMessage).Description()
 	g, err := protonum.FieldNamesToNumbers(packageName, messageName, desc, grammar.Grammar())
 	if err != nil {
 		panic(name + ": " + err.Error())
@@ -83,7 +83,13 @@ func BenchValidateProtoNum(name string, grammar combinator.G, validProto, invali
 		pb := invalidProto(r)
 		return mustBytes(proto.Marshal(pb))
 	}
-	schemaName := registerProto(m)
+	schemaName := registerProto(msg)
+
+	m, err := relapse.Prepare(g)
+	if err != nil {
+		panic(err)
+	}
+
 	BenchValidators = append(BenchValidators, BenchValidator{
 		Name:         name,
 		CodecName:    "pbnum",
@@ -94,10 +100,6 @@ func BenchValidateProtoNum(name string, grammar combinator.G, validProto, invali
 		Extension:    schemaName + ".pbnum",
 		Validate: func(buf []byte) bool {
 			p, err := protoparser.NewProtoNumParser(packageName, messageName, desc)
-			if err != nil {
-				panic(err)
-			}
-			m, err := relapse.Prepare(g)
 			if err != nil {
 				panic(err)
 			}
@@ -112,10 +114,10 @@ func BenchValidateProtoNum(name string, grammar combinator.G, validProto, invali
 }
 
 func BenchValidateProtoName(name string, grammar combinator.G, validProto, invalidProto RandProto) {
-	m := validProto(rand.New(rand.NewSource(1)))
+	msg := validProto(rand.New(rand.NewSource(1)))
 	packageName := "main"
-	messageName := reflect.TypeOf(m).Elem().Name()
-	desc := m.(ProtoMessage).Description()
+	messageName := reflect.TypeOf(msg).Elem().Name()
+	desc := msg.(ProtoMessage).Description()
 	g := grammar.Grammar()
 	validBytes := func(r *rand.Rand) []byte {
 		pb := validProto(r)
@@ -125,7 +127,13 @@ func BenchValidateProtoName(name string, grammar combinator.G, validProto, inval
 		pb := invalidProto(r)
 		return mustBytes(proto.Marshal(pb))
 	}
-	schemaName := registerProto(m)
+	schemaName := registerProto(msg)
+
+	m, err := relapse.Prepare(g)
+	if err != nil {
+		panic(err)
+	}
+
 	BenchValidators = append(BenchValidators, BenchValidator{
 		Name:         name,
 		CodecName:    "pbname",
@@ -140,10 +148,6 @@ func BenchValidateProtoName(name string, grammar combinator.G, validProto, inval
 				panic(err)
 			}
 			if err := p.Init(buf); err != nil {
-				panic(err)
-			}
-			m, err := relapse.Prepare(g)
-			if err != nil {
 				panic(err)
 			}
 			v, err := relapse.Validate(m, p)
@@ -163,6 +167,12 @@ func BenchValidateJson(name string, grammar combinator.G, validProto, invalidPro
 		pb := invalidProto(r)
 		return mustBytes(json.Marshal(pb))
 	}
+
+	m, err := relapse.Prepare(g)
+	if err != nil {
+		panic(err)
+	}
+
 	BenchValidators = append(BenchValidators, BenchValidator{
 		Name:         name,
 		CodecName:    "json",
@@ -173,10 +183,6 @@ func BenchValidateJson(name string, grammar combinator.G, validProto, invalidPro
 		Validate: func(buf []byte) bool {
 			p := jsonparser.NewJsonParser()
 			if err := p.Init(buf); err != nil {
-				panic(err)
-			}
-			m, err := relapse.Prepare(g)
-			if err != nil {
 				panic(err)
 			}
 			v, err := relapse.Validate(m, p)
@@ -196,6 +202,12 @@ func BenchValidateXML(name string, grammar combinator.G, validProto, invalidProt
 		pb := invalidProto(r)
 		return mustBytes(xml.Marshal(pb))
 	}
+
+	m, err := relapse.Prepare(g)
+	if err != nil {
+		panic(err)
+	}
+
 	BenchValidators = append(BenchValidators, BenchValidator{
 		Name:         name,
 		CodecName:    "xml",
@@ -206,10 +218,6 @@ func BenchValidateXML(name string, grammar combinator.G, validProto, invalidProt
 		Validate: func(buf []byte) bool {
 			p := xmlparser.NewXMLParser()
 			if err := p.Init(buf); err != nil {
-				panic(err)
-			}
-			m, err := relapse.Prepare(g)
-			if err != nil {
 				panic(err)
 			}
 			v, err := relapse.Validate(m, p)
