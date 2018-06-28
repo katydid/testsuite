@@ -56,6 +56,15 @@ func init() {
 	ValidateProtoNumEtc("ContextRobert", ContextPerson, RobertPerson, true)
 }
 
+var AndAnyName = G{"main": AllOf(
+	InAnyPath(Value(Eq(StringVar(), StringConst("0123456789")))),
+	InAnyPath(Value(Eq(StringVar(), StringConst("David")))),
+)}
+
+func init() {
+	ValidateProtoEtc("AndAnyName", AndAnyName, DavidPerson, true)
+}
+
 var XmlContextPerson = G{"main": In("Person", InPath("Addresses",
 	Any(),
 	In("Number", Value(Eq(IntVar(), IntConst(456)))),

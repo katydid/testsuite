@@ -142,7 +142,7 @@ func writeFile(filename string, data []byte) {
 	if err := writeFileWithSync(filename, data, 0644); err != nil {
 		log.Fatalf("error <%v> writing file <%s>", err, filename)
 	}
-	time.Sleep(time.Millisecond)
+	time.Sleep(10 * time.Millisecond)
 }
 
 // writeFileWithSync adds the os.O_SYNC flag, otherwise we get the error: too many open files in system.
