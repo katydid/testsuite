@@ -25,7 +25,7 @@ func init() {
 	tup.Peel = uint32(12871)
 	tup.Rotten = uint32(40111)
 
-	ValidateProtoName("BananaLargeMatch", LargeBanana, tup, true)
+	ValidateProto("BananaLargeMatch", LargeBanana, tup, true)
 }
 
 func init() {
@@ -39,27 +39,26 @@ func init() {
 	largerBanana := G{"main": grammar.GetTopPattern()}
 
 	bananaSkin := &BananaTuple{
-		0,
-		"",
-		false,
-		"422021401810067",
-		true,
-		"",
-		false,
-		"422",
-		true,
-		"02",
-		true,
-		0xc3b6,
-		true,
-		0x5283,
-		true,
-		3,
-		true,
-		23,
-		false,
-		nil,
+		BananaTime:    0,
+		Pulpy:         "",
+		IsPulpySet:    false,
+		Yummy:         "422021401810067",
+		IsYummySet:    true,
+		Chewy:         "",
+		IsChewySet:    false,
+		Squishy:       "422",
+		IsSquishySet:  true,
+		Brown:         "02",
+		IsBrownSet:    true,
+		Rotten:        0xc3b6,
+		IsRottenSet:   true,
+		Peel:          0x5283,
+		IsPeelSet:     true,
+		PeelType:      3,
+		IsPeelTypeSet: true,
+		BananaSource:  23,
+		Slippery:      false,
 	}
 
-	ValidateProtoName("BananaLarger800Match", largerBanana, bananaSkin, true)
+	ValidateProto("BananaLarger800Match", largerBanana, bananaSkin, true)
 }

@@ -109,7 +109,7 @@ func init() {
 		),
 	}
 	BenchValidateProtoJson("BridgePepper", bridgePepper, RandomValidBridgePepper, RandomInvalidBridgePepper)
-	ValidateProtoNum("BridgePepper", bridgePepper, &PuddingMilkshake{FinanceJudo: &FinanceJudo{SaladWorry: &SaladWorry{SpyCarpenter: &SpyCarpenter{BridgePepper: []string{"a"}}}}}, true)
+	ValidateProto("BridgePepper", bridgePepper, &PuddingMilkshake{FinanceJudo: &FinanceJudo{SaladWorry: &SaladWorry{SpyCarpenter: &SpyCarpenter{BridgePepper: []string{"a"}}}}}, true)
 
 	var bridgePepperAndFountainTarget = G{
 		"main": InOrder(
@@ -132,5 +132,5 @@ func init() {
 		),
 	}
 	BenchValidateProtoJson("BridgePepperAndFountainTarget", bridgePepperAndFountainTarget, RandomValidBridgePepperAndFountainTarget, RandomInvalidBridgePepperAndFountainTarget)
-	ValidateProtoNum("BenchBridgePepperAndFountainTarget", bridgePepperAndFountainTarget, &PuddingMilkshake{FinanceJudo: &FinanceJudo{SaladWorry: &SaladWorry{SpyCarpenter: &SpyCarpenter{BridgePepper: []string{"a"}, FountainTarget: []string{"a"}}}}}, true)
+	ValidateProto("BenchBridgePepperAndFountainTarget", bridgePepperAndFountainTarget, &PuddingMilkshake{FinanceJudo: &FinanceJudo{SaladWorry: &SaladWorry{SpyCarpenter: &SpyCarpenter{BridgePepper: []string{"a"}, FountainTarget: []string{"a"}}}}}, true)
 }

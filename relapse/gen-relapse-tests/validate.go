@@ -17,13 +17,11 @@ package main
 import (
 	"encoding/json"
 	"encoding/xml"
-	"reflect"
 
 	"github.com/gogo/protobuf/proto"
 	"github.com/gogo/protobuf/protoc-gen-gogo/descriptor"
 	"github.com/katydid/katydid/relapse/ast"
 	"github.com/katydid/katydid/relapse/combinator"
-	"github.com/katydid/katydid/relapse/protonum"
 )
 
 type Validator struct {
@@ -56,48 +54,20 @@ type ProtoMessage interface {
 func ValidateProtoEtc(name string, grammar combinator.G, m ProtoMessage, expected bool) {
 	ValidateReflect(name, grammar, m, expected)
 	ValidateJson(name, grammar, m, expected)
-	ValidateProtoName(name, grammar, m, expected)
+	ValidateProto(name, grammar, m, expected)
 }
 
-func ValidateProtoNumEtc(name string, grammar combinator.G, m ProtoMessage, expected bool) {
-	ValidateReflect(name, grammar, m, expected)
-	ValidateJson(name, grammar, m, expected)
-	ValidateProtoName(name, grammar, m, expected)
-	ValidateProtoNum(name, grammar, m, expected)
-}
-
-func ValidateProtoNum(name string, grammar combinator.G, m ProtoMessage, expected bool) {
-	packageName := "main"
-	messageName := reflect.TypeOf(m).Elem().Name()
-	desc := m.(ProtoMessage).Description()
-	g, err := protonum.FieldNamesToNumbers(packageName, messageName, desc, grammar.Grammar())
-	if err != nil {
-		panic(name + ": " + err.Error())
-	}
+func ValidateProto(name string, g combinator.G, m ProtoMessage, expected bool) {
 	schemaName := registerProto(m)
-	checkDuplicates(name, "pbnum")
+	checkDuplicates(name, "pb")
 	Validators = append(Validators, Validator{
 		Name:       name,
-		CodecName:  "pbnum",
-		Grammar:    g,
-		Expected:   expected,
-		Bytes:      mustBytes(proto.Marshal(m)),
-		SchemaName: schemaName,
-		Extension:  schemaName + ".pbnum",
-	})
-}
-
-func ValidateProtoName(name string, g combinator.G, m ProtoMessage, expected bool) {
-	schemaName := registerProto(m)
-	checkDuplicates(name, "pbname")
-	Validators = append(Validators, Validator{
-		Name:       name,
-		CodecName:  "pbname",
+		CodecName:  "pb",
 		Grammar:    g.Grammar(),
 		Expected:   expected,
 		Bytes:      mustBytes(proto.Marshal(m)),
 		SchemaName: schemaName,
-		Extension:  schemaName + ".pbname",
+		Extension:  schemaName + ".pb",
 	})
 }
 

@@ -1,3 +1,0 @@
-(@empty|@nil)
-#empty=[*,[uint(1):->eq(length($string),0),*]]
-#nil=!(.uint(1):*)

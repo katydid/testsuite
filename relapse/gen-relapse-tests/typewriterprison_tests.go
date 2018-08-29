@@ -42,11 +42,11 @@ var NextAStringArray = G{"main": In("MenuPaperclip",
 var DStringArray = G{"main": In("MenuPaperclip", Elem(0, Value(Eq(StringVar(), StringConst("d")))), Any())}
 
 func init() {
-	ValidateProtoNumEtc("APocketRoses", AStringArray, AbcPocketRoses, true)
-	ValidateProtoNumEtc("FinalCPocketRoses", FinalCStringArray, AbcPocketRoses, true)
-	ValidateProtoNumEtc("AbcPocketRoses", AbcStringArray, AbcPocketRoses, true)
-	ValidateProtoNumEtc("NextAPocketRoses", NextAStringArray, AbcPocketRoses, false)
-	ValidateProtoNumEtc("DPocketRoses", DStringArray, AbcPocketRoses, false)
+	ValidateProtoEtc("APocketRoses", AStringArray, AbcPocketRoses, true)
+	ValidateProtoEtc("FinalCPocketRoses", FinalCStringArray, AbcPocketRoses, true)
+	ValidateProtoEtc("AbcPocketRoses", AbcStringArray, AbcPocketRoses, true)
+	ValidateProtoEtc("NextAPocketRoses", NextAStringArray, AbcPocketRoses, false)
+	ValidateProtoEtc("DPocketRoses", DStringArray, AbcPocketRoses, false)
 }
 
 var LatentSimplificationTypewriterPrisonTrue = &TypewriterPrison{
@@ -94,6 +94,6 @@ var LatentSimplificationOfExprs = G{"main": AllOf(
 )}
 
 func init() {
-	ValidateProtoNumEtc("LatentSimplificationTrue", LatentSimplificationOfExprs, LatentSimplificationTypewriterPrisonTrue, true)
-	ValidateProtoNumEtc("LatentSimplificationFalse", LatentSimplificationOfExprs, LatentSimplificationTypewriterPrisonFalse, false)
+	ValidateProtoEtc("LatentSimplificationTrue", LatentSimplificationOfExprs, LatentSimplificationTypewriterPrisonTrue, true)
+	ValidateProtoEtc("LatentSimplificationFalse", LatentSimplificationOfExprs, LatentSimplificationTypewriterPrisonFalse, false)
 }

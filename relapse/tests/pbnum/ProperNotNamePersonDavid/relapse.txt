@@ -1,3 +1,0 @@
-(@name|@nil)
-#name=[*,[uint(1):->not(eq($string,"David")),*]]
-#nil=!(.uint(1):*)

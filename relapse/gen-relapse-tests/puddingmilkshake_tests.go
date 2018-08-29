@@ -17,6 +17,7 @@ package main
 import (
 	"github.com/gogo/protobuf/proto"
 	. "github.com/katydid/katydid/relapse/combinator"
+	rparser "github.com/katydid/katydid/relapse/parser"
 )
 
 var Ab21FinanceJudo = &FinanceJudo{
@@ -32,13 +33,13 @@ var Ab21FinanceJudo = &FinanceJudo{
 var AnyFinanceJudo = G{"main": Any()}
 
 func init() {
-	ValidateProtoNumEtc("Ab21Any", AnyFinanceJudo, Ab21FinanceJudo, true)
+	ValidateProtoEtc("Ab21Any", AnyFinanceJudo, Ab21FinanceJudo, true)
 }
 
 var NoneFinanceJudo = G{"main": None()}
 
 func init() {
-	ValidateProtoNumEtc("Ab21None", NoneFinanceJudo, Ab21FinanceJudo, false)
+	ValidateProtoEtc("Ab21None", NoneFinanceJudo, Ab21FinanceJudo, false)
 }
 
 var HasSpirit1FinanceJudo = G{
@@ -47,7 +48,7 @@ var HasSpirit1FinanceJudo = G{
 }
 
 func init() {
-	ValidateProtoNumEtc("Ab21Spirit1", HasSpirit1FinanceJudo, Ab21FinanceJudo, true)
+	ValidateProtoEtc("Ab21Spirit1", HasSpirit1FinanceJudo, Ab21FinanceJudo, true)
 }
 
 var HasSpirit2FinanceJudo = G{
@@ -56,7 +57,7 @@ var HasSpirit2FinanceJudo = G{
 }
 
 func init() {
-	ValidateProtoNumEtc("Ab21Spirit2", HasSpirit2FinanceJudo, Ab21FinanceJudo, false)
+	ValidateProtoEtc("Ab21Spirit2", HasSpirit2FinanceJudo, Ab21FinanceJudo, false)
 }
 
 var MagazineFrameAFinanceJudo = G{
@@ -74,7 +75,7 @@ var MagazineFrameAFinanceJudo = G{
 }
 
 func init() {
-	ValidateProtoNumEtc("Ab21MagazineFrameA", MagazineFrameAFinanceJudo, Ab21FinanceJudo, true)
+	ValidateProtoEtc("Ab21MagazineFrameA", MagazineFrameAFinanceJudo, Ab21FinanceJudo, true)
 }
 
 var MagazineFrameSingleAFinanceJudo = G{
@@ -89,7 +90,7 @@ var MagazineFrameSingleAFinanceJudo = G{
 }
 
 func init() {
-	ValidateProtoNumEtc("Ab21MagazineFrameSingleA", MagazineFrameSingleAFinanceJudo, Ab21FinanceJudo, false)
+	ValidateProtoEtc("Ab21MagazineFrameSingleA", MagazineFrameSingleAFinanceJudo, Ab21FinanceJudo, false)
 }
 
 var InAnyExceptNotAFieldNameFinanceJudo = G{
@@ -122,4 +123,76 @@ var InAnyExceptSaladWorryFinanceJudo = G{
 
 func init() {
 	ValidateProtoEtc("Ab21InAnyExceptSaladWorry", InAnyExceptSaladWorryFinanceJudo, Ab21FinanceJudo, false)
+}
+
+func init() {
+	g1 := `.FinanceJudo:.SaladWorry:.SpyCarpenter:
+(
+	(
+		(
+			(
+					.BridgePepper:!(._ == "aaaaaaaa@mm~")
+				&
+					.FountainTarget:!(._ == "aaaaaaaa@mm~")
+			)
+			&
+			.BridgePepper:!(._ == "bbbbbbb@~")
+		)
+		&
+		.FountainTarget:!(._ == "bbbbbbb@~")
+	)
+	&
+	(
+			.BridgePepper:._ == "mmm.ddddddd~"
+		|
+			.FountainTarget:._ == "mmm.ddddddd~"
+	)
+)`
+
+	grammar1, err := rparser.ParseGrammar(g1)
+	if err != nil {
+		panic(err)
+	}
+	msg := &PuddingMilkshake{FinanceJudo: &FinanceJudo{SaladWorry: &SaladWorry{SpyCarpenter: &SpyCarpenter{
+		BridgePepper:   []string{"isHOrIGyoLbdXZ9a4t4abCuoFvDpXvxgscJQYRGZ6u"},
+		FountainTarget: []string{"oqqST33HqlR5s30O61mPwPnXGrwM5AIRWwDQ1YDPZcr8iP56B7AFwemBq1MfsNojkOAPlkt58RuaNn7pTgV66TSpp"},
+	}}}}
+
+	ValidateProtoEtc("PuddingMilkShakeNotAny1", G{"main": grammar1.GetTopPattern()}, msg, false)
+}
+
+func init() {
+	g2 := `.FinanceJudo:.SaladWorry:.SpyCarpenter:
+(
+	(
+		(
+			(
+					.BridgePepper:!(._ == "aaaaaaaa@mm~")
+				&
+					.FountainTarget:!(._ == "aaaaaaaa@mm~")
+			)
+			&
+			.BridgePepper:!(._ == "bbbbbbb@~")
+		)
+		&
+		.FountainTarget:!(._ == "bbbbbbb@~")
+	)
+	&
+	(
+			.BridgePepper:._ == "mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~"
+		|
+			.FountainTarget:._ == "mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~"
+	)
+)`
+
+	grammar2, err := rparser.ParseGrammar(g2)
+	if err != nil {
+		panic(err)
+	}
+	msg := &PuddingMilkshake{FinanceJudo: &FinanceJudo{SaladWorry: &SaladWorry{SpyCarpenter: &SpyCarpenter{
+		BridgePepper:   []string{"isHOrIGyoLbdXZ9a4t4abCuoFvDpXvxgscJQYRGZ6u"},
+		FountainTarget: []string{"oqqST33HqlR5s30O61mPwPnXGrwM5AIRWwDQ1YDPZcr8iP56B7AFwemBq1MfsNojkOAPlkt58RuaNn7pTgV66TSpp"},
+	}}}}
+
+	ValidateProtoEtc("PuddingMilkShakeNotAny2", G{"main": grammar2.GetTopPattern()}, msg, false)
 }
