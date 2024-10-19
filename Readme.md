@@ -2,34 +2,34 @@
 
 The test suite is a language agnostic test suite.
 
-The idea is that katydid can be implemented in multiple programming languages. 
+The idea is that katydid can be implemented in multiple programming languages.
 Currently an implementations are available in:
 
-  - [Go](https://github.com/katydid/katydid) and 
+  - [Go](https://github.com/katydid/katydid) and
   - [Haskell](https://github.com/katydid/katydid-haskell).
 
 Having one set of tests that can be used by multiple implementations helps to keep these implementations consistent
 and is a great starting point when creating a new implementation.
 
-Technically each of the two implementations consist of three implementations of Relapse's core algorithm, 
+Technically each of the two implementations consist of three implementations of validator's core algorithm,
 so currently there are six users of the test suite.
 
 The test suite is simply a bunch of folders and files that can be traversed and opened in any programming language.
 
-The test suite contains some Go code to help to generate tests for multiple serialization formats. 
+The test suite contains some Go code to help to generate tests for multiple serialization formats.
 The output is just a bunch of files and folders.
-There should be no need to run this, except when adding more tests, 
+There should be no need to run this, except when adding more tests,
 since all the output files and folders are already committed in the repository.
-The reason for generating files and folders is that katydid is encoding agnostic, 
-so to help make sure that the parsers are implemented consistently, 
-we might want to use the same relapse test for multiple serialization formats.
+The reason for generating files and folders is that katydid is encoding agnostic,
+so to help make sure that the parsers are implemented consistently,
+we might want to use the same validator test for multiple serialization formats.
 
-> This Go code for test suite generation should not be confused with the Go tests for the Go implementations of Relapse.
-The Go implementations of Relapse all expect the test suite to located adjacent to katydid in the `GOPATH` and the files are read like in any other language's implementation, without using any Go code from the test suite repository.
+> This Go code for test suite generation should not be confused with the Go tests for the Go implementations of the validator.
+The Go implementations of the validator all expect the test suite to located adjacent to katydid in the `GOPATH` and the files are read like in any other language's implementation, without using any Go code from the test suite repository.
 
 ## Tests
 
-Relapse tests are located in the `./relapse/tests` folder.
+The validator tests are located in the `./validator/tests` folder.
 
 Tests are grouped by codec: json, xml, etc.
 
@@ -38,8 +38,8 @@ Inside each codec folder is a list of testcase folders, each for a descriptive n
 Files in the codec folder are schemas that might be required by a testcase.
 For example, marshaled protocol buffer file descriptor sets.
 
-Inside each testcase folder is the relapse grammar in several formats: txt, json and xml.
-This for cases where a new language has not had time to fully implement a relapse syntax parser.
+Inside each testcase folder is the validator grammar in several formats: txt, json and xml.
+This for cases where a new language has not had time to fully implement a validator syntax parser.
 
 Also found in the testcase folder is a filename starting with `valid` or `invalid` depending on whether the contents of the file is valid with respect to the provide grammar of invalid.
 The file extension of this file again describes the codec of the contents.
@@ -47,11 +47,11 @@ In the case where this codec requires a schema, this filename is also provided a
 
 ## Benchmarks
 
-Relapse benchmarks are located in the `./relapse/benches` folder.
+The validator benchmarks are located in the `./validator/benches` folder.
 
 This folder is not checked in, because of its size.
 Instead this folder can be generated, by running `make regenerate`.
-This will require `go` to be installed and this folder to checked out to 
+This will require `go` to be installed and this folder to checked out to
 `$GOPATH/src/github.com/katydid/testsuite`.
 
 Benchmarks are grouped by codec: pbnum (no others are provided yet)
@@ -61,19 +61,19 @@ Inside each codec folder is a list of benchcase folders, each for a descriptive 
 Files in the codec folder are schemas that might be required by a benchcase.
 For example, marshaled protocol buffer file descriptor sets.
 
-Inside each benchcase folder is the relapse grammar in several formats: txt, json and xml.
-This for cases where a new language has not had time to fully implement a relapse syntax parser.
+Inside each benchcase folder is the validator grammar in several formats: txt, json and xml.
+This for cases where a new language has not had time to fully implement a validator syntax parser.
 
 Also found in the benchcase folder is a 1000 generated files each starting with a number and following by codec and schema information.
 
 ## Adding Tests
 
 As mentioned before tests are generated from Go code.
-Adding a test requires adding some more Go code in `gen-relapse-tests`.
+Adding a test requires adding some more Go code in `gen-validator-tests`.
 
 ### Adding an XML Test
 
-Create a new file `./gen-relapse-tests/my_tests.go` with the following content:
+Create a new file `./gen-validator-tests/my_tests.go` with the following content:
 
 ```go
 package main
@@ -100,21 +100,21 @@ $ make regenerate
 
 This will then generate files in the `./tests/xml/test_name` folder:
 
-  - `relapse.txt` containing the relapse expression as a string.
-  - `relapse.xml` containing an xml serialized relapse abstract syntax tree.  This is for new implementations of relapse which have not implemented a parser for the grammar yet.
-  - `relapse.json` containing a json serialized relapse abstract syntax tree.  This is for new implementations of relapse which have not implemented a parser for the grammar yet.
+  - `relapse.txt` containing the validator expression as a string.
+  - `relapse.xml` containing an xml serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
+  - `relapse.json` containing a json serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
   - `valid.xml` containing the valid xml input.
 
 ### Adding a JSON Test
 
-Create a new file `./gen-relapse-tests/my_tests.go` with the following content:
+Create a new file `./gen-validator-tests/my_tests.go` with the following content:
 
 ```go
 package main
 
 import (
-  "github.com/katydid/katydid/relapse/ast"
-  "github.com/katydid/katydid/relapse/parser"
+  "github.com/katydid/katydid/validator/ast"
+  "github.com/katydid/katydid/validator/parser"
 )
 
 func init() {
@@ -124,7 +124,7 @@ func init() {
     panic(err)
   }
   ValidateJsonString(
-    "test_name", 
+    "test_name",
     G(ast.NewRefLookup(grammar)),
     `{"test":"abc"}`,
     true,
@@ -139,14 +139,14 @@ $ make regenerate
 
 This will then generate files in the `./tests/json/test_name` folder:
 
-  - `relapse.txt` containing the relapse expression as a string.
-  - `relapse.xml` containing an xml serialized relapse abstract syntax tree.  This is for new implementations of relapse which have not implemented a parser for the grammar yet.
-  - `relapse.json` containing a json serialized relapse abstract syntax tree.  This is for new implementations of relapse which have not implemented a parser for the grammar yet.
+  - `relapse.txt` containing the validator expression as a string.
+  - `relapse.xml` containing an xml serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
+  - `relapse.json` containing a json serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
   - `valid.json` containing the valid json input.
 
 ### Adding a Protocol Buffer Test
 
-Create a new proto file `./gen-relapse-tests/my.proto` with your protobuf definition.  This should use [gogoprotobuf](https://github.com/gogo/protobuf), since we require a generated Description method that returns a FileDescriptorSet.
+Create a new proto file `./gen-validator-tests/my.proto` with your protobuf definition.  This should use [gogoprotobuf](https://github.com/gogo/protobuf), since we require a generated Description method that returns a FileDescriptorSet.
 
 Here is an example:
 
@@ -165,27 +165,27 @@ message MyMessage {
 }
 ```
 
-In the `./gen-relapse-tests/Makefile` we need to add a command to generate some code for this protocol buffer.
+In the `./gen-validator-tests/Makefile` we need to add a command to generate some code for this protocol buffer.
 
 ```
 (protoc --gogo_out=. -I=.:$(GOPATH)/src/:$(GOPATH)/src/github.com/gogo/protobuf/protobuf my.proto)
 ```
 
-Finally we can create our test file `./gen-relapse-tests/my_tests.go` with the following content:
+Finally we can create our test file `./gen-validator-tests/my_tests.go` with the following content:
 
 ```go
 package main
 
 import (
-  "github.com/katydid/katydid/relapse/ast"
-  "github.com/katydid/katydid/relapse/parser"
-  . "github.com/katydid/katydid/relapse/combinator"
-  . "github.com/katydid/katydid/relapse/funcs"
+  "github.com/katydid/katydid/validator/ast"
+  "github.com/katydid/katydid/validator/parser"
+  . "github.com/katydid/katydid/validator/combinator"
+  . "github.com/katydid/katydid/validator/funcs"
 )
 
 func init() {
   str := `MyField == "abc"`
-  grammar, err := parser.ParseGrammar(largeRelapse)
+  grammar, err := parser.ParseGrammar(largeValidator)
   if err != nil {
     panic(err)
   }
@@ -194,7 +194,7 @@ func init() {
     MyField: "abc",
   }
   ValidateProtoName(
-    "test_name", 
+    "test_name",
     g,
     msg,
     true,
@@ -209,14 +209,14 @@ $ make regenerate
 
 This will then generate files in the `./tests/pbname/test_name` folder:
 
-  - `relapse.txt` containing the relapse expression as a string.
-  - `relapse.xml` containing an xml serialized relapse abstract syntax tree.  This is for new implementations of relapse which have not implemented a parser for the grammar yet.
-  - `relapse.json` containing a json serialized relapse abstract syntax tree.  This is for new implementations of relapse which have not implemented a parser for the grammar yet.
+  - `relapse.txt` containing the validator expression as a string.
+  - `relapse.xml` containing an xml serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
+  - `relapse.json` containing a json serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
   - `valid.main.MyMessage.desc.pbname` containing the valid marshaled protocol buffer input.
 
 It also generates the file `./tests/pbname/main.MyMessage.desc` containing the marshaled FileDescriptorSet for MyMessage.
 
-`ValidateProtoNum` is another function that could have been used to validate the protocol buffer.  This validating translates the relapse expression into an expression that relies on field numbers instead of field names.  This is useful for optimization purposes. `ValidateProtoNum` works exactly like `ValidateProtoName` except that it translates the expression and outputs the files in the `pbnum` folder.  This lets the test runner know that it should use the protobuf parser that returns field numbers instead of field names.
+`ValidateProtoNum` is another function that could have been used to validate the protocol buffer.  This validating translates the validator expression into an expression that relies on field numbers instead of field names.  This is useful for optimization purposes. `ValidateProtoNum` works exactly like `ValidateProtoName` except that it translates the expression and outputs the files in the `pbnum` folder.  This lets the test runner know that it should use the protobuf parser that returns field numbers instead of field names.
 
 `ValidateProtoNumNoRewrite` is another function that could be used to validate a protocol buffer, but it relies on the input expression to have already been translated to field numberes.
 

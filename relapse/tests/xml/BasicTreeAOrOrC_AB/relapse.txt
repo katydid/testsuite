@@ -1,1 +1,0 @@
-(A:(A:<empty>|B:<empty>)|C:(C:<empty>|B:<empty>))

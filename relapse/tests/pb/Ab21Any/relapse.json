@@ -1,9 +1,0 @@
-{
-	"TopPattern": {
-		"ZAny": {
-			"Star": {
-				"Value": "*"
-			}
-		}
-	}
-}

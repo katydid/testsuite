@@ -1,1 +1,0 @@
-(A:A:<empty>&A:B:<empty>)

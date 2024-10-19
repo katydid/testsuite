@@ -1,8 +1,8 @@
 regenerate:
-	(cd relapse && make regenerate)
+	(cd validator && make regenerate)
 
 nuke:
-	(cd relapse && make nuke)
+	(cd validator && make nuke)
 
 regenerate-tests:
-	(cd relapse && make regenerate-tests)
+	(cd validator && make regenerate-tests)

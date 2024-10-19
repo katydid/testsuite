@@ -1,1 +1,0 @@
-((((.PocketRoses:.MenuPaperclip:._:*="a"|.PocketRoses:.BeetlePoker:._:*="a")|(.PocketRoses:.MenuPaperclip:._:*="b"|.PocketRoses:.BeetlePoker:._:*="b"))&(.PocketRoses:.MenuPaperclip:._:*="c"|.PocketRoses:.BeetlePoker:._:*="c"))&(.PocketRoses:.BadgeShopping:<=2&(.PocketRoses:.BadgeShopping:>=0&.PocketRoses:.DaisySled:>=1)))

@@ -1,3 +1,0 @@
-(@q1|@q2)
-#q1=(A[Left:@q1,Right:@q2]|A[Left:@q1,Right:@q1])
-#q2=(A[Left:@q2,Right:@q2]|A:Value:=="#")

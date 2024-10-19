@@ -1,1 +1,0 @@
-[(Name:*)?,Addresses:*,Telephone:=="0127897897"]
