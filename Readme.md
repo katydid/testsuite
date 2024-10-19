@@ -79,14 +79,14 @@ Create a new file `./gen-validator-tests/my_tests.go` with the following content
 package main
 
 import (
-  "github.com/katydid/katydid/relapse/ast"
-  . "github.com/katydid/katydid/relapse/combinator"
+  "github.com/katydid/katydid/validator-go/ast"
+  . "github.com/katydid/katydid/validator-go/combinator"
 )
 
 func init() {
   ValidateXMLString(
     "test_name", // test name
-      G{"main": ast.NewTreeNode(ast.NewStringName("test"), ast.NewEmpty())}, // relapse grammar
+      G{"main": ast.NewTreeNode(ast.NewStringName("test"), ast.NewEmpty())}, // validator grammar
     "<test/>", // input xml
     true, // valid?
   )
@@ -100,9 +100,9 @@ $ make regenerate
 
 This will then generate files in the `./tests/xml/test_name` folder:
 
-  - `relapse.txt` containing the validator expression as a string.
-  - `relapse.xml` containing an xml serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
-  - `relapse.json` containing a json serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
+  - `validator.txt` containing the validator expression as a string.
+  - `validator.xml` containing an xml serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
+  - `validator.json` containing a json serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
   - `valid.xml` containing the valid xml input.
 
 ### Adding a JSON Test
@@ -139,9 +139,9 @@ $ make regenerate
 
 This will then generate files in the `./tests/json/test_name` folder:
 
-  - `relapse.txt` containing the validator expression as a string.
-  - `relapse.xml` containing an xml serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
-  - `relapse.json` containing a json serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
+  - `validator.txt` containing the validator expression as a string.
+  - `validator.xml` containing an xml serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
+  - `validator.json` containing a json serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
   - `valid.json` containing the valid json input.
 
 ### Adding a Protocol Buffer Test
@@ -209,9 +209,9 @@ $ make regenerate
 
 This will then generate files in the `./tests/pbname/test_name` folder:
 
-  - `relapse.txt` containing the validator expression as a string.
-  - `relapse.xml` containing an xml serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
-  - `relapse.json` containing a json serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
+  - `validator.txt` containing the validator expression as a string.
+  - `validator.xml` containing an xml serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
+  - `validator.json` containing a json serialized validator abstract syntax tree.  This is for new implementations of the validator which have not implemented a parser for the grammar yet.
   - `valid.main.MyMessage.desc.pbname` containing the valid marshaled protocol buffer input.
 
 It also generates the file `./tests/pbname/main.MyMessage.desc` containing the marshaled FileDescriptorSet for MyMessage.
