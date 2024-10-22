@@ -1,0 +1,10 @@
+{
+	"Name": "Routine",
+	"Addresses": [
+		{
+			"Number": 3,
+			"Street": "SomeStreet"
+		}
+	],
+	"Telephone": "0124444444"
+}

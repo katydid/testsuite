@@ -1,0 +1,103 @@
+{
+	"TopPattern": {
+		"TreeNode": {
+			"Name": {
+				"Name": {
+					"StringValue": "A"
+				}
+			},
+			"Colon": {
+				"Value": ":"
+			},
+			"Pattern": {
+				"And": {
+					"OpenParen": {
+						"Value": "("
+					},
+					"LeftPattern": {
+						"Contains": {
+							"Dot": {
+								"Value": "."
+							},
+							"Pattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"StringValue": "B"
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"StringValue": "C"
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"Empty": {
+													"Empty": {
+														"Value": "\u003cempty\u003e"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"Ampersand": {
+						"Value": "\u0026"
+					},
+					"RightPattern": {
+						"Contains": {
+							"Dot": {
+								"Value": "."
+							},
+							"Pattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"StringValue": "B"
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"StringValue": "D"
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"Empty": {
+													"Empty": {
+														"Value": "\u003cempty\u003e"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"CloseParen": {
+						"Value": ")"
+					}
+				}
+			}
+		}
+	}
+}

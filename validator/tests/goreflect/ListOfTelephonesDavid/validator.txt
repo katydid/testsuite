@@ -1,0 +1,1 @@
+[*,Telephone:->or(eq($string,"0123456789"),eq($string,"0127897897")),*]

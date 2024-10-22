@@ -1,0 +1,31 @@
+{
+	"TopPattern": {
+		"TreeNode": {
+			"Name": {
+				"Name": {
+					"StringValue": "A"
+				}
+			},
+			"Colon": {
+				"Value": ":"
+			},
+			"Pattern": {
+				"LeafNode": {
+					"Expr": {
+						"BuiltIn": {
+							"Symbol": {
+								"Value": "=="
+							},
+							"Expr": {
+								"Terminal": {
+									"Literal": "\"B\"",
+									"StringValue": "B"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

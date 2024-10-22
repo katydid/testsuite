@@ -1,0 +1,103 @@
+{
+	"TopPattern": {
+		"Contains": {
+			"Dot": {
+				"Value": "."
+			},
+			"Pattern": {
+				"TreeNode": {
+					"Name": {
+						"Name": {
+							"StringValue": "Addresses"
+						}
+					},
+					"Colon": {
+						"Value": ":"
+					},
+					"Pattern": {
+						"TreeNode": {
+							"Name": {
+								"AnyName": {
+									"Underscore": {
+										"Value": "_"
+									}
+								}
+							},
+							"Pattern": {
+								"Concat": {
+									"OpenBracket": {
+										"Value": "["
+									},
+									"LeftPattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"StringValue": "Number"
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"LeafNode": {
+													"Expr": {
+														"BuiltIn": {
+															"Symbol": {
+																"Value": "=="
+															},
+															"Expr": {
+																"Terminal": {
+																	"Literal": "456",
+																	"IntValue": 456
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"Comma": {
+										"Value": ","
+									},
+									"RightPattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"StringValue": "Street"
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"LeafNode": {
+													"Expr": {
+														"BuiltIn": {
+															"Symbol": {
+																"Value": "=="
+															},
+															"Expr": {
+																"Terminal": {
+																	"Literal": "\"TheStreet\"",
+																	"StringValue": "TheStreet"
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"CloseBracket": {
+										"Value": "]"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

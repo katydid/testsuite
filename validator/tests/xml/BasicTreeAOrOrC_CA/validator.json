@@ -1,0 +1,141 @@
+{
+	"TopPattern": {
+		"Or": {
+			"OpenParen": {
+				"Value": "("
+			},
+			"LeftPattern": {
+				"TreeNode": {
+					"Name": {
+						"Name": {
+							"StringValue": "A"
+						}
+					},
+					"Colon": {
+						"Value": ":"
+					},
+					"Pattern": {
+						"Or": {
+							"OpenParen": {
+								"Value": "("
+							},
+							"LeftPattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"StringValue": "A"
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"Empty": {
+											"Empty": {
+												"Value": "\u003cempty\u003e"
+											}
+										}
+									}
+								}
+							},
+							"Pipe": {
+								"Value": "|"
+							},
+							"RightPattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"StringValue": "B"
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"Empty": {
+											"Empty": {
+												"Value": "\u003cempty\u003e"
+											}
+										}
+									}
+								}
+							},
+							"CloseParen": {
+								"Value": ")"
+							}
+						}
+					}
+				}
+			},
+			"Pipe": {
+				"Value": "|"
+			},
+			"RightPattern": {
+				"TreeNode": {
+					"Name": {
+						"Name": {
+							"StringValue": "C"
+						}
+					},
+					"Colon": {
+						"Value": ":"
+					},
+					"Pattern": {
+						"Or": {
+							"OpenParen": {
+								"Value": "("
+							},
+							"LeftPattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"StringValue": "C"
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"Empty": {
+											"Empty": {
+												"Value": "\u003cempty\u003e"
+											}
+										}
+									}
+								}
+							},
+							"Pipe": {
+								"Value": "|"
+							},
+							"RightPattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"StringValue": "B"
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"Empty": {
+											"Empty": {
+												"Value": "\u003cempty\u003e"
+											}
+										}
+									}
+								}
+							},
+							"CloseParen": {
+								"Value": ")"
+							}
+						}
+					}
+				}
+			},
+			"CloseParen": {
+				"Value": ")"
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+.FinanceJudo:.SaladWorry:.SpyCarpenter:((((.BridgePepper:!(._ == "aaaaaaaa@mm~")
+&
+.FountainTarget:!(._ == "aaaaaaaa@mm~"))
+&
+.BridgePepper:!(._ == "bbbbbbb@~"))
+&
+.FountainTarget:!(._ == "bbbbbbb@~"))
+&
+(.BridgePepper:._ == "mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~"
+|
+.FountainTarget:._ == "mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~"))

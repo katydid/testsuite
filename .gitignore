@@ -1,3 +1,2 @@
 gen-validator-tests
-validator/tests/*
 validator/benches/*

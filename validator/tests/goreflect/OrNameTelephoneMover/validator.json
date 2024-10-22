@@ -1,0 +1,87 @@
+{
+	"TopPattern": {
+		"Or": {
+			"OpenParen": {
+				"Value": "("
+			},
+			"LeftPattern": {
+				"Contains": {
+					"Dot": {
+						"Value": "."
+					},
+					"Pattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "Name"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"LeafNode": {
+									"Expr": {
+										"BuiltIn": {
+											"Symbol": {
+												"Value": "=="
+											},
+											"Expr": {
+												"Terminal": {
+													"Literal": "\"David\"",
+													"StringValue": "David"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"Pipe": {
+				"Value": "|"
+			},
+			"RightPattern": {
+				"Contains": {
+					"Dot": {
+						"Value": "."
+					},
+					"Pattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "Telephone"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"LeafNode": {
+									"Expr": {
+										"BuiltIn": {
+											"Symbol": {
+												"Value": "=="
+											},
+											"Expr": {
+												"Terminal": {
+													"Literal": "\"0123456789\"",
+													"StringValue": "0123456789"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"CloseParen": {
+				"Value": ")"
+			}
+		}
+	}
+}

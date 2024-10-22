@@ -1,0 +1,94 @@
+{
+	"TopPattern": {
+		"Concat": {
+			"OpenBracket": {
+				"Value": "["
+			},
+			"LeftPattern": {
+				"TreeNode": {
+					"Name": {
+						"Name": {
+							"StringValue": "Addresses"
+						}
+					},
+					"Colon": {
+						"Value": ":"
+					},
+					"Pattern": {
+						"TreeNode": {
+							"Name": {
+								"AnyName": {
+									"Underscore": {
+										"Value": "_"
+									}
+								}
+							},
+							"Pattern": {
+								"Concat": {
+									"OpenBracket": {
+										"Value": "["
+									},
+									"LeftPattern": {
+										"TreeNode": {
+											"Name": {
+												"Name": {
+													"StringValue": "Number"
+												}
+											},
+											"Colon": {
+												"Value": ":"
+											},
+											"Pattern": {
+												"LeafNode": {
+													"Expr": {
+														"BuiltIn": {
+															"Symbol": {
+																"Value": "\u003e="
+															},
+															"Expr": {
+																"Terminal": {
+																	"Literal": "uint(0)",
+																	"UintValue": 0
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"Comma": {
+										"Value": ","
+									},
+									"RightPattern": {
+										"ZAny": {
+											"Star": {
+												"Value": "*"
+											}
+										}
+									},
+									"CloseBracket": {
+										"Value": "]"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"Comma": {
+				"Value": ","
+			},
+			"RightPattern": {
+				"ZAny": {
+					"Star": {
+						"Value": "*"
+					}
+				}
+			},
+			"CloseBracket": {
+				"Value": "]"
+			}
+		}
+	}
+}

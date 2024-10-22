@@ -1,0 +1,25 @@
+{
+	"PackageName": "syscall",
+	"Imports": [
+		{
+			"PackageName": "errors"
+		},
+		{
+			"PackageName": "runtime"
+		},
+		{
+			"PackageName": "sync",
+			"Imports": [
+				{
+					"PackageName": "sync/atomic"
+				},
+				{
+					"PackageName": "unsafe"
+				}
+			]
+		},
+		{
+			"PackageName": "unsafe"
+		}
+	]
+}

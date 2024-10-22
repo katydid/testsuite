@@ -1,0 +1,117 @@
+{
+	"TopPattern": {
+		"Interleave": {
+			"OpenCurly": {
+				"Value": "{"
+			},
+			"LeftPattern": {
+				"Concat": {
+					"OpenBracket": {
+						"Value": "["
+					},
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "A"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"ZAny": {
+									"Star": {
+										"Value": "*"
+									}
+								}
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "B"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"ZAny": {
+									"Star": {
+										"Value": "*"
+									}
+								}
+							}
+						}
+					},
+					"CloseBracket": {
+						"Value": "]"
+					}
+				}
+			},
+			"SemiColon": {
+				"Value": ";"
+			},
+			"RightPattern": {
+				"Concat": {
+					"OpenBracket": {
+						"Value": "["
+					},
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "C"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"ZAny": {
+									"Star": {
+										"Value": "*"
+									}
+								}
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "D"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"ZAny": {
+									"Star": {
+										"Value": "*"
+									}
+								}
+							}
+						}
+					},
+					"CloseBracket": {
+						"Value": "]"
+					}
+				}
+			},
+			"CloseCurly": {
+				"Value": "}"
+			}
+		}
+	}
+}

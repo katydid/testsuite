@@ -1,0 +1,79 @@
+{
+	"TopPattern": {
+		"Or": {
+			"OpenParen": {
+				"Value": "("
+			},
+			"LeftPattern": {
+				"Not": {
+					"Exclamation": {
+						"Value": "!"
+					},
+					"OpenParen": {
+						"Value": "("
+					},
+					"Pattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "A"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"Empty": {
+									"Empty": {
+										"Value": "\u003cempty\u003e"
+									}
+								}
+							}
+						}
+					},
+					"CloseParen": {
+						"Value": ")"
+					}
+				}
+			},
+			"Pipe": {
+				"Value": "|"
+			},
+			"RightPattern": {
+				"Not": {
+					"Exclamation": {
+						"Value": "!"
+					},
+					"OpenParen": {
+						"Value": "("
+					},
+					"Pattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "B"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"Empty": {
+									"Empty": {
+										"Value": "\u003cempty\u003e"
+									}
+								}
+							}
+						}
+					},
+					"CloseParen": {
+						"Value": ")"
+					}
+				}
+			},
+			"CloseParen": {
+				"Value": ")"
+			}
+		}
+	}
+}

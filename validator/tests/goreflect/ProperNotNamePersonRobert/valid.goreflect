@@ -1,0 +1,10 @@
+{
+	"Name": "Robert",
+	"Addresses": [
+		{
+			"Number": 456,
+			"Street": "TheStreet"
+		}
+	],
+	"Telephone": "0127897897"
+}
