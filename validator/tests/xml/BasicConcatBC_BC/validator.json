@@ -1,0 +1,62 @@
+{
+	"TopPattern": {
+		"TreeNode": {
+			"Name": {
+				"Name": {
+					"StringValue": "A"
+				}
+			},
+			"Pattern": {
+				"Concat": {
+					"OpenBracket": {
+						"Value": "["
+					},
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "B"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"Empty": {
+									"Empty": {
+										"Value": "\u003cempty\u003e"
+									}
+								}
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "C"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"Empty": {
+									"Empty": {
+										"Value": "\u003cempty\u003e"
+									}
+								}
+							}
+						}
+					},
+					"CloseBracket": {
+						"Value": "]"
+					}
+				}
+			}
+		}
+	}
+}

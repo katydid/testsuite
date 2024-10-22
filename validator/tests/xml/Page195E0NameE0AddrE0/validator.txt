@@ -1,0 +1,1 @@
+Person:{Name:*;(Addr:*)?;(Email:*)*;(~="^([ \t\r\n\v\f])+$")*}

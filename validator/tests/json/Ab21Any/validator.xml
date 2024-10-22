@@ -1,0 +1,9 @@
+<Grammar>
+	<TopPattern>
+		<ZAny>
+			<Star>
+				<Value>*</Value>
+			</Star>
+		</ZAny>
+	</TopPattern>
+</Grammar>

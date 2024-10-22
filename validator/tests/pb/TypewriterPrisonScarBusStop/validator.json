@@ -1,0 +1,108 @@
+{
+	"TopPattern": {
+		"Concat": {
+			"OpenBracket": {
+				"Value": "["
+			},
+			"LeftPattern": {
+				"ZAny": {
+					"Star": {
+						"Value": "*"
+					}
+				}
+			},
+			"Comma": {
+				"Value": ","
+			},
+			"RightPattern": {
+				"Concat": {
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "PocketRoses"
+								}
+							},
+							"Pattern": {
+								"Concat": {
+									"OpenBracket": {
+										"Value": "["
+									},
+									"LeftPattern": {
+										"ZAny": {
+											"Star": {
+												"Value": "*"
+											}
+										}
+									},
+									"Comma": {
+										"Value": ","
+									},
+									"RightPattern": {
+										"Concat": {
+											"LeftPattern": {
+												"TreeNode": {
+													"Name": {
+														"Name": {
+															"StringValue": "ScarBusStop"
+														}
+													},
+													"Colon": {
+														"Value": ":"
+													},
+													"Pattern": {
+														"LeafNode": {
+															"Expr": {
+																"BuiltIn": {
+																	"Symbol": {
+																		"Value": "*="
+																	},
+																	"Expr": {
+																		"Terminal": {
+																			"Literal": "\"a\"",
+																			"StringValue": "a"
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											},
+											"Comma": {
+												"Value": ","
+											},
+											"RightPattern": {
+												"ZAny": {
+													"Star": {
+														"Value": "*"
+													}
+												}
+											}
+										}
+									},
+									"CloseBracket": {
+										"Value": "]"
+									}
+								}
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"ZAny": {
+							"Star": {
+								"Value": "*"
+							}
+						}
+					}
+				}
+			},
+			"CloseBracket": {
+				"Value": "]"
+			}
+		}
+	}
+}

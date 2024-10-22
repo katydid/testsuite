@@ -1,0 +1,21 @@
+{
+	"TopPattern": {
+		"TreeNode": {
+			"Name": {
+				"Name": {
+					"StringValue": "A"
+				}
+			},
+			"Colon": {
+				"Value": ":"
+			},
+			"Pattern": {
+				"Empty": {
+					"Empty": {
+						"Value": "\u003cempty\u003e"
+					}
+				}
+			}
+		}
+	}
+}

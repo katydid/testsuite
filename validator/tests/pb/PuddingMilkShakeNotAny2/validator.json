@@ -1,0 +1,621 @@
+{
+	"TopPattern": {
+		"Contains": {
+			"Dot": {
+				"Value": "."
+			},
+			"Pattern": {
+				"TreeNode": {
+					"Name": {
+						"Name": {
+							"StringValue": "FinanceJudo"
+						}
+					},
+					"Colon": {
+						"Value": ":"
+					},
+					"Pattern": {
+						"Contains": {
+							"Dot": {
+								"Value": "."
+							},
+							"Pattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"StringValue": "SaladWorry"
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"Contains": {
+											"Dot": {
+												"Value": "."
+											},
+											"Pattern": {
+												"TreeNode": {
+													"Name": {
+														"Name": {
+															"StringValue": "SpyCarpenter"
+														}
+													},
+													"Colon": {
+														"Value": ":"
+													},
+													"Pattern": {
+														"And": {
+															"OpenParen": {
+																"Before": {},
+																"Value": "("
+															},
+															"LeftPattern": {
+																"And": {
+																	"OpenParen": {
+																		"Before": {},
+																		"Value": "("
+																	},
+																	"LeftPattern": {
+																		"And": {
+																			"OpenParen": {
+																				"Before": {},
+																				"Value": "("
+																			},
+																			"LeftPattern": {
+																				"And": {
+																					"OpenParen": {
+																						"Before": {},
+																						"Value": "("
+																					},
+																					"LeftPattern": {
+																						"Contains": {
+																							"Dot": {
+																								"Before": {},
+																								"Value": "."
+																							},
+																							"Pattern": {
+																								"TreeNode": {
+																									"Name": {
+																										"Name": {
+																											"StringValue": "BridgePepper"
+																										}
+																									},
+																									"Colon": {
+																										"Value": ":"
+																									},
+																									"Pattern": {
+																										"Not": {
+																											"Exclamation": {
+																												"Value": "!"
+																											},
+																											"OpenParen": {
+																												"Value": "("
+																											},
+																											"Pattern": {
+																												"Contains": {
+																													"Dot": {
+																														"Value": "."
+																													},
+																													"Pattern": {
+																														"TreeNode": {
+																															"Name": {
+																																"AnyName": {
+																																	"Underscore": {
+																																		"Value": "_"
+																																	}
+																																}
+																															},
+																															"Pattern": {
+																																"LeafNode": {
+																																	"Expr": {
+																																		"BuiltIn": {
+																																			"Symbol": {
+																																				"Before": {
+																																					"Space": [
+																																						" "
+																																					]
+																																				},
+																																				"Value": "=="
+																																			},
+																																			"Expr": {
+																																				"Terminal": {
+																																					"Before": {
+																																						"Space": [
+																																							" "
+																																						]
+																																					},
+																																					"Literal": "\"aaaaaaaa@mm~\"",
+																																					"StringValue": "aaaaaaaa@mm~"
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											},
+																											"CloseParen": {
+																												"Value": ")"
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					},
+																					"Ampersand": {
+																						"Before": {
+																							"Space": [
+																								"\n"
+																							]
+																						},
+																						"Value": "\u0026"
+																					},
+																					"RightPattern": {
+																						"Contains": {
+																							"Dot": {
+																								"Before": {
+																									"Space": [
+																										"\n"
+																									]
+																								},
+																								"Value": "."
+																							},
+																							"Pattern": {
+																								"TreeNode": {
+																									"Name": {
+																										"Name": {
+																											"StringValue": "FountainTarget"
+																										}
+																									},
+																									"Colon": {
+																										"Value": ":"
+																									},
+																									"Pattern": {
+																										"Not": {
+																											"Exclamation": {
+																												"Value": "!"
+																											},
+																											"OpenParen": {
+																												"Value": "("
+																											},
+																											"Pattern": {
+																												"Contains": {
+																													"Dot": {
+																														"Value": "."
+																													},
+																													"Pattern": {
+																														"TreeNode": {
+																															"Name": {
+																																"AnyName": {
+																																	"Underscore": {
+																																		"Value": "_"
+																																	}
+																																}
+																															},
+																															"Pattern": {
+																																"LeafNode": {
+																																	"Expr": {
+																																		"BuiltIn": {
+																																			"Symbol": {
+																																				"Before": {
+																																					"Space": [
+																																						" "
+																																					]
+																																				},
+																																				"Value": "=="
+																																			},
+																																			"Expr": {
+																																				"Terminal": {
+																																					"Before": {
+																																						"Space": [
+																																							" "
+																																						]
+																																					},
+																																					"Literal": "\"aaaaaaaa@mm~\"",
+																																					"StringValue": "aaaaaaaa@mm~"
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											},
+																											"CloseParen": {
+																												"Value": ")"
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					},
+																					"CloseParen": {
+																						"Before": {},
+																						"Value": ")"
+																					}
+																				}
+																			},
+																			"Ampersand": {
+																				"Before": {
+																					"Space": [
+																						"\n"
+																					]
+																				},
+																				"Value": "\u0026"
+																			},
+																			"RightPattern": {
+																				"Contains": {
+																					"Dot": {
+																						"Before": {
+																							"Space": [
+																								"\n"
+																							]
+																						},
+																						"Value": "."
+																					},
+																					"Pattern": {
+																						"TreeNode": {
+																							"Name": {
+																								"Name": {
+																									"StringValue": "BridgePepper"
+																								}
+																							},
+																							"Colon": {
+																								"Value": ":"
+																							},
+																							"Pattern": {
+																								"Not": {
+																									"Exclamation": {
+																										"Value": "!"
+																									},
+																									"OpenParen": {
+																										"Value": "("
+																									},
+																									"Pattern": {
+																										"Contains": {
+																											"Dot": {
+																												"Value": "."
+																											},
+																											"Pattern": {
+																												"TreeNode": {
+																													"Name": {
+																														"AnyName": {
+																															"Underscore": {
+																																"Value": "_"
+																															}
+																														}
+																													},
+																													"Pattern": {
+																														"LeafNode": {
+																															"Expr": {
+																																"BuiltIn": {
+																																	"Symbol": {
+																																		"Before": {
+																																			"Space": [
+																																				" "
+																																			]
+																																		},
+																																		"Value": "=="
+																																	},
+																																	"Expr": {
+																																		"Terminal": {
+																																			"Before": {
+																																				"Space": [
+																																					" "
+																																				]
+																																			},
+																																			"Literal": "\"bbbbbbb@~\"",
+																																			"StringValue": "bbbbbbb@~"
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									},
+																									"CloseParen": {
+																										"Value": ")"
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			},
+																			"CloseParen": {
+																				"Before": {},
+																				"Value": ")"
+																			}
+																		}
+																	},
+																	"Ampersand": {
+																		"Before": {
+																			"Space": [
+																				"\n"
+																			]
+																		},
+																		"Value": "\u0026"
+																	},
+																	"RightPattern": {
+																		"Contains": {
+																			"Dot": {
+																				"Before": {
+																					"Space": [
+																						"\n"
+																					]
+																				},
+																				"Value": "."
+																			},
+																			"Pattern": {
+																				"TreeNode": {
+																					"Name": {
+																						"Name": {
+																							"StringValue": "FountainTarget"
+																						}
+																					},
+																					"Colon": {
+																						"Value": ":"
+																					},
+																					"Pattern": {
+																						"Not": {
+																							"Exclamation": {
+																								"Value": "!"
+																							},
+																							"OpenParen": {
+																								"Value": "("
+																							},
+																							"Pattern": {
+																								"Contains": {
+																									"Dot": {
+																										"Value": "."
+																									},
+																									"Pattern": {
+																										"TreeNode": {
+																											"Name": {
+																												"AnyName": {
+																													"Underscore": {
+																														"Value": "_"
+																													}
+																												}
+																											},
+																											"Pattern": {
+																												"LeafNode": {
+																													"Expr": {
+																														"BuiltIn": {
+																															"Symbol": {
+																																"Before": {
+																																	"Space": [
+																																		" "
+																																	]
+																																},
+																																"Value": "=="
+																															},
+																															"Expr": {
+																																"Terminal": {
+																																	"Before": {
+																																		"Space": [
+																																			" "
+																																		]
+																																	},
+																																	"Literal": "\"bbbbbbb@~\"",
+																																	"StringValue": "bbbbbbb@~"
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							},
+																							"CloseParen": {
+																								"Value": ")"
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	},
+																	"CloseParen": {
+																		"Before": {},
+																		"Value": ")"
+																	}
+																}
+															},
+															"Ampersand": {
+																"Before": {
+																	"Space": [
+																		"\n"
+																	]
+																},
+																"Value": "\u0026"
+															},
+															"RightPattern": {
+																"Or": {
+																	"OpenParen": {
+																		"Before": {
+																			"Space": [
+																				"\n"
+																			]
+																		},
+																		"Value": "("
+																	},
+																	"LeftPattern": {
+																		"Contains": {
+																			"Dot": {
+																				"Before": {},
+																				"Value": "."
+																			},
+																			"Pattern": {
+																				"TreeNode": {
+																					"Name": {
+																						"Name": {
+																							"StringValue": "BridgePepper"
+																						}
+																					},
+																					"Colon": {
+																						"Value": ":"
+																					},
+																					"Pattern": {
+																						"Contains": {
+																							"Dot": {
+																								"Value": "."
+																							},
+																							"Pattern": {
+																								"TreeNode": {
+																									"Name": {
+																										"AnyName": {
+																											"Underscore": {
+																												"Value": "_"
+																											}
+																										}
+																									},
+																									"Pattern": {
+																										"LeafNode": {
+																											"Expr": {
+																												"BuiltIn": {
+																													"Symbol": {
+																														"Before": {
+																															"Space": [
+																																" "
+																															]
+																														},
+																														"Value": "=="
+																													},
+																													"Expr": {
+																														"Terminal": {
+																															"Before": {
+																																"Space": [
+																																	" "
+																																]
+																															},
+																															"Literal": "\"mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~\"",
+																															"StringValue": "mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~"
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	},
+																	"Pipe": {
+																		"Before": {
+																			"Space": [
+																				"\n"
+																			]
+																		},
+																		"Value": "|"
+																	},
+																	"RightPattern": {
+																		"Contains": {
+																			"Dot": {
+																				"Before": {
+																					"Space": [
+																						"\n"
+																					]
+																				},
+																				"Value": "."
+																			},
+																			"Pattern": {
+																				"TreeNode": {
+																					"Name": {
+																						"Name": {
+																							"StringValue": "FountainTarget"
+																						}
+																					},
+																					"Colon": {
+																						"Value": ":"
+																					},
+																					"Pattern": {
+																						"Contains": {
+																							"Dot": {
+																								"Value": "."
+																							},
+																							"Pattern": {
+																								"TreeNode": {
+																									"Name": {
+																										"AnyName": {
+																											"Underscore": {
+																												"Value": "_"
+																											}
+																										}
+																									},
+																									"Pattern": {
+																										"LeafNode": {
+																											"Expr": {
+																												"BuiltIn": {
+																													"Symbol": {
+																														"Before": {
+																															"Space": [
+																																" "
+																															]
+																														},
+																														"Value": "=="
+																													},
+																													"Expr": {
+																														"Terminal": {
+																															"Before": {
+																																"Space": [
+																																	" "
+																																]
+																															},
+																															"Literal": "\"mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~\"",
+																															"StringValue": "mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~"
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	},
+																	"CloseParen": {
+																		"Before": {},
+																		"Value": ")"
+																	}
+																}
+															},
+															"CloseParen": {
+																"Before": {},
+																"Value": ")"
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

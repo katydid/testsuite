@@ -1,0 +1,34 @@
+{
+	"TopPattern": {
+		"Not": {
+			"Exclamation": {
+				"Value": "!"
+			},
+			"OpenParen": {
+				"Value": "("
+			},
+			"Pattern": {
+				"TreeNode": {
+					"Name": {
+						"Name": {
+							"StringValue": "A"
+						}
+					},
+					"Colon": {
+						"Value": ":"
+					},
+					"Pattern": {
+						"Empty": {
+							"Empty": {
+								"Value": "\u003cempty\u003e"
+							}
+						}
+					}
+				}
+			},
+			"CloseParen": {
+				"Value": ")"
+			}
+		}
+	}
+}

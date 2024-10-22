@@ -1,0 +1,208 @@
+{
+	"TopPattern": {
+		"Concat": {
+			"OpenBracket": {
+				"Value": "["
+			},
+			"LeftPattern": {
+				"ZAny": {
+					"Star": {
+						"Value": "*"
+					}
+				}
+			},
+			"Comma": {
+				"Value": ","
+			},
+			"RightPattern": {
+				"Concat": {
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "FinanceJudo"
+								}
+							},
+							"Pattern": {
+								"Concat": {
+									"OpenBracket": {
+										"Value": "["
+									},
+									"LeftPattern": {
+										"ZAny": {
+											"Star": {
+												"Value": "*"
+											}
+										}
+									},
+									"Comma": {
+										"Value": ","
+									},
+									"RightPattern": {
+										"Concat": {
+											"LeftPattern": {
+												"TreeNode": {
+													"Name": {
+														"Name": {
+															"StringValue": "SaladWorry"
+														}
+													},
+													"Pattern": {
+														"Concat": {
+															"OpenBracket": {
+																"Value": "["
+															},
+															"LeftPattern": {
+																"ZAny": {
+																	"Star": {
+																		"Value": "*"
+																	}
+																}
+															},
+															"Comma": {
+																"Value": ","
+															},
+															"RightPattern": {
+																"Concat": {
+																	"LeftPattern": {
+																		"TreeNode": {
+																			"Name": {
+																				"Name": {
+																					"StringValue": "SpyCarpenter"
+																				}
+																			},
+																			"Pattern": {
+																				"Concat": {
+																					"OpenBracket": {
+																						"Value": "["
+																					},
+																					"LeftPattern": {
+																						"ZAny": {
+																							"Star": {
+																								"Value": "*"
+																							}
+																						}
+																					},
+																					"Comma": {
+																						"Value": ","
+																					},
+																					"RightPattern": {
+																						"Concat": {
+																							"LeftPattern": {
+																								"TreeNode": {
+																									"Name": {
+																										"Name": {
+																											"StringValue": "BridgePepper"
+																										}
+																									},
+																									"Colon": {
+																										"Value": ":"
+																									},
+																									"Pattern": {
+																										"TreeNode": {
+																											"Name": {
+																												"AnyName": {
+																													"Underscore": {
+																														"Value": "_"
+																													}
+																												}
+																											},
+																											"Colon": {
+																												"Value": ":"
+																											},
+																											"Pattern": {
+																												"LeafNode": {
+																													"Expr": {
+																														"BuiltIn": {
+																															"Symbol": {
+																																"Value": "*="
+																															},
+																															"Expr": {
+																																"Terminal": {
+																																	"Literal": "\"a\"",
+																																	"StringValue": "a"
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							},
+																							"Comma": {
+																								"Value": ","
+																							},
+																							"RightPattern": {
+																								"ZAny": {
+																									"Star": {
+																										"Value": "*"
+																									}
+																								}
+																							}
+																						}
+																					},
+																					"CloseBracket": {
+																						"Value": "]"
+																					}
+																				}
+																			}
+																		}
+																	},
+																	"Comma": {
+																		"Value": ","
+																	},
+																	"RightPattern": {
+																		"ZAny": {
+																			"Star": {
+																				"Value": "*"
+																			}
+																		}
+																	}
+																}
+															},
+															"CloseBracket": {
+																"Value": "]"
+															}
+														}
+													}
+												}
+											},
+											"Comma": {
+												"Value": ","
+											},
+											"RightPattern": {
+												"ZAny": {
+													"Star": {
+														"Value": "*"
+													}
+												}
+											}
+										}
+									},
+									"CloseBracket": {
+										"Value": "]"
+									}
+								}
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"ZAny": {
+							"Star": {
+								"Value": "*"
+							}
+						}
+					}
+				}
+			},
+			"CloseBracket": {
+				"Value": "]"
+			}
+		}
+	}
+}

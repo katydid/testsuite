@@ -1,0 +1,75 @@
+{
+	"TopPattern": {
+		"TreeNode": {
+			"Name": {
+				"Name": {
+					"StringValue": "A"
+				}
+			},
+			"Pattern": {
+				"Concat": {
+					"OpenBracket": {
+						"Value": "["
+					},
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "B"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"Empty": {
+									"Empty": {
+										"Value": "\u003cempty\u003e"
+									}
+								}
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"Optional": {
+							"OpenParen": {
+								"Value": "("
+							},
+							"Pattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"StringValue": "D"
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"Empty": {
+											"Empty": {
+												"Value": "\u003cempty\u003e"
+											}
+										}
+									}
+								}
+							},
+							"CloseParen": {
+								"Value": ")"
+							},
+							"QuestionMark": {
+								"Value": "?"
+							}
+						}
+					},
+					"CloseBracket": {
+						"Value": "]"
+					}
+				}
+			}
+		}
+	}
+}

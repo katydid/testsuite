@@ -1,0 +1,62 @@
+{
+	"TopPattern": {
+		"Concat": {
+			"OpenBracket": {
+				"Value": "["
+			},
+			"LeftPattern": {
+				"TreeNode": {
+					"Name": {
+						"Name": {
+							"StringValue": "Name"
+						}
+					},
+					"Colon": {
+						"Value": ":"
+					},
+					"Pattern": {
+						"LeafNode": {
+							"Expr": {
+								"RightArrow": {
+									"Value": "-\u003e"
+								},
+								"Function": {
+									"Name": "type",
+									"OpenParen": {
+										"Value": "("
+									},
+									"Params": [
+										{
+											"Terminal": {
+												"Literal": "",
+												"Variable": {
+													"Type": 109
+												}
+											}
+										}
+									],
+									"CloseParen": {
+										"Value": ")"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"Comma": {
+				"Value": ","
+			},
+			"RightPattern": {
+				"ZAny": {
+					"Star": {
+						"Value": "*"
+					}
+				}
+			},
+			"CloseBracket": {
+				"Value": "]"
+			}
+		}
+	}
+}

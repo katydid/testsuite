@@ -1,0 +1,118 @@
+{
+	"TopPattern": {
+		"TreeNode": {
+			"Name": {
+				"Name": {
+					"StringValue": "MenuPaperclip"
+				}
+			},
+			"Pattern": {
+				"Concat": {
+					"OpenBracket": {
+						"Value": "["
+					},
+					"LeftPattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"IntValue": 1
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"LeafNode": {
+									"Expr": {
+										"BuiltIn": {
+											"Symbol": {
+												"Value": "=="
+											},
+											"Expr": {
+												"Terminal": {
+													"Literal": "\"a\"",
+													"StringValue": "a"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"Comma": {
+						"Value": ","
+					},
+					"RightPattern": {
+						"Concat": {
+							"LeftPattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"IntValue": 0
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"LeafNode": {
+											"Expr": {
+												"BuiltIn": {
+													"Symbol": {
+														"Value": "=="
+													},
+													"Expr": {
+														"Terminal": {
+															"Literal": "\"b\"",
+															"StringValue": "b"
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"Comma": {
+								"Value": ","
+							},
+							"RightPattern": {
+								"TreeNode": {
+									"Name": {
+										"Name": {
+											"IntValue": 2
+										}
+									},
+									"Colon": {
+										"Value": ":"
+									},
+									"Pattern": {
+										"LeafNode": {
+											"Expr": {
+												"BuiltIn": {
+													"Symbol": {
+														"Value": "=="
+													},
+													"Expr": {
+														"Terminal": {
+															"Literal": "\"c\"",
+															"StringValue": "c"
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"CloseBracket": {
+						"Value": "]"
+					}
+				}
+			}
+		}
+	}
+}

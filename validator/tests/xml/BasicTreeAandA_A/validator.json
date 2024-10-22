@@ -1,0 +1,77 @@
+{
+	"TopPattern": {
+		"And": {
+			"OpenParen": {
+				"Value": "("
+			},
+			"LeftPattern": {
+				"TreeNode": {
+					"Name": {
+						"Name": {
+							"StringValue": "A"
+						}
+					},
+					"Colon": {
+						"Value": ":"
+					},
+					"Pattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "A"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"Empty": {
+									"Empty": {
+										"Value": "\u003cempty\u003e"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"Ampersand": {
+				"Value": "\u0026"
+			},
+			"RightPattern": {
+				"TreeNode": {
+					"Name": {
+						"Name": {
+							"StringValue": "A"
+						}
+					},
+					"Colon": {
+						"Value": ":"
+					},
+					"Pattern": {
+						"TreeNode": {
+							"Name": {
+								"Name": {
+									"StringValue": "A"
+								}
+							},
+							"Colon": {
+								"Value": ":"
+							},
+							"Pattern": {
+								"Empty": {
+									"Empty": {
+										"Value": "\u003cempty\u003e"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"CloseParen": {
+				"Value": ")"
+			}
+		}
+	}
+}

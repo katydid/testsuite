@@ -1,0 +1,28 @@
+{
+	"PackageName": "path",
+	"Imports": [
+		{
+			"PackageName": "errors"
+		},
+		{
+			"PackageName": "strings",
+			"Imports": [
+				{
+					"PackageName": "errors"
+				},
+				{
+					"PackageName": "io"
+				},
+				{
+					"PackageName": "uncode"
+				},
+				{
+					"PackageName": "uncode/utf8"
+				}
+			]
+		},
+		{
+			"PackageName": "unicode/utf8"
+		}
+	]
+}

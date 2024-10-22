@@ -1,0 +1,30 @@
+{
+	"PackageName": "io/ioutil",
+	"Imports": [
+		{
+			"PackageName": "io",
+			"Imports": [
+				{
+					"PackageName": "errors"
+				},
+				{
+					"PackageName": "sync"
+				}
+			]
+		},
+		{
+			"PackageName": "os",
+			"Imports": [
+				{
+					"PackageName": "errors"
+				},
+				{
+					"PackageName": "io"
+				},
+				{
+					"PackageName": "runtime"
+				}
+			]
+		}
+	]
+}
