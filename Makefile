@@ -6,3 +6,6 @@ nuke:
 
 regenerate-tests:
 	(cd validator && make regenerate-tests)
+
+build:
+	(cd validator && go build ./...)
