@@ -1,11 +1,13 @@
 # Cross Language Test Suite for Katydid
 
+[![Build Status](https://github.com/katydid/testsuite/actions/workflows/build.yml/badge.svg)](https://github.com/katydid/testsuite/actions)
+
 The test suite is a language agnostic test suite.
 
 The idea is that katydid can be implemented in multiple programming languages.
 Currently an implementations are available in:
 
-  - [Go](https://github.com/katydid/katydid) and
+  - [Go](https://github.com/katydid/validator-go) and
   - [Haskell](https://github.com/katydid/katydid-haskell).
 
 Having one set of tests that can be used by multiple implementations helps to keep these implementations consistent
