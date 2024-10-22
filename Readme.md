@@ -81,8 +81,8 @@ Create a new file `./gen-validator-tests/my_tests.go` with the following content
 package main
 
 import (
-  "github.com/katydid/katydid/validator-go/ast"
-  . "github.com/katydid/katydid/validator-go/combinator"
+  "github.com/katydid/validator-go/validator/ast"
+  . "github.com/katydid/validator-go/validator/combinator"
 )
 
 func init() {
@@ -115,8 +115,8 @@ Create a new file `./gen-validator-tests/my_tests.go` with the following content
 package main
 
 import (
-  "github.com/katydid/katydid/validator/ast"
-  "github.com/katydid/katydid/validator/parser"
+  "github.com/katydid/validator-go/validator/ast"
+  "github.com/katydid/validator-go/validator/parser"
 )
 
 func init() {
@@ -179,10 +179,10 @@ Finally we can create our test file `./gen-validator-tests/my_tests.go` with the
 package main
 
 import (
-  "github.com/katydid/katydid/validator/ast"
-  "github.com/katydid/katydid/validator/parser"
-  . "github.com/katydid/katydid/validator/combinator"
-  . "github.com/katydid/katydid/validator/funcs"
+  "github.com/katydid/validator-go/validator/ast"
+  "github.com/katydid/validator-go/validator/parser"
+  . "github.com/katydid/validator-go/validator/combinator"
+  . "github.com/katydid/validator-go/validator/funcs"
 )
 
 func init() {
