@@ -39,12 +39,11 @@ jobs:
       run: env && go env && pwd
     - name: tree
       run: tree
-    - name: Generate Tests
-      run: |
-        cd gopath/github.com/katydid/testsuite
-        PATH=$HOME/bin:$PATH make regenerate-tests
     - name: Build
       run: |
         cd gopath/github.com/katydid/testsuite
         make build
-
+    - name: Generate Tests
+      run: |
+        cd gopath/github.com/katydid/testsuite
+        PATH=$HOME/bin:$PATH make regenerate-tests
