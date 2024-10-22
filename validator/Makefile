@@ -6,7 +6,7 @@ regenerate:
 regenerate-tests:
 	make nuke-tests
 	(cd gen-validator-tests && make regenerate && go install .)
-	gen-validator-tests
+	gen-validator-tests -seed 12345
 
 nuke-tests:
 	rm -rf ./tests/ || true
