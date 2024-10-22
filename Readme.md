@@ -1,5 +1,7 @@
 # Cross Language Test Suite for Katydid
 
+[![Build Status](https://github.com/katydid/testsuite/actions/workflows/build.yml/badge.svg)](https://github.com/katydid/testsuite/actions)
+
 The test suite is a language agnostic test suite.
 
 The idea is that katydid can be implemented in multiple programming languages.
