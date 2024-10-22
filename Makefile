@@ -1,5 +1,5 @@
-regenerate:
-	(cd validator && make regenerate)
+build:
+	go build ./...
 
 nuke:
 	(cd validator && make nuke)
@@ -7,5 +7,5 @@ nuke:
 regenerate-tests:
 	(cd validator && make regenerate-tests)
 
-build:
-	go build ./...
+regenerate-all:
+	(cd validator && make regenerate)
