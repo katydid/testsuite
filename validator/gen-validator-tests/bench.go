@@ -22,12 +22,12 @@ import (
 
 	"github.com/gogo/protobuf/proto"
 
-	jsonparser "github.com/katydid/validator-go/parser/json"
-	xmlparser "github.com/katydid/validator-go/parser/xml"
+	jsonparser "github.com/katydid/parser-go-json/json"
+	xmlparser "github.com/katydid/parser-go-xml/xml"
+	protoparser "github.com/katydid/parser-gogo-proto/proto"
 	"github.com/katydid/validator-go/validator"
 	"github.com/katydid/validator-go/validator/ast"
 	"github.com/katydid/validator-go/validator/combinator"
-	protoparser "github.com/katydid/validator-gogo-proto/parser/proto"
 )
 
 type BenchValidator struct {
