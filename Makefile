@@ -8,4 +8,4 @@ regenerate-tests:
 	(cd validator && make regenerate-tests)
 
 regenerate-all:
-	(cd validator && make regenerate)
+	(cd validator && make regenerate-all)
