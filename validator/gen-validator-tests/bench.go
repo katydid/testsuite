@@ -20,11 +20,11 @@ import (
 	"math/rand"
 	"reflect"
 
-	"github.com/gogo/protobuf/proto"
+	"google.golang.org/protobuf/proto"
 
 	jsonparser "github.com/katydid/parser-go-json/json"
+	protoparser "github.com/katydid/parser-go-proto/proto"
 	xmlparser "github.com/katydid/parser-go-xml/xml"
-	protoparser "github.com/katydid/parser-gogo-proto/proto"
 	"github.com/katydid/validator-go/validator"
 	"github.com/katydid/validator-go/validator/ast"
 	"github.com/katydid/validator-go/validator/combinator"

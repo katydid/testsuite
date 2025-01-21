@@ -2,12 +2,12 @@ gofmt:
 	gofmt -l -s -w .
 
 regenerate:
-	(protoc --gogo_out=. -I=.:../../../../../:../../../../../github.com/gogo/protobuf/protobuf person.proto)
-	(protoc --gogo_out=. -I=.:../../../../../:../../../../../github.com/gogo/protobuf/protobuf srctree.proto)
-	(protoc --gogo_out=. -I=.:../../../../../:../../../../../github.com/gogo/protobuf/protobuf treeregister.proto)
-	(protoc --gogo_out=. -I=.:../../../../../:../../../../../github.com/gogo/protobuf/protobuf typewriterprison.proto)
-	(protoc --gogo_out=. -I=.:../../../../../:../../../../../github.com/gogo/protobuf/protobuf puddingmilkshake.proto)
-	(protoc --gogo_out=. -I=.:../../../../../:../../../../../github.com/gogo/protobuf/protobuf topsyturvy.proto)
-	(protoc --gogo_out=. -I=.:../../../../../:../../../../../github.com/gogo/protobuf/protobuf knot.proto)
-	(protoc --gogo_out=. -I=.:../../../../../:../../../../../github.com/gogo/protobuf/protobuf banana.proto)
+	(protoc --go_out=. --go_opt=paths=source_relative person.proto)
+	(protoc --go_out=. --go_opt=paths=source_relative srctree.proto)
+	(protoc --go_out=. --go_opt=paths=source_relative treeregister.proto)
+	(protoc --go_out=. --go_opt=paths=source_relative typewriterprison.proto)
+	(protoc --go_out=. --go_opt=paths=source_relative puddingmilkshake.proto)
+	(protoc --go_out=. --go_opt=paths=source_relative topsyturvy.proto)
+	(protoc --go_out=. --go_opt=paths=source_relative knot.proto)
+	(protoc --go_out=. --go_opt=paths=source_relative banana.proto)
 	find . -name "*.pb.go" | xargs gofmt -l -s -w
