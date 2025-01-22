@@ -4,36 +4,27 @@ package main;
 
 import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 
-option (gogoproto.verbose_equal_all) = true;
-option (gogoproto.equal_all) = true;
-option (gogoproto.stringer_all) = true;
-option (gogoproto.goproto_enum_prefix_all) = false;
-option (gogoproto.goproto_stringer_all) = false;
-option (gogoproto.unsafe_unmarshaler_all) = true;
-option (gogoproto.unsafe_marshaler_all) = true;
-option (gogoproto.sizer_all) = true;
-
 message BananaTuple {
     option (gogoproto.description) = true;
-    optional int64 BananaTime = 1 [(gogoproto.nullable) = false];
-    optional string Pulpy = 2 [(gogoproto.nullable) = false];
-    optional bool IsPulpySet = 3 [(gogoproto.nullable) = false];
-    optional string Yummy = 4 [(gogoproto.nullable) = false];
-    optional bool IsYummySet = 5 [(gogoproto.nullable) = false];
-    optional string Chewy = 6 [(gogoproto.nullable) = false];
-    optional bool IsChewySet = 7 [(gogoproto.nullable) = false];
-    optional string Squishy = 8 [(gogoproto.nullable) = false];
-    optional bool IsSquishySet = 9 [(gogoproto.nullable) = false];
-    optional string Brown = 10 [(gogoproto.nullable) = false];
-    optional bool IsBrownSet = 11 [(gogoproto.nullable) = false];
-    optional uint32 Rotten = 12 [(gogoproto.nullable) = false];
-    optional bool IsRottenSet = 13 [(gogoproto.nullable) = false];
-    optional uint32 Peel = 14 [(gogoproto.nullable) = false];
-    optional bool IsPeelSet = 15 [(gogoproto.nullable) = false];
-    optional PeelType PeelType = 16 [(gogoproto.nullable) = false];
-    optional bool IsPeelTypeSet = 17 [(gogoproto.nullable) = false];
-    optional BananaSource BananaSource = 18 [(gogoproto.nullable) = false];
-    optional bool Slippery = 19 [(gogoproto.nullable) = false];
+    optional int64 BananaTime = 1;
+    optional string Pulpy = 2;
+    optional bool IsPulpySet = 3;
+    optional string Yummy = 4;
+    optional bool IsYummySet = 5;
+    optional string Chewy = 6;
+    optional bool IsChewySet = 7;
+    optional string Squishy = 8;
+    optional bool IsSquishySet = 9;
+    optional string Brown = 10;
+    optional bool IsBrownSet = 11;
+    optional uint32 Rotten = 12;
+    optional bool IsRottenSet = 13;
+    optional uint32 Peel = 14;
+    optional bool IsPeelSet = 15;
+    optional PeelType PeelType = 16;
+    optional bool IsPeelTypeSet = 17;
+    optional BananaSource BananaSource = 18;
+    optional bool Slippery = 19;
 }
 
 enum BananaSource {

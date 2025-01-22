@@ -15,26 +15,64 @@ func deriveGoStringBananaTuple(this *BananaTuple) string {
 		fmt.Fprintf(buf, "return nil\n")
 	} else {
 		fmt.Fprintf(buf, "this := &main.BananaTuple{}\n")
-		fmt.Fprintf(buf, "this.BananaTime = %#v\n", this.BananaTime)
-		fmt.Fprintf(buf, "this.Pulpy = %#v\n", this.Pulpy)
-		fmt.Fprintf(buf, "this.IsPulpySet = %#v\n", this.IsPulpySet)
-		fmt.Fprintf(buf, "this.Yummy = %#v\n", this.Yummy)
-		fmt.Fprintf(buf, "this.IsYummySet = %#v\n", this.IsYummySet)
-		fmt.Fprintf(buf, "this.Chewy = %#v\n", this.Chewy)
-		fmt.Fprintf(buf, "this.IsChewySet = %#v\n", this.IsChewySet)
-		fmt.Fprintf(buf, "this.Squishy = %#v\n", this.Squishy)
-		fmt.Fprintf(buf, "this.IsSquishySet = %#v\n", this.IsSquishySet)
-		fmt.Fprintf(buf, "this.Brown = %#v\n", this.Brown)
-		fmt.Fprintf(buf, "this.IsBrownSet = %#v\n", this.IsBrownSet)
-		fmt.Fprintf(buf, "this.Rotten = %#v\n", this.Rotten)
-		fmt.Fprintf(buf, "this.IsRottenSet = %#v\n", this.IsRottenSet)
-		fmt.Fprintf(buf, "this.Peel = %#v\n", this.Peel)
-		fmt.Fprintf(buf, "this.IsPeelSet = %#v\n", this.IsPeelSet)
-		fmt.Fprintf(buf, "this.PeelType = %#v\n", this.PeelType)
-		fmt.Fprintf(buf, "this.IsPeelTypeSet = %#v\n", this.IsPeelTypeSet)
-		fmt.Fprintf(buf, "this.BananaSource = %#v\n", this.BananaSource)
-		fmt.Fprintf(buf, "this.Slippery = %#v\n", this.Slippery)
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		if this.BananaTime != nil {
+			fmt.Fprintf(buf, "this.BananaTime = func (v int64) *int64 { return &v }(%#v)\n", *this.BananaTime)
+		}
+		if this.Pulpy != nil {
+			fmt.Fprintf(buf, "this.Pulpy = func (v string) *string { return &v }(%#v)\n", *this.Pulpy)
+		}
+		if this.IsPulpySet != nil {
+			fmt.Fprintf(buf, "this.IsPulpySet = func (v bool) *bool { return &v }(%#v)\n", *this.IsPulpySet)
+		}
+		if this.Yummy != nil {
+			fmt.Fprintf(buf, "this.Yummy = func (v string) *string { return &v }(%#v)\n", *this.Yummy)
+		}
+		if this.IsYummySet != nil {
+			fmt.Fprintf(buf, "this.IsYummySet = func (v bool) *bool { return &v }(%#v)\n", *this.IsYummySet)
+		}
+		if this.Chewy != nil {
+			fmt.Fprintf(buf, "this.Chewy = func (v string) *string { return &v }(%#v)\n", *this.Chewy)
+		}
+		if this.IsChewySet != nil {
+			fmt.Fprintf(buf, "this.IsChewySet = func (v bool) *bool { return &v }(%#v)\n", *this.IsChewySet)
+		}
+		if this.Squishy != nil {
+			fmt.Fprintf(buf, "this.Squishy = func (v string) *string { return &v }(%#v)\n", *this.Squishy)
+		}
+		if this.IsSquishySet != nil {
+			fmt.Fprintf(buf, "this.IsSquishySet = func (v bool) *bool { return &v }(%#v)\n", *this.IsSquishySet)
+		}
+		if this.Brown != nil {
+			fmt.Fprintf(buf, "this.Brown = func (v string) *string { return &v }(%#v)\n", *this.Brown)
+		}
+		if this.IsBrownSet != nil {
+			fmt.Fprintf(buf, "this.IsBrownSet = func (v bool) *bool { return &v }(%#v)\n", *this.IsBrownSet)
+		}
+		if this.Rotten != nil {
+			fmt.Fprintf(buf, "this.Rotten = func (v uint32) *uint32 { return &v }(%#v)\n", *this.Rotten)
+		}
+		if this.IsRottenSet != nil {
+			fmt.Fprintf(buf, "this.IsRottenSet = func (v bool) *bool { return &v }(%#v)\n", *this.IsRottenSet)
+		}
+		if this.Peel != nil {
+			fmt.Fprintf(buf, "this.Peel = func (v uint32) *uint32 { return &v }(%#v)\n", *this.Peel)
+		}
+		if this.IsPeelSet != nil {
+			fmt.Fprintf(buf, "this.IsPeelSet = func (v bool) *bool { return &v }(%#v)\n", *this.IsPeelSet)
+		}
+		if this.PeelType != nil {
+			fmt.Fprintf(buf, "this.PeelType = %s\n", deriveGoString(this.PeelType))
+		}
+		if this.IsPeelTypeSet != nil {
+			fmt.Fprintf(buf, "this.IsPeelTypeSet = func (v bool) *bool { return &v }(%#v)\n", *this.IsPeelTypeSet)
+		}
+		if this.BananaSource != nil {
+			fmt.Fprintf(buf, "this.BananaSource = %s\n", deriveGoString_(this.BananaSource))
+		}
+		if this.Slippery != nil {
+			fmt.Fprintf(buf, "this.Slippery = func (v bool) *bool { return &v }(%#v)\n", *this.Slippery)
+		}
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -54,7 +92,7 @@ func deriveGoStringKnot(this *Knot) string {
 	} else {
 		fmt.Fprintf(buf, "this := &main.Knot{}\n")
 		if this.Bight != nil {
-			fmt.Fprintf(buf, "this.Bight = %s\n", deriveGoString_(this.Bight))
+			fmt.Fprintf(buf, "this.Bight = %s\n", deriveGoString_2(this.Bight))
 		}
 		if this.Elbow != nil {
 			fmt.Fprintf(buf, "this.Elbow = func (v bool) *bool { return &v }(%#v)\n", *this.Elbow)
@@ -62,7 +100,7 @@ func deriveGoStringKnot(this *Knot) string {
 		if this.BitterEnd != nil {
 			fmt.Fprintf(buf, "this.BitterEnd = %s\n", deriveGoStringKnot(this.BitterEnd))
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -87,7 +125,7 @@ func deriveGoStringBightKnot(this *BightKnot) string {
 		if this.Turn != nil {
 			fmt.Fprintf(buf, "this.Turn = func (v bool) *bool { return &v }(%#v)\n", *this.Turn)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -110,12 +148,12 @@ func deriveGoStringPerson(this *Person) string {
 			fmt.Fprintf(buf, "this.Name = func (v string) *string { return &v }(%#v)\n", *this.Name)
 		}
 		if this.Addresses != nil {
-			fmt.Fprintf(buf, "this.Addresses = %s\n", deriveGoString_1(this.Addresses))
+			fmt.Fprintf(buf, "this.Addresses = %s\n", deriveGoString_3(this.Addresses))
 		}
 		if this.Telephone != nil {
 			fmt.Fprintf(buf, "this.Telephone = func (v string) *string { return &v }(%#v)\n", *this.Telephone)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -140,7 +178,7 @@ func deriveGoStringAddress(this *Address) string {
 		if this.Street != nil {
 			fmt.Fprintf(buf, "this.Street = func (v string) *string { return &v }(%#v)\n", *this.Street)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -165,7 +203,7 @@ func deriveGoStringPuddingMilkshake(this *PuddingMilkshake) string {
 		if this.RainInterlude != nil {
 			fmt.Fprintf(buf, "this.RainInterlude = %s\n", deriveGoStringMudRiddle(this.RainInterlude))
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -193,7 +231,7 @@ func deriveGoStringFinanceJudo(this *FinanceJudo) string {
 		if this.UserInterfaceSpanner != nil {
 			fmt.Fprintf(buf, "this.UserInterfaceSpanner = func (v int64) *int64 { return &v }(%#v)\n", *this.UserInterfaceSpanner)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -228,16 +266,16 @@ func deriveGoStringSaladWorry(this *SaladWorry) string {
 			fmt.Fprintf(buf, "this.LogMicrophone = func (v bool) *bool { return &v }(%#v)\n", *this.LogMicrophone)
 		}
 		if this.NeonLightEnd != nil {
-			fmt.Fprintf(buf, "this.NeonLightEnd = %s\n", deriveGoString_2(this.NeonLightEnd))
+			fmt.Fprintf(buf, "this.NeonLightEnd = %s\n", deriveGoString_4(this.NeonLightEnd))
 		}
 		if this.LeafTrellis != nil {
 			fmt.Fprintf(buf, "this.LeafTrellis = func (v string) *string { return &v }(%#v)\n", *this.LeafTrellis)
 		}
 		if this.CancerUserExperience != nil {
-			fmt.Fprintf(buf, "this.CancerUserExperience = %s\n", deriveGoString_3(this.CancerUserExperience))
+			fmt.Fprintf(buf, "this.CancerUserExperience = %s\n", deriveGoString_5(this.CancerUserExperience))
 		}
 		if this.RadarBox != nil {
-			fmt.Fprintf(buf, "this.RadarBox = %s\n", deriveGoString_4(this.RadarBox))
+			fmt.Fprintf(buf, "this.RadarBox = %s\n", deriveGoString_6(this.RadarBox))
 		}
 		if this.AccidentStadium != nil {
 			fmt.Fprintf(buf, "this.AccidentStadium = func (v bool) *bool { return &v }(%#v)\n", *this.AccidentStadium)
@@ -255,9 +293,9 @@ func deriveGoStringSaladWorry(this *SaladWorry) string {
 			fmt.Fprintf(buf, "this.StormTermite = %#v\n", this.StormTermite)
 		}
 		if this.ParliamentChime != nil {
-			fmt.Fprintf(buf, "this.ParliamentChime = %s\n", deriveGoString_5(this.ParliamentChime))
+			fmt.Fprintf(buf, "this.ParliamentChime = %s\n", deriveGoString_7(this.ParliamentChime))
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -280,12 +318,12 @@ func deriveGoStringKeyQueen(this *KeyQueen) string {
 			fmt.Fprintf(buf, "this.SkyscraperUniversity = %#v\n", this.SkyscraperUniversity)
 		}
 		if this.RevengeMirror != nil {
-			fmt.Fprintf(buf, "this.RevengeMirror = %s\n", deriveGoString_5(this.RevengeMirror))
+			fmt.Fprintf(buf, "this.RevengeMirror = %s\n", deriveGoString_7(this.RevengeMirror))
 		}
 		if this.TrailerGallery != nil {
 			fmt.Fprintf(buf, "this.TrailerGallery = %#v\n", this.TrailerGallery)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -305,12 +343,12 @@ func deriveGoStringTravelBallRoom(this *TravelBallRoom) string {
 	} else {
 		fmt.Fprintf(buf, "this := &main.TravelBallRoom{}\n")
 		if this.DanceShooting != nil {
-			fmt.Fprintf(buf, "this.DanceShooting = %s\n", deriveGoString_6(this.DanceShooting))
+			fmt.Fprintf(buf, "this.DanceShooting = %s\n", deriveGoString_8(this.DanceShooting))
 		}
 		if this.ReasonCoat != nil {
 			fmt.Fprintf(buf, "this.ReasonCoat = %#v\n", this.ReasonCoat)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -339,7 +377,7 @@ func deriveGoStringSpyCarpenter(this *SpyCarpenter) string {
 			fmt.Fprintf(buf, "this.XrayPilots = %s\n", deriveGoStringXrayPilots(this.XrayPilots))
 		}
 		if this.RussiaBasket != nil {
-			fmt.Fprintf(buf, "this.RussiaBasket = %s\n", deriveGoString_7(this.RussiaBasket))
+			fmt.Fprintf(buf, "this.RussiaBasket = %s\n", deriveGoString_9(this.RussiaBasket))
 		}
 		if this.AccidentStockMarket != nil {
 			fmt.Fprintf(buf, "this.AccidentStockMarket = %s\n", deriveGoStringStarTusk(this.AccidentStockMarket))
@@ -348,7 +386,7 @@ func deriveGoStringSpyCarpenter(this *SpyCarpenter) string {
 			fmt.Fprintf(buf, "this.BulldozerHandkerchief = %s\n", deriveGoStringStarTusk(this.BulldozerHandkerchief))
 		}
 		if this.VelcroBench != nil {
-			fmt.Fprintf(buf, "this.VelcroBench = %s\n", deriveGoString_8(this.VelcroBench))
+			fmt.Fprintf(buf, "this.VelcroBench = %s\n", deriveGoString_10(this.VelcroBench))
 		}
 		if this.BridgePepper != nil {
 			fmt.Fprintf(buf, "this.BridgePepper = %#v\n", this.BridgePepper)
@@ -366,15 +404,15 @@ func deriveGoStringSpyCarpenter(this *SpyCarpenter) string {
 			fmt.Fprintf(buf, "this.WhaleColour = %#v\n", this.WhaleColour)
 		}
 		if this.LawyerRumour != nil {
-			fmt.Fprintf(buf, "this.LawyerRumour = %s\n", deriveGoString_5(this.LawyerRumour))
+			fmt.Fprintf(buf, "this.LawyerRumour = %s\n", deriveGoString_7(this.LawyerRumour))
 		}
 		if this.ToothSale != nil {
 			fmt.Fprintf(buf, "this.ToothSale = %#v\n", this.ToothSale)
 		}
 		if this.PearLeader != nil {
-			fmt.Fprintf(buf, "this.PearLeader = %s\n", deriveGoString_5(this.PearLeader))
+			fmt.Fprintf(buf, "this.PearLeader = %s\n", deriveGoString_7(this.PearLeader))
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -394,12 +432,12 @@ func deriveGoStringStarTusk(this *StarTusk) string {
 	} else {
 		fmt.Fprintf(buf, "this := &main.StarTusk{}\n")
 		if this.ViolinDuty != nil {
-			fmt.Fprintf(buf, "this.ViolinDuty = %s\n", deriveGoString_9(this.ViolinDuty))
+			fmt.Fprintf(buf, "this.ViolinDuty = %s\n", deriveGoString_11(this.ViolinDuty))
 		}
 		if this.CloakPlayground != nil {
 			fmt.Fprintf(buf, "this.CloakPlayground = %#v\n", this.CloakPlayground)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -419,12 +457,12 @@ func deriveGoStringMigraneLemonade(this *MigraneLemonade) string {
 	} else {
 		fmt.Fprintf(buf, "this := &main.MigraneLemonade{}\n")
 		if this.ArchBubbles != nil {
-			fmt.Fprintf(buf, "this.ArchBubbles = %s\n", deriveGoString_10(this.ArchBubbles))
+			fmt.Fprintf(buf, "this.ArchBubbles = %s\n", deriveGoString_12(this.ArchBubbles))
 		}
 		if this.FactParrot != nil {
 			fmt.Fprintf(buf, "this.FactParrot = %#v\n", this.FactParrot)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -468,12 +506,12 @@ func deriveGoStringMudRiddle(this *MudRiddle) string {
 			fmt.Fprintf(buf, "this.TramPuppet = %#v\n", this.TramPuppet)
 		}
 		if this.InsultSquare != nil {
-			fmt.Fprintf(buf, "this.InsultSquare = %s\n", deriveGoString_11(this.InsultSquare))
+			fmt.Fprintf(buf, "this.InsultSquare = %s\n", deriveGoString_13(this.InsultSquare))
 		}
 		if this.HospitalVideo != nil {
 			fmt.Fprintf(buf, "this.HospitalVideo = %#v\n", this.HospitalVideo)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -501,7 +539,7 @@ func deriveGoStringXrayPilot(this *XrayPilot) string {
 		if this.BacteriaPaperclip != nil {
 			fmt.Fprintf(buf, "this.BacteriaPaperclip = func (v int64) *int64 { return &v }(%#v)\n", *this.BacteriaPaperclip)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -529,7 +567,7 @@ func deriveGoStringXrayPilots(this *XrayPilots) string {
 		if this.BacteriaPaperclips != nil {
 			fmt.Fprintf(buf, "this.BacteriaPaperclips = %#v\n", this.BacteriaPaperclips)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -549,18 +587,18 @@ func deriveGoStringBingleDaisy(this *BingleDaisy) string {
 	} else {
 		fmt.Fprintf(buf, "this := &main.BingleDaisy{}\n")
 		if this.AccountantPowders != nil {
-			fmt.Fprintf(buf, "this.AccountantPowders = %s\n", deriveGoString_6(this.AccountantPowders))
+			fmt.Fprintf(buf, "this.AccountantPowders = %s\n", deriveGoString_8(this.AccountantPowders))
 		}
 		if this.DecoratorTask != nil {
 			fmt.Fprintf(buf, "this.DecoratorTask = %#v\n", this.DecoratorTask)
 		}
 		if this.TailTable != nil {
-			fmt.Fprintf(buf, "this.TailTable = %s\n", deriveGoString_5(this.TailTable))
+			fmt.Fprintf(buf, "this.TailTable = %s\n", deriveGoString_7(this.TailTable))
 		}
 		if this.MachineCurtain != nil {
 			fmt.Fprintf(buf, "this.MachineCurtain = %#v\n", this.MachineCurtain)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -583,9 +621,9 @@ func deriveGoStringSrcTree(this *SrcTree) string {
 			fmt.Fprintf(buf, "this.PackageName = func (v string) *string { return &v }(%#v)\n", *this.PackageName)
 		}
 		if this.Imports != nil {
-			fmt.Fprintf(buf, "this.Imports = %s\n", deriveGoString_12(this.Imports))
+			fmt.Fprintf(buf, "this.Imports = %s\n", deriveGoString_14(this.Imports))
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -610,7 +648,7 @@ func deriveGoStringTopsyTurvy(this *TopsyTurvy) string {
 		if this.Turf != nil {
 			fmt.Fprintf(buf, "this.Turf = %s\n", deriveGoStringTurvy(this.Turf))
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -635,7 +673,7 @@ func deriveGoStringTopsy(this *Topsy) string {
 		if this.Turf != nil {
 			fmt.Fprintf(buf, "this.Turf = func (v int64) *int64 { return &v }(%#v)\n", *this.Turf)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -660,7 +698,7 @@ func deriveGoStringTurvy(this *Turvy) string {
 		if this.Top != nil {
 			fmt.Fprintf(buf, "this.Top = func (v int64) *int64 { return &v }(%#v)\n", *this.Top)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -680,9 +718,9 @@ func deriveGoStringTreeRegister(this *TreeRegister) string {
 	} else {
 		fmt.Fprintf(buf, "this := &main.TreeRegister{}\n")
 		if this.Trees != nil {
-			fmt.Fprintf(buf, "this.Trees = %s\n", deriveGoString_13(this.Trees))
+			fmt.Fprintf(buf, "this.Trees = %s\n", deriveGoString_15(this.Trees))
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -719,7 +757,7 @@ func deriveGoStringTree(this *Tree) string {
 		if this.Sender != nil {
 			fmt.Fprintf(buf, "this.Sender = %s\n", deriveGoStringSender(this.Sender))
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -762,7 +800,7 @@ func deriveGoStringGeneralInformation(this *GeneralInformation) string {
 		if this.GridReference != nil {
 			fmt.Fprintf(buf, "this.GridReference = func (v string) *string { return &v }(%#v)\n", *this.GridReference)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -793,7 +831,7 @@ func deriveGoStringOtherInformation(this *OtherInformation) string {
 		if this.SeedCollector != nil {
 			fmt.Fprintf(buf, "this.SeedCollector = func (v string) *string { return &v }(%#v)\n", *this.SeedCollector)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -828,9 +866,9 @@ func deriveGoStringMeasurements(this *Measurements) string {
 			fmt.Fprintf(buf, "this.GirthExaggerated = func (v bool) *bool { return &v }(%#v)\n", *this.GirthExaggerated)
 		}
 		if this.TreeGrowthCategory != nil {
-			fmt.Fprintf(buf, "this.TreeGrowthCategory = %s\n", deriveGoString_14(this.TreeGrowthCategory))
+			fmt.Fprintf(buf, "this.TreeGrowthCategory = %s\n", deriveGoString_16(this.TreeGrowthCategory))
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -855,7 +893,7 @@ func deriveGoStringHeightMeasurement(this *HeightMeasurement) string {
 		if this.Feet != nil {
 			fmt.Fprintf(buf, "this.Feet = func (v float64) *float64 { return &v }(%#v)\n", *this.Feet)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -883,7 +921,7 @@ func deriveGoStringMeasurement(this *Measurement) string {
 		if this.Inches != nil {
 			fmt.Fprintf(buf, "this.Inches = func (v int64) *int64 { return &v }(%#v)\n", *this.Inches)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -903,39 +941,39 @@ func deriveGoStringCondition(this *Condition) string {
 	} else {
 		fmt.Fprintf(buf, "this := &main.Condition{}\n")
 		if this.GeneralAppearance != nil {
-			fmt.Fprintf(buf, "this.GeneralAppearance = %s\n", deriveGoString_15(this.GeneralAppearance))
+			fmt.Fprintf(buf, "this.GeneralAppearance = %s\n", deriveGoString_17(this.GeneralAppearance))
 		}
 		if this.TrunkStemming != nil {
-			fmt.Fprintf(buf, "this.TrunkStemming = %s\n", deriveGoString_16(this.TrunkStemming))
+			fmt.Fprintf(buf, "this.TrunkStemming = %s\n", deriveGoString_18(this.TrunkStemming))
 		}
 		if this.Ground != nil {
-			fmt.Fprintf(buf, "this.Ground = %s\n", deriveGoString_17(this.Ground))
+			fmt.Fprintf(buf, "this.Ground = %s\n", deriveGoString_19(this.Ground))
 		}
 		if this.Lead != nil {
-			fmt.Fprintf(buf, "this.Lead = %s\n", deriveGoString_18(this.Lead))
+			fmt.Fprintf(buf, "this.Lead = %s\n", deriveGoString_20(this.Lead))
 		}
 		if this.DeadBranches != nil {
-			fmt.Fprintf(buf, "this.DeadBranches = %s\n", deriveGoString_19(this.DeadBranches))
+			fmt.Fprintf(buf, "this.DeadBranches = %s\n", deriveGoString_21(this.DeadBranches))
 		}
 		if this.StormDamage != nil {
-			fmt.Fprintf(buf, "this.StormDamage = %s\n", deriveGoString_20(this.StormDamage))
+			fmt.Fprintf(buf, "this.StormDamage = %s\n", deriveGoString_22(this.StormDamage))
 		}
 		if this.PastManagement != nil {
-			fmt.Fprintf(buf, "this.PastManagement = %s\n", deriveGoString_21(this.PastManagement))
+			fmt.Fprintf(buf, "this.PastManagement = %s\n", deriveGoString_23(this.PastManagement))
 		}
 		if this.LocalOrNationalHistoricalInterest != nil {
-			fmt.Fprintf(buf, "this.LocalOrNationalHistoricalInterest = %s\n", deriveGoString_22(this.LocalOrNationalHistoricalInterest))
+			fmt.Fprintf(buf, "this.LocalOrNationalHistoricalInterest = %s\n", deriveGoString_24(this.LocalOrNationalHistoricalInterest))
 		}
 		if this.LocalLandmark != nil {
-			fmt.Fprintf(buf, "this.LocalLandmark = %s\n", deriveGoString_22(this.LocalLandmark))
+			fmt.Fprintf(buf, "this.LocalLandmark = %s\n", deriveGoString_24(this.LocalLandmark))
 		}
 		if this.RemarkableOrUnusual != nil {
 			fmt.Fprintf(buf, "this.RemarkableOrUnusual = func (v bool) *bool { return &v }(%#v)\n", *this.RemarkableOrUnusual)
 		}
 		if this.Veteran != nil {
-			fmt.Fprintf(buf, "this.Veteran = %s\n", deriveGoString_22(this.Veteran))
+			fmt.Fprintf(buf, "this.Veteran = %s\n", deriveGoString_24(this.Veteran))
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -961,9 +999,9 @@ func deriveGoStringAdditionalInformation(this *AdditionalInformation) string {
 			fmt.Fprintf(buf, "this.Other = func (v string) *string { return &v }(%#v)\n", *this.Other)
 		}
 		if this.Photos != nil {
-			fmt.Fprintf(buf, "this.Photos = %s\n", deriveGoString_23(this.Photos))
+			fmt.Fprintf(buf, "this.Photos = %s\n", deriveGoString_25(this.Photos))
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -988,7 +1026,7 @@ func deriveGoStringPhoto(this *Photo) string {
 		if this.Data != nil {
 			fmt.Fprintf(buf, "this.Data = %#v\n", this.Data)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -1019,7 +1057,7 @@ func deriveGoStringSender(this *Sender) string {
 		if this.Telephone != nil {
 			fmt.Fprintf(buf, "this.Telephone = func (v string) *string { return &v }(%#v)\n", *this.Telephone)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -1047,7 +1085,7 @@ func deriveGoStringTypewriterPrison(this *TypewriterPrison) string {
 		if this.PocketRoses != nil {
 			fmt.Fprintf(buf, "this.PocketRoses = %s\n", deriveGoStringPocketRoses(this.PocketRoses))
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -1082,10 +1120,10 @@ func deriveGoStringPocketRoses(this *PocketRoses) string {
 			fmt.Fprintf(buf, "this.SmileLetter = func (v bool) *bool { return &v }(%#v)\n", *this.SmileLetter)
 		}
 		if this.IconHope != nil {
-			fmt.Fprintf(buf, "this.IconHope = %s\n", deriveGoString_24(this.IconHope))
+			fmt.Fprintf(buf, "this.IconHope = %s\n", deriveGoString_26(this.IconHope))
 		}
 		if this.VanPurse != nil {
-			fmt.Fprintf(buf, "this.VanPurse = %s\n", deriveGoString_25(this.VanPurse))
+			fmt.Fprintf(buf, "this.VanPurse = %s\n", deriveGoString_27(this.VanPurse))
 		}
 		if this.MenuPaperclip != nil {
 			fmt.Fprintf(buf, "this.MenuPaperclip = %#v\n", this.MenuPaperclip)
@@ -1097,7 +1135,7 @@ func deriveGoStringPocketRoses(this *PocketRoses) string {
 			fmt.Fprintf(buf, "this.WigPride = %#v\n", this.WigPride)
 		}
 		if this.DivorceFair != nil {
-			fmt.Fprintf(buf, "this.DivorceFair = %s\n", deriveGoString_26(this.DivorceFair))
+			fmt.Fprintf(buf, "this.DivorceFair = %s\n", deriveGoString_28(this.DivorceFair))
 		}
 		if this.FlightParachute != nil {
 			fmt.Fprintf(buf, "this.FlightParachute = %#v\n", this.FlightParachute)
@@ -1106,16 +1144,16 @@ func deriveGoStringPocketRoses(this *PocketRoses) string {
 			fmt.Fprintf(buf, "this.BeerRace = %#v\n", this.BeerRace)
 		}
 		if this.LoftQuarry != nil {
-			fmt.Fprintf(buf, "this.LoftQuarry = %s\n", deriveGoString_5(this.LoftQuarry))
+			fmt.Fprintf(buf, "this.LoftQuarry = %s\n", deriveGoString_7(this.LoftQuarry))
 		}
 		if this.TaxiDivorce != nil {
-			fmt.Fprintf(buf, "this.TaxiDivorce = %s\n", deriveGoString_5(this.TaxiDivorce))
+			fmt.Fprintf(buf, "this.TaxiDivorce = %s\n", deriveGoString_7(this.TaxiDivorce))
 		}
 		if this.ElectionButter != nil {
 			fmt.Fprintf(buf, "this.ElectionButter = %#v\n", this.ElectionButter)
 		}
 		if this.BriefcaseBaboon != nil {
-			fmt.Fprintf(buf, "this.BriefcaseBaboon = %s\n", deriveGoString_5(this.BriefcaseBaboon))
+			fmt.Fprintf(buf, "this.BriefcaseBaboon = %s\n", deriveGoString_7(this.BriefcaseBaboon))
 		}
 		if this.MapShark != nil {
 			fmt.Fprintf(buf, "this.MapShark = func (v string) *string { return &v }(%#v)\n", *this.MapShark)
@@ -1123,7 +1161,7 @@ func deriveGoStringPocketRoses(this *PocketRoses) string {
 		if this.NetInterlude != nil {
 			fmt.Fprintf(buf, "this.NetInterlude = func (v bool) *bool { return &v }(%#v)\n", *this.NetInterlude)
 		}
-		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString(this.XXX_NoUnkeyedLiteral))
+		fmt.Fprintf(buf, "this.XXX_NoUnkeyedLiteral = %s\n", deriveGoString_1(this.XXX_NoUnkeyedLiteral))
 		if this.XXX_unrecognized != nil {
 			fmt.Fprintf(buf, "this.XXX_unrecognized = %#v\n", this.XXX_unrecognized)
 		}
@@ -1135,7 +1173,37 @@ func deriveGoStringPocketRoses(this *PocketRoses) string {
 }
 
 // deriveGoString returns a recursive representation of this as a valid go string.
-func deriveGoString(this struct{}) string {
+func deriveGoString(this *PeelType) string {
+	buf := bytes.NewBuffer(nil)
+	fmt.Fprintf(buf, "func() *main.PeelType {\n")
+	if this == nil {
+		fmt.Fprintf(buf, "return nil\n")
+	} else {
+		fmt.Fprintf(buf, "this := new(main.PeelType)\n")
+		fmt.Fprintf(buf, "*this = %#v\n", *this)
+		fmt.Fprintf(buf, "return this\n")
+	}
+	fmt.Fprintf(buf, "}()\n")
+	return buf.String()
+}
+
+// deriveGoString_ returns a recursive representation of this as a valid go string.
+func deriveGoString_(this *BananaSource) string {
+	buf := bytes.NewBuffer(nil)
+	fmt.Fprintf(buf, "func() *main.BananaSource {\n")
+	if this == nil {
+		fmt.Fprintf(buf, "return nil\n")
+	} else {
+		fmt.Fprintf(buf, "this := new(main.BananaSource)\n")
+		fmt.Fprintf(buf, "*this = %#v\n", *this)
+		fmt.Fprintf(buf, "return this\n")
+	}
+	fmt.Fprintf(buf, "}()\n")
+	return buf.String()
+}
+
+// deriveGoString_1 returns a recursive representation of this as a valid go string.
+func deriveGoString_1(this struct{}) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() struct{} {\n")
 	fmt.Fprintf(buf, "this := &struct{}{}\n")
@@ -1144,8 +1212,8 @@ func deriveGoString(this struct{}) string {
 	return buf.String()
 }
 
-// deriveGoString_ returns a recursive representation of this as a valid go string.
-func deriveGoString_(this []*BightKnot) string {
+// deriveGoString_2 returns a recursive representation of this as a valid go string.
+func deriveGoString_2(this []*BightKnot) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() []*main.BightKnot {\n")
 	if this == nil {
@@ -1161,8 +1229,8 @@ func deriveGoString_(this []*BightKnot) string {
 	return buf.String()
 }
 
-// deriveGoString_1 returns a recursive representation of this as a valid go string.
-func deriveGoString_1(this []*Address) string {
+// deriveGoString_3 returns a recursive representation of this as a valid go string.
+func deriveGoString_3(this []*Address) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() []*main.Address {\n")
 	if this == nil {
@@ -1178,8 +1246,8 @@ func deriveGoString_1(this []*Address) string {
 	return buf.String()
 }
 
-// deriveGoString_2 returns a recursive representation of this as a valid go string.
-func deriveGoString_2(this *MicrobeMiser) string {
+// deriveGoString_4 returns a recursive representation of this as a valid go string.
+func deriveGoString_4(this *MicrobeMiser) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() *main.MicrobeMiser {\n")
 	if this == nil {
@@ -1193,8 +1261,8 @@ func deriveGoString_2(this *MicrobeMiser) string {
 	return buf.String()
 }
 
-// deriveGoString_3 returns a recursive representation of this as a valid go string.
-func deriveGoString_3(this *CancerUserExperience) string {
+// deriveGoString_5 returns a recursive representation of this as a valid go string.
+func deriveGoString_5(this *CancerUserExperience) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() *main.CancerUserExperience {\n")
 	if this == nil {
@@ -1208,8 +1276,8 @@ func deriveGoString_3(this *CancerUserExperience) string {
 	return buf.String()
 }
 
-// deriveGoString_4 returns a recursive representation of this as a valid go string.
-func deriveGoString_4(this *RadarBox) string {
+// deriveGoString_6 returns a recursive representation of this as a valid go string.
+func deriveGoString_6(this *RadarBox) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() *main.RadarBox {\n")
 	if this == nil {
@@ -1223,8 +1291,8 @@ func deriveGoString_4(this *RadarBox) string {
 	return buf.String()
 }
 
-// deriveGoString_5 returns a recursive representation of this as a valid go string.
-func deriveGoString_5(this [][]byte) string {
+// deriveGoString_7 returns a recursive representation of this as a valid go string.
+func deriveGoString_7(this [][]byte) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() [][]byte {\n")
 	if this == nil {
@@ -1232,7 +1300,7 @@ func deriveGoString_5(this [][]byte) string {
 	} else {
 		fmt.Fprintf(buf, "this := make([][]byte, %d)\n", len(this))
 		for i := range this {
-			fmt.Fprintf(buf, "this[%d] = %s\n", i, deriveGoString_27(this[i]))
+			fmt.Fprintf(buf, "this[%d] = %s\n", i, deriveGoString_29(this[i]))
 		}
 		fmt.Fprintf(buf, "return this\n")
 	}
@@ -1240,8 +1308,8 @@ func deriveGoString_5(this [][]byte) string {
 	return buf.String()
 }
 
-// deriveGoString_6 returns a recursive representation of this as a valid go string.
-func deriveGoString_6(this []AccountantPowder) string {
+// deriveGoString_8 returns a recursive representation of this as a valid go string.
+func deriveGoString_8(this []AccountantPowder) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() []main.AccountantPowder {\n")
 	if this == nil {
@@ -1257,8 +1325,8 @@ func deriveGoString_6(this []AccountantPowder) string {
 	return buf.String()
 }
 
-// deriveGoString_7 returns a recursive representation of this as a valid go string.
-func deriveGoString_7(this []PlasticBagCertificate) string {
+// deriveGoString_9 returns a recursive representation of this as a valid go string.
+func deriveGoString_9(this []PlasticBagCertificate) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() []main.PlasticBagCertificate {\n")
 	if this == nil {
@@ -1274,8 +1342,8 @@ func deriveGoString_7(this []PlasticBagCertificate) string {
 	return buf.String()
 }
 
-// deriveGoString_8 returns a recursive representation of this as a valid go string.
-func deriveGoString_8(this []WineMicroscope) string {
+// deriveGoString_10 returns a recursive representation of this as a valid go string.
+func deriveGoString_10(this []WineMicroscope) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() []main.WineMicroscope {\n")
 	if this == nil {
@@ -1291,8 +1359,8 @@ func deriveGoString_8(this []WineMicroscope) string {
 	return buf.String()
 }
 
-// deriveGoString_9 returns a recursive representation of this as a valid go string.
-func deriveGoString_9(this []AltarPlastic) string {
+// deriveGoString_11 returns a recursive representation of this as a valid go string.
+func deriveGoString_11(this []AltarPlastic) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() []main.AltarPlastic {\n")
 	if this == nil {
@@ -1308,8 +1376,8 @@ func deriveGoString_9(this []AltarPlastic) string {
 	return buf.String()
 }
 
-// deriveGoString_10 returns a recursive representation of this as a valid go string.
-func deriveGoString_10(this []ArchBubble) string {
+// deriveGoString_12 returns a recursive representation of this as a valid go string.
+func deriveGoString_12(this []ArchBubble) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() []main.ArchBubble {\n")
 	if this == nil {
@@ -1325,8 +1393,8 @@ func deriveGoString_10(this []ArchBubble) string {
 	return buf.String()
 }
 
-// deriveGoString_11 returns a recursive representation of this as a valid go string.
-func deriveGoString_11(this []EnzymeLift) string {
+// deriveGoString_13 returns a recursive representation of this as a valid go string.
+func deriveGoString_13(this []EnzymeLift) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() []main.EnzymeLift {\n")
 	if this == nil {
@@ -1342,8 +1410,8 @@ func deriveGoString_11(this []EnzymeLift) string {
 	return buf.String()
 }
 
-// deriveGoString_12 returns a recursive representation of this as a valid go string.
-func deriveGoString_12(this []*SrcTree) string {
+// deriveGoString_14 returns a recursive representation of this as a valid go string.
+func deriveGoString_14(this []*SrcTree) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() []*main.SrcTree {\n")
 	if this == nil {
@@ -1359,8 +1427,8 @@ func deriveGoString_12(this []*SrcTree) string {
 	return buf.String()
 }
 
-// deriveGoString_13 returns a recursive representation of this as a valid go string.
-func deriveGoString_13(this []*Tree) string {
+// deriveGoString_15 returns a recursive representation of this as a valid go string.
+func deriveGoString_15(this []*Tree) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() []*main.Tree {\n")
 	if this == nil {
@@ -1376,8 +1444,8 @@ func deriveGoString_13(this []*Tree) string {
 	return buf.String()
 }
 
-// deriveGoString_14 returns a recursive representation of this as a valid go string.
-func deriveGoString_14(this *TreeGrowthCategory) string {
+// deriveGoString_16 returns a recursive representation of this as a valid go string.
+func deriveGoString_16(this *TreeGrowthCategory) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() *main.TreeGrowthCategory {\n")
 	if this == nil {
@@ -1391,8 +1459,8 @@ func deriveGoString_14(this *TreeGrowthCategory) string {
 	return buf.String()
 }
 
-// deriveGoString_15 returns a recursive representation of this as a valid go string.
-func deriveGoString_15(this *GeneralAppearance) string {
+// deriveGoString_17 returns a recursive representation of this as a valid go string.
+func deriveGoString_17(this *GeneralAppearance) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() *main.GeneralAppearance {\n")
 	if this == nil {
@@ -1406,8 +1474,8 @@ func deriveGoString_15(this *GeneralAppearance) string {
 	return buf.String()
 }
 
-// deriveGoString_16 returns a recursive representation of this as a valid go string.
-func deriveGoString_16(this *TrunkStemming) string {
+// deriveGoString_18 returns a recursive representation of this as a valid go string.
+func deriveGoString_18(this *TrunkStemming) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() *main.TrunkStemming {\n")
 	if this == nil {
@@ -1421,8 +1489,8 @@ func deriveGoString_16(this *TrunkStemming) string {
 	return buf.String()
 }
 
-// deriveGoString_17 returns a recursive representation of this as a valid go string.
-func deriveGoString_17(this *Ground) string {
+// deriveGoString_19 returns a recursive representation of this as a valid go string.
+func deriveGoString_19(this *Ground) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() *main.Ground {\n")
 	if this == nil {
@@ -1436,8 +1504,8 @@ func deriveGoString_17(this *Ground) string {
 	return buf.String()
 }
 
-// deriveGoString_18 returns a recursive representation of this as a valid go string.
-func deriveGoString_18(this *Lean) string {
+// deriveGoString_20 returns a recursive representation of this as a valid go string.
+func deriveGoString_20(this *Lean) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() *main.Lean {\n")
 	if this == nil {
@@ -1451,8 +1519,8 @@ func deriveGoString_18(this *Lean) string {
 	return buf.String()
 }
 
-// deriveGoString_19 returns a recursive representation of this as a valid go string.
-func deriveGoString_19(this *DeadBranches) string {
+// deriveGoString_21 returns a recursive representation of this as a valid go string.
+func deriveGoString_21(this *DeadBranches) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() *main.DeadBranches {\n")
 	if this == nil {
@@ -1466,8 +1534,8 @@ func deriveGoString_19(this *DeadBranches) string {
 	return buf.String()
 }
 
-// deriveGoString_20 returns a recursive representation of this as a valid go string.
-func deriveGoString_20(this *StormDamage) string {
+// deriveGoString_22 returns a recursive representation of this as a valid go string.
+func deriveGoString_22(this *StormDamage) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() *main.StormDamage {\n")
 	if this == nil {
@@ -1481,8 +1549,8 @@ func deriveGoString_20(this *StormDamage) string {
 	return buf.String()
 }
 
-// deriveGoString_21 returns a recursive representation of this as a valid go string.
-func deriveGoString_21(this *PastManagement) string {
+// deriveGoString_23 returns a recursive representation of this as a valid go string.
+func deriveGoString_23(this *PastManagement) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() *main.PastManagement {\n")
 	if this == nil {
@@ -1496,8 +1564,8 @@ func deriveGoString_21(this *PastManagement) string {
 	return buf.String()
 }
 
-// deriveGoString_22 returns a recursive representation of this as a valid go string.
-func deriveGoString_22(this *NotSureBool) string {
+// deriveGoString_24 returns a recursive representation of this as a valid go string.
+func deriveGoString_24(this *NotSureBool) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() *main.NotSureBool {\n")
 	if this == nil {
@@ -1511,8 +1579,8 @@ func deriveGoString_22(this *NotSureBool) string {
 	return buf.String()
 }
 
-// deriveGoString_23 returns a recursive representation of this as a valid go string.
-func deriveGoString_23(this []*Photo) string {
+// deriveGoString_25 returns a recursive representation of this as a valid go string.
+func deriveGoString_25(this []*Photo) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() []*main.Photo {\n")
 	if this == nil {
@@ -1528,8 +1596,8 @@ func deriveGoString_23(this []*Photo) string {
 	return buf.String()
 }
 
-// deriveGoString_24 returns a recursive representation of this as a valid go string.
-func deriveGoString_24(this *BullySunrise) string {
+// deriveGoString_26 returns a recursive representation of this as a valid go string.
+func deriveGoString_26(this *BullySunrise) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() *main.BullySunrise {\n")
 	if this == nil {
@@ -1543,8 +1611,8 @@ func deriveGoString_24(this *BullySunrise) string {
 	return buf.String()
 }
 
-// deriveGoString_25 returns a recursive representation of this as a valid go string.
-func deriveGoString_25(this *HopeArch) string {
+// deriveGoString_27 returns a recursive representation of this as a valid go string.
+func deriveGoString_27(this *HopeArch) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() *main.HopeArch {\n")
 	if this == nil {
@@ -1558,8 +1626,8 @@ func deriveGoString_25(this *HopeArch) string {
 	return buf.String()
 }
 
-// deriveGoString_26 returns a recursive representation of this as a valid go string.
-func deriveGoString_26(this *DivorceFair) string {
+// deriveGoString_28 returns a recursive representation of this as a valid go string.
+func deriveGoString_28(this *DivorceFair) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() *main.DivorceFair {\n")
 	if this == nil {
@@ -1573,8 +1641,8 @@ func deriveGoString_26(this *DivorceFair) string {
 	return buf.String()
 }
 
-// deriveGoString_27 returns a recursive representation of this as a valid go string.
-func deriveGoString_27(this []byte) string {
+// deriveGoString_29 returns a recursive representation of this as a valid go string.
+func deriveGoString_29(this []byte) string {
 	buf := bytes.NewBuffer(nil)
 	fmt.Fprintf(buf, "func() []byte {\n")
 	if this == nil {
