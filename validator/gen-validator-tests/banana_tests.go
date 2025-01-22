@@ -4,6 +4,7 @@ import (
 	"math/rand"
 	"time"
 
+	proto "github.com/gogo/protobuf/proto"
 	. "github.com/katydid/validator-go/validator/combinator"
 	rparser "github.com/katydid/validator-go/validator/parser"
 )
@@ -20,10 +21,10 @@ func init() {
 
 	popr := rand.New(rand.NewSource(time.Now().UnixNano()))
 	tup := RandomBananaTuple(popr)
-	tup.Squishy = "422"
-	tup.Brown = "02"
-	tup.Peel = uint32(12871)
-	tup.Rotten = uint32(40111)
+	tup.Squishy = proto.String("422")
+	tup.Brown = proto.String("02")
+	tup.Peel = proto.Uint32(uint32(12871))
+	tup.Rotten = proto.Uint32(uint32(40111))
 
 	ValidateProto("BananaLargeMatch", LargeBanana, tup, true)
 }
@@ -43,25 +44,25 @@ func init() {
 	largerBanana := G{"main": grammar.GetTopPattern()}
 
 	bananaSkin := &BananaTuple{
-		BananaTime:    0,
-		Pulpy:         "",
-		IsPulpySet:    false,
-		Yummy:         "422021401810067",
-		IsYummySet:    true,
-		Chewy:         "",
-		IsChewySet:    false,
-		Squishy:       "422",
-		IsSquishySet:  true,
-		Brown:         "02",
-		IsBrownSet:    true,
-		Rotten:        0xc3b6,
-		IsRottenSet:   true,
-		Peel:          0x5283,
-		IsPeelSet:     true,
-		PeelType:      3,
-		IsPeelTypeSet: true,
-		BananaSource:  23,
-		Slippery:      false,
+		BananaTime:    proto.Int64(0),
+		Pulpy:         proto.String(""),
+		IsPulpySet:    proto.Bool(false),
+		Yummy:         proto.String("422021401810067"),
+		IsYummySet:    proto.Bool(true),
+		Chewy:         proto.String(""),
+		IsChewySet:    proto.Bool(false),
+		Squishy:       proto.String("422"),
+		IsSquishySet:  proto.Bool(true),
+		Brown:         proto.String("02"),
+		IsBrownSet:    proto.Bool(true),
+		Rotten:        proto.Uint32(0xc3b6),
+		IsRottenSet:   proto.Bool(true),
+		Peel:          proto.Uint32(0x5283),
+		IsPeelSet:     proto.Bool(true),
+		PeelType:      PeelType(3).Enum(),
+		IsPeelTypeSet: proto.Bool(true),
+		BananaSource:  BananaSource(23).Enum(),
+		Slippery:      proto.Bool(false),
 	}
 
 	ValidateProto("BananaLarger800Match", largerBanana, bananaSkin, true)
