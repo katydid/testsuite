@@ -26,64 +26,71 @@ import (
 func RandomValidTypewriterPrisonScarBusStop(r *rand.Rand) ProtoMessage {
 	p := RandomTypewriterPrison(r).(*TypewriterPrison)
 	for p.PocketRoses == nil || p.GetPocketRoses().ScarBusStop == nil || !strings.Contains(p.GetPocketRoses().GetScarBusStop(), "a") {
-		log.Printf("random invalid: TypewriterPrisonScarBusStop")
+		log.Printf("random looped: TypewriterPrisonScarBusStop")
 		p = RandomTypewriterPrison(r).(*TypewriterPrison)
 	}
+	log.Printf("random returned: TypewriterPrisonScarBusStop")
 	return p
 }
 
 func RandomInvalidTypewriterPrisonScarBusStop(r *rand.Rand) ProtoMessage {
 	p := RandomTypewriterPrison(r).(*TypewriterPrison)
 	for strings.Contains(p.GetPocketRoses().GetScarBusStop(), "a") {
-		log.Printf("random valid: TypewriterPrisonScarBusStop")
+		log.Printf("random looped: TypewriterPrisonScarBusStop")
 		p = RandomTypewriterPrison(r).(*TypewriterPrison)
 	}
+	log.Printf("random returned: TypewriterPrisonScarBusStop")
 	return p
 }
 
 func RandomValidTypewriterPrisonDaisySled(r *rand.Rand) ProtoMessage {
 	p := RandomTypewriterPrison(r).(*TypewriterPrison)
 	for p.PocketRoses == nil || p.GetPocketRoses().DaisySled == nil {
-		log.Printf("random invalid: TypewriterPrisonDaisySled")
+		log.Printf("random looped: TypewriterPrisonDaisySled")
 		p = RandomTypewriterPrison(r).(*TypewriterPrison)
 	}
 	p.GetPocketRoses().DaisySled = proto.Int64(1)
+	log.Printf("random returned: TypewriterPrisonDaisySled")
 	return p
 }
 
 func RandomInvalidTypewriterPrisonDaisySled(r *rand.Rand) ProtoMessage {
 	p := RandomTypewriterPrison(r).(*TypewriterPrison)
 	for p.GetPocketRoses().GetDaisySled() == 1 {
-		log.Printf("random valid: TypewriterPrisonDaisySled")
+		log.Printf("random looped: TypewriterPrisonDaisySled")
 		p = RandomTypewriterPrison(r).(*TypewriterPrison)
 	}
+	log.Printf("random returned: TypewriterPrisonDaisySled")
 	return p
 }
 
 func RandomValidTypewriterPrisonSmileLetter(r *rand.Rand) ProtoMessage {
 	p := RandomTypewriterPrison(r).(*TypewriterPrison)
 	for p.PocketRoses == nil || p.GetPocketRoses().SmileLetter == nil || !p.GetPocketRoses().GetSmileLetter() {
-		log.Printf("random invalid: TypewriterPrisonSmileLetter")
+		log.Printf("random looped: TypewriterPrisonSmileLetter")
 		p = RandomTypewriterPrison(r).(*TypewriterPrison)
 	}
+	log.Printf("random returned: TypewriterPrisonSmileLetter")
 	return p
 }
 
 func RandomInvalidTypewriterPrisonSmileLetter(r *rand.Rand) ProtoMessage {
 	p := RandomTypewriterPrison(r).(*TypewriterPrison)
 	for p.GetPocketRoses().GetSmileLetter() {
-		log.Printf("random valid: TypewriterPrisonSmileLetter")
+		log.Printf("random looped: TypewriterPrisonSmileLetter")
 		p = RandomTypewriterPrison(r).(*TypewriterPrison)
 	}
+	log.Printf("random returned: TypewriterPrisonSmileLetter")
 	return p
 }
 
 func RandomValidTypewriterPrisonMenuPaperclip(r *rand.Rand) ProtoMessage {
 	p := RandomTypewriterPrison(r).(*TypewriterPrison)
 	for p.PocketRoses == nil || p.GetPocketRoses().MenuPaperclip == nil {
-		log.Printf("random invalid: TypewriterPrisonMenuPaperclip")
+		log.Printf("random looped: TypewriterPrisonMenuPaperclip")
 		p = RandomTypewriterPrison(r).(*TypewriterPrison)
 	}
+	log.Printf("random returned: TypewriterPrisonMenuPaperclip")
 	return p
 }
 
@@ -91,9 +98,9 @@ func randStringWithoutA(r *rand.Rand) string {
 	v25 := r.Intn(100)
 	tmps := make([]rune, v25)
 	for i := 0; i < v25; i++ {
-		tmps[i] = randUTF8RuneTypewriterprison(r)
+		tmps[i] = randUTF8Rune(r)
 		for tmps[i] == 'a' {
-			tmps[i] = randUTF8RuneTypewriterprison(r)
+			tmps[i] = randUTF8Rune(r)
 		}
 	}
 	return string(tmps)
@@ -102,27 +109,30 @@ func randStringWithoutA(r *rand.Rand) string {
 func RandomInvalidTypewriterPrisonMenuPaperclip(r *rand.Rand) ProtoMessage {
 	p := RandomTypewriterPrison(r).(*TypewriterPrison)
 	for i := range p.GetPocketRoses().GetMenuPaperclip() {
-		log.Printf("random valid: TypewriterPrisonMenuPaperclip")
+		log.Printf("random looped: TypewriterPrisonMenuPaperclip")
 		p.PocketRoses.MenuPaperclip[i] = randStringWithoutA(r)
 	}
+	log.Printf("random returned: TypewriterPrisonMenuPaperclip")
 	return p
 }
 
 func RandomValidTypewriterPrisonMapShark(r *rand.Rand) ProtoMessage {
 	p := RandomTypewriterPrison(r).(*TypewriterPrison)
 	for p.PocketRoses == nil || p.GetPocketRoses().MapShark == nil || !strings.Contains(p.GetPocketRoses().GetMapShark(), "a") {
-		log.Printf("random invalid: TypewriterPrisonMapShark")
+		log.Printf("random looped: TypewriterPrisonMapShark")
 		p = RandomTypewriterPrison(r).(*TypewriterPrison)
 	}
+	log.Printf("random returned: TypewriterPrisonMapShark")
 	return p
 }
 
 func RandomInvalidTypewriterPrisonMapShark(r *rand.Rand) ProtoMessage {
 	p := RandomTypewriterPrison(r).(*TypewriterPrison)
 	for strings.Contains(p.GetPocketRoses().GetMapShark(), "a") {
-		log.Printf("random valid: TypewriterPrisonMapShark")
+		log.Printf("random looped: TypewriterPrisonMapShark")
 		p = RandomTypewriterPrison(r).(*TypewriterPrison)
 	}
+	log.Printf("random returned: TypewriterPrisonMapShark")
 	return p
 }
 

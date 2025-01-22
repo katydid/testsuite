@@ -182,7 +182,8 @@ type RandBytes func(r *rand.Rand) []byte
 type RandProto func(r *rand.Rand) ProtoMessage
 
 func RandomPerson(r *rand.Rand) ProtoMessage {
-	return NewPopulatedPerson(r, true)
+	person := random(r, &Person{})
+	return person.(ProtoMessage)
 }
 
 func RandomSrcTree(r *rand.Rand) ProtoMessage {
@@ -191,9 +192,9 @@ func RandomSrcTree(r *rand.Rand) ProtoMessage {
 }
 
 func RandomTypewriterPrison(r *rand.Rand) ProtoMessage {
-	return NewPopulatedTypewriterPrison(r, true)
+	return random(r, &TypewriterPrison{}).(ProtoMessage)
 }
 
 func RandomPuddingMilkshake(r *rand.Rand) ProtoMessage {
-	return NewPopulatedPuddingMilkshake(r, true)
+	return random(r, &PuddingMilkshake{}).(ProtoMessage)
 }

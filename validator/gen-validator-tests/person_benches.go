@@ -24,12 +24,13 @@ import (
 func RandomValidContextPerson(r *rand.Rand) ProtoMessage {
 	p := RandomPerson(r).(*Person)
 	for len(p.Addresses) == 0 {
-		log.Printf("random invalid: ContextPerson")
+		log.Printf("random looped: ContextPerson")
 		p = RandomPerson(r).(*Person)
 	}
 	index := rand.Intn(len(p.Addresses))
 	p.Addresses[index].Number = proto.Int64(456)
 	p.Addresses[index].Street = proto.String("TheStreet")
+	log.Printf("random returned: ContextPerson")
 	return p
 }
 
@@ -37,12 +38,16 @@ func RandomValidListIndexAddressPerson(r *rand.Rand) ProtoMessage {
 	p := RandomPerson(r).(*Person)
 	if len(p.Addresses) <= 1 {
 		for i := 0; i < rand.Intn(10)+2; i++ {
-			p.Addresses = append(p.Addresses, NewPopulatedAddress(r, true))
+			p.Addresses = append(p.Addresses, RandomAddress(r))
 		}
 	}
 	p.Addresses[len(p.Addresses)-2].Number = proto.Int64(2)
 	p.Addresses[len(p.Addresses)-1].Number = proto.Int64(1)
 	return p
+}
+
+func RandomAddress(r *rand.Rand) *Address {
+	return random(r, &Address{}).(*Address)
 }
 
 func RandomValidNilNamePerson(r *rand.Rand) ProtoMessage {
@@ -57,22 +62,14 @@ func RandomValidLenNamePerson(r *rand.Rand) ProtoMessage {
 	return p
 }
 
-func randNonZeroString(r randyPerson) string {
-	l := r.Intn(100) + 1
-	tmps := make([]rune, l)
-	for i := 0; i < l; i++ {
-		tmps[i] = randUTF8RunePerson(r)
-	}
-	return string(tmps)
-}
-
 func RandomInvalidEmptyOrNilPerson(r *rand.Rand) ProtoMessage {
 	p := RandomPerson(r).(*Person)
 	for len(p.GetName()) == 0 {
-		log.Printf("random valid: EmptyOrNilPerson")
+		log.Printf("random looped: EmptyOrNilPerson")
 		nonzero := randNonZeroString(r)
 		p.Name = proto.String(nonzero)
 	}
+	log.Printf("random returned: EmptyOrNilPerson")
 	return p
 }
 
@@ -89,7 +86,7 @@ func RandomValidEmptyOrNilPerson(r *rand.Rand) ProtoMessage {
 func RandomValidNaiveNotNamePerson(r *rand.Rand) ProtoMessage {
 	p := RandomPerson(r).(*Person)
 	if p.Name == nil {
-		p.Name = proto.String(randStringPerson(r))
+		p.Name = proto.String(randString(r))
 	}
 	return p
 }
