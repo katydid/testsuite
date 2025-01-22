@@ -6,8 +6,6 @@ package main;
 
 import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 
-option (gogoproto.gostring_all) = true;
-
 message TreeRegister {
 	option (gogoproto.description) = true;
 	repeated Tree Trees = 1;

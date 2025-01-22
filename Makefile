@@ -1,3 +1,7 @@
+dep:
+	go install -v github.com/gogo/protobuf/protoc-gen-gogo
+	go install -v github.com/awalterschulze/goderive
+
 build:
 	go build ./...
 
