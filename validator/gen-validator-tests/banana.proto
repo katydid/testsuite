@@ -2,10 +2,9 @@ syntax = "proto2";
 
 package main;
 
-import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+option go_package = "github.com/katydid/testsuite/validator/gen-validator-tests/main";
 
 message BananaTuple {
-    option (gogoproto.description) = true;
     optional int64 BananaTime = 1;
     optional string Pulpy = 2;
     optional bool IsPulpySet = 3;

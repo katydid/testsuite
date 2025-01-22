@@ -49,6 +49,9 @@ func randStruct(r randy, typ reflect.Type) interface{} {
 		if strings.HasPrefix(fieldName, "XXX_") {
 			continue
 		}
+		if !strct.Type().Field(i).IsExported() {
+			continue
+		}
 		fieldType := typ.Field(i).Type
 		isPointer := fieldType.Kind() == reflect.Ptr
 		// is a slice, but not a byte slice

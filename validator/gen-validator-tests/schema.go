@@ -17,7 +17,7 @@ package main
 import (
 	"reflect"
 
-	"github.com/gogo/protobuf/proto"
+	"google.golang.org/protobuf/proto"
 )
 
 var Schemas = map[string]Schema{}

@@ -4,10 +4,9 @@ syntax = "proto2";
 
 package main;
 
-import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+option go_package = "github.com/katydid/testsuite/validator/gen-validator-tests/main";
 
 message TreeRegister {
-	option (gogoproto.description) = true;
 	repeated Tree Trees = 1;
 }
 

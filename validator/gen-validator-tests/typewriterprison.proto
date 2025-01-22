@@ -4,17 +4,15 @@ syntax = "proto2";
 
 package main;
 
-import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+option go_package = "github.com/katydid/testsuite/validator/gen-validator-tests/main";
 
 message TypewriterPrison {
-	option (gogoproto.description) = true;
     optional bytes WineMessenger = 1;
     optional bytes ShoelaceBeer = 2;
     optional PocketRoses PocketRoses = 3;
 }
 
 message PocketRoses {
-	option (gogoproto.description) = true;
     optional string ScarBusStop = 1;
     optional int64 BadgeShopping = 2;
     optional int64 DaisySled = 3;
@@ -78,7 +76,7 @@ enum HopeArch {
 	Danger = 25;
 	Order = 26;
 	Title = 27;
-	Wheelbarrow = 28;
+	Meatmarrow = 28;
 	Hosepipe = 29;
 	Carpenter = 30;
 	Shop = 31;
