@@ -19,13 +19,17 @@ func init() {
 	var LargeBanana = G{"main": grammar.GetTopPattern()}
 
 	popr := rand.New(rand.NewSource(time.Now().UnixNano()))
-	tup := NewPopulatedBananaTuple(popr, true)
+	tup := RandomBananaTuple(popr)
 	tup.Squishy = "422"
 	tup.Brown = "02"
 	tup.Peel = uint32(12871)
 	tup.Rotten = uint32(40111)
 
 	ValidateProto("BananaLargeMatch", LargeBanana, tup, true)
+}
+
+func RandomBananaTuple(r *rand.Rand) *BananaTuple {
+	return random(r, &BananaTuple{}).(*BananaTuple)
 }
 
 func init() {

@@ -24,9 +24,10 @@ import (
 func RandomValidBridgePepper(r *rand.Rand) ProtoMessage {
 	p := RandomPuddingMilkshake(r).(*PuddingMilkshake)
 	for p.GetFinanceJudo().GetSaladWorry().GetSpyCarpenter().GetBridgePepper() == nil {
-		log.Printf("random invalid: BridgePepper")
+		log.Printf("random looped: BridgePepper")
 		p = RandomPuddingMilkshake(r).(*PuddingMilkshake)
 	}
+	log.Printf("random returned: BridgePepper")
 	return p
 }
 
@@ -40,21 +41,11 @@ func RandomInvalidBridgePepper(r *rand.Rand) ProtoMessage {
 	return p
 }
 
-func randStringWitha(r randyPerson) string {
-	l := r.Intn(100) + 1
-	tmps := make([]rune, l)
-	for i := 0; i < l; i++ {
-		tmps[i] = randUTF8RunePerson(r)
-	}
-	tmps[r.Intn(l)] = 'a'
-	return string(tmps)
-}
-
 func RandomValidBridgePepperAndFountainTarget(r *rand.Rand) ProtoMessage {
 	p := RandomPuddingMilkshake(r).(*PuddingMilkshake)
 	for len(p.GetFinanceJudo().GetSaladWorry().GetSpyCarpenter().GetBridgePepper()) == 0 ||
 		len(p.GetFinanceJudo().GetSaladWorry().GetSpyCarpenter().GetFountainTarget()) == 0 {
-		log.Printf("random invalid: BridgePepperAndFountainTarget")
+		log.Printf("random looped: BridgePepperAndFountainTarget")
 		p = RandomPuddingMilkshake(r).(*PuddingMilkshake)
 	}
 	// bp := p.GetFinanceJudo().GetSaladWorry().GetSpyCarpenter().GetBridgePepper()
@@ -67,6 +58,7 @@ func RandomValidBridgePepperAndFountainTarget(r *rand.Rand) ProtoMessage {
 	}
 	// p.FinanceJudo.SaladWorry.SpyCarpenter.BridgePepper[bpi] = "a"
 	// p.FinanceJudo.SaladWorry.SpyCarpenter.FountainTarget[fti] = "a"
+	log.Printf("random returned: BridgePepperAndFountainTarget")
 	return p
 }
 
