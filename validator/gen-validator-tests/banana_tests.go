@@ -4,9 +4,9 @@ import (
 	"math/rand"
 	"time"
 
-	proto "github.com/gogo/protobuf/proto"
 	. "github.com/katydid/validator-go/validator/combinator"
 	rparser "github.com/katydid/validator-go/validator/parser"
+	"google.golang.org/protobuf/proto"
 )
 
 func init() {

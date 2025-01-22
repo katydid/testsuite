@@ -2,10 +2,9 @@ syntax = "proto2";
 
 package main;
 
-import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+option go_package = "github.com/katydid/testsuite/validator/gen-validator-tests/main";
 
 message SrcTree {
-  option (gogoproto.description) = true;
   optional string PackageName = 1;
   repeated SrcTree Imports = 2;
 }

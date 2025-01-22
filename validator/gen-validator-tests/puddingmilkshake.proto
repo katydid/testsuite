@@ -4,9 +4,7 @@ syntax = "proto2";
 
 package main;
 
-import "github.com/gogo/protobuf/gogoproto/gogo.proto";
-
-option (gogoproto.description_all) = true;
+option go_package = "github.com/katydid/testsuite/validator/gen-validator-tests/main";
 
 message PuddingMilkshake {
     optional FinanceJudo FinanceJudo = 1;

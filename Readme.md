@@ -148,8 +148,7 @@ This will then generate files in the `./tests/json/test_name` folder:
 
 ### Adding a Protocol Buffer Test
 
-Create a new proto file `./gen-validator-tests/my.proto` with your protobuf definition.  This should use [gogoprotobuf](https://github.com/gogo/protobuf), since we require a generated Description method that returns a FileDescriptorSet.
-
+Create a new proto file `./gen-validator-tests/my.proto` with your protobuf definition.
 Here is an example:
 
 ```proto
@@ -157,9 +156,7 @@ syntax = "proto2";
 
 package main;
 
-import "github.com/gogo/protobuf/gogoproto/gogo.proto";
-
-option (gogoproto.description_all) = true;
+option go_package = "github.com/katydid/testsuite/validator/gen-validator-tests/main";
 
 message MyMessage {
 	optional string MyField = 1;
@@ -169,7 +166,22 @@ message MyMessage {
 In the `./gen-validator-tests/Makefile` we need to add a command to generate some code for this protocol buffer.
 
 ```
-(protoc --gogo_out=. -I=.:$(GOPATH)/src/:$(GOPATH)/src/github.com/gogo/protobuf/protobuf my.proto)
+(protoc --go_out=. --go_opt=paths=source_relative my.proto)
+```
+
+We need to create `./gen-validator-tests/my_description.go` and add the following method:
+
+```go
+package main
+
+import (
+	"github.com/katydid/parser-go-proto/proto"
+	descriptor "google.golang.org/protobuf/types/descriptorpb"
+)
+
+func (this *MyMessage) Description() *descriptor.FileDescriptorSet {
+	return proto.NewFileDescriptorSet(File_my_proto)
+}
 ```
 
 Finally we can create our test file `./gen-validator-tests/my_tests.go` with the following content:

@@ -15,8 +15,8 @@
 package main
 
 import (
-	"github.com/gogo/protobuf/proto"
 	. "github.com/katydid/validator-go/validator/combinator"
+	"google.golang.org/protobuf/proto"
 )
 
 var KnotElbow = G{"main": InAny(InAny(In("Elbow", Value(Eq(BoolVar(), BoolConst(true))))))}

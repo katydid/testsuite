@@ -18,7 +18,7 @@ import (
 	"log"
 	"math/rand"
 
-	"github.com/gogo/protobuf/proto"
+	"google.golang.org/protobuf/proto"
 )
 
 func RandomValidContextPerson(r *rand.Rand) ProtoMessage {
