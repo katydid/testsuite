@@ -4,8 +4,6 @@ package main;
 
 import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 
-option (gogoproto.gostring_all) = true;
-
 message Person {
   option (gogoproto.description) = true;
   optional string Name = 1;

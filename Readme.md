@@ -159,7 +159,6 @@ package main;
 
 import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 
-option (gogoproto.gostring_all) = true;
 option (gogoproto.description_all) = true;
 
 message MyMessage {

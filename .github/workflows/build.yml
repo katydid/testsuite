@@ -27,6 +27,7 @@ jobs:
       run: |
         cd gopath/github.com/katydid/testsuite
         go install -x github.com/gogo/protobuf/protoc-gen-gogo
+        go install -x github.com/awalterschulze/goderive
     - name: Setup protoc
       run: |
         cd gopath/github.com/katydid/testsuite

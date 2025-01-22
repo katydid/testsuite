@@ -5,5 +5,6 @@
 package tools
 
 import (
+	_ "github.com/awalterschulze/goderive"
 	_ "github.com/gogo/protobuf/protoc-gen-gogo"
 )
