@@ -93,7 +93,7 @@ func BenchValidateProto(name string, grammar combinator.G, validProto, invalidPr
 		SchemaName:   schemaName,
 		Extension:    schemaName + ".pb",
 		Validate: func(buf []byte) bool {
-			p, err := protoparser.NewProtoParser(packageName, messageName, desc)
+			p, err := protoparser.NewParserWithDesc(packageName, messageName, desc)
 			if err != nil {
 				panic(err)
 			}
