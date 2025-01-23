@@ -72,7 +72,6 @@
 								</Symbol>
 								<Expr>
 									<Terminal>
-										<Literal>2</Literal>
 										<IntValue>2</IntValue>
 										<BytesValue></BytesValue>
 									</Terminal>

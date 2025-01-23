@@ -47,7 +47,6 @@
 														"Params": [
 															{
 																"Terminal": {
-																	"Literal": "",
 																	"Variable": {
 																		"Type": 109
 																	}
@@ -58,7 +57,6 @@
 																	"Value": ","
 																},
 																"Terminal": {
-																	"Literal": "\"David\"",
 																	"StringValue": "David"
 																}
 															}

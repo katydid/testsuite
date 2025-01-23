@@ -28,7 +28,6 @@
 									"Params": [
 										{
 											"Terminal": {
-												"Literal": "",
 												"Variable": {
 													"Type": 109
 												}
@@ -46,7 +45,6 @@
 												"Elems": [
 													{
 														"Terminal": {
-															"Literal": "\"The\"",
 															"StringValue": "The"
 														}
 													},
@@ -55,7 +53,6 @@
 															"Value": ","
 														},
 														"Terminal": {
-															"Literal": "\"Robert\"",
 															"StringValue": "Robert"
 														}
 													},
@@ -64,7 +61,6 @@
 															"Value": ","
 														},
 														"Terminal": {
-															"Literal": "\"Smith\"",
 															"StringValue": "Smith"
 														}
 													}

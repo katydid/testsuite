@@ -47,7 +47,6 @@
 														"Params": [
 															{
 																"Terminal": {
-																	"Literal": "",
 																	"Variable": {
 																		"Type": 109
 																	}
@@ -58,7 +57,6 @@
 																	"Value": ","
 																},
 																"Terminal": {
-																	"Literal": "\"0123456789\"",
 																	"StringValue": "0123456789"
 																}
 															}
@@ -80,7 +78,6 @@
 														"Params": [
 															{
 																"Terminal": {
-																	"Literal": "",
 																	"Variable": {
 																		"Type": 109
 																	}
@@ -91,7 +88,6 @@
 																	"Value": ","
 																},
 																"Terminal": {
-																	"Literal": "\"0127897897\"",
 																	"StringValue": "0127897897"
 																}
 															}

@@ -30,7 +30,6 @@
 											},
 											"Expr": {
 												"Terminal": {
-													"Literal": "\"d\"",
 													"StringValue": "d"
 												}
 											}

@@ -50,31 +50,41 @@
 													<Pattern>
 														<And>
 															<OpenParen>
-																<Before></Before>
+																<Before>
+																	<Space>&#xA;</Space>
+																</Before>
 																<Value>(</Value>
 															</OpenParen>
 															<LeftPattern>
 																<And>
 																	<OpenParen>
-																		<Before></Before>
+																		<Before>
+																			<Space>&#xA;&#x9;</Space>
+																		</Before>
 																		<Value>(</Value>
 																	</OpenParen>
 																	<LeftPattern>
 																		<And>
 																			<OpenParen>
-																				<Before></Before>
+																				<Before>
+																					<Space>&#xA;&#x9;&#x9;</Space>
+																				</Before>
 																				<Value>(</Value>
 																			</OpenParen>
 																			<LeftPattern>
 																				<And>
 																					<OpenParen>
-																						<Before></Before>
+																						<Before>
+																							<Space>&#xA;&#x9;&#x9;&#x9;</Space>
+																						</Before>
 																						<Value>(</Value>
 																					</OpenParen>
 																					<LeftPattern>
 																						<Contains>
 																							<Dot>
-																								<Before></Before>
+																								<Before>
+																									<Space>&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;</Space>
+																								</Before>
 																								<Value>.</Value>
 																							</Dot>
 																							<Pattern>
@@ -125,7 +135,6 @@
 																																					<Before>
 																																						<Space> </Space>
 																																					</Before>
-																																					<Literal>&#34;aaaaaaaa@mm~&#34;</Literal>
 																																					<StringValue>aaaaaaaa@mm~</StringValue>
 																																					<BytesValue></BytesValue>
 																																				</Terminal>
@@ -149,7 +158,7 @@
 																					</LeftPattern>
 																					<Ampersand>
 																						<Before>
-																							<Space>&#xA;</Space>
+																							<Space>&#xA;&#x9;&#x9;&#x9;&#x9;</Space>
 																						</Before>
 																						<Value>&amp;</Value>
 																					</Ampersand>
@@ -157,7 +166,7 @@
 																						<Contains>
 																							<Dot>
 																								<Before>
-																									<Space>&#xA;</Space>
+																									<Space>&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;</Space>
 																								</Before>
 																								<Value>.</Value>
 																							</Dot>
@@ -209,7 +218,6 @@
 																																					<Before>
 																																						<Space> </Space>
 																																					</Before>
-																																					<Literal>&#34;aaaaaaaa@mm~&#34;</Literal>
 																																					<StringValue>aaaaaaaa@mm~</StringValue>
 																																					<BytesValue></BytesValue>
 																																				</Terminal>
@@ -232,14 +240,16 @@
 																						</Contains>
 																					</RightPattern>
 																					<CloseParen>
-																						<Before></Before>
+																						<Before>
+																							<Space>&#xA;&#x9;&#x9;&#x9;</Space>
+																						</Before>
 																						<Value>)</Value>
 																					</CloseParen>
 																				</And>
 																			</LeftPattern>
 																			<Ampersand>
 																				<Before>
-																					<Space>&#xA;</Space>
+																					<Space>&#xA;&#x9;&#x9;&#x9;</Space>
 																				</Before>
 																				<Value>&amp;</Value>
 																			</Ampersand>
@@ -247,7 +257,7 @@
 																				<Contains>
 																					<Dot>
 																						<Before>
-																							<Space>&#xA;</Space>
+																							<Space>&#xA;&#x9;&#x9;&#x9;</Space>
 																						</Before>
 																						<Value>.</Value>
 																					</Dot>
@@ -299,7 +309,6 @@
 																																			<Before>
 																																				<Space> </Space>
 																																			</Before>
-																																			<Literal>&#34;bbbbbbb@~&#34;</Literal>
 																																			<StringValue>bbbbbbb@~</StringValue>
 																																			<BytesValue></BytesValue>
 																																		</Terminal>
@@ -322,14 +331,16 @@
 																				</Contains>
 																			</RightPattern>
 																			<CloseParen>
-																				<Before></Before>
+																				<Before>
+																					<Space>&#xA;&#x9;&#x9;</Space>
+																				</Before>
 																				<Value>)</Value>
 																			</CloseParen>
 																		</And>
 																	</LeftPattern>
 																	<Ampersand>
 																		<Before>
-																			<Space>&#xA;</Space>
+																			<Space>&#xA;&#x9;&#x9;</Space>
 																		</Before>
 																		<Value>&amp;</Value>
 																	</Ampersand>
@@ -337,7 +348,7 @@
 																		<Contains>
 																			<Dot>
 																				<Before>
-																					<Space>&#xA;</Space>
+																					<Space>&#xA;&#x9;&#x9;</Space>
 																				</Before>
 																				<Value>.</Value>
 																			</Dot>
@@ -389,7 +400,6 @@
 																																	<Before>
 																																		<Space> </Space>
 																																	</Before>
-																																	<Literal>&#34;bbbbbbb@~&#34;</Literal>
 																																	<StringValue>bbbbbbb@~</StringValue>
 																																	<BytesValue></BytesValue>
 																																</Terminal>
@@ -412,14 +422,16 @@
 																		</Contains>
 																	</RightPattern>
 																	<CloseParen>
-																		<Before></Before>
+																		<Before>
+																			<Space>&#xA;&#x9;</Space>
+																		</Before>
 																		<Value>)</Value>
 																	</CloseParen>
 																</And>
 															</LeftPattern>
 															<Ampersand>
 																<Before>
-																	<Space>&#xA;</Space>
+																	<Space>&#xA;&#x9;</Space>
 																</Before>
 																<Value>&amp;</Value>
 															</Ampersand>
@@ -427,14 +439,16 @@
 																<Or>
 																	<OpenParen>
 																		<Before>
-																			<Space>&#xA;</Space>
+																			<Space>&#xA;&#x9;</Space>
 																		</Before>
 																		<Value>(</Value>
 																	</OpenParen>
 																	<LeftPattern>
 																		<Contains>
 																			<Dot>
-																				<Before></Before>
+																				<Before>
+																					<Space>&#xA;&#x9;&#x9;&#x9;</Space>
+																				</Before>
 																				<Value>.</Value>
 																			</Dot>
 																			<Pattern>
@@ -477,7 +491,6 @@
 																															<Before>
 																																<Space> </Space>
 																															</Before>
-																															<Literal>&#34;mmm.ddddddd~&#34;</Literal>
 																															<StringValue>mmm.ddddddd~</StringValue>
 																															<BytesValue></BytesValue>
 																														</Terminal>
@@ -496,7 +509,7 @@
 																	</LeftPattern>
 																	<Pipe>
 																		<Before>
-																			<Space>&#xA;</Space>
+																			<Space>&#xA;&#x9;&#x9;</Space>
 																		</Before>
 																		<Value>|</Value>
 																	</Pipe>
@@ -504,7 +517,7 @@
 																		<Contains>
 																			<Dot>
 																				<Before>
-																					<Space>&#xA;</Space>
+																					<Space>&#xA;&#x9;&#x9;&#x9;</Space>
 																				</Before>
 																				<Value>.</Value>
 																			</Dot>
@@ -548,7 +561,6 @@
 																															<Before>
 																																<Space> </Space>
 																															</Before>
-																															<Literal>&#34;mmm.ddddddd~&#34;</Literal>
 																															<StringValue>mmm.ddddddd~</StringValue>
 																															<BytesValue></BytesValue>
 																														</Terminal>
@@ -566,13 +578,17 @@
 																		</Contains>
 																	</RightPattern>
 																	<CloseParen>
-																		<Before></Before>
+																		<Before>
+																			<Space>&#xA;&#x9;</Space>
+																		</Before>
 																		<Value>)</Value>
 																	</CloseParen>
 																</Or>
 															</RightPattern>
 															<CloseParen>
-																<Before></Before>
+																<Before>
+																	<Space>&#xA;</Space>
+																</Before>
 																<Value>)</Value>
 															</CloseParen>
 														</And>

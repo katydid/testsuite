@@ -28,7 +28,6 @@
 									</OpenParen>
 									<Params>
 										<Terminal>
-											<Literal></Literal>
 											<BytesValue></BytesValue>
 											<Variable>
 												<Type>109</Type>
@@ -46,7 +45,6 @@
 											</OpenCurly>
 											<Elems>
 												<Terminal>
-													<Literal>&#34;The&#34;</Literal>
 													<StringValue>The</StringValue>
 													<BytesValue></BytesValue>
 												</Terminal>
@@ -56,7 +54,6 @@
 													<Value>,</Value>
 												</Comma>
 												<Terminal>
-													<Literal>&#34;Robert&#34;</Literal>
 													<StringValue>Robert</StringValue>
 													<BytesValue></BytesValue>
 												</Terminal>
@@ -66,7 +63,6 @@
 													<Value>,</Value>
 												</Comma>
 												<Terminal>
-													<Literal>&#34;Smith&#34;</Literal>
 													<StringValue>Smith</StringValue>
 													<BytesValue></BytesValue>
 												</Terminal>

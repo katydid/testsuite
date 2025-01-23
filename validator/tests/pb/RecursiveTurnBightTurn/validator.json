@@ -48,7 +48,6 @@
 									},
 									"Expr": {
 										"Terminal": {
-											"Literal": "true",
 											"BoolValue": true
 										}
 									}

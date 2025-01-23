@@ -131,7 +131,6 @@
 																	</Symbol>
 																	<Expr>
 																		<Terminal>
-																			<Literal>456</Literal>
 																			<IntValue>456</IntValue>
 																			<BytesValue></BytesValue>
 																		</Terminal>

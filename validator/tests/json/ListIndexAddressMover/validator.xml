@@ -78,7 +78,6 @@
 																					</Symbol>
 																					<Expr>
 																						<Terminal>
-																							<Literal>2</Literal>
 																							<IntValue>2</IntValue>
 																							<BytesValue></BytesValue>
 																						</Terminal>
@@ -133,7 +132,6 @@
 																					</Symbol>
 																					<Expr>
 																						<Terminal>
-																							<Literal>1</Literal>
 																							<IntValue>1</IntValue>
 																							<BytesValue></BytesValue>
 																						</Terminal>

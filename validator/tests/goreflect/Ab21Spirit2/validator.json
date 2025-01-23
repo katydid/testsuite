@@ -74,7 +74,6 @@
 									},
 									"Expr": {
 										"Terminal": {
-											"Literal": "2",
 											"IntValue": 2
 										}
 									}

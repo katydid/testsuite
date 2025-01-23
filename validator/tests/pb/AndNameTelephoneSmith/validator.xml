@@ -41,7 +41,6 @@
 													</Symbol>
 													<Expr>
 														<Terminal>
-															<Literal>&#34;David&#34;</Literal>
 															<StringValue>David</StringValue>
 															<BytesValue></BytesValue>
 														</Terminal>
@@ -109,7 +108,6 @@
 													</Symbol>
 													<Expr>
 														<Terminal>
-															<Literal>&#34;0123456789&#34;</Literal>
 															<StringValue>0123456789</StringValue>
 															<BytesValue></BytesValue>
 														</Terminal>

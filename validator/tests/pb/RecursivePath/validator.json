@@ -28,7 +28,6 @@
 											},
 											"Expr": {
 												"Terminal": {
-													"Literal": "\"io\"",
 													"StringValue": "io"
 												}
 											}

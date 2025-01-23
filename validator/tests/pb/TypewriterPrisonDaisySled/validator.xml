@@ -61,7 +61,6 @@
 																	</Symbol>
 																	<Expr>
 																		<Terminal>
-																			<Literal>1</Literal>
 																			<IntValue>1</IntValue>
 																			<BytesValue></BytesValue>
 																		</Terminal>

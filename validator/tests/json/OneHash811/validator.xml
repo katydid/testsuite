@@ -298,7 +298,6 @@
 												</Symbol>
 												<Expr>
 													<Terminal>
-														<Literal>&#34;#&#34;</Literal>
 														<StringValue>#</StringValue>
 														<BytesValue></BytesValue>
 													</Terminal>

@@ -90,7 +90,6 @@
 																"Params": [
 																	{
 																		"Terminal": {
-																			"Literal": "",
 																			"Variable": {
 																				"Type": 109
 																			}
@@ -107,7 +106,6 @@
 																"Value": ","
 															},
 															"Terminal": {
-																"Literal": "0",
 																"IntValue": 0
 															}
 														}

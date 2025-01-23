@@ -33,7 +33,6 @@
 											},
 											"Expr": {
 												"Terminal": {
-													"Literal": "\"a\"",
 													"StringValue": "a"
 												}
 											}
@@ -67,7 +66,6 @@
 													},
 													"Expr": {
 														"Terminal": {
-															"Literal": "\"b\"",
 															"StringValue": "b"
 														}
 													}

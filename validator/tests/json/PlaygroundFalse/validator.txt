@@ -1,8 +1,16 @@
-(.WhatsUp == "F" &.Survived >= 1000000/*years*/ &
-.DragonsExist != true &
-.MonkeysSmart :: $bool &
-.History [*,
-_ == "Katydids Alive"
-] &
-.FeatureRequests._ {Name *= "art";*;
-Anatomy $= "omen";})
+
+(
+	.WhatsUp == "F" &
+	.Survived >= 1000000 /*years*/ &
+	.DragonsExist != true &
+	.MonkeysSmart :: $bool &
+	.History [
+		*,
+		_ == "Katydids Alive"
+	] &
+	.FeatureRequests._ {
+		Name *= "art";
+		*;
+		Anatomy $= "omen";
+	}
+)

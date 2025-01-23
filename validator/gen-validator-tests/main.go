@@ -43,7 +43,6 @@ func main() {
 		folder := filepath.Join(codecFolder, v.Name)
 		createFolder(folder)
 
-		v.Grammar.Format()
 		writeFile(
 			filepath.Join(folder, "validator.txt"),
 			[]byte(v.Grammar.String()),
@@ -84,7 +83,6 @@ func main() {
 		folder := filepath.Join(codecFolder, v.Name)
 		createFolder(folder)
 
-		v.Grammar.Format()
 		writeFile(
 			filepath.Join(folder, "validator.txt"),
 			[]byte(v.Grammar.String()),

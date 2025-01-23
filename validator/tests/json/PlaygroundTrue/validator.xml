@@ -2,13 +2,17 @@
 	<TopPattern>
 		<And>
 			<OpenParen>
-				<Before></Before>
+				<Before>
+					<Space>&#xA;</Space>
+				</Before>
 				<Value>(</Value>
 			</OpenParen>
 			<LeftPattern>
 				<Contains>
 					<Dot>
-						<Before></Before>
+						<Before>
+							<Space>&#xA;&#x9;</Space>
+						</Before>
 						<Value>.</Value>
 					</Dot>
 					<Pattern>
@@ -34,7 +38,6 @@
 													<Before>
 														<Space> </Space>
 													</Before>
-													<Literal>&#34;E&#34;</Literal>
 													<StringValue>E</StringValue>
 													<BytesValue></BytesValue>
 												</Terminal>
@@ -64,7 +67,9 @@
 											<LeftPattern>
 												<Contains>
 													<Dot>
-														<Before></Before>
+														<Before>
+															<Space>&#xA;&#x9;</Space>
+														</Before>
 														<Value>.</Value>
 													</Dot>
 													<Pattern>
@@ -90,7 +95,6 @@
 																					<Before>
 																						<Space> </Space>
 																					</Before>
-																					<Literal>1000000</Literal>
 																					<IntValue>1000000</IntValue>
 																					<BytesValue></BytesValue>
 																				</Terminal>
@@ -105,6 +109,7 @@
 											</LeftPattern>
 											<Ampersand>
 												<Before>
+													<Space> </Space>
 													<Space>/*years*/</Space>
 													<Space> </Space>
 												</Before>
@@ -114,7 +119,7 @@
 												<Contains>
 													<Dot>
 														<Before>
-															<Space>&#xA;</Space>
+															<Space>&#xA;&#x9;</Space>
 														</Before>
 														<Value>.</Value>
 													</Dot>
@@ -141,7 +146,6 @@
 																					<Before>
 																						<Space> </Space>
 																					</Before>
-																					<Literal>true</Literal>
 																					<BoolValue>true</BoolValue>
 																					<BytesValue></BytesValue>
 																				</Terminal>
@@ -166,7 +170,7 @@
 										<Contains>
 											<Dot>
 												<Before>
-													<Space>&#xA;</Space>
+													<Space>&#xA;&#x9;</Space>
 												</Before>
 												<Value>.</Value>
 											</Dot>
@@ -193,7 +197,6 @@
 																			<Before>
 																				<Space> </Space>
 																			</Before>
-																			<Literal></Literal>
 																			<BytesValue></BytesValue>
 																			<Variable>
 																				<Type>108</Type>
@@ -220,7 +223,7 @@
 								<Contains>
 									<Dot>
 										<Before>
-											<Space>&#xA;</Space>
+											<Space>&#xA;&#x9;</Space>
 										</Before>
 										<Value>.</Value>
 									</Dot>
@@ -243,7 +246,9 @@
 													<LeftPattern>
 														<ZAny>
 															<Star>
-																<Before></Before>
+																<Before>
+																	<Space>&#xA;&#x9;&#x9;</Space>
+																</Before>
 																<Value>*</Value>
 															</Star>
 														</ZAny>
@@ -257,7 +262,7 @@
 																<AnyName>
 																	<Underscore>
 																		<Before>
-																			<Space>&#xA;</Space>
+																			<Space>&#xA;&#x9;&#x9;</Space>
 																		</Before>
 																		<Value>_</Value>
 																	</Underscore>
@@ -278,7 +283,6 @@
 																					<Before>
 																						<Space> </Space>
 																					</Before>
-																					<Literal>&#34;Katydids Alive&#34;</Literal>
 																					<StringValue>Katydids Alive</StringValue>
 																					<BytesValue></BytesValue>
 																				</Terminal>
@@ -291,7 +295,7 @@
 													</RightPattern>
 													<CloseBracket>
 														<Before>
-															<Space>&#xA;</Space>
+															<Space>&#xA;&#x9;</Space>
 														</Before>
 														<Value>]</Value>
 													</CloseBracket>
@@ -313,7 +317,7 @@
 						<Contains>
 							<Dot>
 								<Before>
-									<Space>&#xA;</Space>
+									<Space>&#xA;&#x9;</Space>
 								</Before>
 								<Value>.</Value>
 							</Dot>
@@ -351,7 +355,9 @@
 																<TreeNode>
 																	<Name>
 																		<Name>
-																			<Before></Before>
+																			<Before>
+																				<Space>&#xA;&#x9;&#x9;</Space>
+																			</Before>
 																			<StringValue>Name</StringValue>
 																			<BytesValue></BytesValue>
 																		</Name>
@@ -371,7 +377,6 @@
 																							<Before>
 																								<Space> </Space>
 																							</Before>
-																							<Literal>&#34;art&#34;</Literal>
 																							<StringValue>art</StringValue>
 																							<BytesValue></BytesValue>
 																						</Terminal>
@@ -390,7 +395,9 @@
 																	<LeftPattern>
 																		<ZAny>
 																			<Star>
-																				<Before></Before>
+																				<Before>
+																					<Space>&#xA;&#x9;&#x9;</Space>
+																				</Before>
 																				<Value>*</Value>
 																			</Star>
 																		</ZAny>
@@ -403,7 +410,7 @@
 																			<Name>
 																				<Name>
 																					<Before>
-																						<Space>&#xA;</Space>
+																						<Space>&#xA;&#x9;&#x9;</Space>
 																					</Before>
 																					<StringValue>Anatomy</StringValue>
 																					<BytesValue></BytesValue>
@@ -424,7 +431,6 @@
 																									<Before>
 																										<Space> </Space>
 																									</Before>
-																									<Literal>&#34;omen&#34;</Literal>
 																									<StringValue>omen</StringValue>
 																									<BytesValue></BytesValue>
 																								</Terminal>
@@ -441,7 +447,9 @@
 																<Value>;</Value>
 															</ExtraSemiColon>
 															<CloseCurly>
-																<Before></Before>
+																<Before>
+																	<Space>&#xA;&#x9;</Space>
+																</Before>
 																<Value>}</Value>
 															</CloseCurly>
 														</Interleave>
@@ -457,7 +465,9 @@
 				</And>
 			</RightPattern>
 			<CloseParen>
-				<Before></Before>
+				<Before>
+					<Space>&#xA;</Space>
+				</Before>
 				<Value>)</Value>
 			</CloseParen>
 		</And>
