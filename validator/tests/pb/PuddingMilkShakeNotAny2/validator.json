@@ -47,31 +47,51 @@
 													"Pattern": {
 														"And": {
 															"OpenParen": {
-																"Before": {},
+																"Before": {
+																	"Space": [
+																		"\n"
+																	]
+																},
 																"Value": "("
 															},
 															"LeftPattern": {
 																"And": {
 																	"OpenParen": {
-																		"Before": {},
+																		"Before": {
+																			"Space": [
+																				"\n\t"
+																			]
+																		},
 																		"Value": "("
 																	},
 																	"LeftPattern": {
 																		"And": {
 																			"OpenParen": {
-																				"Before": {},
+																				"Before": {
+																					"Space": [
+																						"\n\t\t"
+																					]
+																				},
 																				"Value": "("
 																			},
 																			"LeftPattern": {
 																				"And": {
 																					"OpenParen": {
-																						"Before": {},
+																						"Before": {
+																							"Space": [
+																								"\n\t\t\t"
+																							]
+																						},
 																						"Value": "("
 																					},
 																					"LeftPattern": {
 																						"Contains": {
 																							"Dot": {
-																								"Before": {},
+																								"Before": {
+																									"Space": [
+																										"\n\t\t\t\t\t"
+																									]
+																								},
 																								"Value": "."
 																							},
 																							"Pattern": {
@@ -125,7 +145,6 @@
 																																							" "
 																																						]
 																																					},
-																																					"Literal": "\"aaaaaaaa@mm~\"",
 																																					"StringValue": "aaaaaaaa@mm~"
 																																				}
 																																			}
@@ -149,7 +168,7 @@
 																					"Ampersand": {
 																						"Before": {
 																							"Space": [
-																								"\n"
+																								"\n\t\t\t\t"
 																							]
 																						},
 																						"Value": "\u0026"
@@ -159,7 +178,7 @@
 																							"Dot": {
 																								"Before": {
 																									"Space": [
-																										"\n"
+																										"\n\t\t\t\t\t"
 																									]
 																								},
 																								"Value": "."
@@ -215,7 +234,6 @@
 																																							" "
 																																						]
 																																					},
-																																					"Literal": "\"aaaaaaaa@mm~\"",
 																																					"StringValue": "aaaaaaaa@mm~"
 																																				}
 																																			}
@@ -237,7 +255,11 @@
 																						}
 																					},
 																					"CloseParen": {
-																						"Before": {},
+																						"Before": {
+																							"Space": [
+																								"\n\t\t\t"
+																							]
+																						},
 																						"Value": ")"
 																					}
 																				}
@@ -245,7 +267,7 @@
 																			"Ampersand": {
 																				"Before": {
 																					"Space": [
-																						"\n"
+																						"\n\t\t\t"
 																					]
 																				},
 																				"Value": "\u0026"
@@ -255,7 +277,7 @@
 																					"Dot": {
 																						"Before": {
 																							"Space": [
-																								"\n"
+																								"\n\t\t\t"
 																							]
 																						},
 																						"Value": "."
@@ -311,7 +333,6 @@
 																																					" "
 																																				]
 																																			},
-																																			"Literal": "\"bbbbbbb@~\"",
 																																			"StringValue": "bbbbbbb@~"
 																																		}
 																																	}
@@ -333,7 +354,11 @@
 																				}
 																			},
 																			"CloseParen": {
-																				"Before": {},
+																				"Before": {
+																					"Space": [
+																						"\n\t\t"
+																					]
+																				},
 																				"Value": ")"
 																			}
 																		}
@@ -341,7 +366,7 @@
 																	"Ampersand": {
 																		"Before": {
 																			"Space": [
-																				"\n"
+																				"\n\t\t"
 																			]
 																		},
 																		"Value": "\u0026"
@@ -351,7 +376,7 @@
 																			"Dot": {
 																				"Before": {
 																					"Space": [
-																						"\n"
+																						"\n\t\t"
 																					]
 																				},
 																				"Value": "."
@@ -407,7 +432,6 @@
 																																			" "
 																																		]
 																																	},
-																																	"Literal": "\"bbbbbbb@~\"",
 																																	"StringValue": "bbbbbbb@~"
 																																}
 																															}
@@ -429,7 +453,11 @@
 																		}
 																	},
 																	"CloseParen": {
-																		"Before": {},
+																		"Before": {
+																			"Space": [
+																				"\n\t"
+																			]
+																		},
 																		"Value": ")"
 																	}
 																}
@@ -437,7 +465,7 @@
 															"Ampersand": {
 																"Before": {
 																	"Space": [
-																		"\n"
+																		"\n\t"
 																	]
 																},
 																"Value": "\u0026"
@@ -447,7 +475,7 @@
 																	"OpenParen": {
 																		"Before": {
 																			"Space": [
-																				"\n"
+																				"\n\t"
 																			]
 																		},
 																		"Value": "("
@@ -455,7 +483,11 @@
 																	"LeftPattern": {
 																		"Contains": {
 																			"Dot": {
-																				"Before": {},
+																				"Before": {
+																					"Space": [
+																						"\n\t\t\t"
+																					]
+																				},
 																				"Value": "."
 																			},
 																			"Pattern": {
@@ -501,7 +533,6 @@
 																																	" "
 																																]
 																															},
-																															"Literal": "\"mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~\"",
 																															"StringValue": "mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~"
 																														}
 																													}
@@ -520,7 +551,7 @@
 																	"Pipe": {
 																		"Before": {
 																			"Space": [
-																				"\n"
+																				"\n\t\t"
 																			]
 																		},
 																		"Value": "|"
@@ -530,7 +561,7 @@
 																			"Dot": {
 																				"Before": {
 																					"Space": [
-																						"\n"
+																						"\n\t\t\t"
 																					]
 																				},
 																				"Value": "."
@@ -578,7 +609,6 @@
 																																	" "
 																																]
 																															},
-																															"Literal": "\"mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~\"",
 																															"StringValue": "mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~"
 																														}
 																													}
@@ -595,13 +625,21 @@
 																		}
 																	},
 																	"CloseParen": {
-																		"Before": {},
+																		"Before": {
+																			"Space": [
+																				"\n\t"
+																			]
+																		},
 																		"Value": ")"
 																	}
 																}
 															},
 															"CloseParen": {
-																"Before": {},
+																"Before": {
+																	"Space": [
+																		"\n"
+																	]
+																},
 																"Value": ")"
 															}
 														}

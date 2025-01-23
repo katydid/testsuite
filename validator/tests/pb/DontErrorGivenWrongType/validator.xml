@@ -49,7 +49,6 @@
 															</Symbol>
 															<Expr>
 																<Terminal>
-																	<Literal>uint(0)</Literal>
 																	<UintValue>0</UintValue>
 																	<BytesValue></BytesValue>
 																</Terminal>

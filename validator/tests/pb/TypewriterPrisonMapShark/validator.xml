@@ -61,7 +61,6 @@
 																	</Symbol>
 																	<Expr>
 																		<Terminal>
-																			<Literal>&#34;a&#34;</Literal>
 																			<StringValue>a</StringValue>
 																			<BytesValue></BytesValue>
 																		</Terminal>

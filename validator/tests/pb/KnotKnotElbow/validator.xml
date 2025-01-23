@@ -43,7 +43,6 @@
 											</Symbol>
 											<Expr>
 												<Terminal>
-													<Literal>true</Literal>
 													<BoolValue>true</BoolValue>
 													<BytesValue></BytesValue>
 												</Terminal>

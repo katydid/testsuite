@@ -164,7 +164,6 @@
 													},
 													"Expr": {
 														"Terminal": {
-															"Literal": "\"^([ \\t\\r\\n\\v\\f])+$\"",
 															"StringValue": "^([ \t\r\n\u000b\f])+$"
 														}
 													}

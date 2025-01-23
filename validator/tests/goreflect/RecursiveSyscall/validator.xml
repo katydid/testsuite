@@ -29,7 +29,6 @@
 											</Symbol>
 											<Expr>
 												<Terminal>
-													<Literal>&#34;io&#34;</Literal>
 													<StringValue>io</StringValue>
 													<BytesValue></BytesValue>
 												</Terminal>

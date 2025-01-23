@@ -46,7 +46,6 @@
 													</OpenParen>
 													<Params>
 														<Terminal>
-															<Literal></Literal>
 															<BytesValue></BytesValue>
 															<Variable>
 																<Type>109</Type>
@@ -58,7 +57,6 @@
 															<Value>,</Value>
 														</Comma>
 														<Terminal>
-															<Literal>&#34;0123456789&#34;</Literal>
 															<StringValue>0123456789</StringValue>
 															<BytesValue></BytesValue>
 														</Terminal>
@@ -79,7 +77,6 @@
 													</OpenParen>
 													<Params>
 														<Terminal>
-															<Literal></Literal>
 															<BytesValue></BytesValue>
 															<Variable>
 																<Type>109</Type>
@@ -91,7 +88,6 @@
 															<Value>,</Value>
 														</Comma>
 														<Terminal>
-															<Literal>&#34;0127897897&#34;</Literal>
 															<StringValue>0127897897</StringValue>
 															<BytesValue></BytesValue>
 														</Terminal>

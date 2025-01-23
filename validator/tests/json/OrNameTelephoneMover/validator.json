@@ -28,7 +28,6 @@
 											},
 											"Expr": {
 												"Terminal": {
-													"Literal": "\"David\"",
 													"StringValue": "David"
 												}
 											}
@@ -67,7 +66,6 @@
 											},
 											"Expr": {
 												"Terminal": {
-													"Literal": "\"0123456789\"",
 													"StringValue": "0123456789"
 												}
 											}

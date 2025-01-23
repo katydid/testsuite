@@ -46,7 +46,6 @@
 													</OpenParen>
 													<Params>
 														<Terminal>
-															<Literal></Literal>
 															<BytesValue></BytesValue>
 															<Variable>
 																<Type>109</Type>
@@ -63,7 +62,6 @@
 													<Value>,</Value>
 												</Comma>
 												<Terminal>
-													<Literal>0</Literal>
 													<IntValue>0</IntValue>
 													<BytesValue></BytesValue>
 												</Terminal>

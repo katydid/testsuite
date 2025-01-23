@@ -75,7 +75,6 @@
 																									},
 																									"Expr": {
 																										"Terminal": {
-																											"Literal": "\"a\"",
 																											"StringValue": "a"
 																										}
 																									}
@@ -154,7 +153,6 @@
 																									},
 																									"Expr": {
 																										"Terminal": {
-																											"Literal": "\"a\"",
 																											"StringValue": "a"
 																										}
 																									}
@@ -243,7 +241,6 @@
 																									},
 																									"Expr": {
 																										"Terminal": {
-																											"Literal": "\"b\"",
 																											"StringValue": "b"
 																										}
 																									}
@@ -322,7 +319,6 @@
 																									},
 																									"Expr": {
 																										"Terminal": {
-																											"Literal": "\"b\"",
 																											"StringValue": "b"
 																										}
 																									}
@@ -416,7 +412,6 @@
 																							},
 																							"Expr": {
 																								"Terminal": {
-																									"Literal": "\"c\"",
 																									"StringValue": "c"
 																								}
 																							}
@@ -495,7 +490,6 @@
 																							},
 																							"Expr": {
 																								"Terminal": {
-																									"Literal": "\"c\"",
 																									"StringValue": "c"
 																								}
 																							}
@@ -572,7 +566,6 @@
 																	},
 																	"Expr": {
 																		"Terminal": {
-																			"Literal": "2",
 																			"IntValue": 2
 																		}
 																	}
@@ -635,7 +628,6 @@
 																			},
 																			"Expr": {
 																				"Terminal": {
-																					"Literal": "0",
 																					"IntValue": 0
 																				}
 																			}
@@ -693,7 +685,6 @@
 																			},
 																			"Expr": {
 																				"Terminal": {
-																					"Literal": "1",
 																					"IntValue": 1
 																				}
 																			}

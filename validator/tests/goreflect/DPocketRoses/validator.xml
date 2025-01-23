@@ -32,7 +32,6 @@
 											</Symbol>
 											<Expr>
 												<Terminal>
-													<Literal>&#34;d&#34;</Literal>
 													<StringValue>d</StringValue>
 													<BytesValue></BytesValue>
 												</Terminal>

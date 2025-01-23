@@ -2,13 +2,21 @@
 	"TopPattern": {
 		"And": {
 			"OpenParen": {
-				"Before": {},
+				"Before": {
+					"Space": [
+						"\n"
+					]
+				},
 				"Value": "("
 			},
 			"LeftPattern": {
 				"Contains": {
 					"Dot": {
-						"Before": {},
+						"Before": {
+							"Space": [
+								"\n\t"
+							]
+						},
 						"Value": "."
 					},
 					"Pattern": {
@@ -37,7 +45,6 @@
 															" "
 														]
 													},
-													"Literal": "\"E\"",
 													"StringValue": "E"
 												}
 											}
@@ -68,7 +75,11 @@
 											"LeftPattern": {
 												"Contains": {
 													"Dot": {
-														"Before": {},
+														"Before": {
+															"Space": [
+																"\n\t"
+															]
+														},
 														"Value": "."
 													},
 													"Pattern": {
@@ -97,7 +108,6 @@
 																							" "
 																						]
 																					},
-																					"Literal": "1000000",
 																					"IntValue": 1000000
 																				}
 																			}
@@ -112,6 +122,7 @@
 											"Ampersand": {
 												"Before": {
 													"Space": [
+														" ",
 														"/*years*/",
 														" "
 													]
@@ -123,7 +134,7 @@
 													"Dot": {
 														"Before": {
 															"Space": [
-																"\n"
+																"\n\t"
 															]
 														},
 														"Value": "."
@@ -154,7 +165,6 @@
 																							" "
 																						]
 																					},
-																					"Literal": "true",
 																					"BoolValue": true
 																				}
 																			}
@@ -181,7 +191,7 @@
 											"Dot": {
 												"Before": {
 													"Space": [
-														"\n"
+														"\n\t"
 													]
 												},
 												"Value": "."
@@ -212,7 +222,6 @@
 																					" "
 																				]
 																			},
-																			"Literal": "",
 																			"Variable": {
 																				"Type": 108
 																			}
@@ -241,7 +250,7 @@
 									"Dot": {
 										"Before": {
 											"Space": [
-												"\n"
+												"\n\t"
 											]
 										},
 										"Value": "."
@@ -266,7 +275,11 @@
 													"LeftPattern": {
 														"ZAny": {
 															"Star": {
-																"Before": {},
+																"Before": {
+																	"Space": [
+																		"\n\t\t"
+																	]
+																},
 																"Value": "*"
 															}
 														}
@@ -281,7 +294,7 @@
 																	"Underscore": {
 																		"Before": {
 																			"Space": [
-																				"\n"
+																				"\n\t\t"
 																			]
 																		},
 																		"Value": "_"
@@ -307,7 +320,6 @@
 																							" "
 																						]
 																					},
-																					"Literal": "\"Katydids Alive\"",
 																					"StringValue": "Katydids Alive"
 																				}
 																			}
@@ -320,7 +332,7 @@
 													"CloseBracket": {
 														"Before": {
 															"Space": [
-																"\n"
+																"\n\t"
 															]
 														},
 														"Value": "]"
@@ -346,7 +358,7 @@
 							"Dot": {
 								"Before": {
 									"Space": [
-										"\n"
+										"\n\t"
 									]
 								},
 								"Value": "."
@@ -386,7 +398,11 @@
 																"TreeNode": {
 																	"Name": {
 																		"Name": {
-																			"Before": {},
+																			"Before": {
+																				"Space": [
+																					"\n\t\t"
+																				]
+																			},
 																			"StringValue": "Name"
 																		}
 																	},
@@ -409,7 +425,6 @@
 																									" "
 																								]
 																							},
-																							"Literal": "\"art\"",
 																							"StringValue": "art"
 																						}
 																					}
@@ -427,7 +442,11 @@
 																	"LeftPattern": {
 																		"ZAny": {
 																			"Star": {
-																				"Before": {},
+																				"Before": {
+																					"Space": [
+																						"\n\t\t"
+																					]
+																				},
 																				"Value": "*"
 																			}
 																		}
@@ -441,7 +460,7 @@
 																				"Name": {
 																					"Before": {
 																						"Space": [
-																							"\n"
+																							"\n\t\t"
 																						]
 																					},
 																					"StringValue": "Anatomy"
@@ -466,7 +485,6 @@
 																											" "
 																										]
 																									},
-																									"Literal": "\"omen\"",
 																									"StringValue": "omen"
 																								}
 																							}
@@ -482,7 +500,11 @@
 																"Value": ";"
 															},
 															"CloseCurly": {
-																"Before": {},
+																"Before": {
+																	"Space": [
+																		"\n\t"
+																	]
+																},
 																"Value": "}"
 															}
 														}
@@ -498,7 +520,11 @@
 				}
 			},
 			"CloseParen": {
-				"Before": {},
+				"Before": {
+					"Space": [
+						"\n"
+					]
+				},
 				"Value": ")"
 			}
 		}

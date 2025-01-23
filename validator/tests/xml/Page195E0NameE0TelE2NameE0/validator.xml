@@ -169,7 +169,6 @@
 													</Symbol>
 													<Expr>
 														<Terminal>
-															<Literal>&#34;^([ \t\r\n\v\f])+$&#34;</Literal>
 															<StringValue>^([ &#x9;&#xD;&#xA;��])+$</StringValue>
 															<BytesValue></BytesValue>
 														</Terminal>

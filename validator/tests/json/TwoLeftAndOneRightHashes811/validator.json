@@ -292,7 +292,6 @@
 													},
 													"Expr": {
 														"Terminal": {
-															"Literal": "\"#\"",
 															"StringValue": "#"
 														}
 													}

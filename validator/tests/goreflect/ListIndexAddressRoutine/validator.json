@@ -76,7 +76,6 @@
 																					},
 																					"Expr": {
 																						"Terminal": {
-																							"Literal": "2",
 																							"IntValue": 2
 																						}
 																					}
@@ -129,7 +128,6 @@
 																					},
 																					"Expr": {
 																						"Terminal": {
-																							"Literal": "1",
 																							"IntValue": 1
 																						}
 																					}

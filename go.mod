@@ -6,7 +6,7 @@ require (
 	github.com/katydid/parser-go-json v0.1.0
 	github.com/katydid/parser-go-proto v0.1.0
 	github.com/katydid/parser-go-xml v0.1.0
-	github.com/katydid/validator-go v0.5.1
+	github.com/katydid/validator-go v0.5.3
 	google.golang.org/protobuf v1.36.3
 )
 

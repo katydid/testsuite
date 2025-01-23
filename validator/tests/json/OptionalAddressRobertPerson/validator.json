@@ -127,7 +127,6 @@
 																	},
 																	"Expr": {
 																		"Terminal": {
-																			"Literal": "456",
 																			"IntValue": 456
 																		}
 																	}

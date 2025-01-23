@@ -18,7 +18,6 @@
 							},
 							"Expr": {
 								"Terminal": {
-									"Literal": "\"B\"",
 									"StringValue": "B"
 								}
 							}

@@ -19,7 +19,6 @@
 							</Symbol>
 							<Expr>
 								<Terminal>
-									<Literal>&#34;B&#34;</Literal>
 									<StringValue>B</StringValue>
 									<BytesValue></BytesValue>
 								</Terminal>
