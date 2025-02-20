@@ -131,7 +131,7 @@ func BenchValidateJson(name string, grammar combinator.G, validProto, invalidPro
 		InvalidBytes: invalidBytes,
 		Extension:    "json",
 		Validate: func(buf []byte) bool {
-			p := jsonparser.NewJsonParser()
+			p := jsonparser.NewParser()
 			if err := p.Init(buf); err != nil {
 				panic(err)
 			}
